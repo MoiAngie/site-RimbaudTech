@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+use App\Entity\Articles;
 class RtController extends AbstractController
 {
     /**
@@ -70,7 +72,27 @@ class RtController extends AbstractController
      */
     public function createarticle()
     {
+        $article = new Articles;
+
+        $form = $this->createFormBuilder($article)
+                      ->add ('title', TextType::class, [
+                        'attr' => [
+                          'placeholder' => "Titre de l'article",
+                        ]
+                        ])
+                      ->add ('content', TextType::class, [
+                          'attr' => [
+                          'placeholder' => "Ajoutez le contenu de l'article",
+                        ]
+                      ])
+                      ->add ('image', TextType::class, [
+                          'attr' => [
+                          'placeholder' => "Télécharger une image",
+                        ]
+                      ])
+                      ->getForm();
         return $this->render('rt/admin/create-article.html.twig', [
+          'formArticle' => $form->createView()
         ]);
     }
     /**
