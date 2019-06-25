@@ -151,8 +151,14 @@ a, a:hover {
 
 .section__footertop {
   width: 100%;
-  margin: 0 5em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+
+  & .section__coordonnees, .section__horaires, .section__mail {
+    margin:0 5em;
+    text-align: center;
+    color: $dgrey;
+    font-weight: 500;
+  }
 }
