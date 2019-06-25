@@ -160,5 +160,9 @@ a, a:hover {
     text-align: center;
     color: $dgrey;
     font-weight: 500;
+
+  & .fas {
+    color: $logoblue;
+  }
   }
 }

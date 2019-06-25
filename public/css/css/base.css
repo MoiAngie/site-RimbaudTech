@@ -123,5 +123,7 @@ a, a:hover {
     text-align: center;
     color: #585858;
     font-weight: 500; }
+    .section__footertop .section__coordonnees .fas, .section__footertop .section__horaires .fas, .section__footertop .section__mail .fas {
+      color: #4ab9e4; }
 
 /*# sourceMappingURL=base.css.map */
