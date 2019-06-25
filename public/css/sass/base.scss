@@ -187,17 +187,57 @@ a, a:hover {
 }
 
 .dotted {
-  border-style: dotted;
-  color: $dmagenta;
-  transform: scale(5);
+  border: 1em dotted $dmagenta;
+  border-bottom: none;
 }
 
 .section__partenaires {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: center;
+
 }
 
 .section__partenaires__logo img{
   width: 20em;
   height: auto;
+}
+
+.section__footerend {
+  background-color: $dgrey;
+  height: 10em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+  & .section__logoRT, .section__footerlinks, .section__socialnetwork {
+    margin:0 5em;
+
+  & .fab {
+    color: $logoblue;
+    margin: 0 0.8em;
+    transform: translateY(2em);
+
+  &:hover {
+    color: $dmagenta;
+  }
+  }
+}}
+
+.section__logoRT {
+  transform: translateY(2em);
+}
+
+.section__footerlinks {
+  flex-direction: column;
+  text-align: center;
+
+  & a {
+    text-decoration: underline;
+  }
+
+  & :hover {
+    color: $logoblue;
+  }
 }
