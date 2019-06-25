@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Rimbaud'Tech | Incubateur d'entreprises innovantes{% endblock %}</title>
         <link href="{{asset('css/css/base.css')}}" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet"
@@ -33,7 +33,7 @@
         </div>
       </div>
       <!-- Fin Navbar -->
-
+{% block body %}{% endblock %}
       <!--footer-->
       <footer>
         <section class="section__contact">
@@ -58,30 +58,34 @@
                   <p class="section__donnees"><i class="fas fa-envelope"></i> contact@rimbaud-tech.fr </p>
               </div>
             </div>
-          <button class="section__btn">
-            <a href="#contact" class="section__link">
+
+            <a href={{ path('contact')}} class="section__link">
+              <button class="section__btn">
               Contact
+              </button>
             </a>
-          </button>
+
         </section>
-        <section class="section__partenaires">
+
           <hr class="dotted">
-          <figure class="section__partenaires__logo">
-            <a href="http://www.ardenne-metropole.fr/">
-              <img src={{ asset("img/ARDENNE-LOGO.jpg")}} alt="Logo Ardenne Metropole" title="Ardenne Metropole" width="1975" height="705">
-            </a>
-          </figure>
-          <figure class="section__partenaires__logo">
-            <a href="https://www.caisse-epargne.fr/grand-est-europe/particuliers/votre-caisse-d-epargne">
-              <img src={{ asset("img/CAISSE-EPARGNE.jpg")}} alt="Logo Caisse d'Epargne" title="Caisse d'Epargne" width="1493" height="335">
-            </a>
-          </figure>
-          <figure class="section__partenaires__logo">
-            <a href="https://www.grandest.fr/">
-              <img src={{ asset("img/GE_LOGO.jpg")}} alt="Logo Grand Est" title="Grand Est" width="2397" height="732">
+
+          <section class="section__partenaires">
+            <figure class="section__partenaires__logo">
+              <a href="http://www.ardenne-metropole.fr/">
+                <img src={{ asset("img/ARDENNE-LOGO.jpg")}} alt="Logo Ardenne Metropole" title="Ardenne Metropole" width="1975" height="705">
               </a>
-          </figure>
-        </section>
+            </figure>
+            <figure class="section__partenaires__logo">
+              <a href="https://www.caisse-epargne.fr/grand-est-europe/particuliers/votre-caisse-d-epargne">
+                <img src={{ asset("img/CAISSE-EPARGNE.jpg")}} alt="Logo Caisse d'Epargne" title="Caisse d'Epargne" width="1493" height="335">
+              </a>
+            </figure>
+            <figure class="section__partenaires__logo">
+              <a href="https://www.grandest.fr/">
+                <img src={{ asset("img/GE_LOGO.jpg")}} alt="Logo Grand Est" title="Grand Est" width="2397" height="732">
+                </a>
+            </figure>
+          </section>
         <section class="section__footerend">
           <div class="section__logoRT">
             <a href="{{ path('index')}}">
@@ -115,7 +119,7 @@
           </div>
         </section>
       </footer>
-        {% block body %}{% endblock %}
+
         <script src="js/base.js"></script>
         {% block javascripts %}{% endblock %}
     </body>

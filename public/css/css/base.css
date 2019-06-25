@@ -122,8 +122,38 @@ a, a:hover {
     margin: 0 5em;
     text-align: center;
     color: #585858;
-    font-weight: 500; }
+    font-weight: 500;
+    font-size: 1em; }
     .section__footertop .section__coordonnees .fas, .section__footertop .section__horaires .fas, .section__footertop .section__mail .fas {
       color: #4ab9e4; }
+
+.section__btn {
+  background-color: #4ab9e4;
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: calc(50% - 5em);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .section__btn:hover {
+    text-decoration: underline; }
+
+.dotted {
+  border-style: dotted;
+  color: #c91a5f;
+  transform: scale(5); }
+
+.section__partenaires {
+  display: flex;
+  justify-content: space-between; }
+
+.section__partenaires__logo img {
+  width: 20em;
+  height: auto; }
 
 /*# sourceMappingURL=base.css.map */
