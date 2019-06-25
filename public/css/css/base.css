@@ -102,5 +102,15 @@ a, a:hover {
     display: block;
     width: 100%;
     text-align: center; } }
+/*footer*/
+.section__contact h2, .section__contact h3 {
+  color: #585858;
+  text-align: center; }
+
+.section__contact hr {
+  width: 10%;
+  height: 0.5em;
+  background-color: #585858;
+  border-radius: 1em; }
 
 /*# sourceMappingURL=base.css.map */

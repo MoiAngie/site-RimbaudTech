@@ -1,4 +1,5 @@
 @import "colors";
+@import "titraille";
 
 html {
   box-sizing: border-box;
@@ -136,4 +137,14 @@ a, a:hover {
     width: 100%;
     text-align: center;
   }
+}
+
+/*footer*/
+
+.section__contact h2, .section__contact h3 {
+  @include h2h3;
+}
+
+.section__contact hr {
+  @include hr;
 }
