@@ -14,7 +14,7 @@
     <body>
       <!-- Début Navbar -->
       <div class="topnav" id="myTopnav">
-        <a href="#home">
+        <a href="{{ path('index')}}">
           <img src={{ asset('img/logo-RT.png')}} alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="90" width="279">
         </a>
         <div class="topnav-right">
@@ -39,23 +39,24 @@
         <section class="section__contact">
           <h2>Nous contacter</h2>
           <hr>
-            <div class="section__coordonnees">
-              <h3>Coordonnées</h3>
-                <p class="section__donnees"> Terciarys </p>
-                <p class="section__donnees"> 6, place de la Gare </p>
-                <p class="section__donnees"> 08000 Charleville-Mézières </p>
-            </div>
-            <div class="section__horaires">
-              <h3>Horaires d'ouverture</h3>
-                <p class="section__donnees"> Du lundi au vendredi </p>
-                <p class="section__donnees"> De 9h à 12h </p>
-                <p class="section__donnees"> et de 14h à 18h </p>
-            </div>
-            <div class="section__coordonnees">
-              <h3>Coordonnées</h3>
-                <p class="section__donnees"> Terciarys </p>
-                <p class="section__donnees"> 6, place de la Gare </p>
-                <p class="section__donnees"> 08000 Charleville-Mézières </p>
+          <div class="section__footertop">
+              <div class="section__coordonnees">
+                <h3>Coordonnées</h3>
+                  <p class="section__donnees"> Terciarys </p>
+                  <p class="section__donnees"> 6, place de la Gare </p>
+                  <p class="section__donnees"> 08000 Charleville-Mézières </p>
+              </div>
+              <div class="section__horaires">
+                <h3>Horaires d'ouverture</h3>
+                  <p class="section__donnees"> Du lundi au vendredi </p>
+                  <p class="section__donnees"> De 9h à 12h </p>
+                  <p class="section__donnees"> et de 14h à 18h </p>
+              </div>
+              <div class="section__mail">
+                <h3>Contact</h3>
+                  <p class="section__donnees"><i class="fas fa-phone-alt"></i> 06 02 72 06 31 </p>
+                  <p class="section__donnees"><i class="fas fa-envelope"></i> contact@rimbaud-tech.fr </p>
+              </div>
             </div>
           <button class="section__btn">
             <a href="#contact" class="section__link">
@@ -67,23 +68,23 @@
           <hr class="dotted">
           <figure class="section__partenaires__logo">
             <a href="http://www.ardenne-metropole.fr/">
-              <img src="ARDENNE-LOGO.jpg" alt="Logo Ardenne Metropole" title="Ardenne Metropole" width="1975" height="705">
+              <img src={{ asset("img/ARDENNE-LOGO.jpg")}} alt="Logo Ardenne Metropole" title="Ardenne Metropole" width="1975" height="705">
             </a>
           </figure>
           <figure class="section__partenaires__logo">
             <a href="https://www.caisse-epargne.fr/grand-est-europe/particuliers/votre-caisse-d-epargne">
-              <img src="CAISSE-EPARGNE.jpg" alt="Logo Caisse d'Epargne" title="Caisse d'Epargne" width="1493" height="335">
+              <img src={{ asset("img/CAISSE-EPARGNE.jpg")}} alt="Logo Caisse d'Epargne" title="Caisse d'Epargne" width="1493" height="335">
             </a>
           </figure>
           <figure class="section__partenaires__logo">
             <a href="https://www.grandest.fr/">
-              <img src="GE_LOGO.jpg" alt="Logo Grand Est" title="Grand Est" width="2397" height="732">
+              <img src={{ asset("img/GE_LOGO.jpg")}} alt="Logo Grand Est" title="Grand Est" width="2397" height="732">
               </a>
           </figure>
         </section>
         <section class="section__footerend">
           <div class="section__logoRT">
-            <a href="#home">
+            <a href="{{ path('index')}}">
               <img src="img/logo-RT.png" alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="90" width="279">
             </a>
           </div>

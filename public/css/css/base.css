@@ -109,8 +109,19 @@ a, a:hover {
 
 .section__contact hr {
   width: 10%;
-  height: 0.5em;
+  height: 0.3em;
   background-color: #585858;
   border-radius: 1em; }
+
+.section__footertop {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center; }
+  .section__footertop .section__coordonnees, .section__footertop .section__horaires, .section__footertop .section__mail {
+    margin: 0 5em;
+    text-align: center;
+    color: #585858;
+    font-weight: 500; }
 
 /*# sourceMappingURL=base.css.map */

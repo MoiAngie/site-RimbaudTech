@@ -148,3 +148,17 @@ a, a:hover {
 .section__contact hr {
   @include hr;
 }
+
+.section__footertop {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  & .section__coordonnees, .section__horaires, .section__mail {
+    margin:0 5em;
+    text-align: center;
+    color: $dgrey;
+    font-weight: 500;
+  }
+}
