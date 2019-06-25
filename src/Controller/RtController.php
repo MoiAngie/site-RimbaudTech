@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use App\Entity\Articles;
 class RtController extends AbstractController
@@ -90,6 +91,9 @@ class RtController extends AbstractController
                           'placeholder' => "Télécharger une image",
                         ]
                       ])
+                      ->add('publish', SubmitType::class, [
+                      'label' => 'Publier un article',
+                    ])
                       ->getForm();
         return $this->render('rt/admin/create-article.html.twig', [
           'formArticle' => $form->createView()
