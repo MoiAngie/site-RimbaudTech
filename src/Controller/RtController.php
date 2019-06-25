@@ -65,9 +65,19 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/article", name="article")
+     * @Route("/rt/admin/create-article", name="create-article")
+     * page qui permet d'afficher les articles
      */
-    public function article()
+    public function createarticle()
+    {
+        return $this->render('rt/admin/create-article.html.twig', [
+        ]);
+    }
+    /**
+     * @Route("/rt/article", name="article")
+     * page qui permet d'afficher les articles
+     */
+    public function showarticle()
     {
         return $this->render('rt/article.html.twig', [
         ]);
