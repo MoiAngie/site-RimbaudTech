@@ -113,4 +113,11 @@ a, a:hover {
   background-color: #585858;
   border-radius: 1em; }
 
+.section__footertop {
+  width: 100%;
+  margin: 0 5em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center; }
+
 /*# sourceMappingURL=base.css.map */
