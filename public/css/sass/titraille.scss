@@ -1,0 +1,13 @@
+@import "colors";
+
+@mixin h2h3{
+  color: $dgrey;
+  text-align: center;
+}
+
+@mixin hr {
+  width: 10%;
+  height: 0.5em;
+  background-color: $dgrey;
+  border-radius: 1em;
+}
