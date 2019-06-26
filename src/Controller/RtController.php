@@ -4,8 +4,12 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Articles;
 class RtController extends AbstractController
@@ -71,30 +75,30 @@ class RtController extends AbstractController
      * @Route("/rt/admin/create-article", name="create-article")
      * page qui permet d'afficher les articles
      */
-    public function createarticle()
+    public function createarticle(Request $request, ObjectManager $manager)
     {
         $article = new Articles;
 
         $form = $this->createFormBuilder($article)
-                      ->add ('title', TextType::class, [
-                        'attr' => [
-                          'placeholder' => "Titre de l'article",
-                        ]
-                        ])
-                      ->add ('content', TextType::class, [
-                          'attr' => [
-                          'placeholder' => "Ajoutez le contenu de l'article",
-                        ]
-                      ])
-                      ->add ('image', TextType::class, [
-                          'attr' => [
-                          'placeholder' => "Télécharger une image",
-                        ]
-                      ])
+                      ->add ('title')
+                      ->add ('content')
+                      ->add ('image')
                       /*->add('publish', SubmitType::class, [
                       'label' => 'Publier un article',
                     ])*/
                       ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+        $article->setCreatedAt(new \DateTime());
+
+        $manager->persist($article);
+        $manager->flush();
+
+        return $this ->redirectToRoute('article', ['id' => $article->getId()]);
+        }
+        dump($article);
         return $this->render('rt/admin/create-article.html.twig', [
           'formArticle' => $form->createView()
         ]);
