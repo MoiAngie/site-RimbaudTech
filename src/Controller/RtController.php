@@ -116,4 +116,13 @@ class RtController extends AbstractController
         return $this->render('rt/contact.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/rt/slider-index", name="slider")
+     */
+    public function slider()
+    {
+        return $this->render('rt/slider-index.html.twig', [
+        ]);
+    }
 }
