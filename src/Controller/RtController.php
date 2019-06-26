@@ -91,9 +91,9 @@ class RtController extends AbstractController
                           'placeholder' => "Télécharger une image",
                         ]
                       ])
-                      ->add('publish', SubmitType::class, [
+                      /*->add('publish', SubmitType::class, [
                       'label' => 'Publier un article',
-                    ])
+                    ])*/
                       ->getForm();
         return $this->render('rt/admin/create-article.html.twig', [
           'formArticle' => $form->createView()
