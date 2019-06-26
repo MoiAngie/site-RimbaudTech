@@ -81,6 +81,7 @@ class RtController extends AbstractController
 
         $form = $this->createFormBuilder($article)
                       ->add ('title')
+                      ->add ('author')
                       ->add ('content')
                       ->add ('image')
                       /*->add('publish', SubmitType::class, [
@@ -118,15 +119,6 @@ class RtController extends AbstractController
     public function contact()
     {
         return $this->render('rt/contact.html.twig', [
-        ]);
-    }
-
-    /**
-     * @Route("/rt/slider-index", name="slider")
-     */
-    public function slider()
-    {
-        return $this->render('rt/slider-index.html.twig', [
         ]);
     }
 }
