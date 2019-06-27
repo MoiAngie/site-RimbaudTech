@@ -68,7 +68,11 @@ class RtController extends AbstractController
      */
     public function actu()
     {
+        $repo = $this ->getDoctrine()->getRepository(Articles::class);
+
+        $articles = $repo->findAll();
         return $this->render('rt/actu.html.twig', [
+          'articles' =>$articles
         ]);
     }
     /**
