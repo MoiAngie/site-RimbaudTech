@@ -21,6 +21,10 @@ a, a:hover {
   text-align: center;
   color: red; }
 
+/*  section video  */
+video {
+  margin-left: calc(50% - 500px); }
+
 html {
   box-sizing: border-box; }
 
