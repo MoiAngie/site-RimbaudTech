@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Articles;
+use App\Repository\ArticlesRepository;
+
 class RtController extends AbstractController
 {
     /**
@@ -66,9 +68,8 @@ class RtController extends AbstractController
     /**
      * @Route("/rt/actu", name="actu")
      */
-    public function actu()
+    public function actu(ArticlesRepository $repo)
     {
-        $repo = $this ->getDoctrine()->getRepository(Articles::class);
 
         $articles = $repo->findAll();
         return $this->render('rt/actu.html.twig', [
@@ -112,9 +113,8 @@ class RtController extends AbstractController
      * @Route("/rt/article/{id}", name="article")
      * page qui permet d'afficher les articles
      */
-    public function showarticle($id)
+    public function showarticle(ArticlesRepository $repo, $id)
     {
-        $repo = $this->getDoctrine()->getRepository(Articles::class);
 
         $article = $repo->find($id);
         return $this->render('rt/article.html.twig', [
