@@ -37,4 +37,34 @@ a, a:hover {
 
   video {
     margin-left: calc(50% - 500px);
+    margin-bottom: 2em;
+  }
+
+  /*  section avantages  */
+
+  .avantages {
+    width: 100%;
+    height: auto;
+    background-color: $logoblue;
+
+  & h2 {
+    @include h2h3;
+    padding: 1em;
+  }
+
+  & .avantages__flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  & .avantages__gp {
+    padding: 1em;
+    text-align: center;
+    min-width: 10em;
+  }
+
+  & .fas {
+    color: white;
+  }
   }

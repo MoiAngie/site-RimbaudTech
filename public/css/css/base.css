@@ -23,7 +23,28 @@ a, a:hover {
 
 /*  section video  */
 video {
-  margin-left: calc(50% - 500px); }
+  margin-left: calc(50% - 500px);
+  margin-bottom: 2em; }
+
+/*  section avantages  */
+.avantages {
+  width: 100%;
+  height: auto;
+  background-color: #4ab9e4; }
+  .avantages h2 {
+    color: #585858;
+    text-align: center;
+    padding: 1em; }
+  .avantages .avantages__flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; }
+  .avantages .avantages__gp {
+    padding: 1em;
+    text-align: center;
+    min-width: 10em; }
+  .avantages .fas {
+    color: white; }
 
 html {
   box-sizing: border-box; }
