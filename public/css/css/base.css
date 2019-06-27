@@ -1,3 +1,26 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0; }
+
+a, a:hover {
+  text-decoration: none;
+  color: white; }
+
+/*  section présentation  */
+.presentation .presentation__logo {
+  width: 20em;
+  height: auto;
+  margin-left: calc(50% - 10em);
+  padding: 2em; }
+
+.presentation__tx  {
+  text-align: center;
+  color: red; }
+
 html {
   box-sizing: border-box; }
 
