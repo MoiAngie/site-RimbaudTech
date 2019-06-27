@@ -42,9 +42,17 @@ video {
   .avantages .avantages__gp {
     padding: 1em;
     text-align: center;
-    min-width: 10em; }
+    max-width: 20em;
+    margin: 0 auto; }
   .avantages .fas {
     color: white; }
+  .avantages .avantages__icones {
+    padding: 2em 0; }
+
+/*  section nos incubés  */
+.incubés h2 {
+  color: #585858;
+  text-align: center; }
 
 html {
   box-sizing: border-box; }
