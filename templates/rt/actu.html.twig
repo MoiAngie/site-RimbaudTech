@@ -4,7 +4,6 @@
 
 {% block body %}
 <h1>Page Actualités</h1>
-<button class="section__btn"><a href="{{ path('article')}}">Afficher la page type des articles</a></button>
 <button class="section__btn"><a href="{{ path('create-article')}}">Afficher la page de création des articles</a></button>
 <section class="liste_articles">
   {% for article in articles %}
@@ -15,7 +14,7 @@
     </div>
     <img src="{{ article.image}}"/>
     {{ article.content | raw }}
-    <a href="{{ path('article')}}"><button>Lire la suite ...</button></a>
+    <a href="{{ path('article', {'id' : article.id })}}"><button>Lire la suite ...</button></a>
 
   {% endfor %}
 </section>

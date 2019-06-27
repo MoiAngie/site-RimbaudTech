@@ -3,6 +3,13 @@
 {% block title %}Page type articles{% endblock %}
 
 {% block body %}
-<h1>Page type article</h1>
-
+<section class="article_show">
+  <h1>{{article.title}}</h1>
+  <div class="metadata">
+      <p>Ecrit le {{ article.createdAt | date('d/m/Y')}} par {{article.author}}
+        à {{ article.createdAt | date('H:i')}}</p>
+  </div>
+  <img src="{{ article.image}}"/>
+  {{ article.content | raw }}
+</section>
 {% endblock %}

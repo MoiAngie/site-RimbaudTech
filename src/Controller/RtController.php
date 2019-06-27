@@ -109,12 +109,16 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/article", name="article")
+     * @Route("/rt/article/{id}", name="article")
      * page qui permet d'afficher les articles
      */
-    public function showarticle()
+    public function showarticle($id)
     {
+        $repo = $this->getDoctrine()->getRepository(Articles::class);
+
+        $article = $repo->find($id);
         return $this->render('rt/article.html.twig', [
+          'article' => $article
         ]);
     }
     /**
