@@ -3,6 +3,11 @@
 @mixin h2h3{
   color: $dgrey;
   text-align: center;
+
+  &:hover {
+    color: $dmagenta;
+    text-decoration: underline;
+  }
 }
 
 @mixin hr {
