@@ -3,6 +3,16 @@
 {% block title %}Nos Incubés{% endblock %}
 
 {% block body %}
-<h1>Page nos Incubés</h1>
+<h1>Nos Incubés</h1>
 <button class="section__btn"><a href="{{ path('create-incube')}}">Afficher la page de création des incubés</a></button>
+
+<section class="galerie_incubes">
+  {% for incube in incubes %}
+    <h1>{{incube.name}} {{incube.firstname}}</h1>
+    <p>{{incube.company}}</p>
+    <image src="{{asset (incube.profilpicture)}}" widht="150px" height="150px"/>
+    <a href="{{ path('incube', {'id' : incube.id })}}"><button>Afficher le profil ...</button></a>
+
+  {% endfor %}
+</section>
 {% endblock %}

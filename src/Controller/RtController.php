@@ -54,10 +54,12 @@ class RtController extends AbstractController
     /**
      * @Route("/rt/galerie-incubes", name="galerie-incubes")
      */
-    public function galerie_incubes()
+    public function galerie_incubes(UtilisateursRepository $repo)
     {
-        return $this->render('rt/galerie-incube.html.twig', [
-        ]);
+      $incubes = $repo->findAll();
+      return $this->render('rt/galerie-incube.html.twig', [
+        'incubes' =>$incubes
+      ]);
     }
     /**
      * @Route("/rt/incube/{id}", name="incube")
