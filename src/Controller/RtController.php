@@ -21,12 +21,16 @@ class RtController extends AbstractController
     /**
      * @Route("/rt", name="rt")
      */
-    public function index()
+    public function index(UtilisateursRepository $repo)
     {
+        $incubes = $repo->findAll();
+
         return $this->render('rt/index.html.twig', [
             'controller_name' => 'RtController',
+            'incubes' =>$incubes
         ]);
     }
+    
     /**
      * @Route("/rt/incubation", name="incubation")
      */
