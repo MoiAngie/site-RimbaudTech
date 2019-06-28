@@ -13,6 +13,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Articles;
 use App\Repository\ArticlesRepository;
+use App\Entity\Utilisateurs;
+use App\Repository\UtilisateursRepository;
 
 class RtController extends AbstractController
 {
@@ -66,6 +68,42 @@ class RtController extends AbstractController
         ]);
     }
     /**
+     * @Route("/rt/admin/create-incube", name="create-incube")
+     * page qui permet d'afficher les articles
+     */
+    public function createincube(Request $request, ObjectManager $manager)
+    {
+        $incube = new Utilisateurs;
+
+        $form = $this->createFormBuilder($incube)
+                      ->add ('name')
+                      ->add ('firstname')
+                      ->add ('company')
+                      ->add ('status')
+                      ->add ('profilpicture')
+                      ->add ('image1')
+                      ->add ('image2')
+                      ->add ('image3')
+                      ->add ('image4')
+                      ->add ('description')
+                      ->add ('comment')
+                      ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+        $manager->persist($incube);
+        $manager->flush();
+
+        return $this ->redirectToRoute('incube', ['id' => $incube->getId()]);
+        }
+        dump($incube);
+        return $this->render('rt/admin/create-incube.html.twig', [
+          'formIncube' => $form->createView()
+        ]);
+    }
+    /**
      * @Route("/rt/actu", name="actu")
      */
     public function actu(ArticlesRepository $repo)
@@ -89,9 +127,6 @@ class RtController extends AbstractController
                       ->add ('author')
                       ->add ('content')
                       ->add ('image')
-                      /*->add('publish', SubmitType::class, [
-                      'label' => 'Publier un article',
-                    ])*/
                       ->getForm();
 
         $form->handleRequest($request);
@@ -104,7 +139,7 @@ class RtController extends AbstractController
 
         return $this ->redirectToRoute('article', ['id' => $article->getId()]);
         }
-        dump($article);
+
         return $this->render('rt/admin/create-article.html.twig', [
           'formArticle' => $form->createView()
         ]);
