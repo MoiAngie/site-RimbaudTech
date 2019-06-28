@@ -60,12 +60,14 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/incube", name="incube")
+     * @Route("/rt/incube/{id}", name="incube")
      */
-    public function incube()
+    public function showincube(UtilisateursRepository $repo, $id)
     {
-        return $this->render('rt/incube.html.twig', [
-        ]);
+      $incube = $repo->find($id);
+      return $this->render('rt/incube.html.twig', [
+        'incube' => $incube
+      ]);
     }
     /**
      * @Route("/rt/admin/create-incube", name="create-incube")

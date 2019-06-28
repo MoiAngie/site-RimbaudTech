@@ -3,5 +3,10 @@
 {% block title %}Page type incubé{% endblock %}
 
 {% block body %}
-<h1>Page type Incubé</h1>
+<h1>{{incube.name}} {{incube.firstname}}</h1>
+<p>{{incube.company}}</p>
+<image src="{{asset (incube.profilpicture)}}" widht="150px" height="150px"/>
+
+<p>{{incube.description}}</p>
+<p>{{incube.comment}}</p>
 {% endblock %}
