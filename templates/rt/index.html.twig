@@ -32,8 +32,9 @@
         <img src="img/RT-cow.jpg">
       </video>
     </section>
+
     <section class="avantages">
-      <h2>Les avantages de Rimbaud'tech</h2>
+      <a href="{{ path('incubation')}}"><h2>Les avantages de Rimbaud'tech</h2></a>
       <div class="avantages__flex">
         <div class="avantages__gp">
           <i class="fas fa-hands-helping fa-4x"></i>
@@ -86,6 +87,9 @@
       </div>
     </section>
     <section class="incubés">
-      <h2>Nos incubés</h2>
-    </section>  
+      <a href="{{ path('galerie-incubes')}}"><h2>Nos incubés</h2></a>
+
+      {% include 'rt/carousel.html.twig' %}
+
+    </section>
 {% endblock %}

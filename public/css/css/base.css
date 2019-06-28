@@ -35,6 +35,9 @@ video {
     color: #585858;
     text-align: center;
     padding: 1em; }
+    .avantages h2:hover {
+      color: #c91a5f;
+      text-decoration: underline; }
   .avantages .avantages__flex {
     display: flex;
     flex-direction: row;
@@ -53,6 +56,9 @@ video {
 .incubés h2 {
   color: #585858;
   text-align: center; }
+  .incubés h2:hover {
+    color: #c91a5f;
+    text-decoration: underline; }
 
 html {
   box-sizing: border-box; }
@@ -162,6 +168,9 @@ a, a:hover {
 .section__contact h2, .section__contact h3 {
   color: #585858;
   text-align: center; }
+  .section__contact h2:hover, .section__contact h3:hover {
+    color: #c91a5f;
+    text-decoration: underline; }
 
 .section__contact hr {
   width: 10%;

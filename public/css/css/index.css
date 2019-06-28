@@ -35,6 +35,9 @@ video {
     color: #585858;
     text-align: center;
     padding: 1em; }
+    .avantages h2:hover {
+      color: #c91a5f;
+      text-decoration: underline; }
   .avantages .avantages__flex {
     display: flex;
     flex-direction: row;
@@ -53,5 +56,8 @@ video {
 .incubés h2 {
   color: #585858;
   text-align: center; }
+  .incubés h2:hover {
+    color: #c91a5f;
+    text-decoration: underline; }
 
 /*# sourceMappingURL=index.css.map */
