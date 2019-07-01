@@ -92,7 +92,6 @@
       {% include 'rt/carousel.html.twig' %}
 
     </section>
-<<<<<<< HEAD
     <section class="index_articles">
       {% for article in article %}
       <h1>{{article.title}}</h1>
@@ -105,22 +104,5 @@
       </br>
       <button class="affiche_actu"><a href="{{ path('actu')}}">Afficher la page actualités</a></button>
       {% endfor %}
-=======
-
-    <section class="section__actualite">
-
-      <div class="section__affichage">
-
-        <div class="section__actualite__article"> test d'article
-        </div>
-
-        <a href="{{ path('contact')}}" class="section__link">
-          <button class="section__btn" style="background-color:#c91a5f;">
-          Plus d'actualités
-          </button>
-        </a>
-      </div>
-
->>>>>>> 6c123a8d1a52e233048d3085a277a10774d3b6b2
     </section>
 {% endblock %}
