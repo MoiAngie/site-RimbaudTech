@@ -92,4 +92,17 @@
       {% include 'rt/carousel.html.twig' %}
 
     </section>
+    <section class="index_articles">
+      {% for article in article %}
+      <h1>{{article.title}}</h1>
+      <div class="metadata">
+          <p>Ecrit le {{ article.createdAt | date('d/m/Y')}} par {{article.author}}
+            à {{ article.createdAt | date('H:i')}}</p>
+      </div>
+      <img src="{{ article.image}}"/>
+      {{ article.content | raw }}
+      </br>
+      <button class="affiche_actu"><a href="{{ path('actu')}}">Afficher la page actualités</a></button>
+      {% endfor %}
+    </section>
 {% endblock %}
