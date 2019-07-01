@@ -92,6 +92,10 @@ h2 {
 .logoblue {
   color: #4ab9e4; }
 
+.infographie {
+  width: 100%;
+  height: auto; }
+
 .section__equipe__presentation {
   background-color: #c91a5f;
   height: auto;
