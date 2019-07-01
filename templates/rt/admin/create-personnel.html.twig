@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier le personnel de Rimbaud' Tech{% endblock %}
+
+{% block body %}
+<h2>Modifier le personnel de Rimbaud' Tech</h2>
+
+{{ form_start(formPersonnel)}}
+
+<button type="submit" class="btn-admin">Modifier</button>
+{{ form_end(formPersonnel)}}
+
+{% endblock %}

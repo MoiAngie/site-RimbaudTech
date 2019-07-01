@@ -1,0 +1,36 @@
+h2 {
+  color: #585858;
+  text-align: center; }
+  h2:hover {
+    color: #c91a5f;
+    text-decoration: underline; }
+
+label {
+  display: none; }
+
+.form-group {
+  width: 50%;
+  height: 3em;
+  border: none;
+  border-bottom: 0.1em solid #4ab9e4;
+  margin-left: 25%;
+  margin: 2em auto; }
+
+.btn-admin {
+  background-color: #4ab9e4;
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: calc(50% - 5em);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .btn-admin:hover {
+    text-decoration: underline;
+    background-color: #c91a5f; }
+
+/*# sourceMappingURL=creation-admin.css.map */

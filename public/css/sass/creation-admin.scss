@@ -1,0 +1,40 @@
+@import "colors";
+@import "titraille";
+
+
+h2 {
+  @include h2h3;
+}
+
+label {
+  display: none;
+}
+
+.form-group {
+  width: 50%;
+  height: 3em;
+  border: none;
+  border-bottom: 0.1em solid $logoblue;
+  margin-left: 25%;
+  margin: 2em auto;
+}
+
+.btn-admin {
+  background-color: $logoblue;
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: calc(50% - 5em);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  &:hover {
+    text-decoration: underline;
+    background-color: $dmagenta;
+  }
+}

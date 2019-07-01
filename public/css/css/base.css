@@ -97,7 +97,7 @@ a, a:hover {
   overflow: hidden;
   width: 100%;
   position: fixed;
-  z-index: 1000;
+  z-index: 10;
   margin-top: 0; }
   .topnav img {
     float: left;

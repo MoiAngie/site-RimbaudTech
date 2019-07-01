@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier la page d'accueil{% endblock %}
+
+{% block body %}
+<h2>Modifier la page d'accueil</h2>
+
+{{ form_start(formAccueil)}}
+
+<button type="submit" class="btn-admin">Modifier</button>
+{{ form_end(formAccueil)}}
+
+{% endblock %}

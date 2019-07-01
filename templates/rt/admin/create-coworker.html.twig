@@ -1,31 +1,31 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Ajouter un incubé{% endblock %}
+{% block title %}Ajouter un coworker{% endblock %}
 
 {% block body %}
-<h2>Ajouter un incubé</h2>
+<h2>Ajouter un coworker</h2>
 
 {{ form_start(formIncube)}}
 <div class="form-group">
-  {{ form_row(formIncube.name, {'label': 'Nom', 'attr': {'placeholder' : "Nom de famille de l'incubé"}})}}
+  {{ form_row(formIncube.name, {'label': 'Nom', 'attr': {'placeholder' : "Nom de famille du coworker"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formIncube.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom de l'incubé"}})}}
+  {{ form_row(formIncube.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom du coworker"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formIncube.company, {'label': 'Société', 'attr': {'placeholder' : "Société de l'incubé"}})}}
+  {{ form_row(formIncube.company, {'label': 'Société', 'attr': {'placeholder' : "Société du coworker"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formIncube.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur = incube"}})}}
+  {{ form_row(formIncube.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur = coworker"}})}}
 </div>
 <div class="form-group">
   {{ form_row(formIncube.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formIncube.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Projet de l'incubé"}})}}
+  {{ form_row(formIncube.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Projet du coworker"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formIncube.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis de l'incubé sur Rimbaud Tech"}})}}
+  {{ form_row(formIncube.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis du coworker sur Rimbaud Tech"}})}}
 </div>
 <div class="form-group">
   {{ form_row(formIncube.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Ajouter une image"}})}}

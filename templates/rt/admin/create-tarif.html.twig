@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier les tarifs{% endblock %}
+
+{% block body %}
+<h2>Modifier les tarifs</h2>
+
+{{ form_start(formTarif)}}
+
+<button type="submit" class="btn-admin">Modifier</button>
+{{ form_end(formTarif)}}
+
+{% endblock %}
