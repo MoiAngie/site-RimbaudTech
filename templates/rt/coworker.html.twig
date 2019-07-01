@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page type co-workers{% endblock %}
+
+{% block body %}
+<h1>{{coworker.name}} {{coworker.firstname}}</h1>
+<p>{{coworker.company}}</p>
+<image src="{{asset (coworker.profilpicture)}}" widht="150px" height="150px"/>
+
+<p>{{coworker.description}}</p>
+<p>{{coworker.comment}}</p>
+{% endblock %}
