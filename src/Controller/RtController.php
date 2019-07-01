@@ -49,13 +49,52 @@ class RtController extends AbstractController
         return $this->render('rt/co-working.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/rt/coworker/{id}", name="coworker")
+     */
+    public function showcoworkeur(UtilisateursRepository $repo, $id)
+    {
+      $coworker = $repo->find($id);
+      return $this->render('rt/coworker.html.twig', [
+        'coworker' => $coworker
+      ]);
+    }
+
     /**
      * @Route("/rt/amin/create-cowork", name="create-cowork")
      */
-    public function createcowork()
+    public function createcowork(Request $request, ObjectManager $manager)
     {
-        return $this->render('rt/admin/create-coworker.html.twig', [
-        ]);
+      $coworker = new Utilisateurs;
+
+      $form = $this->createFormBuilder($coworker)
+                    ->add ('name')
+                    ->add ('firstname')
+                    ->add ('company')
+                    ->add ('status')
+                    ->add ('profilpicture')
+                    ->add ('image1')
+                    ->add ('image2')
+                    ->add ('image3')
+                    ->add ('image4')
+                    ->add ('description')
+                    ->add ('comment')
+                    ->getForm();
+
+      $form->handleRequest($request);
+
+      if($form->isSubmitted() && $form->isValid()){
+
+      $manager->persist($coworker);
+      $manager->flush();
+
+      return $this ->redirectToRoute('coworker', ['id' => $coworker->getId()]);
+      }
+
+      return $this->render('rt/admin/create-coworker.html.twig', [
+        'formCoworker' => $form->createView()
+      ]);
     }
     /**
      * @Route("/rt/location", name="location")
@@ -75,6 +114,7 @@ class RtController extends AbstractController
         'incubes' =>$incubes
       ]);
     }
+
     /**
      * @Route("/rt/incube/{id}", name="incube")
      */
@@ -85,6 +125,7 @@ class RtController extends AbstractController
         'incube' => $incube
       ]);
     }
+
     /**
      * @Route("/rt/admin/create-incube", name="create-incube")
      * page qui permet d'afficher les articles
@@ -116,7 +157,7 @@ class RtController extends AbstractController
 
         return $this ->redirectToRoute('incube', ['id' => $incube->getId()]);
         }
-        dump($incube);
+
         return $this->render('rt/admin/create-incube.html.twig', [
           'formIncube' => $form->createView()
         ]);
