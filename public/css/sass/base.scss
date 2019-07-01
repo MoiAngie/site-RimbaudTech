@@ -1,6 +1,7 @@
 @import "colors";
 @import "titraille";
 @import "index";
+@import "incubation";
 
 html {
   box-sizing: border-box;
@@ -22,9 +23,6 @@ a, a:hover {
   background-color: $dgrey;
   overflow: hidden;
   width: 100%;
-  position: fixed;
-  z-index: 10;
-  margin-top: 0;
 
   & img {
     float: left;
@@ -82,11 +80,13 @@ a, a:hover {
     text-decoration: none;
     display: block;
     text-align: left;
+    border-left: 0.5em solid $logoblue;
   }
 
   & .topnav-right a:hover, .dropdown:hover .dropbtn {
     background-color: $grey;
-    color: white;
+    color: $logoblue;
+    font-weight: bold;
   }
 
   & .dropdown-content a:hover {

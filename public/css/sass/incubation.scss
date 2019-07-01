@@ -1,0 +1,63 @@
+@import "colors";
+@import "titraille";
+
+h2 {
+  @include h2h3;
+
+  &:hover {
+    text-decoration: none;
+    color: $dgrey;
+  }
+}
+
+.logoblue {
+  color: $logoblue;
+}
+
+.section__equipe__presentation {
+  background-color: $dmagenta;
+  height: auto;
+  padding: 2em;
+  width: 85%;
+  margin-left: 15%;
+  display: flex;
+  flex-wrap: nowrap;
+
+  & img {
+    max-width: 40%;
+    max-height: 25em;
+    transform: rotate(90deg);
+    padding: 5em;
+    margin-left: -20%;
+    flex: 0 1 30%;
+  }
+
+  & .section__equipe__presentation__tx {
+    color: white;
+    flex: 1 1 auto;
+
+  & p {
+    padding: 0.2em;
+  }
+
+  & .blueline {
+    @include hr;
+    background-color: $logoblue;
+    border: none;
+    margin-left: 0;
+    width: 20%;
+  }
+
+  & .cap {
+    text-transform: uppercase;
+  }
+
+  & .fab {
+    color: $logoblue;
+
+    &:hover {
+      color: white;
+    }
+  }
+  }
+}

@@ -1,0 +1,50 @@
+h2 {
+  color: #585858;
+  text-align: center; }
+  h2:hover {
+    color: #c91a5f;
+    text-decoration: underline; }
+  h2:hover {
+    text-decoration: none;
+    color: #585858; }
+
+.logoblue {
+  color: #4ab9e4; }
+
+.section__equipe__presentation {
+  background-color: #c91a5f;
+  height: auto;
+  padding: 2em;
+  width: 85%;
+  margin-left: 15%;
+  display: flex;
+  flex-wrap: nowrap; }
+  .section__equipe__presentation img {
+    max-width: 40%;
+    max-height: 25em;
+    transform: rotate(90deg);
+    padding: 5em;
+    margin-left: -20%;
+    flex: 0 1 30%; }
+  .section__equipe__presentation .section__equipe__presentation__tx {
+    color: white;
+    flex: 1 1 auto; }
+    .section__equipe__presentation .section__equipe__presentation__tx p {
+      padding: 0.2em; }
+    .section__equipe__presentation .section__equipe__presentation__tx .blueline {
+      width: 10%;
+      height: 0.3em;
+      background-color: #585858;
+      border-radius: 1em;
+      background-color: #4ab9e4;
+      border: none;
+      margin-left: 0;
+      width: 20%; }
+    .section__equipe__presentation .section__equipe__presentation__tx .cap {
+      text-transform: uppercase; }
+    .section__equipe__presentation .section__equipe__presentation__tx .fab {
+      color: #4ab9e4; }
+      .section__equipe__presentation .section__equipe__presentation__tx .fab:hover {
+        color: white; }
+
+/*# sourceMappingURL=incubation.css.map */
