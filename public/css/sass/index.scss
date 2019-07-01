@@ -3,7 +3,7 @@
 
 html {
   box-sizing: border-box;
-
+  margin-top: 0;
 }
 
 body {
@@ -14,6 +14,12 @@ body {
 a, a:hover {
   text-decoration: none;
   color: white;
+}
+
+/*  slider  */
+
+section .example {
+  margin-top: 5em;
 }
 
 /*  section présentation  */
@@ -78,4 +84,33 @@ a, a:hover {
 
 .incubés h2{
   @include h2h3;
+}
+
+/*  section actus  */
+
+.section__actualite {
+  max-height: 62em;
+}
+
+.section__actualite img{
+  width: 100%;
+  height: 60em;
+  padding-top: 1em;
+}
+
+.section__affichage {
+  display: flex;
+  flex-wrap: nowrap;
+
+  &.section__actualite__article {
+     width: 50%;
+     height: 60em;
+     background-color: white;
+     border: none;
+     border-radius: 1em;
+     padding: 2em;
+     margin-left: 2em;
+     justify-content: center;
+   }
+
 }
