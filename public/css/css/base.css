@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-top: 0; }
 
 body {
   font-family: 'Muli', sans-serif;
@@ -10,6 +11,7 @@ a, a:hover {
   text-decoration: none;
   color: white; }
 
+/*  slider  */
 /*  section présentation  */
 .presentation .presentation__logo {
   width: 20em;
@@ -60,8 +62,26 @@ video {
     color: #c91a5f;
     text-decoration: underline; }
 
+/*  section actus  */
+.section__actualite {
+  height: 62em; }
+
+.section__affichage {
+  display: flex;
+  flex-wrap: nowrap; }
+  .section__affichage.section__actualite__article {
+    width: 50%;
+    height: 60em;
+    background-color: white;
+    border: none;
+    border-radius: 1em;
+    padding: 2em;
+    margin-left: 2em;
+    justify-content: center; }
+
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-top: 0; }
 
 body {
   font-family: 'Muli', sans-serif;
@@ -75,7 +95,10 @@ a, a:hover {
 .topnav {
   background-color: #585858;
   overflow: hidden;
-  width: 100%; }
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  margin-top: 0; }
   .topnav img {
     float: left;
     height: 3em;
