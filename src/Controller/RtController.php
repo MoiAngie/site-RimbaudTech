@@ -50,6 +50,14 @@ class RtController extends AbstractController
         ]);
     }
     /**
+     * @Route("/rt/amin/create-cowork", name="create-cowork")
+     */
+    public function createcowork()
+    {
+        return $this->render('rt/admin/create-coworker.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/rt/location", name="location")
      */
     public function location()
@@ -167,11 +175,52 @@ class RtController extends AbstractController
         ]);
     }
     /**
+     * @Route("/rt/amin/portail-articles", name="portailArticles")
+     */
+    public function portailArticles()
+    {
+        return $this->render('rt/admin/portail-articles.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/rt/contact", name="contact")
      */
     public function contact()
     {
         return $this->render('rt/contact.html.twig', [
+        ]);
+    }
+    /**
+     * @Route("/rt/admin/logAdmin", name="logAdmin")
+     */
+    public function logAdmin()
+    {
+        return $this->render('rt/admin/log-admin.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/rt/amin/createTarif", name="createTarif")
+     */
+    public function createTarif()
+    {
+        return $this->render('rt/admin/create-tarif.html.twig', [
+        ]);
+    }
+    /**
+     * @Route("/rt/amin/createPersonnel", name="createPersonnel")
+     */
+    public function createPersonnel()
+    {
+        return $this->render('rt/admin/create-personnel.html.twig', [
+        ]);
+    }
+    /**
+     * @Route("/rt/amin/createAccueil", name="createAccueil")
+     */
+    public function createAccueil()
+    {
+        return $this->render('rt/admin/create-accueil.html.twig', [
         ]);
     }
 }
