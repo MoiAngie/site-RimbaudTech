@@ -3,5 +3,70 @@
 {% block title %}Co-Working{% endblock %}
 
 {% block body %}
-<h1>Page Co-Working</h1>
+
+<section class="section__portfolio">
+  <h2>Rimbaud'Tech <span class="logoblue">|</span> Nos co-workers</h2>
+
+  <div class="portfolio">
+    <figure class="portfolio-ens">
+      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
+        <figcaption>Simon Dumas</figcaption>
+        <i class="fas fa-external-link-square-alt fa-2x"></i>
+    </figure>
+    <figure class="portfolio-ens">
+      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
+        <figcaption>Simon Dumas</figcaption>
+        <i class="fas fa-external-link-square-alt fa-2x"></i>
+    </figure>
+    <figure class="portfolio-ens">
+      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
+        <figcaption>Simon Dumas</figcaption>
+        <i class="fas fa-external-link-square-alt fa-2x"></i>
+    </figure>
+    <figure class="portfolio-ens">
+      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
+        <figcaption>Simon Dumas</figcaption>
+        <i class="fas fa-external-link-square-alt fa-2x"></i>
+    </figure>
+  </div>
+</section>
+
+<section class="section__coworking">
+  <h2>Rimbaud'Tech <span class="logoblue">|</span> Espace de co-working </h2>
+    <div class="section__coworking__desc">
+     <p>Rimbaud'Tech propose une salle de co-working à la location. Chaque co-worker profite ainsi aussi de la salle de détente et de sa terrasse.</p>
+     <p>Un autre avantage que travailler dans les locaux récents (avec WIFI) de Rimbaud'Tech, c'est de pouvoir échanger avec les autres co-workers, les incubés et de l'équipe de l'incubateur.</p>
+     <p> La première journée est offerte, et retrouvez ci-dessous tous nos tarifs pour l'espace co-working.</p>
+   </div>
+</section>
+
+<section class="section__tarifs">
+  <h2>Rimbaud'Tech <span class="logoblue">|</span> Nos tarifs </h2>
+
+  <div class="container-grid">
+    <div class="section__tarifs__img">
+      <img src="{{asset('img/RT-cow2.jpg')}}" alt="Salle de co-working" width="600" height="400">
+    </div>
+    <div class="section__tarifs__adh">
+      <h3 class="cap">Pour les adhérents:<span class="asterix"> * </span></h3>
+      <hr class="blueline">
+      <p class="section__tarifs__tx"> Carte d'adhésion à l'année : 30€</p>
+      <p class="section__tarifs__tx"> Location à l'heure : 1€</p>
+      <p class="section__tarifs__tx"> Location à la demi-journée : 4€</p>
+      <p class="section__tarifs__tx"> Location à la journée : 7€</p>
+      <p class="section__tarifs__tx"> Location au mois : 120€</p>
+
+      <p class="section__asterix"><span class="asterix"> * </span> Par carte de 10.</p>
+    </div>
+    <div class="section__tarifs__nadh">
+      <h3 class="cap">Pour les non-adhérents:</h3>
+      <hr class="blueline">
+      <p class="section__tarifs__tx"> Location à l'heure : 2€</p>
+      <p class="section__tarifs__tx"> Location à la demi-journée : 6€</p>
+      <p class="section__tarifs__tx"> Location à la journée : 10€</p>
+      <p class="section__tarifs__tx"> Location au mois : 150€</p>
+    </div>
+  </div>
+
+</section>
 {% endblock %}

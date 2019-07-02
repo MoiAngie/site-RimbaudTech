@@ -2,6 +2,7 @@
 @import "titraille";
 @import "index";
 @import "incubation";
+@import "coworking";
 
 html {
   box-sizing: border-box;
@@ -16,6 +17,10 @@ body {
 a, a:hover {
   text-decoration: none;
   color: white;
+}
+
+p {
+  @include p;
 }
 
 /* Add a black background color to the top navigation*/

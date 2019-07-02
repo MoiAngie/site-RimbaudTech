@@ -1,6 +1,11 @@
 @import "colors";
 @import "titraille";
 
+html {
+  overflow-x: hidden;
+
+}
+
 h2 {
   @include h2h3;
 
@@ -17,20 +22,30 @@ h2 {
 .infographie {
   width: 100%;
   height: auto;
+  margin-top: 3em;
+}
+
+.section__incubateur {
+  padding: 2em;
+  & .section__incubateur__tx {
+    padding: 3em;
+    font-size: 1em;
+  }
 }
 
 .section__equipe__presentation {
   background-color: $dmagenta;
   height: auto;
   padding: 2em;
-  width: 85%;
-  margin-left: 15%;
+  width: 85%;margin-top: 3em;
+  margin-left: 10%;
+  margin-bottom: 2em;
   display: flex;
   flex-wrap: nowrap;
 
   & img {
     max-width: 40%;
-    max-height: 25em;
+    max-height: 30em;
     transform: rotate(90deg);
     padding: 5em;
     margin-left: -20%;
@@ -41,16 +56,17 @@ h2 {
     color: white;
     flex: 1 1 auto;
 
-  & p {
+  & .section__equipe__tx {
     padding: 0.2em;
+    font-family:'Muli', sans-serif;
+    color: white;
+    text-align: left;
+    font-size: 1.2em;
   }
 
   & .blueline {
-    @include hr;
-    background-color: $logoblue;
-    border: none;
-    margin-left: 0;
-    width: 20%;
+    @include blueline;
+    width: 25%;
   }
 
   & .cap {
@@ -59,6 +75,7 @@ h2 {
 
   & .fab {
     color: $logoblue;
+    padding-bottom: 2em;
 
     &:hover {
       color: white;

@@ -16,3 +16,25 @@
   background-color: $dgrey;
   border-radius: 1em;
 }
+
+@mixin p {
+  text-align: center;
+  font-family: 'Sniglet', cursive;
+  font-size: 1.3em;
+  color: $dgrey;
+}
+
+@mixin tarifs {
+  text-align: left;
+  color: white;
+  padding-right: 2em;
+}
+
+@mixin blueline {
+  background-color: $logoblue;
+  border: none;
+  margin-left: 0;
+  width: 70%;
+  height: 0.3em;
+  border-radius: 1em;
+}

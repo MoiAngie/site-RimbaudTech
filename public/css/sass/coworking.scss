@@ -1,0 +1,96 @@
+@import "colors";
+@import "titraille";
+
+h2 {
+  @include h2h3;
+
+  &:hover {
+    text-decoration: none;
+    color: $dgrey;
+  }
+}
+
+.logoblue {
+  color: $logoblue;
+}
+
+/*  section portfolio  */
+
+.portfolio {
+  width: 80%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-evenly;
+  grid-gap: 1em;
+
+.portfolio-ens {
+  & figcaption {
+    transform: translate(1em , -2em);
+    color: $dmagenta;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px #000000;
+}
+& .fas {
+  color: $dmagenta;
+  transform: rotate(-90deg);
+  transform: translate(8.5em , -1.8em);
+
+&:hover {
+  color: $logoblue;
+}}
+}}
+
+/*  section co-working description  */
+
+.section__coworking {
+  padding: 2em;
+}
+
+/*  section tarifs  */
+.container-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0 5em 2em;
+  justify-content: space-around;
+  background-color: $dmagenta;
+  margin-left: 15%;
+  padding: 2em;
+
+  & .section__tarifs__img {
+    transform: translateX(-12em);
+  }
+
+  & .section__tarifs__adh {
+    @include tarifs;
+    transform: translateX(-6em);
+  & .cap {
+    text-transform: uppercase;
+  }
+  & .asterix {
+    color: $logoblue;
+  }
+  & p {
+    @include tarifs;
+  }
+  & .section__asterix {
+    font-style: italic;
+  }
+  }
+
+  & .section__tarifs__nadh {
+    @include tarifs;
+    transform: translateX(-3em);
+  & .cap {
+    text-transform: uppercase;
+  }
+  & p {
+    @include tarifs;
+  }
+  }
+
+& .blueline {
+  @include blueline;
+}
+}

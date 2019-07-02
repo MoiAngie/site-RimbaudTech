@@ -1,0 +1,84 @@
+h2 {
+  color: #585858;
+  text-align: center; }
+  h2:hover {
+    color: #c91a5f;
+    text-decoration: underline; }
+  h2:hover {
+    text-decoration: none;
+    color: #585858; }
+
+.logoblue {
+  color: #4ab9e4; }
+
+/*  section portfolio  */
+.portfolio {
+  width: 80%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-evenly;
+  grid-gap: 1em; }
+  .portfolio .portfolio-ens figcaption {
+    transform: translate(1em, -2em);
+    color: #c91a5f;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px #000000; }
+  .portfolio .portfolio-ens .fas {
+    color: #c91a5f;
+    transform: rotate(-90deg);
+    transform: translate(8.5em, -1.8em); }
+    .portfolio .portfolio-ens .fas:hover {
+      color: #4ab9e4; }
+
+/*  section co-working description  */
+.section__coworking {
+  padding: 2em; }
+
+/*  section tarifs  */
+.container-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0 5em 2em;
+  justify-content: space-around;
+  background-color: #c91a5f;
+  margin-left: 15%;
+  padding: 2em; }
+  .container-grid .section__tarifs__img {
+    transform: translateX(-12em); }
+  .container-grid .section__tarifs__adh {
+    text-align: left;
+    color: white;
+    padding-right: 2em;
+    transform: translateX(-6em); }
+    .container-grid .section__tarifs__adh .cap {
+      text-transform: uppercase; }
+    .container-grid .section__tarifs__adh .asterix {
+      color: #4ab9e4; }
+    .container-grid .section__tarifs__adh p {
+      text-align: left;
+      color: white;
+      padding-right: 2em; }
+    .container-grid .section__tarifs__adh .section__asterix {
+      font-style: italic; }
+  .container-grid .section__tarifs__nadh {
+    text-align: left;
+    color: white;
+    padding-right: 2em;
+    transform: translateX(-3em); }
+    .container-grid .section__tarifs__nadh .cap {
+      text-transform: uppercase; }
+    .container-grid .section__tarifs__nadh p {
+      text-align: left;
+      color: white;
+      padding-right: 2em; }
+  .container-grid .blueline {
+    background-color: #4ab9e4;
+    border: none;
+    margin-left: 0;
+    width: 70%;
+    height: 0.3em;
+    border-radius: 1em; }
+
+/*# sourceMappingURL=coworking.css.map */

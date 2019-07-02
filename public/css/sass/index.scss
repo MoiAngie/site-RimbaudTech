@@ -1,22 +1,7 @@
 @import "colors";
 @import "titraille";
 
-html {
-  box-sizing: border-box;
-  margin-top: 0;
-}
 
-body {
-  font-family: 'Muli', sans-serif;
-  margin: 0;
-}
-
-a, a:hover {
-  text-decoration: none;
-  color: white;
-}
-
-/*  slider  */
 
 /*  section présentation  */
 
@@ -30,10 +15,7 @@ a, a:hover {
   }
 }
 
-.presentation__tx {
-    text-align: center;
-    color: red;
-  }
+
 
   /*  section video  */
 
@@ -73,6 +55,12 @@ a, a:hover {
 
   & .avantages__icones {
     padding: 2em 0;
+  }
+
+  & p {
+    color: black;
+    font-size: 1em;
+    font-family: 'Muli', sans-serif;
   }
 }
 
