@@ -1,12 +1,22 @@
 {% extends 'base.html.twig'%}
-
+{% block stylesheets %}
+<link href="{{asset('css/css/base-index.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block body %}
-<h1>Inscription Administrateurs</h1>
+<h2>Inscription Administrateurs</h2>
 {{ form_start(form)}}
-{{ form_row(form.username, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder' : "Nom d'utilisateur"}})}}
-{{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder' : "Adresse Email"}})}}
-{{ form_row(form.password, {'label': 'Mot de Passe', 'attr': {'placeholder' : "Mot de passe"}})}}
-{{ form_row(form.confirm_password, {'label': 'Confirmation', 'attr': {'placeholder' : "Confirmez votre mot de passe"}})}}
-<button type="Submit">Inscription !</button>
+<div class="form-group">
+  {{ form_row(form.username, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder' : "Nom d'utilisateur"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder' : "Adresse Email"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(form.password, {'label': 'Mot de Passe', 'attr': {'placeholder' : "Mot de passe"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(form.confirm_password, {'label': 'Confirmation', 'attr': {'placeholder' : "Confirmez votre mot de passe"}})}}
+</div>
+<button type="Submit" class="btn-admin">Inscription !</button>
 {{ form_end(form)}}
 {% endblock %}
