@@ -3,5 +3,42 @@
 {% block title %}Location{% endblock %}
 
 {% block body %}
-<h1>Page Location de Salle</h1>
+
+<section class="section__location">
+  <h2>Rimbaud'Tech <span class="logoblue">|</span> Location de salles </h2>
+    <div class="section__location__desc">
+     <p>Rimbaud'Tech propose deux salles de réunion à la location. La première a une capacité d'environ 15 personnes et dispose d'un videoprojecteur.</p>
+     <p>La deuxième, aux couleurs de la Caisse d'Epargne est plus petite, mais a été créée dans un esprit plus fun. Les différents éléments qui la composent permettent de jongler avec l'espace pour profiter au mieux de ses tableaux et espaces de travail.</p>
+     <p> Pour tous renseignements complémentaires et demande de location, n'hésitez pas à contacter notre équipe!</p>
+   </div>
+</section>
+
+<section class="section__location__photos">
+  <figure>
+    <img src="{{asset('img/RT-cow2.jpg')}}" alt="Salle Caisse d'Epargne" width="600" height="400">
+  </figure>
+  <figure>
+    <img src="{{asset('img/RT-det.jpg')}}" alt="Salle Caisse d'Epargne" width="600" height="400">
+  </figure>
+</section>
+
+<section class="section__location__tarifs">
+  <h2> Nos tarifs </h2>
+
+    <div class="section__location__tarifs__salles">
+      <div class="section__location__tarifs__salle">
+        <h3 class="cap"> Salle Caisse d'Epargne </h3>
+        <hr class="blueline">
+          <p class="section__tarifs__tx"> Location à la demi-journée : 20€</p>
+          <p class="section__tarifs__tx"> Location à la journée : 30€</p>
+      </div>
+      <div class="section__location__tarifs__salle">
+        <h3 class="cap"> Salle Caisse de réunion </h3>
+        <hr class="blueline">
+          <p class="section__tarifs__tx"> Location à la demi-journée : 70€</p>
+          <p class="section__tarifs__tx"> Location à la journée : 110€</p>
+      </div>
+    </div>
+</section>
+
 {% endblock %}

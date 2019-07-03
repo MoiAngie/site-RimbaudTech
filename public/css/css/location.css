@@ -1,0 +1,41 @@
+.section__location__desc {
+  padding: 3em; }
+
+.section__location__photos {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center; }
+
+.section__location__tarifs {
+  background-color: #4ab9e4;
+  padding: 2em; }
+  .section__location__tarifs .section__location__tarifs__salles {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; }
+    .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle {
+      flex: 1 1 auto;
+      color: white;
+      text-align: left;
+      color: white;
+      padding-right: 2em;
+      text-align: center; }
+      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .cap {
+        text-transform: uppercase; }
+      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle p {
+        text-align: left;
+        color: white;
+        padding-right: 2em;
+        text-align: center; }
+    .section__location__tarifs .section__location__tarifs__salles .blueline {
+      background-color: #4ab9e4;
+      border: none;
+      margin-left: 0;
+      width: 70%;
+      height: 0.3em;
+      border-radius: 1em;
+      background-color: #c91a5f;
+      width: 30%;
+      text-align: center; }
+
+/*# sourceMappingURL=location.css.map */
