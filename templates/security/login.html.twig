@@ -10,9 +10,9 @@
 
     <h1 class="h3 mb-3 font-weight-normal">Identifiez-vous pour apporter des modifications au site de Rimbaud'Tech</h1>
     <label for="inputUsername" class="sr-only">Nom d'utilisateur</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
     <label for="inputPassword" class="sr-only">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -30,7 +30,7 @@
     #}
 
     <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+        Se connecter
     </button>
 </form>
 {% endblock %}
