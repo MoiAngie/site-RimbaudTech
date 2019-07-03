@@ -30,8 +30,8 @@
   }
   & p {
     @include tarifs;
-    text-align: center;
-  }
+    margin-left: 34%;
+      }
   }
 
   & .blueline {
@@ -39,5 +39,6 @@
   background-color: $dmagenta;
   width: 30%;
   text-align: center;
+  margin-left: 34%;
   }
 }}
