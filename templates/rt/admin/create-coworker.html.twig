@@ -3,7 +3,13 @@
 {% block title %}Ajouter un coworker{% endblock %}
 
 {% block body %}
-<h2>Ajouter un coworker</h2>
+<section class="titre-back-coworking">
+  <h2 class="h2-back">Ajouter un incubé</h2>
+
+  <figure>
+    <img src="{{asset('img/coworking.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
 
 {{ form_start(formCoworker)}}
 <div class="form-group">
