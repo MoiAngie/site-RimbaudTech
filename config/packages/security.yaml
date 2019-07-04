@@ -18,12 +18,19 @@ security:
         main:
             anonymous: true
 
+            logout:
+              path: security_logout
+              target: rt
         admin:
             provider: in_database
 
             form_login:
               login_path: security_login
               check_path: security_login
+
+            logout:
+              path: security_logout
+              target: rt
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
