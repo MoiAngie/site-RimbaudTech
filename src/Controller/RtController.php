@@ -196,7 +196,7 @@ class RtController extends AbstractController
         $manager->persist($article);
         $manager->flush();
 
-        return $this ->redirectToRoute('article', ['id' => $article->getId()]);
+        return $this ->redirectToRoute('validation');
         }
 
         return $this->render('rt/admin/create-article.html.twig', [
