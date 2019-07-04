@@ -10,6 +10,10 @@ h2 {
   }
 }
 
+h2.margin-admin {
+  margin-top: 3em;
+}
+
 .titre-back {
   @include titre-back;
 & .h2-back {
