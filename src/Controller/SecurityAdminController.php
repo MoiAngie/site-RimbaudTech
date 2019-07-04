@@ -16,6 +16,7 @@ use App\Form\RegistrationType;
 
 class SecurityAdminController extends AbstractController
 {
+
   /**
   * @Route("/Inscription", name="security_registration")
   */
@@ -34,6 +35,8 @@ class SecurityAdminController extends AbstractController
 
       $manager->persist($user);
       $manager->flush();
+
+      return $this->redirectToRoute('validation');
     }
     return $this->render('security/registration.html.twig', [
       'form' => $form->createView()

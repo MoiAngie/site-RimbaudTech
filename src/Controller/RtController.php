@@ -232,7 +232,7 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/amin/homeAdmin", name="homeAdmin")
+     * @Route("/rt/admin/homeAdmin", name="homeAdmin")
      */
     public function homeAdmin()
     {
@@ -240,7 +240,15 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/amin/createTarif", name="createTarif")
+     * @Route("/rt/admin/validation", name="validation")
+     */
+    public function validation()
+    {
+        return $this->render('rt/admin/validation.html.twig', [
+        ]);
+    }
+    /**
+     * @Route("/rt/admin/createTarif", name="createTarif")
      */
     public function createTarif()
     {
@@ -248,7 +256,7 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/amin/createPersonnel", name="createPersonnel")
+     * @Route("/rt/admin/createPersonnel", name="createPersonnel")
      */
     public function createPersonnel()
     {
@@ -256,7 +264,7 @@ class RtController extends AbstractController
         ]);
     }
     /**
-     * @Route("/rt/amin/createAccueil", name="createAccueil")
+     * @Route("/rt/admin/createAccueil", name="createAccueil")
      */
     public function createAccueil()
     {
