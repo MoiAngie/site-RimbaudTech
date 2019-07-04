@@ -1,0 +1,90 @@
+@import "colors";
+@import "titraille";
+
+h2 {
+  @include h2h3;
+
+  &:hover {
+    text-decoration: none;
+    color: $dgrey;
+  }
+}
+  /*  galerie des incubés  */
+.bd-hover {
+	background-color: #4ab9e4;
+  width: 60px;
+  height: 40px;
+	border: none;
+  transform: translate(31.8em , -2.7em);
+	opacity: 0;
+	position: absolute;
+	color: #d94865;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding-left: 2em;
+}
+
+.hr-incubes {
+	width: 20%;
+	margin-left: 0;
+	background-color: #d94865;
+	border-bottom: none;
+}
+
+.fas {
+  color: #c91a5f;
+	transform: translate(-1em , -0.1em);
+}
+
+.fas:hover {
+  color: #4ab9e4;
+}
+
+.pad-top10 {
+	padding-top: 10em;
+}
+
+.galerie_incubes {
+  padding: 2em;
+}
+
+/*  processus de sélection  */
+
+.selection {
+  background-color: $logoblue;
+  padding: 2em;
+
+  & .processus {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2em;
+  }
+
+  & .contact, .verification, .preparation, .validation {
+    flex: 1 1 auto;
+    width: 30em;
+  }
+
+  & .icone-processus {
+    margin-left: 5em;
+    z-index: 100;
+  }
+
+  & h3 {
+    color: $dmagenta;
+    text-align: center;
+  }
+
+  & p {
+    color: white;
+    font-size: 1em;
+  }
+}
+
+.dotted-processus {
+  transform: translateY(-20em);
+  border: 0.7em dotted $dmagenta;
+  border-bottom: none;
+  width: 75%;
+  z-index: 0;
+}

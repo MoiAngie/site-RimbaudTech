@@ -4,6 +4,7 @@
 @import "incubation";
 @import "coworking";
 @import "location";
+@import "incubés";
 
 html {
   box-sizing: border-box;
@@ -197,7 +198,7 @@ p {
 }
 
 .dotted {
-  border: 1em dotted $dmagenta;
+  border: 0.7em dotted $dmagenta;
   border-bottom: none;
 }
 

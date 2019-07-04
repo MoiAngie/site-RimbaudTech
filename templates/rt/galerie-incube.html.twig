@@ -3,15 +3,93 @@
 {% block title %}Nos Incubés{% endblock %}
 
 {% block body %}
-<h1>Nos Incubés</h1>
+<h2>Nos Incubés</h2>
 
-<section class="galerie_incubes">
+<!--<section class="galerie_incubes">
   {% for incube in incubes %}
-    <h1>{{incube.name}} {{incube.firstname}}</h1>
+    <h3>{{incube.name}} {{incube.firstname}}</h3>
     <p>{{incube.company}}</p>
     <image src="{{asset (incube.profilpicture)}}" widht="150px" height="150px"/>
     <a href="{{ path('incube', {'id' : incube.id })}}"><button>Afficher le profil ...</button></a>
 
   {% endfor %}
+</section>-->
+<section class="galerie_incubes">
+  {% for incube in incubes %}
+    <img src="{{asset (incube.profilpicture)}}" width="300" height="200">
+    <div id="block" class="bd-hover">
+  		<p class="pad-top10"> {{incube.firstname}} <span class="cap">{{incube.name}}</span></p>
+  		<hr class="hr-incubes">
+  		<p class="cap"> {{incube.company}} </p>
+    </div>
+  	<i id="go" class="fas fa-external-link-square-alt fa-2x"></i>
+
+  {% endfor %}
 </section>
+
+<section class="selection">
+  <h2> Processus de sélection </h2>
+
+  <div class="processus">
+    <figure class="contact">
+      <img class="icone-processus" src={{ asset("img/contact.svg")}} alt="Contact" title="contactez-nous" height="150" width="200">
+      <h3> Vous nous contactez</h3>
+      <p> Vous portez un projet de création d'entreprise innovante dans les Ardennes ? Contactez-nous pour nous présenter votre projet et obtenir plus d'informations sur l'accompagnement qui peut vous être proposé.</p>
+    </figure>
+    <figure class="verification">
+      <img class="icone-processus" src={{ asset("img/check.svg")}} alt="Vérification" title="Vérification" height="150" width="200">
+      <h3> Vérification de l'éligibilité du projet</h3>
+      <p> Nous vérifions que votre projet est éligible au dispositif d'incubation :<br>
+          -Validation du caractère innovant,<br>
+          -Volonté d'implantation sur le territoire,<br>
+          -Forte implication dans le projet.</p>
+    </figure>
+    <figure class="preparation">
+      <img class="icone-processus" src={{ asset("img/verification.svg")}} alt="Préparation" title="Préparation" height="150" width="200">
+      <h3> Pré-incubation</h3>
+      <p> Nous vous accompagnons en vue de vous présenter devant le Comité d'engagement de l'incubateur, lequel décide de l'entrée en incubation de votre projet.</p>
+    </figure>
+    <figure class="validation">
+      <img class="icone-processus" src={{ asset("img/validation.svg")}} alt="Validation" title="validation" height="150" width="200">
+      <h3> Incubation </h3>
+      <p> Vous êtes désormais incubé.</p>
+    </figure>
+  </div>
+
+  <!--<hr class="dotted-processus">-->
+
+  <a href="{{ path('contact')}}" class="section__link">
+    <button class="section__btn" style="background-color:#c91a5f;">
+    Candidatez!
+    </button>
+  </a>
+
+</section>
+
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+$("#go").on({
+mouseover: function(){
+	$("#block").animate({
+			top: '3.1em',
+			left: '-31.2em',
+      height: '+=360px',
+      width: '+=509px',
+		 	opacity: '0.6'
+	}, 1000 );
+},
+mouseleave: function(){
+	$("#block").animate({
+			top: '28em',
+			left: '4em',
+      height: '40px',
+      width: '60px',
+		 	opacity: '0'
+	}, 1000 );
+}
+});
+});
+</script>
+{% endblock %}
 {% endblock %}
