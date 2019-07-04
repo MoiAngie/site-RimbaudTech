@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+/*use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;*/
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class SecurityAdminController extends AbstractController
       $hash = $encoder->encodePassword($user, $user->getPassword());
 
       $user->setPassword($hash);
-      
+
       $manager->persist($user);
       $manager->flush();
     }
@@ -40,15 +40,11 @@ class SecurityAdminController extends AbstractController
     ]);
   }
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/login", name="security_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login()
     {
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig');
     }
 }
