@@ -40,4 +40,8 @@ label {
     text-decoration: underline;
     background-color: #c91a5f; }
 
+/*  page accueil  */
+.back {
+  margin-left: calc( 50% - 400px); }
+
 /*# sourceMappingURL=creation-admin.css.map */

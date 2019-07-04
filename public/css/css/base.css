@@ -5,6 +5,11 @@
   height: auto;
   margin-left: calc(50% - 10em);
   padding: 2em; }
+.presentation .incubateur {
+  margin-left: calc(50% - 150px);
+  border-radius: 2em; }
+.presentation p {
+  margin: 0 10em; }
 
 /*  section video  */
 video {

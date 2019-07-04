@@ -11,7 +11,16 @@
     width: 20em;
     height: auto;
     margin-left: calc(50% - 10em);
-    padding: 2em;
+    padding: 2em ;
+  }
+
+  & .incubateur {
+    margin-left: calc(50% - 150px);
+    border-radius: 2em;
+  }
+
+  & p {
+    margin: 0 10em;
   }
 }
 
