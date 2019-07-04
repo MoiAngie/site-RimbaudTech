@@ -13,12 +13,24 @@ h2 {
   display: flex;
   flex: nowrap;
   margin-top: 1em;
-  align-items: center;
+  align-items: baseline;
   justify-content: center; }
   .titre-back .h2-back {
     color: #585858;
     flex: 0 1 auto; }
   .titre-back .icone-back {
+    flex: 1 1 auto; }
+
+.titre-back-center {
+  display: flex;
+  flex: nowrap;
+  margin-top: 1em;
+  align-items: center;
+  justify-content: center; }
+  .titre-back-center .h2-back {
+    color: #585858;
+    flex: 0 1 auto; }
+  .titre-back-center .icone-back {
     flex: 1 1 auto; }
 
 /*  formulaires  */
@@ -59,5 +71,15 @@ label {
 /*  page accueil  */
 .back {
   margin-left: calc( 50% - 400px); }
+
+/*  boutons de gestion  */
+.btn-back {
+  display: flex;
+  flex-wrap: wrap;
+  transform: translateX(-15em);
+  margin-top: 2em; }
+  .btn-back .btn-admin {
+    flex: 1 1 auto;
+    max-width: 30em; }
 
 /*# sourceMappingURL=creation-admin.css.map */

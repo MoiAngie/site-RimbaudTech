@@ -11,7 +11,13 @@
 {% block body %}
 <form action="{{ path('security_login')}}" method="post">
 
-    <h2>Identifiez-vous pour apporter des modifications au site de Rimbaud'Tech</h2>
+  <section class="titre-back">
+    <h2 class="h2-back">Identifiez-vous pour apporter des modifications au site de Rimbaud'Tech</h2>
+
+    <figure>
+      <img src="{{asset('img/login.svg')}}" class="icone-back" height="100" width="150">
+    </figure>
+  </section>
 
     <div class="form-group">
       <input placeholder="Nom d'Utilisateur" required name="_username"

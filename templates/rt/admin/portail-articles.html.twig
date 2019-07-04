@@ -4,7 +4,23 @@
 
 {% block body %}
 
-<button><a href="{{path('create-article')}}">Créer un article</a></button>
-<button><a href="#">Modifier un article</a></button>
-<button><a href="#">Supprimer un article</a></button>
+<section class="titre-back-center">
+  <h2 class="h2-back">Gérer les articles</h2>
+
+  <figure>
+    <img src="{{asset('img/articles.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<section class="btn-back">
+  <button class="btn-admin">
+    <a href="{{path('create-article')}}">Créer un article</a>
+  </button>
+  <button class="btn-admin">
+    <a href="#">Modifier un article</a>
+  </button>
+  <button class="btn-admin">
+    <a href="#">Supprimer un article</a>
+  </button>
+</section>
 {% endblock %}

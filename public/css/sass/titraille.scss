@@ -38,3 +38,19 @@
   height: 0.3em;
   border-radius: 1em;
 }
+
+@mixin titre-back {
+  display: flex;
+  flex: nowrap;
+  margin-top: 1em;
+  align-items: baseline ;
+  justify-content: center;
+}
+
+@mixin titre-back-center {
+  display: flex;
+  flex: nowrap;
+  margin-top: 1em;
+  align-items: center ;
+  justify-content: center;
+}

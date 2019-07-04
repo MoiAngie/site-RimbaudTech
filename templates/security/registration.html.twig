@@ -4,7 +4,13 @@
 {% endblock %}
 {% block body %}
 
-<h2>Inscription Administrateurs</h2>
+<section class="titre-back-center">
+  <h2 class="h2-back">Inscription Administrateurs</h2>
+
+  <figure>
+    <img src="{{asset('img/admin.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
 {{ form_start(form)}}
 <div class="form-group">
   {{ form_row(form.username, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder' : "Nom d'utilisateur", 'class' : "form-control"}})}}

@@ -11,12 +11,7 @@ h2 {
 }
 
 .titre-back {
-  display: flex;
-  flex: nowrap;
-  margin-top: 1em;
-  align-items: center ;
-  justify-content: center;
-
+  @include titre-back;
 & .h2-back {
     color :$dgrey;
     flex: 0 1 auto;
@@ -26,7 +21,16 @@ h2 {
   }
 }
 
-
+.titre-back-center {
+  @include titre-back-center;
+& .h2-back {
+    color :$dgrey;
+    flex: 0 1 auto;
+  }
+& .icone-back {
+    flex: 1 1 auto;
+  }
+}
 
 /*  formulaires  */
 
@@ -74,4 +78,19 @@ label {
 
 .back {
   margin-left: calc( 50% - 400px);
+}
+
+/*  boutons de gestion  */
+
+.btn-back {
+  display: flex;
+  flex-wrap: wrap;
+  transform: translateX(-15em);
+  margin-top: 2em;
+
+  & .btn-admin {
+    flex: 1 1 auto;
+    max-width: 30em;
+  }
+
 }
