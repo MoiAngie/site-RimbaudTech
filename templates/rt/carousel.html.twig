@@ -50,18 +50,25 @@
     <div id="rev_slider_474_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
 
     <ul>
-    {% for incube in incubes %}
+    {% for incubes in incubes %}
     <!-- SLIDE  -->
-    <li data-index="rs-1636" data-transition="fade" data-slotamount="{{incube.id}}" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="{{asset(incube.profilpicture)}}"  data-rotate="0"  data-saveperformance="off"  data-title="Number {{incube.id}}" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+    <li data-index="rs-1636" data-transition="fade" data-slotamount=""
+    data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default"
+    data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"
+    data-saveperformance="off"  data-title="Number {{incubes.id}}" data-param1=""
+    data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
+    data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
     <!-- MAIN IMAGE -->
-    <img src="{{asset(incube.profilpicture)}}"  alt="{{incube.firstname}}"  data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+    <img src="{{asset(incubes.profilpicture)}}"  alt="{{incubes.firstname}}"
+    data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat"
+    class="rev-slidebg" data-no-retina>
     <!-- LAYERS -->
-    </li>      
+    </li>
     {% endfor %}
     </ul>
     <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
-    </div><!-- END REVOLUTION SLIDER -->
-
+    <!-- END REVOLUTION SLIDER -->
+  </div>
     <script type="text/javascript">
         var tpj=jQuery;
 

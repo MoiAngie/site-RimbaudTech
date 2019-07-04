@@ -1,6 +1,7 @@
 h2 {
   color: #585858;
-  text-align: center; }
+  text-align: center;
+  margin-top: 3em; }
   h2:hover {
     color: #c91a5f;
     text-decoration: underline; }
