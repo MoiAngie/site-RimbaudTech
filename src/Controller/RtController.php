@@ -231,7 +231,14 @@ class RtController extends AbstractController
         return $this->render('rt/contact.html.twig', [
         ]);
     }
-
+    /**
+     * @Route("/rt/amin/homeAdmin", name="homeAdmin")
+     */
+    public function homeAdmin()
+    {
+        return $this->render('rt/admin/homeAdmin.html.twig', [
+        ]);
+    }
     /**
      * @Route("/rt/amin/createTarif", name="createTarif")
      */
