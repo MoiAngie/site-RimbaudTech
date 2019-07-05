@@ -41,9 +41,9 @@ class Contact {
   private $message;
 
   /**
-  *@var Property|null
+  *@var string|null
   */
-  private $property;
+  private $object;
 
 /* Getter et Setter */
 
@@ -82,7 +82,23 @@ class Contact {
     $this->lastname = $lastname;
     return $this;
   }
+  /**
+  *@return null|string
+  */
+  public function getObject(): ?string
+  {
+    return $this->object;
+  }
 
+  /**
+  *@param null|string $lastname
+  *@return Contact
+  */
+  public function setObject(?string $object): Contact
+  {
+    $this->object = $object;
+    return $this;
+  }
   /**
   *@return null|string
   */
