@@ -1,7 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Contact{% endblock %}
+{% block stylesheets %}
+<link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
 
 {% block body %}
-<h1>Nous Contacter</h1>
+<h2>Nous Contacter</h2>
+<section class="contactForm">
+{{ form_start(formContact)}}
+<div class="form-group">
+  {{ form_row(formContact.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Votre Prénom", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formContact.lastname, {'label': 'Nom', 'attr': {'placeholder' : "Votre nom de famille", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formContact.phone, {'label': 'Téléphone', 'attr': {'placeholder' : "Votre numéro de téléphone", 'class' : "form-control"}})}}
+</div><link href="{{asset('css/css/footerless.css')}}" rel="stylesheet" type="text/css">
+<div class="form-group">
+  {{ form_row(formContact.email, {'label': 'Email', 'attr': {'placeholder' : "Votre adresse mail", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formContact.message, {'label': 'Message', 'attr': {'placeholder' : "Votre message", 'class' : "form-control"}})}}
+</div>
+<button type="submit" class="btn-admin">Envoyer</button>
+{{ form_end(formContact)}}
+</section>
+
 {% endblock %}

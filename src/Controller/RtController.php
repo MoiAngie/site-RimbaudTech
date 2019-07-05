@@ -15,7 +15,8 @@ use App\Entity\Articles;
 use App\Repository\ArticlesRepository;
 use App\Entity\Utilisateurs;
 use App\Repository\UtilisateursRepository;
-
+use App\Entity\Contact;
+use App\Form\ContactType;
 class RtController extends AbstractController
 {
     /**
@@ -228,7 +229,12 @@ class RtController extends AbstractController
      */
     public function contact()
     {
+      $contact = new Contact();
+
+      $formContact = $this->createForm(ContactType::class);
+
         return $this->render('rt/contact.html.twig', [
+          'formContact' => $formContact->createView()
         ]);
     }
     /**
