@@ -7,28 +7,18 @@
 <section class="section__portfolio">
   <h2>Rimbaud'Tech <span class="logoblue">|</span> Nos co-workers</h2>
 
+{% for coworker in coworker %}
   <div class="portfolio">
+    
     <figure class="portfolio-ens">
       <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
         <figcaption>Simon Dumas</figcaption>
+        <a href="{{ path('coworker', {'id' : coworker.id })}}">
         <i class="fas fa-external-link-square-alt fa-2x"></i>
-    </figure>
-    <figure class="portfolio-ens">
-      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
-        <figcaption>Simon Dumas</figcaption>
-        <i class="fas fa-external-link-square-alt fa-2x"></i>
-    </figure>
-    <figure class="portfolio-ens">
-      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
-        <figcaption>Simon Dumas</figcaption>
-        <i class="fas fa-external-link-square-alt fa-2x"></i>
-    </figure>
-    <figure class="portfolio-ens">
-      <img src="{{asset('img/simon.jpg')}}" alt="Simon" width="300" height="300">
-        <figcaption>Simon Dumas</figcaption>
-        <i class="fas fa-external-link-square-alt fa-2x"></i>
+      </a>
     </figure>
   </div>
+  {% endfor %}
 </section>
 
 <section class="section__coworking">

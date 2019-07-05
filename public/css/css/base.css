@@ -342,7 +342,7 @@ h2 {
   width: 75%;
   z-index: 0; }
 
-/*  page d'un incubé */
+/*  page d'un incubé ou d'un coworker*/
 .intro {
   display: flex;
   flex-wrap: nowrap;
@@ -363,12 +363,23 @@ h2 {
     border: none;
     transform: translateX(-15em);
     width: 60%; }
+  .intro .intro-hr-cow {
+    background-color: #c91a5f;
+    height: 0.2em;
+    border: none;
+    transform: translateX(-15em);
+    width: 60%; }
 
 /*  dispo galerie petites photos */
 .galerie_incube {
+  background-color: #4ab9e4; }
+
+.galerie_coworker {
+  background-color: #c91a5f; }
+
+.galerie_incube, .galerie_coworker {
   display: flex;
   justify-content: flex-end;
-  background-color: #4ab9e4;
   margin-left: 43%; }
 
 /*  commentaires */
@@ -381,7 +392,12 @@ h2 {
   .comment .comment-hr {
     background-color: #4ab9e4;
     height: 0.2em;
-    border: none;
+    border: none; }
+  .comment .comment-hr-coworker {
+    background-color: #c91a5f;
+    height: 0.2em;
+    border: none; }
+  .comment .comment-hr, .comment .comment-hr-coworker {
     transform: translateX(-38em);
     width: 30%; }
 

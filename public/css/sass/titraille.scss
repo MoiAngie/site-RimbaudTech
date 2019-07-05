@@ -22,6 +22,13 @@
   height: 0.2em;
   border: none;
 }
+
+@mixin hr-coworker {
+  background-color: $dmagenta;
+  height: 0.2em;
+  border: none;
+}
+
 @mixin p {
   text-align: center;
   font-family: 'Sniglet', cursive;
@@ -58,4 +65,16 @@
   margin-top: 1em;
   align-items: center ;
   justify-content: center;
+}
+
+@mixin bouton {
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0 2em;
 }

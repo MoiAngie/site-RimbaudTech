@@ -45,10 +45,12 @@ class RtController extends AbstractController
     /**
      * @Route("/rt/coworking", name="coworking")
      */
-    public function coworking()
+    public function coworking(UtilisateursRepository $repo)
     {
-        return $this->render('rt/co-working.html.twig', [
-        ]);
+      $coworker = $repo->findByStatus("co-worker");
+      return $this->render('rt/co-working.html.twig', [
+        'coworker' =>$coworker
+      ]);
     }
 
     /**
