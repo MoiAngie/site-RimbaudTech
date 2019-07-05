@@ -342,6 +342,68 @@ h2 {
   width: 75%;
   z-index: 0; }
 
+/*  page d'un incubé */
+.intro {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2em 0; }
+  .intro figure {
+    margin-left: 3em;
+    flex: 1 1 auto; }
+  .intro .intro-tx {
+    flex: 1 1 auto;
+    margin-top: 3em; }
+  .intro h2, .intro p {
+    text-align: left; }
+  .intro .cap {
+    text-transform: uppercase; }
+  .intro .intro-hr {
+    background-color: #4ab9e4;
+    height: 0.2em;
+    border: none;
+    transform: translateX(-15em);
+    width: 60%; }
+
+/*  dispo galerie petites photos */
+.galerie_incube {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #4ab9e4;
+  margin-left: 43%; }
+
+/*  commentaires */
+.comment {
+  padding: 2em 5em; }
+  .comment h2, .comment p {
+    text-align: left; }
+  .comment p {
+    font-style: italic; }
+  .comment .comment-hr {
+    background-color: #4ab9e4;
+    height: 0.2em;
+    border: none;
+    transform: translateX(-38em);
+    width: 30%; }
+
+/*  boutons de redirection  */
+.btn-incube {
+  display: flex;
+  justify-content: center;
+  margin: 3em auto; }
+  .btn-incube .btn-admin {
+    background-color: #c91a5f;
+    color: white;
+    width: 10em;
+    border-radius: 2em;
+    height: 3em;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0 2em; }
+    .btn-incube .btn-admin:hover {
+      text-decoration: underline; }
+
 html {
   box-sizing: border-box;
   margin-top: 0; }
