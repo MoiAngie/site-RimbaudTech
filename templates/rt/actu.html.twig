@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Actualités{% endblock %}
+{% block title %}Rimbaud' Tech | Actualités{% endblock %}
 
 {% block body %}
-<h1>Page Actualités</h1>
-<button class="section__btn"><a href="{{ path('create-article')}}">Afficher la page de création des articles</a></button>
+<h2>Actualités</h2>
+
 <section class="liste_articles">
   {% for article in articles %}
     <h2>{{ article.title}}</h2>
@@ -17,6 +17,9 @@
     <a href="{{ path('article', {'id' : article.id })}}"><button>Lire la suite ...</button></a>
 
   {% endfor %}
+</section>
+
+<section class="carousel-actus">
 </section>
 <section class="iframes">
   <h2>Nous suivre sur les réseaux sociaux</h2>
@@ -35,5 +38,8 @@
     data-show-facepile="false"><blockquote cite="https://www.facebook.com/IncubateurRimbaudTech/"
     class="fb-xfbml-parse-ignore">
     <a href="https://www.facebook.com/IncubateurRimbaudTech/">Rimbaud&#039;Tech</a></blockquote></div>
+</section>
+
+<section class="newsletter">
 </section>
 {% endblock %}

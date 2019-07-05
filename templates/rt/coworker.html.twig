@@ -1,12 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page type co-workers{% endblock %}
+{% block title %}Rimbaud' Tech |Co-worker{% endblock %}
 
 {% block body %}
-<h1>{{coworker.name}} {{coworker.firstname}}</h1>
-<p>{{coworker.company}}</p>
-<image src="{{asset (coworker.profilpicture)}}" widht="150px" height="150px"/>
+<section class="intro">
+  <figure>
+    <image src="{{asset (coworker.profilpicture)}}" widht="400" height="400"/>
+  </figure>
+  <div class="intro-tx">
+    <h2 class="cap">{{coworker.name}} {{coworker.firstname}}</h2>
+    <hr class="intro-hr-cow">
+    <h2 class="cap">{{coworker.company}}</h2>
+      <p>{{coworker.description}}</p>
+  </div>
 
-<p>{{coworker.description}}</p>
-<p>{{coworker.comment}}</p>
+</section>
+
+<section class="galerie_coworker">
+
+    <figure>
+      <image src="{{asset (coworker.image1)}}" widht="150" height="150"/>
+    </figure>
+    <figure>
+      <image src="{{asset (coworker.image2)}}" widht="150" height="150"/>
+    </figure>
+    <figure>
+      <image src="{{asset (coworker.image3)}}" widht="150" height="150"/>
+    </figure>
+    <figure>
+      <image src="{{asset (coworker.image4)}}" widht="150" height="150"/>
+    </figure>
+
+</section>
+
+<section class="comment">
+  <h2>Son avis sur Rimbaud' Tech</h2>
+  <hr class="comment-hr-coworker">
+    <p>{{coworker.comment}}</p>
+</section>
+
+<section class="btn-incube">
+  <button class="btn-admin">
+    <a href="{{path('coworking')}}">Voir tous les co-workers</a>
+  </button>
+  <button class="btn-admin">
+    <a href="{{path('contact')}}">Contactez-nous ! </a>
+  </button>
+  <button class="btn-admin">
+    <a href="{{path('incubation')}}">En savoir + sur Rimbaud' tech</a>
+  </button>
+</section>
 {% endblock %}
