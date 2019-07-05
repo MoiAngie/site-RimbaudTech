@@ -1,12 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page type incubé{% endblock %}
+{% block title %}Rimbaud' Tech | Incubé{% endblock %}
 
 {% block body %}
-<h1>{{incube.name}} {{incube.firstname}}</h1>
-<p>{{incube.company}}</p>
-<image src="{{asset (incube.profilpicture)}}" widht="150px" height="150px"/>
 
-<p>{{incube.description}}</p>
-<p>{{incube.comment}}</p>
+<section class="intro">
+  <figure>
+    <image src="{{asset (incube.profilpicture)}}" widht="400" height="400"/>
+  </figure>
+  <div class="intro-tx">
+    <h2 class="cap">{{incube.name}} {{incube.firstname}}</h2>
+    <hr class="intro-hr">
+    <h2 class="cap">{{incube.company}}</h2>
+      <p>{{incube.description}}</p>
+  </div>
+
+</section>
+
+<section class="galerie_incube">
+
+    <figure>
+      <image src="{{asset (incube.image1)}}" widht="150" height="150"/>
+    </figure>
+    <figure>
+      <image src="{{asset (incube.image2)}}" widht="150" height="150"/>
+    </figure>
+    <figure>
+      <image src="{{asset (incube.image3)}}" widht="150" height="150"/>
+    </figure>
+    <figure>
+      <image src="{{asset (incube.image4)}}" widht="150" height="150"/>
+    </figure>
+
+</section>
+
+<section class="comment">
+  <h2>Son avis sur Rimbaud' Tech</h2>
+  <hr class="comment-hr">
+    <p>{{incube.comment}}</p>
+</section>
+
+<section class="btn-incube">
+  <button class="btn-admin">
+    <a href="#">Voir tous les incubés</a>
+  </button>
+  <button class="btn-admin">
+    <a href="{{path('contact')}}">Candidatez ! </a>
+  </button>
+  <button class="btn-admin">
+    <a href="{{path('incubation')}}">Comment devenir incubé?</a>
+  </button>
+</section>
 {% endblock %}

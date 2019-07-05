@@ -17,6 +17,11 @@
   border-radius: 1em;
 }
 
+@mixin hr-incube {
+  background-color: $logoblue;
+  height: 0.2em;
+  border: none;
+}
 @mixin p {
   text-align: center;
   font-family: 'Sniglet', cursive;

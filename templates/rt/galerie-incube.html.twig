@@ -22,7 +22,9 @@
   		<hr class="hr-incubes">
   		<p class="cap"> {{incube.company}} </p>
     </div>
+    <a href="{{ path('incube', {'id' : incube.id })}}">
   	<i id="go" class="fas fa-external-link-square-alt fa-2x"></i>
+  </a>
 
   {% endfor %}
 </section>
