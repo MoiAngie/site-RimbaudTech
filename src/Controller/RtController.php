@@ -89,7 +89,7 @@ class RtController extends AbstractController
       $manager->persist($coworker);
       $manager->flush();
 
-      return $this ->redirectToRoute('coworker', ['id' => $coworker->getId()]);
+      return $this ->redirectToRoute('validation');
       }
 
       return $this->render('rt/admin/create-coworker.html.twig', [
@@ -155,7 +155,7 @@ class RtController extends AbstractController
         $manager->persist($incube);
         $manager->flush();
 
-        return $this ->redirectToRoute('incube', ['id' => $incube->getId()]);
+        return $this ->redirectToRoute('validation');
         }
 
         return $this->render('rt/admin/create-incube.html.twig', [
@@ -196,7 +196,7 @@ class RtController extends AbstractController
         $manager->persist($article);
         $manager->flush();
 
-        return $this ->redirectToRoute('article', ['id' => $article->getId()]);
+        return $this ->redirectToRoute('validation');
         }
 
         return $this->render('rt/admin/create-article.html.twig', [
