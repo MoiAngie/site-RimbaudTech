@@ -6,30 +6,30 @@
 <h2>Actualités</h2>
 
 <section class="liste_articles">
-  {% for article in articles %}
+  {% for article in article %}
     <h2>{{ article.title}}</h2>
     <div class="metadata">
       <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
         à {{ article.createdAt | date('H:i')}}</aside>
     </div>
     <img src="{{ article.image}}"/>
-    <!--  <h5>{{ article.intro | raw }}<h5>
-    <h4>{{ article.subtitle1}}</h4>
-      <p>{{ article.para1 | raw }}</p>
+    <!--  <h5>{{ article.introduction | raw }}<h5>
+    <h4>{{ article.sousTitre1}}</h4>
+      <p>{{ article.paragraphe1 | raw }}</p>
 
     <div class="art-content">
-      <h4>{{ article.subtitle1}}</h4>
-        <p>{{ article.para1 | raw }}</p>
-      <h4>{{ article.subtitle1}}</h4>
-        <p>{{ article.para1 | raw }}</p>
-      <h4>{{ article.subtitle1}}</h4>
-        <p>{{ article.para1 | raw }}</p>
+      <h4>{{ article.sousTitre2}}</h4>
+        <p>{{ article.paragraphe2 | raw }}</p>
+      <h4>{{ article.sousTitre3}}</h4>
+        <p>{{ article.paragraphe3 | raw }}</p>
+      <h4>{{ article.sousTitre4}}</h4>
+        <p>{{ article.paragraphe4 | raw }}</p>
     </div>-->
   {% endfor %}
 </section>
 
 <section class="carousel-actus">
-  <a href="{{ path('article', {'id' : article.id })}}"><button>Lire la suite ...</button></a>
+
 </section>
 <section class="iframes">
   <h2>Nous suivre sur les réseaux sociaux</h2>
