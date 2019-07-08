@@ -14,7 +14,8 @@
 /*  section video  */
 video {
   margin-left: calc(50% - 500px);
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  margin-top: 2em; }
 
 /*  section avantages  */
 .avantages {
@@ -426,7 +427,8 @@ html {
 
 body {
   font-family: 'Muli', sans-serif;
-  margin: 0; }
+  margin: 0;
+  min-height: calc(100vh - 700px); }
 
 a, a:hover {
   text-decoration: none;
@@ -534,6 +536,9 @@ p {
     width: 100%;
     text-align: center; } }
 /*footer*/
+footer {
+  height: 700px; }
+
 .section__contact h2, .section__contact h3 {
   color: #585858;
   text-align: center; }
@@ -593,12 +598,14 @@ p {
 
 .section__footerend {
   background-color: #585858;
-  height: 10em;
+  height: 13em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around; }
+  .section__footerend .section__logoRT {
+    height: 175px; }
   .section__footerend .section__logoRT, .section__footerend .section__footerlinks, .section__footerend .section__socialnetwork {
-    margin: 0 5em; }
+    /*  margin:0 5em;*/ }
     .section__footerend .section__logoRT .fab, .section__footerend .section__footerlinks .fab, .section__footerend .section__socialnetwork .fab {
       color: #4ab9e4;
       margin: 0 0.8em;

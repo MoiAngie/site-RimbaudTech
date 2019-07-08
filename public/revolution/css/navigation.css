@@ -557,10 +557,8 @@ website:    http://www.themepunch.com
   opacity:0;
 }
 
-.erinyen.tparrows:hover .tp-title-wrap{
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  transform: scale(1);
+.erinyen.tparrows:hover {
+  background-color: black;
   opacity:1;
   visibility:visible;
 }
@@ -625,6 +623,7 @@ website:    http://www.themepunch.com
    -webkit-transform:translateX(0px);
   transition-delay: 0.1s;
   opacity:1;
+  color: black !important;
 }
 
 /* BULLETS */

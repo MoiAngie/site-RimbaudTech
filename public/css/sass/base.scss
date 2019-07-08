@@ -15,6 +15,7 @@ html {
 body {
   font-family: 'Muli', sans-serif;
   margin: 0;
+  min-height: calc(100vh - 700px);
 }
 
 a, a:hover {
@@ -153,6 +154,10 @@ p {
 
 /*footer*/
 
+footer {
+  height: 700px;
+}
+
 .section__contact h2, .section__contact h3 {
   @include h2h3;
 }
@@ -218,13 +223,17 @@ p {
 
 .section__footerend {
   background-color: $dgrey;
-  height: 10em;
+  height: 13em;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
 
+  & .section__logoRT {
+    height: 175px;
+  }
+
   & .section__logoRT, .section__footerlinks, .section__socialnetwork {
-    margin:0 5em;
+  /*  margin:0 5em;*/
 
   & .fab {
     color: $logoblue;
