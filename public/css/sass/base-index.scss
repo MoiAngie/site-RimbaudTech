@@ -10,6 +10,7 @@ html {
 body {
   font-family: 'Muli', sans-serif;
   margin: 0;
+  z-index: 1;
 }
 
 a, a:hover {
@@ -17,11 +18,17 @@ a, a:hover {
   color: white;
 }
 
-/* Add a black background color to the top navigation*/
+/* top navigation*/
+
+#myTopnav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 3.5em;
+}
 .topnav {
   background-color: white;
   border-bottom: 0.2em solid $dgrey;
-  overflow: hidden;
   width: 100%;
 
   & img {
@@ -68,6 +75,7 @@ a, a:hover {
     display: none;
     position: absolute;
     background-color: white;
+    top: 4.8em;
     right: 42em;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
