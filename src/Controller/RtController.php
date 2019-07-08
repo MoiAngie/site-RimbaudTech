@@ -21,6 +21,7 @@ class RtController extends AbstractController
 {
     /**
      * @Route("/rt", name="rt")
+     * PAGE ACCUEIL DU SITE
      */
     public function index(UtilisateursRepository $repo, ArticlesRepository $repoA)
     {
@@ -35,15 +36,8 @@ class RtController extends AbstractController
     }
 
     /**
-     * @Route("/rt/incubation", name="incubation")
-     */
-    public function incubation()
-    {
-        return $this->render('rt/incubation.html.twig', [
-        ]);
-    }
-    /**
      * @Route("/rt/coworking", name="coworking")
+     * PAGE PRESENTATION CO-WORKING
      */
     public function coworking(UtilisateursRepository $repo)
     {
@@ -55,6 +49,7 @@ class RtController extends AbstractController
 
     /**
      * @Route("/rt/coworker/{id}", name="coworker")
+     * PAGE TYPE COWORKER (afficher un coworker à la fois)
      */
     public function showcoworkeur(UtilisateursRepository $repo, $id)
     {
@@ -66,6 +61,7 @@ class RtController extends AbstractController
 
     /**
      * @Route("/rt/amin/create-cowork", name="create-cowork")
+     * PAGE AJOUT COWORKER (page admin)
      */
     public function createcowork(Request $request, ObjectManager $manager)
     {
@@ -100,15 +96,37 @@ class RtController extends AbstractController
       ]);
     }
     /**
+     * @Route("/rt/amin/portail-coworker", name="portailCoworker")
+     * PAGE PORTAIL COWORKER
+     */
+    public function portailCoworker()
+    {
+        return $this->render('rt/admin/portail-coworker.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/rt/location", name="location")
+     * PAGE LOCATION DE SALLE
      */
     public function location()
     {
         return $this->render('rt/location.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/rt/incubation", name="incubation")
+     * PAGE PRESENTATION DE L'INCUBATION
+     */
+    public function incubation()
+    {
+        return $this->render('rt/incubation.html.twig', [
+        ]);
+    }
+
     /**
      * @Route("/rt/galerie-incubes", name="galerie-incubes")
+     * PAGE GALLERIE INCUBES
      */
     public function galerie_incubes(UtilisateursRepository $repo)
     {
@@ -120,6 +138,7 @@ class RtController extends AbstractController
 
     /**
      * @Route("/rt/incube/{id}", name="incube")
+     * PAGE TYPE INCUBES (afficher un incube à la fois)
      */
     public function showincube(UtilisateursRepository $repo, $id)
     {
@@ -131,7 +150,7 @@ class RtController extends AbstractController
 
     /**
      * @Route("/rt/admin/create-incube", name="create-incube")
-     * page qui permet d'afficher les articles
+     * PAGE AJOUT D'UN INCUBE (page admin)
      */
     public function createincube(Request $request, ObjectManager $manager)
     {
@@ -166,7 +185,17 @@ class RtController extends AbstractController
         ]);
     }
     /**
+     * @Route("/rt/admin/portail-incubes", name="portailIncubes")
+     * PAGE PORTAIL DES INCUBES (page admin)
+     */
+    public function portailIncubes()
+    {
+        return $this->render('rt/admin/portail-incubes.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/rt/actu", name="actu")
+     * PAGE ACTUALITES
      */
     public function actu(ArticlesRepository $repo)
     {
@@ -178,7 +207,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/admin/create-article", name="create-article")
-     * page qui permet d'afficher les articles
+     * PAGE DE CREATION D'UN ARTICLE (page admin)
      */
     public function createarticle(Request $request, ObjectManager $manager)
     {
@@ -208,7 +237,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/article/{id}", name="article")
-     * page qui permet d'afficher les articles
+     * PAGE D'AFFICHAGE D'UN ARTICLE COMPLET
      */
     public function showarticle(ArticlesRepository $repo, $id)
     {
@@ -220,6 +249,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/amin/portail-articles", name="portailArticles")
+     * PAGE PORTAIL ARTICLE
      */
     public function portailArticles()
     {
@@ -228,6 +258,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/contact", name="contact")
+     * PAGE CONTACT
      */
     public function contact()
     {
@@ -241,6 +272,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/admin/homeAdmin", name="homeAdmin")
+     * ACCUEIL DU PANNEAU D'ADMINISTRATION
      */
     public function homeAdmin()
     {
@@ -249,6 +281,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/admin/validation", name="validation")
+     * PAGE TYPE ACTION REUSSIE
      */
     public function validation()
     {
@@ -257,6 +290,7 @@ class RtController extends AbstractController
     }
     /**
      * @Route("/rt/admin/createTarif", name="createTarif")
+     * PAGE D'AJOUT TARIFS
      */
     public function createTarif()
     {
@@ -264,7 +298,17 @@ class RtController extends AbstractController
         ]);
     }
     /**
+     * @Route("/rt/amin/portail-tarifs", name="portailTarifs")
+     * PAGE PORTAIL DES TARIFS
+     */
+    public function portailTarifs()
+    {
+        return $this->render('rt/admin/portail-tarifs.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/rt/admin/createPersonnel", name="createPersonnel")
+     * PAGE D'AJOUT D'UN MEMBRE DU PERSONNEL
      */
     public function createPersonnel()
     {
@@ -272,7 +316,17 @@ class RtController extends AbstractController
         ]);
     }
     /**
+     * @Route("/rt/amin/portail-personnel", name="portailPersonnel")
+     * PAGE PORTAIL MEMBRES DE L'EQUIPE
+     */
+    public function portailPersonnel()
+    {
+        return $this->render('rt/admin/portail-personnel.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/rt/admin/createAccueil", name="createAccueil")
+     * PAGE DE MODIFICATION DE LA PAGE D'ACCUEIL 
      */
     public function createAccueil()
     {

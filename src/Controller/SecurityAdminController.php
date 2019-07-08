@@ -42,6 +42,14 @@ class SecurityAdminController extends AbstractController
       'form' => $form->createView()
     ]);
   }
+  /**
+   * @Route("/rt/amin/portail-admin", name="portailAdmin")
+   */
+  public function portailAdmin()
+  {
+      return $this->render('rt/admin/portail-admin.html.twig', [
+      ]);
+  }
     /**
      * @Route("/login", name="security_login")
      */

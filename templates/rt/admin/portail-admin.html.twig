@@ -1,0 +1,26 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Gérer les administrateurs du site{% endblock %}
+
+{% block body %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Gérer les administrateurs du site</h2>
+
+  <figure>
+
+  </figure>
+</section>
+
+<section class="btn-back">
+  <button class="btn-admin">
+    <a href="{{path('security_registration')}}">Inscrire un administrateur</a>
+  </button>
+  <button class="btn-admin">
+    <a href="#">Modifier un administrateur</a>
+  </button>
+  <button class="btn-admin">
+    <a href="#">Supprimer un administrateur</a>
+  </button>
+</section>
+{% endblock %}

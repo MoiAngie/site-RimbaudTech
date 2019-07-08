@@ -2,12 +2,12 @@
 
 {% block title %}Contact{% endblock %}
 {% block stylesheets %}
-<link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block body %}
 <h2>Nous Contacter</h2>
-<section class="contactForm">
+
 {{ form_start(formContact)}}
 <div class="form-group">
   {{ form_row(formContact.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Votre Prénom", 'class' : "form-control"}})}}
@@ -29,6 +29,5 @@
 </div>
 <button type="submit" class="btn-admin">Envoyer</button>
 {{ form_end(formContact)}}
-</section>
 
 {% endblock %}
