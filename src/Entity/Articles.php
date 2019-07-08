@@ -87,7 +87,7 @@ class Articles
     private $paragraphe4;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $valid_until;
 
