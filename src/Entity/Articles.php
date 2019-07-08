@@ -27,11 +27,6 @@ class Articles
     private $author;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $content;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
@@ -116,18 +111,6 @@ class Articles
     public function setAuthor(string $author): self
     {
         $this->author = $author;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
 
         return $this;
     }

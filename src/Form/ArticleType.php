@@ -28,7 +28,6 @@ class ArticleType extends AbstractType
           ->add('paragraphe3', TextareaType::class)
           ->add('sousTitre4', TextType::class)
           ->add('paragraphe4', TextareaType::class)
-          ->add('dateFin')
       ;
   }
 
