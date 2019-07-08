@@ -15,8 +15,8 @@ use App\Entity\Articles;
 use App\Repository\ArticlesRepository;
 use App\Entity\Utilisateurs;
 use App\Repository\UtilisateursRepository;
-use App\Entity\Contact;
-use App\Form\ContactType;
+
+use App\Form\ArticleType;
 class AdminController extends AbstractController
 {
   /**
@@ -159,18 +159,13 @@ class AdminController extends AbstractController
    */
   public function createarticle(Request $request, ObjectManager $manager)
   {
-      $article = new Articles;
+      $article = new Articles();
 
-      $form = $this->createFormBuilder($article)
-                    ->add ('title')
-                    ->add ('author')
-                    ->add ('content')
-                    ->add ('image')
-                    ->getForm();
+      $formArticle = $this->createForm(ArticleType::class);
 
-      $form->handleRequest($request);
+      $formArticle->handleRequest($request);
 
-      if($form->isSubmitted() && $form->isValid()){
+      if($formArticle->isSubmitted() && $formArticle->isValid()){
       $article->setCreatedAt(new \DateTime());
 
       $manager->persist($article);
@@ -180,7 +175,7 @@ class AdminController extends AbstractController
       }
 
       return $this->render('rt/admin/create-article.html.twig', [
-        'formArticle' => $form->createView()
+        'formArticle' => $formArticle->createView()
       ]);
   }
 
