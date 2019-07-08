@@ -48,6 +48,9 @@
 <div class="form-group">
   {{ form_row(formArticle.paragraphe4, {'label': 'Paragraphe 4', 'attr': {'placeholder' : "Paragraphe 4", 'class' : "form-control"}})}}
 </div>
+<div class="form-group">
+  {{ form_row(formArticle.dateFin, {'label': 'Validité jusqu\'au :, 'attr': {'placeholder' : "Validité jusqu\'au :", 'class' : "form-control"}})}}
+</div>
 <button type="submit" class="btn-admin">Publier</button>
 {{ form_end(formArticle)}}
 
