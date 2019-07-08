@@ -9,17 +9,27 @@
   {% for article in articles %}
     <h2>{{ article.title}}</h2>
     <div class="metadata">
-      <p>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
-        à {{ article.createdAt | date('H:i')}}</p>
+      <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
+        à {{ article.createdAt | date('H:i')}}</aside>
     </div>
     <img src="{{ article.image}}"/>
-    {{ article.content | raw }}
-    <a href="{{ path('article', {'id' : article.id })}}"><button>Lire la suite ...</button></a>
+    <!--  <h5>{{ article.intro | raw }}<h5>
+    <h4>{{ article.subtitle1}}</h4>
+      <p>{{ article.para1 | raw }}</p>
 
+    <div class="art-content">
+      <h4>{{ article.subtitle1}}</h4>
+        <p>{{ article.para1 | raw }}</p>
+      <h4>{{ article.subtitle1}}</h4>
+        <p>{{ article.para1 | raw }}</p>
+      <h4>{{ article.subtitle1}}</h4>
+        <p>{{ article.para1 | raw }}</p>
+    </div>-->
   {% endfor %}
 </section>
 
 <section class="carousel-actus">
+  <a href="{{ path('article', {'id' : article.id })}}"><button>Lire la suite ...</button></a>
 </section>
 <section class="iframes">
   <h2>Nous suivre sur les réseaux sociaux</h2>
