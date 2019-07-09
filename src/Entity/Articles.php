@@ -47,7 +47,7 @@ class Articles
     private $sousTitre1;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $paragraphe1;
 

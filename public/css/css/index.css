@@ -16,7 +16,8 @@ video {
   margin-left: calc(50% - 500px);
   margin-bottom: 2em;
   margin-top: 2em;
-  border-style: solid;
+  border-width: 0.5em;
+  border-style: inset;
   border-color: #4ab9e4 #4ab9e4 #c91a5f #c91a5f; }
 
 /*  section avantages  */
