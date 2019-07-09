@@ -30,3 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
       function closeModal() {
           document.getElementById("modal").style.top = "-780px";
       }
+
+/* Pour la chatbox */
+window.$crisp=[];
+window.CRISP_WEBSITE_ID="cc672de0-4ec8-4d94-88d0-6bc39ed6b8f3";
+(function(){d=document;s=d.createElement("script");
+s.src="https://client.crisp.chat/l.js";
+s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
