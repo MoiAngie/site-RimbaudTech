@@ -26,7 +26,7 @@ class RtController extends AbstractController
     public function index(UtilisateursRepository $repo, ArticlesRepository $repoA)
     {
         $incubes = $repo->findByStatus("Incubé");
-        $article = $repoA->findAll();
+        $article = $repoA->findArticleIndex();
 
         return $this->render('rt/index.html.twig', [
             'controller_name' => 'RtController',

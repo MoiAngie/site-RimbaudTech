@@ -33,6 +33,16 @@ class ArticlesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findArticleIndex()
+    {
+
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Articles
     {
