@@ -111,7 +111,7 @@ class RtController extends AbstractController
     {
 
         $article = $repo->findArticleActu();
-        $article2 = $repoA->findAll();
+        $article2 = $repo->findAll();
         return $this->render('rt/actu.html.twig', [
           'article' =>$article
         ]);
