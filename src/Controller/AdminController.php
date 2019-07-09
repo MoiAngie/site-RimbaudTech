@@ -177,8 +177,8 @@ class AdminController extends AbstractController
           ->getRepository(Articles::class)
           ->findAll());
       $title = 'image'.$id;
-      $image->move('img', $title.'.'.$extension);
-      $article->setImage('img/'.$title.'.'.$extension);
+      $image->move('img/articles', $title.'.'.$extension);
+      $article->setImage('img/articles/'.$title.'.'.$extension);
       $manager->persist($article);
       $manager->flush();
 
