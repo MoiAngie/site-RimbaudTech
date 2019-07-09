@@ -17,8 +17,11 @@
       <h5>{{ article.introduction | raw }}<h5>
       <h4>{{ article.sousTitre1}}</h4>
         <p>{{ article.paragraphe1 | raw }}</p>
+        <span class="collapsible"></span>
+
 
       <div class="art-content">
+
         <h4>{{ article.sousTitre2}}</h4>
           <p>{{ article.paragraphe2 | raw }}</p>
         <h4>{{ article.sousTitre3}}</h4>
@@ -27,7 +30,7 @@
           <p>{{ article.paragraphe4 | raw }}</p>
       </div>
     </div>
-
+    <br/>
     <hr class="dotted">
   {% endfor %}
 </section>
@@ -36,7 +39,9 @@
 
 </section>
 <section class="iframes">
-  <h2>Nous suivre sur les réseaux sociaux</h2>
+  <h2>Suivez-nous sur les réseaux sociaux</h2>
+
+  <div class="iframes">
   <!-- Iframe Twitter -->
     <a class="twitter-timeline" data-theme="dark"
     href="https://twitter.com/rimbaud_tec?ref_src=twsrc%5Etfw"
@@ -52,8 +57,27 @@
     data-show-facepile="false"><blockquote cite="https://www.facebook.com/IncubateurRimbaudTech/"
     class="fb-xfbml-parse-ignore">
     <a href="https://www.facebook.com/IncubateurRimbaudTech/">Rimbaud&#039;Tech</a></blockquote></div>
+  </div>
 </section>
 
 <section class="newsletter">
 </section>
+{% endblock %}
+{% block javascripts %}
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
 {% endblock %}

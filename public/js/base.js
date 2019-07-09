@@ -37,3 +37,20 @@ window.CRISP_WEBSITE_ID="cc672de0-4ec8-4d94-88d0-6bc39ed6b8f3";
 (function(){d=document;s=d.createElement("script");
 s.src="https://client.crisp.chat/l.js";
 s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+
+/* pour le collapse des articles  */
+
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }

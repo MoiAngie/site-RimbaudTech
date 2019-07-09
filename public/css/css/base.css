@@ -424,11 +424,13 @@ h2 {
     .btn-incube .btn-admin:hover {
       text-decoration: underline; }
 
+/*  style pour l'affichage des 3 derniers articles  */
 .liste_articles {
   margin: 2em; }
   .liste_articles h2 {
     text-align: left;
-    color: #c91a5f; }
+    color: #c91a5f;
+    font-size: 2em; }
   .liste_articles aside {
     margin-left: 1em;
     font-style: italic;
@@ -439,19 +441,38 @@ h2 {
     max-height: 20em;
     margin-left: 10em;
     margin-top: 1em; }
+  .liste_articles .article-tx {
+    margin: 0 10em 2em 10em; }
   .liste_articles h5 {
     font-weight: 900;
     color: #585858;
     line-height: 1.6;
-    font-size: 1.1em; }
+    font-size: 1.2em; }
   .liste_articles h4 {
-    color: #4ab9e4; }
+    color: #4ab9e4;
+    font-size: 1.4em; }
   .liste_articles p {
     text-align: left;
-    font-size: 1em; }
+    font-size: 1.1em;
+    line-height: 1.6; }
   .liste_articles li {
     color: #585858;
     font-weight: 500; }
+  .liste_articles .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    float: right;
+    background-color: #4ab9e4;
+    padding: 0 0.4em 0.1em 0.4em;
+    border-radius: 47%; }
+  .liste_articles .active:after {
+    content: "\2212"; }
+  .liste_articles .art-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out; }
 
 html {
   box-sizing: border-box;
