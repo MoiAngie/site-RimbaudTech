@@ -13,18 +13,22 @@
         à {{ article.createdAt | date('H:i')}}</aside>
     </div>
     <img src="{{asset(article.image)}}"/>
-    <h5>{{ article.introduction | raw }}<h5>
-    <h4>{{ article.sousTitre1}}</h4>
-      <p>{{ article.paragraphe1 | raw }}</p>
+    <div class="article-tx">
+      <h5>{{ article.introduction | raw }}<h5>
+      <h4>{{ article.sousTitre1}}</h4>
+        <p>{{ article.paragraphe1 | raw }}</p>
 
-    <div class="art-content">
-      <h4>{{ article.sousTitre2}}</h4>
-        <p>{{ article.paragraphe2 | raw }}</p>
-      <h4>{{ article.sousTitre3}}</h4>
-        <p>{{ article.paragraphe3 | raw }}</p>
-      <h4>{{ article.sousTitre4}}</h4>
-        <p>{{ article.paragraphe4 | raw }}</p>
+      <div class="art-content">
+        <h4>{{ article.sousTitre2}}</h4>
+          <p>{{ article.paragraphe2 | raw }}</p>
+        <h4>{{ article.sousTitre3}}</h4>
+          <p>{{ article.paragraphe3 | raw }}</p>
+        <h4>{{ article.sousTitre4}}</h4>
+          <p>{{ article.paragraphe4 | raw }}</p>
+      </div>
     </div>
+
+    <hr class="dotted">
   {% endfor %}
 </section>
 

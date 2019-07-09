@@ -1,0 +1,44 @@
+@import "colors";
+@import "titraille";
+
+.liste_articles {
+  margin: 2em;
+  & h2{
+    text-align: left;
+    color: $dmagenta;
+  }
+  & aside {
+    margin-left: 1em;
+    font-style: italic;
+    color: $dgrey;
+    font-size: 1em;
+  }
+
+  & img {
+    width: auto;
+    max-height: 20em;
+    margin-left: 10em;
+    margin-top: 1em;
+  }
+
+  & h5 {
+    font-weight: 900;
+    color: $dgrey;
+    line-height: 1.6;
+    font-size: 1.1em;
+  }
+
+  & h4 {
+    color: $logoblue;
+  }
+
+  & p {
+    text-align: left;
+    font-size: 1em;
+  }
+
+  & li {
+    color: $dgrey;
+    font-weight: 500;
+  }
+}

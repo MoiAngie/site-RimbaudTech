@@ -1,3 +1,30 @@
-
+.liste_articles {
+  margin: 2em; }
+  .liste_articles h2 {
+    text-align: left;
+    color: #c91a5f; }
+  .liste_articles aside {
+    margin-left: 1em;
+    font-style: italic;
+    color: #585858;
+    font-size: 1em; }
+  .liste_articles img {
+    width: auto;
+    max-height: 20em;
+    margin-left: 10em;
+    margin-top: 1em; }
+  .liste_articles h5 {
+    font-weight: 900;
+    color: #585858;
+    line-height: 1.6;
+    font-size: 1.1em; }
+  .liste_articles h4 {
+    color: #4ab9e4; }
+  .liste_articles p {
+    text-align: left;
+    font-size: 1em; }
+  .liste_articles li {
+    color: #585858;
+    font-weight: 500; }
 
 /*# sourceMappingURL=actualites.css.map */
