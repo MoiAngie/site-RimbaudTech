@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*  style pour l'affichage des 3 derniers articles  */
 .liste_articles {
   margin: 2em; }
@@ -47,5 +48,21 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out; }
+
+/*  pour les iframes des réseaux sociaux  */
+.iframes {
+  background-color: #4ab9e4;
+  padding: 2em 0; }
+
+.twitter-timeline {
+  width: 20em;
+  height: 45em;
+  margin-left: 15em; }
+
+.iframe-fb {
+  float: right;
+  border-radius: 2em; }
+  .iframe-fb .fb-page {
+    margin-right: 25em; }
 
 /*# sourceMappingURL=actualites.css.map */

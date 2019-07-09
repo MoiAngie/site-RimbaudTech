@@ -72,3 +72,26 @@
   transition: max-height 0.2s ease-out;
 }
 }
+
+
+/*  pour les iframes des réseaux sociaux  */
+
+.iframes {
+  background-color: $logoblue;
+  padding: 2em 0;
+}
+
+.twitter-timeline {
+  width: 20em;
+  height: 45em;
+  margin-left: 15em;
+}
+
+.iframe-fb {
+  float: right;
+  border-radius: 2em;
+
+  & .fb-page {
+    margin-right: 25em;
+  }
+}
