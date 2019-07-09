@@ -12,8 +12,8 @@
       <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
         à {{ article.createdAt | date('H:i')}}</aside>
     </div>
-    <img src="{{ article.image}}"/>
-    <!--  <h5>{{ article.introduction | raw }}<h5>
+    <img src="{{asset(article.image)}}"/>
+    <h5>{{ article.introduction | raw }}<h5>
     <h4>{{ article.sousTitre1}}</h4>
       <p>{{ article.paragraphe1 | raw }}</p>
 
@@ -24,7 +24,7 @@
         <p>{{ article.paragraphe3 | raw }}</p>
       <h4>{{ article.sousTitre4}}</h4>
         <p>{{ article.paragraphe4 | raw }}</p>
-    </div>-->
+    </div>
   {% endfor %}
 </section>
 

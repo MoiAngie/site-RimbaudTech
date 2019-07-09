@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\Entity\Articles;
 use App\Entity\Utilisateurs;
@@ -166,7 +167,18 @@ class AdminController extends AbstractController
 
       if($formArticle->isSubmitted() && $formArticle->isValid()){
       $article->setCreatedAt(new \DateTime());
-
+      $image = $formArticle['image']->getData();
+      $extension = $image->guessExtension();
+        if (!$extension) {
+          // extension cannot be guessed
+          $extension = 'bin';
+        }
+      $id = sizeof($this->getDoctrine()
+          ->getRepository(Articles::class)
+          ->findAll());
+      $title = 'image'.$id;
+      $image->move('img', $title.'.'.$extension);
+      $article->setImage('img/'.$title.'.'.$extension);
       $manager->persist($article);
       $manager->flush();
 
