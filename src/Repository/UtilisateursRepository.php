@@ -6,6 +6,8 @@ use App\Entity\Utilisateurs;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+
 /**
  * @method Utilisateurs|null find($id, $lockMode = null, $lockVersion = null)
  * @method Utilisateurs|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +20,7 @@ class UtilisateursRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Utilisateurs::class);
     }
-
+    
     // /**
     //  * @return Utilisateurs[] Returns an array of Utilisateurs objects
     //  */

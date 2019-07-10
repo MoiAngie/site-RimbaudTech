@@ -1,0 +1,23 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Supprimer un utilisateur{% endblock %}
+
+{% block body %}
+<section class="titre-back-center">
+  <h2 class="h2-back">Supprimer un incubé ou un coworker</h2>
+
+  <figure>
+
+  </figure>
+</section>
+
+<form action="{{ path('remove-utilisateur')}}" method="POST">
+{% for list in list %}
+<input type="checkbox" name="user[]" id="user" value="{{list.id}}">
+{{list.name}}, {{list.firstname}}, {{list.company}}, {{list.status}}
+</br>
+</input>
+{% endfor %}
+<button type="submit" class="btn-admin">Supprimer</button>
+</form>
+{% endblock %}

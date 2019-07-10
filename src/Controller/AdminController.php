@@ -42,7 +42,7 @@ class AdminController extends AbstractController
 
   /**
    * @Route("/rt/amin/create-utilisateur", name="create-utilisateur")
-   * PAGE AJOUT COWORKER (page admin)
+   * PAGE AJOUT UTILISATEUR (page admin)
    */
   public function createUtilisateur(Request $request, ObjectManager $manager)
   {
@@ -112,6 +112,28 @@ class AdminController extends AbstractController
       'formUtilisateur' => $formUtilisateur->createView()
     ]);
   }
+
+  /**
+   * @Route("/rt/amin/remove-utilisateur", name="remove-utilisateur")
+   * PAGE SUPPRESSION UTILISATEUR (page admin)
+   */
+   public function removeUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
+   {
+     $list = $repoU->findAll();
+
+     if (isset($_POST['user'])) {
+       foreach ($_POST['user'] as $id) {
+         $user = $repoU->find($id);
+         $manager->remove($user);
+       }
+       $manager->flush();
+       return $this ->redirectToRoute('validation');
+     }
+
+     return $this->render('rt/admin/remove-utilisateur.html.twig', [
+       'list' => $list
+     ]);
+   }
 
   /**
    * @Route("/rt/amin/portail-personnel", name="portailPersonnel")
