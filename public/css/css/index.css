@@ -15,14 +15,10 @@
 video {
   margin-left: calc(50% - 500px);
   margin-bottom: 2em;
-<<<<<<< HEAD
-  margin-top: 2em; }
-=======
   margin-top: 2em;
   border-width: 0.5em;
   border-style: inset;
   border-color: #4ab9e4 #4ab9e4 #c91a5f #c91a5f; }
->>>>>>> 45f0288d8ed0eb71a620ef85259f3a73b3f22753
 
 /*  section avantages  */
 .avantages {
@@ -78,5 +74,11 @@ video {
     padding: 2em;
     margin-left: 2em;
     justify-content: center; }
+
+/*  article dans index  */
+.inter-article {
+  height: 4em;
+  margin: 0;
+  background-color: #c91a5f; }
 
 /*# sourceMappingURL=index.css.map */

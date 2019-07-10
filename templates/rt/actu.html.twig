@@ -3,11 +3,12 @@
 {% block title %}Rimbaud' Tech | Actualités{% endblock %}
 
 {% block body %}
-<h2>Actualités</h2>
+
 
 <section class="liste_articles">
+  <h2>Actualités</h2>
   {% for article in article %}
-    <h2>{{ article.title}}</h2>
+    <h2 class="title-article">{{ article.title}}</h2>
     <div class="metadata">
       <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
         à {{ article.createdAt | date('H:i')}}</aside>
@@ -63,6 +64,9 @@
 </section>
 
 <section class="newsletter">
+  <img src="{{asset('img/newsletter.png')}}" alt="Newsletter" width="567" height="901">
+  <div class="inter-newsletter">
+  </div>
 </section>
 {% endblock %}
 {% block javascripts %}

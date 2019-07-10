@@ -2,7 +2,7 @@
 /*  style pour l'affichage des 3 derniers articles  */
 .liste_articles {
   margin: 2em; }
-  .liste_articles h2 {
+  .liste_articles .title-article {
     text-align: left;
     color: #c91a5f;
     font-size: 2em; }
@@ -64,5 +64,7 @@
   border-radius: 2em; }
   .iframe-fb .fb-page {
     margin-right: 25em; }
+
+/*  pour la newsletter  */
 
 /*# sourceMappingURL=actualites.css.map */

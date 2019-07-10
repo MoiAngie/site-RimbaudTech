@@ -5,7 +5,7 @@
 
 .liste_articles {
   margin: 2em;
-  & h2{
+  & .title-article {
     text-align: left;
     color: $dmagenta;
     font-size: 2em;
@@ -95,3 +95,5 @@
     margin-right: 25em;
   }
 }
+
+/*  pour la newsletter  */

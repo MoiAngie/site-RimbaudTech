@@ -89,18 +89,40 @@
       <a href="{{ path('galerie-incubes')}}"><h2>Nos incubés</h2></a>
 
       {% include 'rt/carousel.html.twig' %}
-
+      <div class="inter-article">
+      </div>
     </section>
-    <section class="index_articles">
+    <section class="liste_articles">
+      <a href="{{ path('actu')}}"><h2>Les actualités de Rimbaud' tech</h2></a>
       {% for article in article %}
-      <h1>{{article.title}}</h1>
+      <h2 class="title-article">{{article.title}}</h2>
       <div class="metadata">
-          <p>Ecrit le {{ article.createdAt | date('d/m/Y')}} par {{article.author}}
-            à {{ article.createdAt | date('H:i')}}</p>
+          <aside>Ecrit le {{ article.createdAt | date('d/m/Y')}} par {{article.author}}
+            à {{ article.createdAt | date('H:i')}}</aside>
       </div>
       <img src="{{ article.image}}"/>
-      </br>
-      <button class="affiche_actu"><a href="{{ path('actu')}}">Afficher la page actualités</a></button>
+      <div class="article-tx">
+        <h5>{{ article.introduction | raw }}<h5>
+        <h4>{{ article.sousTitre1}}</h4>
+          <p>{{ article.paragraphe1 | raw }}</p>
+          <span class="collapsible"></span>
+
+        <div class="art-content">
+          <h4>{{ article.sousTitre2}}</h4>
+            <p>{{ article.paragraphe2 | raw }}</p>
+          <h4>{{ article.sousTitre3}}</h4>
+            <p>{{ article.paragraphe3 | raw }}</p>
+          <h4>{{ article.sousTitre4}}</h4>
+            <p>{{ article.paragraphe4 | raw }}</p>
+        </div>
+        <a href="{{ path('actu')}}" class="section__link">
+          <button class="section__btn" style="background-color:#c91a5f;">
+          Voir tous nos articles
+          </button>
+        </a>
+      </div>
       {% endfor %}
     </section>
+    <div class="inter-article">
+    </div>
 {% endblock %}

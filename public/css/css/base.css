@@ -75,6 +75,12 @@ video {
     margin-left: 2em;
     justify-content: center; }
 
+/*  article dans index  */
+.inter-article {
+  height: 4em;
+  margin: 0;
+  background-color: #c91a5f; }
+
 html {
   overflow-x: hidden; }
 
@@ -427,7 +433,7 @@ h2 {
 /*  style pour l'affichage des 3 derniers articles  */
 .liste_articles {
   margin: 2em; }
-  .liste_articles h2 {
+  .liste_articles .title-article {
     text-align: left;
     color: #c91a5f;
     font-size: 2em; }
@@ -490,6 +496,7 @@ h2 {
   .iframe-fb .fb-page {
     margin-right: 25em; }
 
+/*  pour la newsletter  */
 html {
   box-sizing: border-box;
   margin-top: 0; }
