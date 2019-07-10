@@ -41,9 +41,9 @@ class RtController extends AbstractController
      */
     public function coworking(UtilisateursRepository $repo)
     {
-      $coworker = $repo->findByStatus("co-worker");
+      $utilisateur = $repo->findByStatus("co-worker");
       return $this->render('rt/co-working.html.twig', [
-        'coworker' =>$coworker
+        'utilisateur' =>$utilisateur
       ]);
     }
 

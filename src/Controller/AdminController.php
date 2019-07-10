@@ -8,14 +8,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\Entity\Articles;
 use App\Entity\Utilisateurs;
 use App\Repository\ArticlesRepository;
 use App\Repository\UtilisateursRepository;
-
 use App\Form\ArticleType;
+use App\Form\UtilisateursType;
 
 class AdminController extends AbstractController
 {
@@ -92,34 +93,70 @@ class AdminController extends AbstractController
    */
   public function createcowork(Request $request, ObjectManager $manager)
   {
-    $coworker = new Utilisateurs;
+    $utilisateur = new Utilisateurs;
 
-    $form = $this->createFormBuilder($coworker)
-                  ->add ('name')
-                  ->add ('firstname')
-                  ->add ('company')
-                  ->add ('status')
-                  ->add ('profilpicture')
-                  ->add ('image1')
-                  ->add ('image2')
-                  ->add ('image3')
-                  ->add ('image4')
-                  ->add ('description')
-                  ->add ('comment')
-                  ->getForm();
+    $formUtilisateur = $this->createForm(UtilisateursType::class, $utilisateur);
 
-    $form->handleRequest($request);
+    $formUtilisateur->handleRequest($request);
 
-    if($form->isSubmitted() && $form->isValid()){
+    if($formUtilisateur->isSubmitted() && $formUtilisateur->isValid()){
+    $image = $formUtilisateur['profilpicture']->getData();
+    $image1 = $formUtilisateur['image1']->getData();
+    $image2 = $formUtilisateur['image2']->getData();
+    $image3 = $formUtilisateur['image3']->getData();
+    $image4 = $formUtilisateur['image4']->getData();
+    $extension = $image->guessExtension();
+      if (!$extension) {
+        // extension cannot be guessed
+        $extension = 'bin';
+      }
+    $extension1 = $image1->guessExtension();
+      if (!$extension1) {
+        // extension cannot be guessed
+        $extension1 = 'bin';
+      }
+    $extension2 = $image2->guessExtension();
+      if (!$extension2) {
+        // extension cannot be guessed
+        $extension2 = 'bin';
+      }
+    $extension3 = $image3->guessExtension();
+      if (!$extension3) {
+        // extension cannot be guessed
+        $extension3 = 'bin';
+      }
+    $extension4 = $image4->guessExtension();
+      if (!$extension4) {
+        // extension cannot be guessed
+        $extension4 = 'bin';
+      }
+    $id = sizeof($this->getDoctrine()
+        ->getRepository(Utilisateurs::class)
+        ->findAll());
+    $title = 'profilpicture'.$id;
+    $title1 = 'image1'.$id;
+    $title2 = 'image2'.$id;
+    $title3 = 'image3'.$id;
+    $title4 = 'image4'.$id;
 
-    $manager->persist($coworker);
+    $image->move('img/utilisateurs', $title.'.'.$extension);
+    $image1->move('img/utilisateurs', $title1.'.'.$extension1);
+    $image2->move('img/utilisateurs', $title2.'.'.$extension2);
+    $image3->move('img/utilisateurs', $title3.'.'.$extension3);
+    $image4->move('img/utilisateurs', $title4.'.'.$extension4);
+    $utilisateur->setProfilpicture('img/utilisateurs/'.$title.'.'.$extension);
+    $utilisateur->setImage1('img/utilisateurs/'.$title1.'.'.$extension1);
+    $utilisateur->setImage2('img/utilisateurs/'.$title2.'.'.$extension2);
+    $utilisateur->setImage3('img/utilisateurs/'.$title3.'.'.$extension3);
+    $utilisateur->setImage4('img/utilisateurs/'.$title4.'.'.$extension4);
+    $manager->persist($utilisateur);
     $manager->flush();
 
     return $this ->redirectToRoute('validation');
     }
 
     return $this->render('rt/admin/create-coworker.html.twig', [
-      'formCoworker' => $form->createView()
+      'formUtilisateur' => $formUtilisateur->createView()
     ]);
   }
 

@@ -1,51 +1,51 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Ajouter un coworker{% endblock %}
+{% block title %}Ajouter un utilisateur{% endblock %}
 
 {% block body %}
 <section class="titre-back-center">
-  <h2 class="h2-back">Ajouter un coworker</h2>
+  <h2 class="h2-back">Ajouter un incubé ou un coworker</h2>
 
   <figure>
     <img src="{{asset('img/coworking.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
 
-{{ form_start(formCoworker)}}
+{{ form_start(formUtilisateur)}}
 <div class="form-group">
-  {{ form_row(formCoworker.name, {'label': 'Nom', 'attr': {'placeholder' : "Nom de famille du coworker", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.name, {'label': 'Nom', 'attr': {'placeholder' : "Nom de famille du coworker", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom du coworker", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom du coworker", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.company, {'label': 'Société', 'attr': {'placeholder' : "Société du coworker", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.company, {'label': 'Société', 'attr': {'placeholder' : "Société du coworker", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur = Co-worker", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur = Co-worker", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Projet du coworker", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Projet du coworker", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis du coworker sur Rimbaud Tech", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis du coworker sur Rimbaud Tech", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formCoworker.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
+  {{ form_row(formUtilisateur.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Ajouter une image", 'class' : "form-control"}})}}
 </div>
 <button type="submit" class="btn-admin">Publier</button>
-{{ form_end(formCoworker)}}
+{{ form_end(formUtilisateur)}}
 
 {% endblock %}
