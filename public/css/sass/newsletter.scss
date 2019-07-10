@@ -1,0 +1,32 @@
+@import "colors";
+@import "titraille";
+
+/*  pour la newsletter  */
+
+.newsletter {
+  height: auto;
+  width: 100%;
+  margin: 2em auto;
+
+  & .inter-newsletter {
+    background-color: $dmagenta;
+    height: 2em;
+    margin-top: 12em;
+    position: relative;
+    margin-bottom: 3em;
+    color: white;
+    padding: 1em 0 0 50%;
+    font-weight: bold;
+    font-size: 1.8em;
+
+    & a:hover {
+      text-decoration: underline;
+      color: $logoblue;
+    }
+  }
+  & img {
+    position: absolute;
+    top: -11em;
+    left: 15em;
+  }
+}

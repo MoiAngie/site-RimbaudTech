@@ -497,6 +497,28 @@ h2 {
     margin-right: 25em; }
 
 /*  pour la newsletter  */
+.newsletter {
+  height: auto;
+  width: 100%;
+  margin: 2em auto; }
+  .newsletter .inter-newsletter {
+    background-color: #c91a5f;
+    height: 2em;
+    margin-top: 12em;
+    position: relative;
+    margin-bottom: 3em;
+    color: white;
+    padding: 1em 0 0 50%;
+    font-weight: bold;
+    font-size: 1.8em; }
+    .newsletter .inter-newsletter a:hover {
+      text-decoration: underline;
+      color: #4ab9e4; }
+  .newsletter img {
+    position: absolute;
+    top: -11em;
+    left: 15em; }
+
 html {
   box-sizing: border-box;
   margin-top: 0; }
