@@ -25,12 +25,12 @@ class RtController extends AbstractController
      */
     public function index(UtilisateursRepository $repo, ArticlesRepository $repoA)
     {
-        $incubes = $repo->findByStatus("Incubé");
+        $utilisateur = $repo->findByStatus("Incubé");
         $article = $repoA->findArticleIndex();
 
         return $this->render('rt/index.html.twig', [
             'controller_name' => 'RtController',
-            'incubes' =>$incubes,
+            'utilisateur' =>$utilisateur,
             'article' => $article
         ]);
     }
@@ -85,9 +85,9 @@ class RtController extends AbstractController
      */
     public function galerie_incubes(UtilisateursRepository $repo)
     {
-      $incubes = $repo->findByStatus("Incubé");
+      $utilisateur = $repo->findByStatus("Incubé");
       return $this->render('rt/galerie-incube.html.twig', [
-        'incubes' =>$incubes
+        'utilisateur' =>$utilisateur
       ]);
     }
 
