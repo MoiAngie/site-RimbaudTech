@@ -20,9 +20,7 @@
         <p>{{ article.paragraphe1 | raw }}</p>
         <span class="collapsible"></span>
 
-
       <div class="art-content">
-
         <h4>{{ article.sousTitre2}}</h4>
           <p>{{ article.paragraphe2 | raw }}</p>
         <h4>{{ article.sousTitre3}}</h4>
@@ -36,7 +34,12 @@
   {% endfor %}
 </section>
 
-<section class="carousel-actus">
+<section class="direction-articles">
+  <a href="{{ path('articles')}}" class="section__link">
+    <button class="section__btn" style="background-color:#c91a5f;">
+    Lire tous nos articles
+    </button>
+  </a>
 
 </section>
 <section class="iframes">

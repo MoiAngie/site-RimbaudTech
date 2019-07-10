@@ -1,0 +1,44 @@
+@import "colors";
+@import "titraille";
+
+/* pour le résumé de chaque article  */
+
+.resume-art {
+  width: 80%;
+  height: auto;
+  padding: 1em 1em 0 1em;
+  border-left: 1em solid $dmagenta;
+  margin: 0 auto;
+
+  & .title-article {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+    color: $logoblue;
+  }
+
+  & aside {
+    padding-bottom: 0.5em;
+  }
+
+  & h5 {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  & a {
+    color: $dmagenta;
+    text-decoration: underline;
+
+  &:hover {
+    color: $logoblue;
+  }
+
+  &:active {
+    color: $dgrey;
+  }
+}
+
+& .fas {
+  padding-left: 1em;
+}
+}

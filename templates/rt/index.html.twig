@@ -93,11 +93,11 @@
       </div>
     </section>
     <section class="liste_articles">
-      <a href="{{ path('actu')}}"><h2>Les actualités de Rimbaud' tech</h2></a>
+      <a href="{{ path('actu')}}"><h2>La dernière news de Rimbaud' tech</h2></a>
       {% for article in article %}
       <h2 class="title-article">{{article.title}}</h2>
       <div class="metadata">
-          <aside>Ecrit le {{ article.createdAt | date('d/m/Y')}} par {{article.author}}
+          <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
             à {{ article.createdAt | date('H:i')}}</aside>
       </div>
       <img src="{{ article.image}}"/>

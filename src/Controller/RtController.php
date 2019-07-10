@@ -36,6 +36,19 @@ class RtController extends AbstractController
     }
 
     /**
+     * @Route("/rt/articles", name="articles")
+     * PAGE AVEC TOUS LES ARTICLES
+     */
+    public function articles(ArticlesRepository $repoAll)
+    {
+        $articles = $repoAll->findAll();
+
+        return $this->render('rt/articles.html.twig', [
+            'articles' =>$articles
+        ]);
+    }
+
+    /**
      * @Route("/rt/coworking", name="coworking")
      * PAGE PRESENTATION CO-WORKING
      */

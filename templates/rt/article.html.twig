@@ -10,7 +10,6 @@
         à {{ article.createdAt | date('H:i')}}</p>
   </div>
   <img src="{{ article.image}}"/>
-  {{ article.content | raw }}
 </section>
 <button class="retour_actu"><a href="{{ path('actu')}}">Retour à la page actualités</a></button>
 {% endblock %}

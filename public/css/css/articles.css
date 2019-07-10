@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* pour le résumé de chaque article  */
+.resume-art {
+  width: 80%;
+  height: auto;
+  padding: 1em 1em 0 1em;
+  border-left: 1em solid #c91a5f;
+  margin: 0 auto; }
+  .resume-art .title-article {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+    color: #4ab9e4; }
+  .resume-art aside {
+    padding-bottom: 0.5em; }
+  .resume-art h5 {
+    font-size: 1em;
+    margin: 0; }
+  .resume-art a {
+    color: #c91a5f;
+    text-decoration: underline; }
+    .resume-art a:hover {
+      color: #4ab9e4; }
+    .resume-art a:active {
+      color: #585858; }
+  .resume-art .fas {
+    padding-left: 1em; }
+
+/*# sourceMappingURL=articles.css.map */
