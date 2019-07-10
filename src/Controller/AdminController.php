@@ -31,67 +31,20 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/admin/portail-incubes", name="portailIncubes")
-   * PAGE PORTAIL DES INCUBES (page admin)
-   */
-  public function portailIncubes()
-  {
-      return $this->render('rt/admin/portail-incubes.html.twig', [
-      ]);
-  }
-
-  /**
-   * @Route("/rt/admin/create-incube", name="create-incube")
-   * PAGE AJOUT D'UN INCUBE (page admin)
-   */
-  public function createincube(Request $request, ObjectManager $manager)
-  {
-      $incube = new Utilisateurs;
-
-      $form = $this->createFormBuilder($incube)
-                    ->add ('name')
-                    ->add ('firstname')
-                    ->add ('company')
-                    ->add ('status')
-                    ->add ('profilpicture')
-                    ->add ('image1')
-                    ->add ('image2')
-                    ->add ('image3')
-                    ->add ('image4')
-                    ->add ('description')
-                    ->add ('comment')
-                    ->getForm();
-
-      $form->handleRequest($request);
-
-      if($form->isSubmitted() && $form->isValid()){
-
-      $manager->persist($incube);
-      $manager->flush();
-
-      return $this ->redirectToRoute('validation');
-      }
-
-      return $this->render('rt/admin/create-incube.html.twig', [
-        'formIncube' => $form->createView()
-      ]);
-  }
-
-  /**
-   * @Route("/rt/amin/portail-coworker", name="portailCoworker")
+   * @Route("/rt/amin/portail-utilisateurs", name="portailUtilisateurs")
    * PAGE PORTAIL COWORKER
    */
-  public function portailCoworker()
+  public function portailUtilisateurs()
   {
-      return $this->render('rt/admin/portail-coworker.html.twig', [
+      return $this->render('rt/admin/portail-utilisateurs.html.twig', [
       ]);
   }
 
   /**
-   * @Route("/rt/amin/create-cowork", name="create-cowork")
+   * @Route("/rt/amin/create-utilisateur", name="create-utilisateur")
    * PAGE AJOUT COWORKER (page admin)
    */
-  public function createcowork(Request $request, ObjectManager $manager)
+  public function createUtilisateur(Request $request, ObjectManager $manager)
   {
     $utilisateur = new Utilisateurs;
 
@@ -155,7 +108,7 @@ class AdminController extends AbstractController
     return $this ->redirectToRoute('validation');
     }
 
-    return $this->render('rt/admin/create-coworker.html.twig', [
+    return $this->render('rt/admin/create-utilisateur.html.twig', [
       'formUtilisateur' => $formUtilisateur->createView()
     ]);
   }
