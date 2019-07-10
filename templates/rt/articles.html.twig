@@ -15,10 +15,16 @@
       </aside>
     </div>
     <h5>{{ article.introduction | raw }}<h5>
-      <a href="{{ path('article', {'id' : article.id })}}"> <i class="fas fa-plus-circle"></i>Lire la suite de cet article...</a>
+      <a href="{{ path('article', {'id' : article.id })}}"><i class="fas fa-plus-circle"></i>Lire la suite de cet article...</a>
   </div>
 
 
 {% endfor %}
 </section>
+
+<a href="{{ path('actu')}}" class="section__link">
+  <button class="section__btn" style="background-color:#c91a5f;">
+  Revenir aux actualités
+  </button>
+</a>
 {% endblock %}

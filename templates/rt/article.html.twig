@@ -3,13 +3,33 @@
 {% block title %}Page type articles{% endblock %}
 
 {% block body %}
-<section class="article_show">
-  <h1>{{article.title}}</h1>
+<section class="liste_articles">
+  <h2 class="title-article">{{ article.title}}</h2>
   <div class="metadata">
-      <p>Ecrit le {{ article.createdAt | date('d/m/Y')}} par {{article.author}}
-        à {{ article.createdAt | date('H:i')}}</p>
+    <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
+      à {{ article.createdAt | date('H:i')}}</aside>
   </div>
-  <img src="{{ article.image}}"/>
+  <img src="{{asset(article.image)}}"/>
+  <div class="article-tx">
+    <h5>{{ article.introduction | raw }}<h5>
+    <h4>{{ article.sousTitre1}}</h4>
+      <p>{{ article.paragraphe1 | raw }}</p>
+      <h4>{{ article.sousTitre2}}</h4>
+        <p>{{ article.paragraphe2 | raw }}</p>
+      <h4>{{ article.sousTitre3}}</h4>
+        <p>{{ article.paragraphe3 | raw }}</p>
+      <h4>{{ article.sousTitre4}}</h4>
+        <p>{{ article.paragraphe4 | raw }}</p>
+  </div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+
+
+
+  <a href="{{ path('articles')}}" class="section__link">
+    <button class="section__btn" style="background-color:#c91a5f;">
+    Voir tous nos articles
+    </button>
+  </a>
 </section>
-<button class="retour_actu"><a href="{{ path('actu')}}">Retour à la page actualités</a></button>
 {% endblock %}
