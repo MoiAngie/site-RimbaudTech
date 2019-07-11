@@ -114,6 +114,19 @@ class AdminController extends AbstractController
   }
 
   /**
+   * @Route("/rt/amin/modify-utilisateur", name="modify-utilisateur")
+   * PAGE MODIFICATION UTILISATEURS (page admin)
+   */
+   public function modifyUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
+   {
+     $list = $repoU->findAll();
+
+     return $this->render('rt/admin/modify-utilisateur.html.twig', [
+       'list' => $list
+     ]);
+   }
+
+  /**
    * @Route("/rt/amin/remove-utilisateur", name="remove-utilisateur")
    * PAGE SUPPRESSION UTILISATEUR (page admin)
    */
@@ -201,6 +214,19 @@ class AdminController extends AbstractController
         'formArticle' => $formArticle->createView()
       ]);
   }
+
+  /**
+   * @Route("/rt/amin/modify-article", name="modify-article")
+   * PAGE MODIFICATION ARTICLES (page admin)
+   */
+   public function modifyArticle(Request $request, ObjectManager $manager,ArticlesRepository $repoA)
+   {
+     $list = $repoA->findAll();
+
+     return $this->render('rt/admin/modify-article.html.twig', [
+       'list' => $list
+     ]);
+   }
 
   /**
    * @Route("/rt/amin/remove-article", name="remove-article")
