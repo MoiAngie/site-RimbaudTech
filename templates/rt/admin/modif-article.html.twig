@@ -10,10 +10,46 @@
 
   </figure>
 </section>
-{{form_start(formArticle)}}
-{{form_widget(formArticle)}}
-{{form_end(formArticle)}}
-
+{{ form_start(formArticle)}}
+<div class="form-group">
+  {{ form_row(formArticle.title, {'label': 'Titre', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.author, {'label': 'Auteur', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.image, {'label': 'Image', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.introduction, {'label': 'Introduction', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.sousTitre1, {'label': 'Sous-Titre 1', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.paragraphe1, {'label': 'Paragraphe 1', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.sousTitre2, {'label': 'Sous-Titre 2', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.paragraphe2, {'label': 'Paragraphe 2', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.sousTitre3, {'label': 'Sous-Titre 3', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.paragraphe3, {'label': 'Paragraphe 3', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.sousTitre4, {'label': 'Sous-Titre 4', 'class' : "form-control"})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.paragraphe4, {'label': 'Paragraphe 4', 'class' : "form-control"})}}
+</div>
 <button type="submit" class="btn-admin">Modifier</button>
-</form>
+{{ form_end(formArticle)}}
+
+
+
 {% endblock %}

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -252,12 +253,30 @@ class AdminController extends AbstractController
     * @Route("/rt/admin/modif-article/{id}", name="modif-article")
     * PAGE TYPE MODIFICATION ARTICLES (page admin)
     */
-    public function modifArticle(Articles $article, Request $request, ObjectManager $manager, $id)
+    public function modifArticle(Articles $article, Request $request, ObjectManager $manager)
     {
+      $formArticle = $this->createFormBuilder($article)
+                    ->add('title')
+                    ->add('author')
+                    ->add('image')
+                    ->add('introduction')
+                    ->add('sousTitre1')
+                    ->add('paragraphe1')
+                    ->add('sousTitre2')
+                    ->add('paragraphe2')
+                    ->add('sousTitre3')
+                    ->add('paragraphe3')
+                    ->add('sousTitre4')
+                    ->add('paragraphe4')
+                    ->getForm();
 
-      $formArticle = $this->createForm(ArticleType::class);
       $formArticle->handleRequest($request);
 
+      if($formArticle->isSubmitted() && $formArticle->isValid()){
+      $manager->persist($article);
+      $manager->flush();
+      return $this->redirectToRoute('validation');
+      }
       return $this->render('rt/admin/modif-article.html.twig', [
         'formArticle' => $formArticle->createView()
       ]);
