@@ -234,8 +234,17 @@ class AdminController extends AbstractController
    {
      $list = $repoA->findAll();
 
+     if (isset($_POST['article'])) {
+       foreach ($_POST['article'] as $id) {
+         $number = $repoA->find($id);
+         $manager->persist($number);
+       }
+       $manager->flush();
+       return $this ->redirect('modif-article/'.$id);
+     }
+
      return $this->render('rt/admin/modify-article.html.twig', [
-       'list' => $list
+       'list' => $list,
      ]);
    }
 
@@ -243,10 +252,10 @@ class AdminController extends AbstractController
     * @Route("/rt/admin/modif-article/{id}", name="modif-article")
     * PAGE TYPE MODIFICATION ARTICLES (page admin)
     */
-    public function modifArticle(Articles $article, Request $request, ObjectManager $manager)
+    public function modifArticle(Articles $article, Request $request, ObjectManager $manager, $id)
     {
 
-      $formArticle = $this->createForm(ArticleType::class, $id);
+      $formArticle = $this->createForm(ArticleType::class);
       $formArticle->handleRequest($request);
 
       return $this->render('rt/admin/modif-article.html.twig', [
