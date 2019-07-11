@@ -3,31 +3,60 @@
 {% block title %}Contact{% endblock %}
 {% block stylesheets %}
 <link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css"/>
+<link href="{{asset('css/css/contact.css')}}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block body %}
 <h2>Nous Contacter</h2>
+<article class="page-contact">
+  <section class="map">
 
-{{ form_start(formContact)}}
-<div class="form-group">
-  {{ form_row(formContact.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Votre Prénom", 'class' : "form-control"}})}}
-</div>
-<div class="form-group">
-  {{ form_row(formContact.lastname, {'label': 'Nom', 'attr': {'placeholder' : "Votre nom de famille", 'class' : "form-control"}})}}
-</div>
-<div class="form-group">
-  {{ form_row(formContact.phone, {'label': 'Téléphone', 'attr': {'placeholder' : "Votre numéro de téléphone", 'class' : "form-control"}})}}
-</div>
-<div class="form-group">
-  {{ form_row(formContact.email, {'label': 'Email', 'attr': {'placeholder' : "Votre adresse mail", 'class' : "form-control"}})}}
-</div>
-<div class="form-group">
-  {{ form_row(formContact.object, {'label': 'Objet', 'attr': {'placeholder' : "Objet de votre message", 'class' : "form-control"}})}}
-</div>
-<div class="form-group">
-  {{ form_row(formContact.message, {'label': 'Message', 'attr': {'placeholder' : "Votre message", 'class' : "form-control"}})}}
-</div>
-<button type="submit" class="btn-admin">Envoyer</button>
-{{ form_end(formContact)}}
+    <iframe src="https://www.google.com/maps/d/embed?mid=14k8w4lAe9Dq6ob0FBrm-ktDmmBJ3eFEh" width="640" height="480">
+    </iframe>
+  </section>
+  <section class="coordonnees">
 
+        <div class="adresse">
+          <h3>Coordonnées</h3>
+            <p class="contact-data"> Terciarys </p>
+            <p class="contact-data"> 6, place de la Gare </p>
+            <p class="contact-data"> 08000 Charleville-Mézières </p>
+        </div>
+        <div class="openhours">
+          <h3>Horaires d'ouverture</h3>
+            <p class="contact-data"> Du lundi au vendredi </p>
+            <p class="contact-data"> De 9h à 12h </p>
+            <p class="contact-data"> et de 14h à 18h </p>
+        </div>
+        <div class="reach">
+          <h3>Contact</h3>
+            <p class="contact-data"><i class="fas fa-phone"></i> 06 02 72 06 31 </p>
+            <p class="contact-data"><i class="fas fa-envelope"></i> contact@rimbaud-tech.fr </p>
+        </div>
+
+  </section>
+  <section class="form-contact">
+    {{ form_start(formContact)}}
+    <div class="form-group">
+      {{ form_row(formContact.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Votre Prénom", 'class' : "form-control"}})}}
+    </div>
+    <div class="form-group">
+      {{ form_row(formContact.lastname, {'label': 'Nom', 'attr': {'placeholder' : "Votre nom de famille", 'class' : "form-control"}})}}
+    </div>
+    <div class="form-group">
+      {{ form_row(formContact.phone, {'label': 'Téléphone', 'attr': {'placeholder' : "Votre numéro de téléphone", 'class' : "form-control"}})}}
+    </div>
+    <div class="form-group">
+      {{ form_row(formContact.email, {'label': 'Email', 'attr': {'placeholder' : "Votre adresse mail", 'class' : "form-control"}})}}
+    </div>
+    <div class="form-group">
+      {{ form_row(formContact.object, {'label': 'Objet', 'attr': {'placeholder' : "Objet de votre message", 'class' : "form-control"}})}}
+    </div>
+    <div class="form-group">
+      {{ form_row(formContact.message, {'label': 'Message', 'attr': {'placeholder' : "Votre message", 'class' : "form-control"}})}}
+    </div>
+    <button type="submit" class="btn-admin">Envoyer</button>
+    {{ form_end(formContact)}}
+  </section>
+</article>
 {% endblock %}

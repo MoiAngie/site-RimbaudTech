@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/*  grille sur page contact  */
+.page-contact {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
+  margin-top: 4em; }
+  .page-contact .map {
+    padding: 2em; }
+  .page-contact .coordonnees {
+    margin-top: 2em; }
+    .page-contact .coordonnees h3 {
+      text-align: center;
+      color: #4ab9e4; }
+    .page-contact .coordonnees .contact-data {
+      font-size: 1.2em; }
+
+/* footer adapté */
+.section__contact {
+  display: none; }
+
+/*# sourceMappingURL=contact.css.map */
