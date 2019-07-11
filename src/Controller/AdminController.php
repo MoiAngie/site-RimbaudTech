@@ -126,6 +126,19 @@ class AdminController extends AbstractController
      ]);
    }
 
+   /**
+    * @Route("/rt/admin/modif-utilisateur", name="modif-utilisateur")
+    * PAGE MODIFICATION UTILISATEURS (page admin)
+    */
+    public function modifUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
+    {
+      $list = $repoU->findAll();
+
+      return $this->render('rt/admin/modify-utilisateur.html.twig', [
+        'list' => $list
+      ]);
+    }
+
   /**
    * @Route("/rt/admin/remove-utilisateur", name="remove-utilisateur")
    * PAGE SUPPRESSION UTILISATEUR (page admin)
