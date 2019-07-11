@@ -1,7 +1,17 @@
 @import "colors";
 @import "titraille";
 
+/* preloader */
 
+.loader {
+  width: 100%;
+  height: 100vh;
+
+  & img {
+    margin-left: calc(50% - 50px);
+    margin-top: calc(10% - 50px);
+  }
+}
 
 /*  section présentation  */
 

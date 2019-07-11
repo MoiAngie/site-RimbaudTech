@@ -48,3 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
       }
+
+/*  pour le preloader */
+
+$(document).ready(function(){
+   $('.loader').fadeOut(5000);
+});

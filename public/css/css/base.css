@@ -1,4 +1,12 @@
 @charset "UTF-8";
+/* preloader */
+.loader {
+  width: 100%;
+  height: 100vh; }
+  .loader img {
+    margin-left: calc(50% - 50px);
+    margin-top: calc(10% - 50px); }
+
 /*  section présentation  */
 .presentation .presentation__logo {
   width: 20em;
