@@ -1,6 +1,10 @@
 @import "colors";
 @import "titraille";
 
+body {
+  min-height: calc(100vh - 360px);
+}
+
 /*  grille sur page contact  */
 
 .page-contact {
@@ -26,6 +30,9 @@
 }
 
 /* footer adapté */
+footer {
+  height: 360px;
+}
 
 .section__contact {
   display: none;
