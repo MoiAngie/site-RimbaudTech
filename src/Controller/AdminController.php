@@ -31,7 +31,7 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/amin/portail-utilisateurs", name="portailUtilisateurs")
+   * @Route("/rt/admin/portail-utilisateurs", name="portailUtilisateurs")
    * PAGE PORTAIL COWORKER
    */
   public function portailUtilisateurs()
@@ -41,7 +41,7 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/amin/create-utilisateur", name="create-utilisateur")
+   * @Route("/rt/admin/create-utilisateur", name="create-utilisateur")
    * PAGE AJOUT UTILISATEUR (page admin)
    */
   public function createUtilisateur(Request $request, ObjectManager $manager)
@@ -114,7 +114,7 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/amin/modify-utilisateur", name="modify-utilisateur")
+   * @Route("/rt/admin/modify-utilisateur", name="modify-utilisateur")
    * PAGE MODIFICATION UTILISATEURS (page admin)
    */
    public function modifyUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
@@ -126,8 +126,21 @@ class AdminController extends AbstractController
      ]);
    }
 
+   /**
+    * @Route("/rt/admin/modif-utilisateur", name="modif-utilisateur")
+    * PAGE MODIFICATION UTILISATEURS (page admin)
+    */
+    public function modifUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
+    {
+      $list = $repoU->findAll();
+
+      return $this->render('rt/admin/modify-utilisateur.html.twig', [
+        'list' => $list
+      ]);
+    }
+
   /**
-   * @Route("/rt/amin/remove-utilisateur", name="remove-utilisateur")
+   * @Route("/rt/admin/remove-utilisateur", name="remove-utilisateur")
    * PAGE SUPPRESSION UTILISATEUR (page admin)
    */
    public function removeUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
@@ -149,7 +162,7 @@ class AdminController extends AbstractController
    }
 
   /**
-   * @Route("/rt/amin/portail-personnel", name="portailPersonnel")
+   * @Route("/rt/admin/portail-personnel", name="portailPersonnel")
    * PAGE PORTAIL MEMBRES DE L'EQUIPE
    */
   public function portailPersonnel()
@@ -216,7 +229,7 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/amin/modify-article", name="modify-article")
+   * @Route("/rt/admin/modify-article", name="modify-article")
    * PAGE MODIFICATION ARTICLES (page admin)
    */
    public function modifyArticle(Request $request, ObjectManager $manager,ArticlesRepository $repoA)
@@ -229,7 +242,7 @@ class AdminController extends AbstractController
    }
 
   /**
-   * @Route("/rt/amin/remove-article", name="remove-article")
+   * @Route("/rt/admin/remove-article", name="remove-article")
    * PAGE SUPPRESSION ARTICLES (page admin)
    */
    public function removeArticle(Request $request, ObjectManager $manager,ArticlesRepository $repoA)
