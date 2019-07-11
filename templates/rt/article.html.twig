@@ -22,7 +22,7 @@
         <p>{{ article.paragraphe4 | raw }}</p>
   </div>
         <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
+        <a class="next" href="{{asset(new)}}">&#10095;</a>
 
 
 
@@ -32,6 +32,4 @@
     </button>
   </a>
 </section>
-<button><a href="{{asset(new)}}">essai</a></button>
-<button class="retour_actu"><a href="{{ path('actu')}}">Retour à la page actualités</a></button>
 {% endblock %}
