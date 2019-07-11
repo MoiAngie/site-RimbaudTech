@@ -140,11 +140,7 @@ class RtController extends AbstractController
     {
 
         $article = $repo->find($id);
-<<<<<<< HEAD
         /*FONCTION POUR ARTICLE SUIVANT*/
-=======
-        //Fonction article suivant
->>>>>>> cf91be4d4dd85485e73477c0c498627cc510a759
         $new_id = ($id+1);
         $next = ('rt/article/'.$new_id);
         /*FONCTION POUR ARTICLE PRECEDENT*/
