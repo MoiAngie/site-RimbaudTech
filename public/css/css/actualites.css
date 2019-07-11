@@ -72,12 +72,14 @@
   top: 50%;
   width: auto;
   margin-top: -22px;
-  color: #c91a5f;
+  background-color: #c91a5f;
+  border-radius: 3em;
+  color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
   user-select: none;
-  padding: 1em; }
+  padding: 0.5em 0.7em; }
 
 /* Position the "next button" to the right */
 .next {
@@ -85,6 +87,9 @@
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  color: #4ab9e4; }
+  background-color: #4ab9e4; }
+
+.prev:active, .next:active {
+  background-color: #585858; }
 
 /*# sourceMappingURL=actualites.css.map */
