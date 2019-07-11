@@ -10,7 +10,7 @@ h2 {
     color: #585858; }
 
 h2.margin-admin {
-  margin-top: 3em; }
+  margin: 3em 0; }
 
 .titre-back {
   display: flex;
