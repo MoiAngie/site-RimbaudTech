@@ -1,0 +1,23 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Supprimer un article{% endblock %}
+
+{% block body %}
+<section class="titre-back-center">
+  <h2 class="h2-back">Supprimer un article</h2>
+
+  <figure>
+
+  </figure>
+</section>
+
+<form action="{{ path('remove-article')}}" method="POST">
+{% for list in list %}
+<input type="checkbox" name="article[]" id="article" value="{{list.id}}">
+{{list.title}}, {{list.author}}
+</br>
+</input>
+{% endfor %}
+<button type="submit" class="btn-admin">Supprimer</button>
+</form>
+{% endblock %}

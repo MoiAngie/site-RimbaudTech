@@ -203,6 +203,28 @@ class AdminController extends AbstractController
   }
 
   /**
+   * @Route("/rt/amin/remove-article", name="remove-article")
+   * PAGE SUPPRESSION ARTICLES (page admin)
+   */
+   public function removeArticle(Request $request, ObjectManager $manager,ArticlesRepository $repoA)
+   {
+     $list = $repoA->findAll();
+
+     if (isset($_POST['article'])) {
+       foreach ($_POST['article'] as $id) {
+         $article = $repoA->find($id);
+         $manager->remove($article);
+       }
+       $manager->flush();
+       return $this ->redirectToRoute('validation');
+     }
+
+     return $this->render('rt/admin/remove-article.html.twig', [
+       'list' => $list
+     ]);
+   }
+
+  /**
    * @Route("/rt/admin/validation", name="validation")
    * PAGE TYPE ACTION REUSSIE
    */
