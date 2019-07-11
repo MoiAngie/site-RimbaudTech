@@ -10,7 +10,13 @@
 
   </figure>
 </section>
-
+<form action="{{ path('modify-article')}}" method="POST">
+{% for list in list %}
+<input type="checkbox" name="article[]" id="article" value="{{list.id}}">
+{{list.title}}, {{list.author}}
+</br>
+</input>
+{% endfor %}
 
 <button type="submit" class="btn-admin">Modifier</button>
 </form>

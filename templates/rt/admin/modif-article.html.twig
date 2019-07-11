@@ -1,0 +1,19 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier ARTICLE{% endblock %}
+
+{% block body %}
+<section class="titre-back-center">
+  <h2 class="h2-back">Modifier ARTICLE</h2>
+
+  <figure>
+
+  </figure>
+</section>
+{{form_start(formArticle)}}
+{{form_widget(formArticle)}}
+{{form_end(formArticle)}}
+
+<button type="submit" class="btn-admin">Modifier</button>
+</form>
+{% endblock %}

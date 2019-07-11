@@ -127,15 +127,13 @@ class AdminController extends AbstractController
    }
 
    /**
-    * @Route("/rt/admin/modif-utilisateur", name="modif-utilisateur")
-    * PAGE MODIFICATION UTILISATEURS (page admin)
+    * @Route("/rt/admin/modif-utilisateur/{id}", name="modif-utilisateur")
+    * PAGE TYPE MODIFICATION UTILISATEURS (page admin)
     */
     public function modifUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
     {
-      $list = $repoU->findAll();
 
-      return $this->render('rt/admin/modify-utilisateur.html.twig', [
-        'list' => $list
+      return $this->render('rt/admin/modif-utilisateur.html.twig', [
       ]);
     }
 
@@ -240,6 +238,21 @@ class AdminController extends AbstractController
        'list' => $list
      ]);
    }
+
+   /**
+    * @Route("/rt/admin/modif-article/{id}", name="modif-article")
+    * PAGE TYPE MODIFICATION ARTICLES (page admin)
+    */
+    public function modifArticle(Articles $article, Request $request, ObjectManager $manager)
+    {
+
+      $formArticle = $this->createForm(ArticleType::class, $id);
+      $formArticle->handleRequest($request);
+
+      return $this->render('rt/admin/modif-article.html.twig', [
+        'formArticle' => $formArticle->createView()
+      ]);
+    }
 
   /**
    * @Route("/rt/admin/remove-article", name="remove-article")
