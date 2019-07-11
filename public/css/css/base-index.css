@@ -46,13 +46,23 @@ label {
   border: none;
   border-bottom: 0.1em solid #4ab9e4;
   margin-left: 25%;
-  margin: 2em auto; }
+  margin: 2em auto;
+  font-size: 1.3em;
+  color: #585858;
+  font-weight: 400; }
 
 .form-control {
   border: none;
-  font-size: 1.3em;
+  font-size: 1em;
   min-width: 30em;
   outline-style: none; }
+
+input#user.form-input {
+  vertical-align: bottom;
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  margin-right: 1em; }
 
 .btn-admin {
   background-color: #4ab9e4;

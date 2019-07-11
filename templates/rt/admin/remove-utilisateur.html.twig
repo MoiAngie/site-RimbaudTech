@@ -7,16 +7,18 @@
   <h2 class="h2-back">Supprimer un incubé ou un coworker</h2>
 
   <figure>
-
+    <img src="{{asset('img/illustrations/remove.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
 
 <form action="{{ path('remove-utilisateur')}}" method="POST">
 {% for list in list %}
-<input type="checkbox" name="user[]" id="user" value="{{list.id}}">
-{{list.name}}, {{list.firstname}}, {{list.company}}, {{list.status}}
-</br>
-</input>
+  <div class="form-group">
+    <input type="checkbox" name="user[]" id="user" value="{{list.id}}" class="form-input">
+    <b>{{list.name}} {{list.firstname}}</b>, {{list.company}},<em> {{list.status}}</em>
+    </br>
+    </input>
+  </div>
 {% endfor %}
 <button type="submit" class="btn-admin">Supprimer</button>
 </form>
