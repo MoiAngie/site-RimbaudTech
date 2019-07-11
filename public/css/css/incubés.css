@@ -60,8 +60,8 @@ h2 {
     color: #c91a5f;
     text-align: center; }
   .selection p {
-    color: white;
-    font-size: 1em; }
+    color: #585858;
+    font-size: 1.2em; }
 
 .dotted-processus {
   transform: translateY(-20em);

@@ -2,14 +2,42 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="Situé à Charleville-Mézières, Rimbaud'Tech, incubateur d'entreprises, accueille des porteurs de projet prometteurs afin de les aider à se développer.">
         <title>{% block title %}Rimbaud'Tech | Incubateur d'entreprises innovantes{% endblock %}</title>
         <link href="{{asset('css/css/base.css')}}" rel="stylesheet" type="text/css">
-        <!-- tests pour les polices -->
+        <!--  pour résoudre les pbs de contenus dupliqués -->
+        <link rel="canonical" href="https://www.rimbaud-tech.fr" />
+        <!-- tests pour les polices et icones -->
         <link href="https://fonts.googleapis.com/css?family=Alice|Cormorant+Garamond|Old+Standard+TT|Sniglet&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
+        <!-- pour le référencement des réseaux -->
+        <meta property="og:locale" content="fr_FR">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Rimbaud'Tech | Incubateur d'entreprises innovantes">
+        <meta property="og:description" content="Situé à Charleville-Mézières, Rimbaud'Tech, incubateur d'entreprises, accueille des porteurs de projet prometteurs afin de les aider à se développer.">
+        <meta property="og:url" content="https://www.rimbaud-tech.fr/">
+        <meta property="og:site_name" content="Rimbaud'Tech">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:description" content="Situé à Charleville-Mézières, Rimbaud'Tech, incubateur d'entreprises, accueille des porteurs de projet prometteurs afin de les aider à se développer.">
+        <meta name="twitter:title" content="Rimbaud'Tech | Incubateur d'entreprises innovantes">
+        <meta name="twitter:site" content="@rimbaud_tec">
+        <meta name="twitter:image" content=""><!--choisir ici un lien pour représenter RT sur Twitter-->
+        <meta name="twitter:creator" content="@rimbaud_tec">
+
+        <!-- pour Google -->
+        <meta name="google-site-verification" content="cf https://support.google.com/webmasters/answer/9008080">
+
+        <!-- pour le chatbox -->
+        <link href="https://client.relay.crisp.chat" rel="dns-prefetch" crossorigin>
+        <link href="https://settings.crisp.chat" rel="preconnect" crossorigin>
+        <link href="https://client.crisp.chat" rel="preconnect" crossorigin>
+        <link href="https://image.crisp.chat" rel="preconnect" crossorigin>
+        <link src="https://client.crisp.chat/static/stylesheets/client_default_css?da5fbb3" type="text/css" rel="stylesheet">
+
         {% block stylesheets %}
         {% endblock %}
     </head>
@@ -135,6 +163,21 @@
       <div><a id="cRetour" class="cInvisible" href="#myTopnav"></a></div>
 
         <script src="{{asset('js/base.js')}}"></script>
+
+        <!-- Pour la chatbox -->
+        <script>
+        window.$crisp=[];
+        CRISP_RUNTIME_CONFIG = {
+          locale : 'fr'
+        };
+        window.CRISP_WEBSITE_ID="cc672de0-4ec8-4d94-88d0-6bc39ed6b8f3";
+        (function(){d=document;s=d.createElement("script");
+        s.src="https://client.crisp.chat/l.js";
+        s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+        </script>
+        <script src="https://client.crisp.chat/l.js" async></script>
+        <script src="https://client.crisp.chat/static/javascript/client.js?da5fbb3" type="text/javascript" async></script>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

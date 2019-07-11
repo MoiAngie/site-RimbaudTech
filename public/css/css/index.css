@@ -45,10 +45,11 @@ video {
     color: white; }
   .avantages .avantages__icones {
     padding: 2em 0; }
+  .avantages h3 {
+    color: #c91a5f; }
   .avantages p {
-    color: black;
-    font-size: 1em;
-    font-family: 'Muli', sans-serif; }
+    color: #585858;
+    font-size: 1.2em; }
 
 /*  section nos incubés  */
 .incubés h2 {

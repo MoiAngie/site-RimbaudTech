@@ -68,10 +68,13 @@
     padding: 2em 0;
   }
 
+  & h3 {
+    color: $dmagenta;
+  }
+
   & p {
-    color: black;
-    font-size: 1em;
-    font-family: 'Muli', sans-serif;
+    color: $dgrey;
+    font-size: 1.2em;
   }
 }
 
