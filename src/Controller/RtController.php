@@ -140,12 +140,13 @@ class RtController extends AbstractController
     {
 
         $article = $repo->find($id);
-        $essai = $repo->find($id);
-        $next = ($id+1);
-        $new = ('rt/article/'.$next);
+        //Fonction article suivant
+        $suivant = $repo->find($id);
+        $new_id = ($id+1);
+        $next = ('rt/article/'.$new_id);
         return $this->render('rt/article.html.twig', [
           'article' => $article,
-          'new' =>$new
+          'next' =>$next
         ]);
     }
 
