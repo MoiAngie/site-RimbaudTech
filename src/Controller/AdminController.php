@@ -17,6 +17,7 @@ use App\Entity\Utilisateurs;
 use App\Entity\Tarifs;
 use App\Repository\ArticlesRepository;
 use App\Repository\UtilisateursRepository;
+use App\Repository\TarifsRepository;
 use App\Form\ArticleType;
 use App\Form\UtilisateursType;
 use App\Form\TarifType;
@@ -317,11 +318,61 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/admin/modify-tarifs", name="modifyTarifs")
-   * PAGE PORTAIL DES TARIFS
+   * @Route("/rt/admin/modify-tarifs", name="modify-tarifs")
+   * PAGE MODIFICATION TARIFS LISTE (page admin)
    */
-  public function modifyTarifs()
+   public function modifyTarifs(Request $request, ObjectManager $manager,TarifsRepository $repoT)
+   {
+     $list = $repoT->findAll();
+
+     if (isset($_POST['tarif'])) {
+       foreach ($_POST['tarif'] as $id) {
+         $number = $repoT->find($id);
+         $manager->persist($number);
+       }
+       $manager->flush();
+       return $this ->redirect('modif-tarifs/'.$id);
+     }
+
+     return $this->render('rt/admin/modify-tarifs.html.twig', [
+       'list' => $list,
+     ]);
+   }
+
+  /**
+   * @Route("/rt/admin/modif-tarifs/{id}", name="modifTarifs")
+   * PAGE MODIFICATION DES TARIFS FORM (page admin)
+   */
+  public function modifTarifs(Tarifs $tarif, Request $request, ObjectManager $manager)
   {
+      $formTarifs = $this->createFormBuilder($tarif)
+              ->add('locaCE_demiJ', TextType::class)
+              ->add('locaCE_J', TextType::class)
+              ->add('locaReu_demiJ', TextType::class)
+              ->add('locaReu_J', TextType::class)
+              ->add('adhesionAnnee', TextType::class)
+              ->add('CoHeure_adh', TextType::class)
+              ->add('CoHeure_nonadh', TextType::class)
+              ->add('CoDemiJ_adh', TextType::class)
+              ->add('CoDemiJ_nonadh', TextType::class)
+              ->add('CoJournee_adh', TextType::class)
+              ->add('CoJournee_nonadh', TextType::class)
+              ->add('CoMois_adh', TextType::class)
+              ->add('CoMois_nonadh', TextType::class)
+              ->add('comment', TextType::class)
+              ->getForm();
+
+        $formTarifs->handleRequest($request);
+
+        if($formTarifs->isSubmitted() && $formTarifs->isValid()){
+          $manager->persist($tarif);
+          $manager->flush();
+        return $this->redirectToRoute('validation');
+        }
+        return $this->render('rt/admin/modif-tarifs.html.twig', [
+          'formTarifs' => $formTarifs->createView()
+        ]);
+
       return $this->render('rt/admin/modify-tarifs.html.twig', [
       ]);
   }

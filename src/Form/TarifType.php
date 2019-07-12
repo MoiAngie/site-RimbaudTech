@@ -26,6 +26,7 @@ class TarifType extends AbstractType
             ->add('CoJournee_nonadh', TextType::class)
             ->add('CoMois_adh', TextType::class)
             ->add('CoMois_nonadh', TextType::class)
+            ->add('comment', TextType::class)
         ;
     }
 

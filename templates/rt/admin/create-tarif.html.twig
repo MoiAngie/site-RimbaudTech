@@ -51,6 +51,9 @@
 <div class="form-group">
   {{ form_row(formTarif.CoMois_nonadh, {'label': 'Non-adhérents mois Co-Working', 'attr': {'placeholder' : "Non-adhérents mois Co-Working", 'class' : "form-control"}})}}
 </div>
+<div class="form-group">
+  {{ form_row(formTarif.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Ajouter un commentaire (ex: année de mise en place des tarifs)", 'class' : "form-control"}})}}
+</div>
 <button type="submit" class="btn-admin">Publier</button>
 {{ form_end(formTarif)}}
 

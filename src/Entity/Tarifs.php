@@ -81,6 +81,11 @@ class Tarifs
      */
     public $CoMois_nonadh;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Comment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -238,6 +243,18 @@ class Tarifs
     public function setCoMoisNonadh(?string $CoMois_nonadh): self
     {
         $this->CoMois_nonadh = $CoMois_nonadh;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->Comment;
+    }
+
+    public function setComment(?string $Comment): self
+    {
+        $this->Comment = $Comment;
 
         return $this;
     }

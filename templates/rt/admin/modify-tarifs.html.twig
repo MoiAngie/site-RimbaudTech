@@ -12,5 +12,16 @@
   </figure>
 </section>
 
+<form action="{{ path('modify-tarifs')}}" method="POST">
+{% for list in list %}
+<input type="checkbox" name="tarif[]" id="tarif" value="{{list.id}}">
+{{list.comment}}
+</br>
+</input>
+{% endfor %}
+
+<button type="submit" class="btn-admin">Modifier</button>
+</form>
+
 
 {% endblock %}
