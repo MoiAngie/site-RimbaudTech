@@ -42,16 +42,26 @@ label {
   display: none;
 }
 
+.form-label {
+  margin-bottom: 1.3em;
+  font-style: italic;
+}
+
 .form-group {
   width: 50%;
   height: 3em;
   border: none;
   border-bottom: 0.1em solid $logoblue;
-  margin-left: 25%;
   margin: 2em auto;
+  margin-left: 25%;
   font-size: 1.3em;
   color: $dgrey;
   font-weight: 400;
+
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
 }
 
 .form-control {
@@ -59,9 +69,11 @@ label {
   font-size: 1em;
   min-width: 30em;
   outline-style: none;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
 }
 
-input#user.form-input {
+input#user.form-input, input#article, input#tarif.form-input {
   vertical-align: bottom;
   width: 2em;
   height: 2em;

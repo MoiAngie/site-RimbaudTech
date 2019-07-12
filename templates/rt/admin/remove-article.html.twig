@@ -7,16 +7,18 @@
   <h2 class="h2-back">Supprimer un article</h2>
 
   <figure>
-
+    <img src="{{asset('img/illustrations/remove.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
 
 <form action="{{ path('remove-article')}}" method="POST">
 {% for list in list %}
-<input type="checkbox" name="article[]" id="article" value="{{list.id}}">
-{{list.title}}, {{list.author}}
-</br>
-</input>
+  <div class="form-group">
+      <input type="checkbox" name="article[]" id="article" value="{{list.id}}" class="form-input">
+      {{list.title}}, {{list.author}}
+      </br>
+      </input>
+  </div>
 {% endfor %}
 <button type="submit" class="btn-admin">Supprimer</button>
 </form>

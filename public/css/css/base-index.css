@@ -40,24 +40,33 @@ h2.margin-admin {
 label {
   display: none; }
 
+.form-label {
+  margin-bottom: 1.3em;
+  font-style: italic; }
+
 .form-group {
   width: 50%;
   height: 3em;
   border: none;
   border-bottom: 0.1em solid #4ab9e4;
-  margin-left: 25%;
   margin: 2em auto;
+  margin-left: 25%;
   font-size: 1.3em;
   color: #585858;
   font-weight: 400; }
+  .form-group :focus {
+    border-left: 0.5em solid #c91a5f;
+    padding-left: 0.1em; }
 
 .form-control {
   border: none;
   font-size: 1em;
   min-width: 30em;
-  outline-style: none; }
+  outline-style: none;
+  padding-left: 0.5em;
+  padding-top: 0.5em; }
 
-input#user.form-input {
+input#user.form-input, input#article, input#tarif.form-input {
   vertical-align: bottom;
   width: 2em;
   height: 2em;
