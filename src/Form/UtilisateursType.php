@@ -46,6 +46,9 @@ class UtilisateursType extends AbstractType
               ])
               ->add ('description', TextareaType::class)
               ->add ('comment', TextType::class)
+              ->add ('socialmedia1', TextType::class)
+              ->add ('socialmedia2', TextType::class)
+              ->add ('socialmedia3', TextType::class)
       ;
   }
 

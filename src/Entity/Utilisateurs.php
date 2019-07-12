@@ -76,6 +76,21 @@ class Utilisateurs
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+  public $socialmedia1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $socialmedia2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $socialmedia3;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -221,6 +236,42 @@ class Utilisateurs
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getSocialmedia1(): ?string
+    {
+        return $this->socialmedia1;
+    }
+
+    public function setSocialmedia1(?string $socialmedia1): self
+    {
+        $this->socialmedia1 = $socialmedia1;
+
+        return $this;
+    }
+
+    public function getSocialmedia2(): ?string
+    {
+        return $this->socialmedia2;
+    }
+
+    public function setSocialmedia2(?string $socialmedia2): self
+    {
+        $this->socialmedia2 = $socialmedia2;
+
+        return $this;
+    }
+
+    public function getSocialmedia3(): ?string
+    {
+        return $this->socialmedia3;
+    }
+
+    public function setSocialmedia3(?string $socialmedia3): self
+    {
+        $this->socialmedia3 = $socialmedia3;
 
         return $this;
     }
