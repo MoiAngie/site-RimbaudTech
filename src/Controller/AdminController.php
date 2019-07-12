@@ -317,12 +317,12 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/admin/portail-tarifs", name="portailTarifs")
+   * @Route("/rt/admin/modify-tarifs", name="modifyTarifs")
    * PAGE PORTAIL DES TARIFS
    */
-  public function portailTarifs()
+  public function modifyTarifs()
   {
-      return $this->render('rt/admin/portail-tarifs.html.twig', [
+      return $this->render('rt/admin/modify-tarifs.html.twig', [
       ]);
   }
 
