@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*  pour le preloader */
 
-$(document).ready(function(){
-   $('.loader').fadeOut(5000);
-});
+//$(document).ready(function(){
+  // $('.loader').fadeOut(5000);
+//});
+
+//var preloader =
+//document.getElementById("preloader");
+
+//window.addEventListener('load', function()
+//{
+  //preloader.style.display = 'none';
+//})

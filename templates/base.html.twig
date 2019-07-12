@@ -44,6 +44,13 @@
         <link href="https://image.crisp.chat" rel="preconnect" crossorigin>
         <link src="https://client.crisp.chat/static/stylesheets/client_default_css?da5fbb3" type="text/css" rel="stylesheet">
 
+        <!-- Core jQuery Script -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+
+        <!-- Slider Revolution core JavaScript files -->
+        <script type="text/javascript" src="{{asset('revolution/js/jquery.themepunch.tools.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
+
         {% block stylesheets %}
         {% endblock %}
     </head>
@@ -168,7 +175,6 @@
 
       <div><a id="cRetour" class="cInvisible" href="#myTopnav"></a></div>
 
-        <script src="{{asset('js/base.js')}}"></script>
 
         <!-- Pour la chatbox -->
         <script>
@@ -183,6 +189,9 @@
         </script>
         <script src="https://client.crisp.chat/l.js" async></script>
         <script src="https://client.crisp.chat/static/javascript/client.js?da5fbb3" type="text/javascript" async></script>
+
+        <script src="{{asset('js/base.js')}}"></script>
+
 
         {% block javascripts %}{% endblock %}
     </body>
