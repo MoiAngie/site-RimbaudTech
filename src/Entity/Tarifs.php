@@ -19,67 +19,67 @@ class Tarifs
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $locaCE_demiJ;
+    public $locaCE_demiJ;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $locaCE_J;
+    public $locaCE_J;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $locaReu_demiJ;
+    public $locaReu_demiJ;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $locaReu_J;
+    public $locaReu_J;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $adhesionAnnee;
+    public $adhesionAnnee;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoHeure_adh;
+    public $CoHeure_adh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoHeure_nonadh;
+    public $CoHeure_nonadh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoDemiJ_adh;
+    public $CoDemiJ_adh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoDemiJ_nonadh;
+    public $CoDemiJ_nonadh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoJournee_adh;
+    public $CoJournee_adh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoJournee_nonadh;
+    public $CoJournee_nonadh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoMois_adh;
+    public $CoMois_adh;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $CoMois_nonadh;
+    public $CoMois_nonadh;
 
     public function getId(): ?int
     {

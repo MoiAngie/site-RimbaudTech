@@ -14,6 +14,7 @@ use App\Entity\Utilisateurs;
 use App\Entity\Contact;
 use App\Repository\ArticlesRepository;
 use App\Repository\UtilisateursRepository;
+use App\Repository\TarifsRepository;
 use App\Form\ArticleType;
 use App\Form\ContactType;
 
@@ -52,11 +53,13 @@ class RtController extends AbstractController
      * @Route("/rt/coworking", name="coworking")
      * PAGE PRESENTATION CO-WORKING
      */
-    public function coworking(UtilisateursRepository $repo)
+    public function coworking(UtilisateursRepository $repo, TarifsRepository $repoT)
     {
       $utilisateur = $repo->findByStatus('Co-workeur');
+      $tarif = $repoT->findAll();
       return $this->render('rt/co-working.html.twig', [
-        'utilisateur' =>$utilisateur
+        'utilisateur' =>$utilisateur,
+        'tarif' =>$tarif
       ]);
     }
 

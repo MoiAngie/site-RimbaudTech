@@ -1,14 +1,57 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Modifier les tarifs{% endblock %}
+{% block title %}Ajouter les tarifs{% endblock %}
 
 {% block body %}
 <section class="titre-back-center">
-  <h2 class="h2-back">Modifier les tarifs</h2>
+  <h2 class="h2-back">Ajouter les tarifs</h2>
 
   <figure>
     <img src="{{asset('img/illustrations/tarifs.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
+
+{{ form_start(formTarif)}}
+<div class="form-group">
+  {{ form_row(formTarif.locaCE_demiJ, {'label': 'Location CE demi-journée', 'attr': {'placeholder' : "Location CE demi-journée", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.locaCE_J, {'label': 'Location CE journée', 'attr': {'placeholder' : "Location CE journée", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.locaReu_demiJ, {'label': 'Location Salle-Réunion demi-journée', 'attr': {'placeholder' : "Location Salle-Réunion demi-journée", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.locaReu_J, {'label': 'Location Salle-Réunion journée', 'attr': {'placeholder' : "Location Salle-Réunion journée", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.adhesionAnnee, {'label': 'Adhésion à l\'année', 'attr': {'placeholder' : "Adhésion à l\'année", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoHeure_adh, {'label': 'Adhérents 1h Co-Working', 'attr': {'placeholder' : "Adhérents 1h Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoHeure_nonadh, {'label': 'Non-adhérents 1h Co-Working', 'attr': {'placeholder' : "Non-adhérents 1h Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoDemiJ_adh, {'label': 'Adhérents demi-journée Co-Working', 'attr': {'placeholder' : "Adhérents demi-journée Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoDemiJ_nonadh, {'label': 'Non-adhérents demi-journée Co-Working', 'attr': {'placeholder' : "Non-adhérents demi-journée Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoJournee_adh, {'label': 'Adhérents journée Co-Working', 'attr': {'placeholder' : "Adhérents journée Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoJournee_nonadh, {'label': 'Non-adhérents journée Co-Working', 'attr': {'placeholder' : "Non-adhérents journée Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoMois_adh, {'label': 'Adhérents mois Co-Working', 'attr': {'placeholder' : "Adhérents mois Co-Working", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formTarif.CoMois_nonadh, {'label': 'Non-adhérents mois Co-Working', 'attr': {'placeholder' : "Non-adhérents mois Co-Working", 'class' : "form-control"}})}}
+</div>
+<button type="submit" class="btn-admin">Publier</button>
+{{ form_end(formTarif)}}
 
 {% endblock %}

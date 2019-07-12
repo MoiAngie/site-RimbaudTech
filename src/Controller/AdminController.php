@@ -14,10 +14,12 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\Entity\Articles;
 use App\Entity\Utilisateurs;
+use App\Entity\Tarifs;
 use App\Repository\ArticlesRepository;
 use App\Repository\UtilisateursRepository;
 use App\Form\ArticleType;
 use App\Form\UtilisateursType;
+use App\Form\TarifType;
 
 class AdminController extends AbstractController
 {
@@ -328,10 +330,25 @@ class AdminController extends AbstractController
    * @Route("/rt/admin/createTarif", name="createTarif")
    * PAGE D'AJOUT TARIFS
    */
-  public function createTarif()
+  public function createTarif(Request $request, ObjectManager $manager)
   {
-      return $this->render('rt/admin/create-tarif.html.twig', [
-      ]);
+    $tarif = new Tarifs;
+
+    $formTarif = $this->createForm(TarifType::class, $tarif);
+
+    $formTarif->handleRequest($request);
+
+    if($formTarif->isSubmitted() && $formTarif->isValid()){
+
+      $manager->persist($tarif);
+      $manager->flush();
+
+    return $this ->redirectToRoute('validation');
+    }
+
+    return $this->render('rt/admin/create-tarif.html.twig', [
+      'formTarif' => $formTarif->createView()
+    ]);
   }
 
   /**
