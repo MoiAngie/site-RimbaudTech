@@ -89,9 +89,11 @@ class RtController extends AbstractController
      * @Route("/rt/incubation", name="incubation")
      * PAGE PRESENTATION DE L'INCUBATION
      */
-    public function incubation()
+    public function incubation(UtilisateursRepository $repo)
     {
+        $utilisateur = $repo->findByStatus("Personnel");
         return $this->render('rt/incubation.html.twig', [
+          'utilisateur' => $utilisateur
         ]);
     }
 
@@ -103,7 +105,7 @@ class RtController extends AbstractController
     {
       $utilisateur = $repo->findByStatus("Incubé");
       return $this->render('rt/galerie-incube.html.twig', [
-        'utilisateur' =>$utilisateur
+        'utilisateur' => $utilisateur
       ]);
     }
 

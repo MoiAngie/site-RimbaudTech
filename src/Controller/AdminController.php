@@ -164,26 +164,6 @@ class AdminController extends AbstractController
    }
 
   /**
-   * @Route("/rt/admin/portail-personnel", name="portailPersonnel")
-   * PAGE PORTAIL MEMBRES DE L'EQUIPE
-   */
-  public function portailPersonnel()
-  {
-      return $this->render('rt/admin/portail-personnel.html.twig', [
-      ]);
-  }
-
-  /**
-   * @Route("/rt/admin/createPersonnel", name="createPersonnel")
-   * PAGE D'AJOUT D'UN MEMBRE DU PERSONNEL
-   */
-  public function createPersonnel()
-  {
-      return $this->render('rt/admin/create-personnel.html.twig', [
-      ]);
-  }
-
-  /**
    * @Route("/rt/admin/portail-articles", name="portailArticles")
    * PAGE PORTAIL ARTICLE
    */

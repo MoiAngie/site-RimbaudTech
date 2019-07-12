@@ -28,6 +28,7 @@ class UtilisateursType extends AbstractType
                       'choices'  => [
                       "Incubé" => "Incubé",
                       "Co-worker" => "Co-workeur",
+                      "Personnel" => "Personnel"
                     ],
               ])
               ->add ('profilpicture', FileType::class)

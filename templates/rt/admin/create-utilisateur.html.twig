@@ -4,7 +4,7 @@
 
 {% block body %}
 <section class="titre-back-center">
-  <h2 class="h2-back">Ajouter un incubé ou un coworker</h2>
+  <h2 class="h2-back">Ajouter un incubé, un coworker ou un membre du personnel</h2>
 
   <figure>
     <img src="{{asset('img/illustrations/coworking.svg')}}" class="icone-back" height="100" width="150">
@@ -21,7 +21,7 @@
     {{ form_row(formUtilisateur.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
-    {{ form_row(formUtilisateur.company, {'label': 'Société', 'attr': {'placeholder' : "Société", 'class' : "form-control"}})}}
+    {{ form_row(formUtilisateur.company, {'label': 'Société ou Poste Occupé', 'attr': {'placeholder' : "Société ou Poste Occupé", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
     {{ form_row(formUtilisateur.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
