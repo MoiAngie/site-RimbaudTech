@@ -1,0 +1,25 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Supprimer un administrateur{% endblock %}
+
+{% block body %}
+<section class="titre-back-center">
+  <h2 class="h2-back">Supprimer un administrateur</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/remove.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<form action="{{ path('remove-admin')}}" method="POST">
+{% for list in list %}
+  <div class="form-group">
+      <input type="checkbox" name="username[]" value="{{list.id}}" class="form-input">
+      {{list.title}}, {{list.author}}
+      </br>
+      </input>
+  </div>
+{% endfor %}
+<button type="submit" class="btn-admin">Supprimer</button>
+</form>
+{% endblock %}

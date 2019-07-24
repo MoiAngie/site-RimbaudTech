@@ -1,17 +1,63 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Modifier NOM{% endblock %}
+{% block title %}Modifier un Incubé, un Co-Worker ou un membre du personnel RT{% endblock %}
 
 {% block body %}
 <section class="titre-back-center">
-  <h2 class="h2-back">Modifier NOM</h2>
+  <h2 class="h2-back">Modifier un Incubé, un Co-Worker ou un membre du personnel RT</h2>
 
   <figure>
-
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
 
+<section class="form-admin">
 
-<button type="submit" class="btn-admin">Modifier</button>
-</form>
+  {{ form_start(formUtilisateur)}}
+  <div class="form-group">
+    {{ form_row(formUtilisateur.name, {'label': 'Nom', 'attr': {'placeholder' : "Nom", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.company, {'label': 'Société ou Poste Occupé pour le personnel de RT', 'attr': {'placeholder' : "Société ou Poste Occupé pour le personnel de RT", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Description du projet ou du poste à RT", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis sur Rimbaud Tech", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.socialmedia1, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Linkedin", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.socialmedia2, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Twitter", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formUtilisateur.socialmedia3, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Facebook", 'class' : "form-control"}})}}
+  </div>
+  <button type="submit" class="btn-admin">Modifier</button>
+  {{ form_end(formUtilisateur)}}
+
+</section>
 {% endblock %}

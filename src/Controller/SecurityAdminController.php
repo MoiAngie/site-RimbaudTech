@@ -43,7 +43,7 @@ class SecurityAdminController extends AbstractController
     ]);
   }
   /**
-   * @Route("/rt/amin/portail-admin", name="portailAdmin")
+   * @Route("/rt/admin/portail-admin", name="portailAdmin")
    */
   public function portailAdmin()
   {

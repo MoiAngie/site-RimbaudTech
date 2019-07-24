@@ -1,18 +1,13 @@
-{% extends 'base-admin.html.twig'%}
+{% extends 'base-admin.html.twig' %}
 
-{% block title %}Enregister un administrateur du site{% endblock %}
-
-
-{% block stylesheets %}
-{% endblock %}
+{% block title %}Modifier un administrateur{% endblock %}
 
 {% block body %}
-
 <section class="titre-back-center">
-  <h2 class="h2-back">Enregister un Administrateur</h2>
+  <h2 class="h2-back">Modifier un administrateur</h2>
 
   <figure>
-    <img src="{{asset('img/illustrations/admin.svg')}}" class="icone-back" height="100" width="150">
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
 
@@ -29,6 +24,7 @@
 <div class="form-group">
   {{ form_row(form.confirm_password, {'label': 'Confirmation', 'attr': {'placeholder' : "Confirmez votre mot de passe", 'class' : "form-control"}})}}
 </div>
-<button type="Submit" class="btn-admin">Enregistrement</button>
+<button type="Submit" class="btn-admin">Modifier</button>
 {{ form_end(form)}}
+
 {% endblock %}

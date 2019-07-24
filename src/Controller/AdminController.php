@@ -136,6 +136,16 @@ class AdminController extends AbstractController
     */
     public function modifUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
     {
+      $list = $repoU->findAll();
+
+     if (isset($_POST['utilisateur'])) {
+       foreach ($_POST['utilisateur'] as $id) {
+         $number = $repoU->find($id);
+         $manager->persist($number);
+       }
+       $manager->flush();
+       return $this ->redirect('modif-utilisateur/'.$id);
+     }
 
       return $this->render('rt/admin/modif-utilisateur.html.twig', [
       ]);
