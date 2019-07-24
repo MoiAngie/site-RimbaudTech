@@ -1,10 +1,10 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Modifier ARTICLE{% endblock %}
+{% block title %}Modifier un article{% endblock %}
 
 {% block body %}
 <section class="titre-back-center">
-  <h2 class="h2-back">Modifier ARTICLE</h2>
+  <h2 class="h2-back">Modifier un article</h2>
 
   <figure>
     <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
@@ -13,40 +13,40 @@
 
 {{ form_start(formArticle)}}
 <div class="form-group">
-  {{ form_row(formArticle.title, {'label': 'Titre', 'class' : "form-control"})}}
+  {{ form_row(formArticle.title, {'label': 'Titre', 'attr': {'placeholder' : "Titre de l'article", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.author, {'label': 'Auteur', 'class' : "form-control"})}}
+  {{ form_row(formArticle.author, {'label': 'Auteur', 'attr': {'placeholder' : "Ecrit par", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.image, {'label': 'Image', 'class' : "form-control"})}}
+  {{ form_row(formArticle.image, {'label': 'Image', 'attr': {'placeholder' : "Télécharger une image", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.introduction, {'label': 'Introduction', 'class' : "form-control"})}}
+  {{ form_row(formArticle.introduction, {'label': 'Introduction', 'attr': {'placeholder' : "Texte d'introduction", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.sousTitre1, {'label': 'Sous-Titre 1', 'class' : "form-control"})}}
+  {{ form_row(formArticle.sousTitre1, {'label': 'Sous-Titre 1', 'attr': {'placeholder' : "Sous-Titre 1", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.paragraphe1, {'label': 'Paragraphe 1', 'class' : "form-control"})}}
+  {{ form_row(formArticle.paragraphe1, {'label': 'Paragraphe 1', 'attr': {'placeholder' : "Paragraphe 1", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.sousTitre2, {'label': 'Sous-Titre 2', 'class' : "form-control"})}}
+  {{ form_row(formArticle.sousTitre2, {'label': 'Sous-Titre 2', 'attr': {'placeholder' : "Sous-Titre 2", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.paragraphe2, {'label': 'Paragraphe 2', 'class' : "form-control"})}}
+  {{ form_row(formArticle.paragraphe2, {'label': 'Paragraphe 2', 'attr': {'placeholder' : "Paragraphe 2", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.sousTitre3, {'label': 'Sous-Titre 3', 'class' : "form-control"})}}
+  {{ form_row(formArticle.sousTitre3, {'label': 'Sous-Titre 3', 'attr': {'placeholder' : "Sous-Titre 3", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.paragraphe3, {'label': 'Paragraphe 3', 'class' : "form-control"})}}
+  {{ form_row(formArticle.paragraphe3, {'label': 'Paragraphe 3', 'attr': {'placeholder' : "Paragraphe 3", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.sousTitre4, {'label': 'Sous-Titre 4', 'class' : "form-control"})}}
+  {{ form_row(formArticle.sousTitre4, {'label': 'Sous-Titre 4', 'attr': {'placeholder' : "Sous-Titre 4", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
-  {{ form_row(formArticle.paragraphe4, {'label': 'Paragraphe 4', 'class' : "form-control"})}}
+  {{ form_row(formArticle.paragraphe4, {'label': 'Paragraphe 4', 'attr': {'placeholder' : "Paragraphe 4", 'class' : "form-control"}})}}
 </div>
 <button type="submit" class="btn-admin">Modifier</button>
 {{ form_end(formArticle)}}

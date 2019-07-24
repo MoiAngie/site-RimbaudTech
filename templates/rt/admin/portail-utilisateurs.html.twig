@@ -5,7 +5,7 @@
 {% block body %}
 
 <section class="titre-back">
-  <h2 class="h2-back">Gérer les Inbubés et les Co-Workers</h2>
+  <h2 class="h2-back">Gérer les Inbubés, les Co-Workers et le membre du personnel RT</h2>
 
   <figure>
     <img src="{{asset('img/illustrations/incubateur.svg')}}" class="icone-back" height="100" width="150">
@@ -14,13 +14,13 @@
 
 <section class="btn-back">
   <button class="btn-admin">
-    <a href="{{path('create-utilisateur')}}">Ajouter un Incubé, un Co-Worker ou un membre du personnel</a>
+    <a href="{{path('create-utilisateur')}}">En ajouter un</a>
   </button>
   <button class="btn-admin">
-    <a href="{{path('modify-utilisateur')}}">Modifier un Incubé, un Co-Worker ou un membre du personnel</a>
+    <a href="{{path('modify-utilisateur')}}">En modifier un</a>
   </button>
   <button class="btn-admin">
-    <a href="{{path('remove-utilisateur')}}">Supprimer un Incubé, un Co-Worker ou un membre du personnel</a>
+    <a href="{{path('remove-utilisateur')}}">En supprimer un</a>
   </button>
 </section>
 {% endblock %}

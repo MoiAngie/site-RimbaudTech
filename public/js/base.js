@@ -1,12 +1,4 @@
-/* Fonction qui permet l'apparition du bouton responsive de la navbar */
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+
 
 
 /* pour le back to top */
@@ -31,6 +23,15 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById("modal").style.top = "-780px";
       }
 
+      /* Fonction qui permet l'apparition du bouton responsive de la navbar */
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
 
 /* pour le collapse des articles  */
 
