@@ -58,6 +58,11 @@ label {
     border-left: 0.5em solid #c91a5f;
     padding-left: 0.1em; }
 
+textarea {
+  font-family: "Muli", sans-serif;
+  margin-bottom: 1em;
+  padding: 0 5em 0 0; }
+
 .form-control {
   border: none;
   font-size: 1em;

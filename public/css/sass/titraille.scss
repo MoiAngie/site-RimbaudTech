@@ -1,5 +1,7 @@
 @import "colors";
 
+$font: 'Muli', sans-serif;
+
 @mixin h2h3{
   color: $dgrey;
   text-align: center;
