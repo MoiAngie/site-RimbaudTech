@@ -124,20 +124,6 @@ class AdminController extends AbstractController
    public function modifyUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
    {
      $list = $repoU->findAll();
-
-     return $this->render('rt/admin/modify-utilisateur.html.twig', [
-       'list' => $list
-     ]);
-   }
-
-   /**
-    * @Route("/rt/admin/modif-utilisateur/{id}", name="modif-utilisateur")
-    * PAGE TYPE MODIFICATION UTILISATEURS (page admin)
-    */
-    public function modifUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
-    {
-      $list = $repoU->findAll();
-
      if (isset($_POST['utilisateur'])) {
        foreach ($_POST['utilisateur'] as $id) {
          $number = $repoU->find($id);
@@ -147,9 +133,47 @@ class AdminController extends AbstractController
        return $this ->redirect('modif-utilisateur/'.$id);
      }
 
-      return $this->render('rt/admin/modif-utilisateur.html.twig', [
-      ]);
-    }
+
+     return $this->render('rt/admin/modify-utilisateur.html.twig', [
+       'list' => $list
+     ]);
+   }
+
+
+    /**
+     * @Route("/rt/admin/modif-utilisateur/{id}", name="modif-utilisateur")
+     * PAGE TYPE MODIFICATION UTILISATEUR (page admin)
+     */
+     public function modifUtilisateur(Utilisateurs $utilisateur, Request $request, ObjectManager $manager)
+     {
+       $formUtilisateur = $this->createFormBuilder($utilisateur)
+                     ->add('name')
+                     ->add('firstname')
+                     ->add('company')
+                     ->add('status')
+                     ->add('profilpicture')
+                     ->add('image1')
+                     ->add('image2')
+                     ->add('image3')
+                     ->add('image4')
+                     ->add('description')
+                     ->add('comment')
+                     ->add('socialmedia1')
+                     ->add('socialmedia1')
+                     ->add('socialmedia1')
+                     ->getForm();
+
+       $formUtilisateur->handleRequest($request);
+
+       if($formUtilisateur->isSubmitted() && $formUtilisateur->isValid()){
+       $manager->persist($utilisateur);
+       $manager->flush();
+       return $this->redirectToRoute('validation');
+       }
+       return $this->render('rt/admin/modif-utilisateur.html.twig', [
+         'formUtilisateur' => $formUtilisateur->createView()
+       ]);
+     }
 
   /**
    * @Route("/rt/admin/remove-utilisateur", name="remove-utilisateur")
