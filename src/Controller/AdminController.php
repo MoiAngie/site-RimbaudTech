@@ -184,8 +184,8 @@ class AdminController extends AbstractController
    {
      $list = $repoU->findAll();
 
-     if (isset($_POST['user'])) {
-       foreach ($_POST['user'] as $id) {
+     if (isset($_POST['utilisateur'])) {
+       foreach ($_POST['utilisateur'] as $id) {
          $user = $repoU->find($id);
          $manager->remove($user);
        }

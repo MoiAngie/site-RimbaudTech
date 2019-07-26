@@ -83,6 +83,8 @@ h2 {
     margin-top: 3em; }
   .intro h2, .intro p {
     text-align: left; }
+  .intro p {
+    margin-right: 2em; }
   .intro .cap {
     text-transform: uppercase; }
   .intro .intro-hr {

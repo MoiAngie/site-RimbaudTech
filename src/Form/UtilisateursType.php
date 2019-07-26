@@ -24,7 +24,8 @@ class UtilisateursType extends AbstractType
               ->add ('company', TextType::class, [
                 'required' => false,
               ])
-              ->add ('status', ChoiceType::class, [
+              ->add ('status', ChoiceType::class,[
+                      'placeholder' => "Choisir le statut",
                       'choices'  => [
                       "Incubé" => "Incubé",
                       "Co-worker" => "Co-workeur",

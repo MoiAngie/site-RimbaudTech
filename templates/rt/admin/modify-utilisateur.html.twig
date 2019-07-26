@@ -14,7 +14,7 @@
   <form action="{{ path('modify-utilisateur')}}" method="POST">
   {% for list in list %}
     <div class="form-group">
-      <input type="checkbox" name="user[]" id="user" value="{{list.id}}" class="form-input">
+      <input type="checkbox" name="utilisateur[]" id="utilisateur" value="{{list.id}}" class="form-input">
       <b>{{list.name}} {{list.firstname}}</b>, {{list.company}},<em> {{list.status}}</em>
       </br>
       </input>
