@@ -1,27 +1,6 @@
 
 
 
-/* pour le back to top */
-
-document.addEventListener('DOMContentLoaded', function () {
-          window.onscroll = function (ev) {
-              document.getElementById("cRetour").className = (window.pageYOffset > 100) ? "cVisible" :
-                  "cInvisible";
-          };
-      });
-
-      $('#sidebarCollapse').click(function (e) {
-          e.preventDefault();
-          $('#sidebar').toggleClass('active');
-      })
-
-      function openModal() {
-          document.getElementById("modal").style.top = "0px";
-      }
-
-      function closeModal() {
-          document.getElementById("modal").style.top = "-780px";
-      }
 
       /* Fonction qui permet l'apparition du bouton responsive de la navbar */
       function myFunction() {
@@ -33,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-/* pour le collapse des articles  */
+/* pour le collapse des articles*/
 
       var coll = document.getElementsByClassName("collapsible");
       var i;
@@ -48,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
             content.style.maxHeight = content.scrollHeight + "px";
           }
         });
+      }
+
+      /* pour le back to top */
+      // le btn s'affiche dès que l'utilisateur a scrollé de 100px
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          document.getElementById("myBtn").style.display = "block";
+        } else {
+          document.getElementById("myBtn").style.display = "none";
+        }
+      }
+
+      // Action on-click pour retour au top
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       }
 
 /*  pour le preloader */

@@ -55,6 +55,10 @@
         {% endblock %}
     </head>
     <body>
+      <!--bouton back-to-top-->
+
+      <button onclick="topFunction()" id="myBtn" title="Retour en haut"></button>
+
       <!-- Début Navbar -->
       <div class="topnav" id="myTopnav">
         <a href="{{ path('index')}}">
@@ -171,11 +175,6 @@
         </section>
       </footer>
 
-      <!-- backtotop -->
-
-      <div><a id="cRetour" class="cInvisible" href="#myTopnav"></a></div>
-
-
         <!-- Pour la chatbox -->
         <script>
         window.$crisp=[];
@@ -190,9 +189,14 @@
         <script src="https://client.crisp.chat/l.js" async></script>
         <script src="https://client.crisp.chat/static/javascript/client.js?da5fbb3" type="text/javascript" async></script>
 
-        <script src="{{asset('js/base.js')}}"></script>
+
+        <script src="{{asset('js/base.js')}}">
+        </script>
 
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+
+
+      {% endblock %}
     </body>
 </html>

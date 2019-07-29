@@ -5,29 +5,24 @@
 {% block body %}
 <h2>Nos Incubés</h2>
 
-<!--<section class="galerie_incubes">
-  {% for utilisateur in utilisateur %}
-    <h3>{{utilisateur.name}} {{utilisateur.firstname}}</h3>
-    <p>{{utilisateur.company}}</p>
-    <image src="{{asset (utilisateur.profilpicture)}}" widht="150px" height="150px"/>
-    <a href="{{ path('incube', {'id' : utilisateur.id })}}"><button>Afficher le profil ...</button></a>
-
-  {% endfor %}
-</section>-->
 <section class="galerie_incubes">
   {% for utilisateur in utilisateur %}
-    <img src="{{asset (utilisateur.profilpicture)}}" width="300" height="200">
-    <div id="block" class="bd-hover">
-  		<p class="pad-top10"> {{utilisateur.firstname}} <span class="cap">{{utilisateur.name}}</span></p>
-  		<hr class="hr-incubes">
-  		<p class="cap"> {{utilisateur.company}} </p>
-    </div>
-    <a href="{{ path('incube', {'id' : utilisateur.id })}}">
-  	<i id="go" class="fas fa-external-link-square-alt fa-2x"></i>
-  </a>
+
+  <div class="galerie-gp">
+    <img class="galerie-img" src="{{asset (utilisateur.profilpicture)}}" width="400" height="267">
+      <a href="{{ path('incube', {'id' : utilisateur.id })}}">
+         <i class="fas fa-external-link-square-alt fa-2x galerie-i1"></i>
+     </a>
+      <div class="galerie-transition">
+        <p class="galerie-tx"> {{utilisateur.firstname}} <span class="cap">{{utilisateur.name}} </p>
+        <hr class="galerie-hr">
+        <p class="galerie-tx cap">{{utilisateur.company}} </p>
+      </div>
+  </div>
 
   {% endfor %}
 </section>
+
 
 <section class="selection">
   <h2> Processus de sélection </h2>
@@ -68,32 +63,4 @@
 
 </section>
 
-{% block javascripts %}
-<script>
-$(document).ready(function(){
-$("#go").on({
-mouseover: function(){
-	$("#block").animate({
-			top: '3.1em',
-			left: '-31.2em',
-      height: '+=360px',
-      width: '+=509px',
-		 	opacity: '0.6'
-	}, 1000 );
-},
-mouseleave: function(){
-	$("#block").animate({
-			top: '28em',
-			left: '4em',
-      height: '40px',
-      width: '60px',
-		 	opacity: '0'
-	}, 1000 );
-}
-});
-});
-</script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="js/jquery-color/jquery.color.js"></script>
-{% endblock %}
 {% endblock %}
