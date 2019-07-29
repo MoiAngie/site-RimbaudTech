@@ -696,7 +696,7 @@ p {
   .topnav .dropdown:hover .dropdown-content {
     display: block; }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon)*/
+/* media query à partir de moins de 600px*/
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none; }
@@ -706,37 +706,51 @@ p {
     display: block;
     padding-top: 0.8em;
     padding-bottom: 1em; } }
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally)*/
+/* on fait passer le menu en vertical grâce à JS en cliquant sur l'icône*/
 @media screen and (max-width: 600px) {
   .topnav.responsive {
-    position: relative; }
+    position: absolute; }
 
   .topnav.responsive a {
-    float: none;
     display: block;
     text-align: left;
     background-color: #585858;
-    padding-top: 0;
+    padding-top: 0.2em;
     max-width: 600px; }
+
+  .topnav.responsive .dropdown {
+    float: none;
+    left: 0;
+    background-color: #585858;
+    padding: 0em;
+    padding-right: 50em;
+    position: relative;
+    top: -0.2em; }
+
+  .topnav.responsive .dropdown-content {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0em; }
+    .topnav.responsive .dropdown-content a {
+      color: white; }
+      .topnav.responsive .dropdown-content a:hover {
+        color: #585858; }
+
+  .topnav.responsive .topnav-right {
+    background-color: #585858;
+    position: absolute;
+    top: 4.8em; }
 
   .topnav.responsive a.icon {
     position: absolute;
     right: 0;
-    top: 0; }
-
-  .topnav.responsive .dropdown {
-    float: none;
-    background-color: #585858;
-    padding-left: 5em;
-    max-width: 600px; }
-
-  .topnav.responsive .dropdown-content {
-    width: 100%;
-    position: relative;
-    right: 0; }
+    top: 0.5em; }
 
   .topnav.responsive .dropdown .dropbtn {
-    display: block; } }
+    display: block;
+    padding-right: 50em;
+    padding-left: 1em; } }
 /*footer*/
 footer {
   height: 700px; }

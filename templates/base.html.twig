@@ -76,8 +76,9 @@
           <a href="{{ path('galerie-incubes')}}">Nos incubés</a>
           <a href="{{ path('actu')}}">Actualités</a>
           <a href="{{ path('contact')}}">Contact</a>
+          </div>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-        </div>
+
       </div>
       <!-- Fin Navbar -->
 {% block body %}{% endblock %}
@@ -175,6 +176,10 @@
         </section>
       </footer>
 
+      <script src="{{asset('js/base.js')}}">
+      </script>
+
+
         <!-- Pour la chatbox -->
         <script>
         window.$crisp=[];
@@ -190,8 +195,6 @@
         <script src="https://client.crisp.chat/static/javascript/client.js?da5fbb3" type="text/javascript" async></script>
 
 
-        <script src="{{asset('js/base.js')}}">
-        </script>
 
 
         {% block javascripts %}
