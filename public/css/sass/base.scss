@@ -137,60 +137,59 @@ p {
 @media screen and (max-width: 600px) {
   .topnav.responsive {
     position: absolute;
-  }
-
-  // style sur tous les liens de la navbar
-  .topnav.responsive a {
-    display: block;
-    text-align: left;
-    background-color: $dgrey;
-    padding-top: 0.2em;
-    max-width: 600px;
-  }
-// style sur la partie dropdown
-.topnav.responsive .dropdown {
-    float: none;
-    left: 0;
-    background-color: $dgrey;
-    padding: 0em;
-    padding-right: 50em;
-    position: relative;
-    top: -0.2em;
-  }
-  // style sur son contenu qui s'affiche seulement en passant sur "services"
-  .topnav.responsive .dropdown-content {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0em;
-
+    // style sur tous les liens de la navbar
     & a {
-      color: white;
+      display: block;
+      text-align: left;
+      background-color: $dgrey;
+      padding-top: 0.2em;
+      max-width: 600px;
+    }
+    // style sur la partie dropdown
+    & .dropdown {
+        float: none;
+        left: 0;
+        background-color: $dgrey;
+        padding: 0em;
+        padding-right: 50em;
+        position: relative;
+        top: -0.2em;
+      }
+    // style sur son contenu qui s'affiche seulement en passant sur "services"
+    & .dropdown-content {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0em;
 
-      &:hover {
-        color: $dgrey;
+      & a {
+        color: white;
+
+        &:hover {
+          color: $dgrey;
+        }
       }
     }
+  // style le bouton "services"
+    & .dropdown .dropbtn {
+      display: block;
+      padding-right: 50em;
+      padding-left: 1em;
+    }
+  // style sur la partie du menu à droite qui passe en vertical
+    & .topnav-right {
+      background-color: $dgrey;
+      position: absolute;
+      top: 4.8em;
+    }
+  // style sur le bouton hamburger
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0.5em;
+    }
   }
-// style sur la partie du menu à droite qui passe en vertical
-  .topnav.responsive .topnav-right {
-    background-color: $dgrey;
-    position: absolute;
-    top: 4.8em;
   }
-// style sur le bouton hamburger
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0.5em;
-  }
-// style le bouton "services"
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    padding-right: 50em;
-    padding-left: 1em;
-  }
-}
 
 /*footer*/
 
