@@ -124,3 +124,30 @@
   margin: 0;
   background-color: $dmagenta;
 }
+
+
+/********media query **********/
+@media screen and (max-width: 1475px) {
+.presentation p {
+  margin: 0 5em;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+}
+
+@media screen and (max-width: 1111px) {
+  .avantages {
+  .avantages__flex {
+    flex-wrap: wrap;
+  }
+}}
+
+@media screen and (max-width: 770px) {
+.presentation p {
+  margin: 0 1.5em;
+}
+}
