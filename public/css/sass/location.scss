@@ -36,6 +36,9 @@
   & .cap {
     text-transform: uppercase;
   }
+  & .h3-location {
+    margin-left: -8%;
+  }
   & p {
     @include tarifs;
     margin-left: 34%;
@@ -50,3 +53,15 @@
   margin-left: 34%;
   }
 }}
+
+/***********media query***************/
+@media screen and (max-width: 1399px) {
+  .section__location__tarifs {
+    & .section__location__tarifs__salle {
+        text-align: left;
+      }
+    & p {
+      margin-left: 10%;
+    }
+    }
+  }

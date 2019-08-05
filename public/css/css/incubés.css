@@ -14,12 +14,10 @@ h2 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 2em;
-  margin-left: 5em; }
+  justify-content: space-between;
+  margin: 2em 5em; }
 
 .galerie-gp {
-  padding: 1em;
   flex: 1 1 auto;
   max-height: 300px; }
   .galerie-gp a {
@@ -179,5 +177,7 @@ h2 {
     margin: 0 2em; }
     .btn-incube .btn-admin:hover {
       text-decoration: underline; }
+
+/***********media query *************/
 
 /*# sourceMappingURL=incub%C3%A9s.css.map */

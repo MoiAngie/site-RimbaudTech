@@ -351,6 +351,8 @@ h2 {
       text-align: center; }
       .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .cap {
         text-transform: uppercase; }
+      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .h3-location {
+        margin-left: -8%; }
       .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle p {
         text-align: left;
         color: white;
@@ -368,6 +370,12 @@ h2 {
       text-align: center;
       margin-left: 34%; }
 
+/***********media query***************/
+@media screen and (max-width: 1399px) {
+  .section__location__tarifs .section__location__tarifs__salle {
+    text-align: left; }
+  .section__location__tarifs p {
+    margin-left: 10%; } }
 h2 {
   color: #585858;
   text-align: center; }
@@ -383,12 +391,10 @@ h2 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 2em;
-  margin-left: 5em; }
+  justify-content: space-between;
+  margin: 2em 5em; }
 
 .galerie-gp {
-  padding: 1em;
   flex: 1 1 auto;
   max-height: 300px; }
   .galerie-gp a {
@@ -549,6 +555,7 @@ h2 {
     .btn-incube .btn-admin:hover {
       text-decoration: underline; }
 
+/***********media query *************/
 /*  style pour l'affichage des 3 derniers articles  */
 .liste_articles {
   margin: 2em; }
@@ -714,7 +721,7 @@ p {
 #myTopnav {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 10;
   height: 4.8em; }
 
 .topnav {

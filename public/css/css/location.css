@@ -29,6 +29,8 @@
       text-align: center; }
       .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .cap {
         text-transform: uppercase; }
+      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .h3-location {
+        margin-left: -8%; }
       .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle p {
         text-align: left;
         color: white;
@@ -45,5 +47,12 @@
       width: 30%;
       text-align: center;
       margin-left: 34%; }
+
+/***********media query***************/
+@media screen and (max-width: 1399px) {
+  .section__location__tarifs .section__location__tarifs__salle {
+    text-align: left; }
+  .section__location__tarifs p {
+    margin-left: 10%; } }
 
 /*# sourceMappingURL=location.css.map */
