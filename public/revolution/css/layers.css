@@ -1259,6 +1259,7 @@ website:   	http://www.themepunch.com
 	font-weight:bold;
 	line-height:24px;
 	padding:1em;
+  padding-bottom: 0;
 	text-decoration:none;
 }
 
