@@ -29,7 +29,7 @@ p {
   @include p;
 }
 
-/* top navigation*/
+/*navbar*/
 
 #myTopnav {
   position: sticky;
@@ -118,9 +118,31 @@ p {
 
 }
 
-/* media query à partir de moins de 600px*/
+/* media query à partir de moins de 910px*/
+@media screen and (max-width: 910px) {
+  #myTopnav {
+    height: 4em;
+  }
+  .topnav a {
+    padding: 0.8em;
+    font-size: 1.2em;
+  }
+  .topnav .dropdown-content {
+      right: 29em;
+      top: 5em;
+    }
+  .topnav .dropbtn:hover {
+      height: 2.5em;
+    }
+
+  .topnav-right {
+    height: 4em;
+  }
+}
+
+/* media query à partir de moins de 728px*/
 //on cache le menu sauf le logo
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 728px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none;
   }
@@ -128,13 +150,11 @@ p {
   .topnav a.icon {
     float: right;
     display: block;
-    padding-top: 0.8em;
-    padding-bottom: 1em;
   }
 }
 
 /* on fait passer le menu en vertical grâce à JS en cliquant sur l'icône*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 728px) {
   .topnav.responsive {
     position: absolute;
     // style sur tous les liens de la navbar
@@ -142,8 +162,7 @@ p {
       display: block;
       text-align: left;
       background-color: $dgrey;
-      padding-top: 0.2em;
-      max-width: 600px;
+      max-width: 100%;
     }
     // style sur la partie dropdown
     & .dropdown {
@@ -153,7 +172,7 @@ p {
         padding: 0em;
         padding-right: 50em;
         position: relative;
-        top: -0.2em;
+        top: 0em;
       }
     // style sur son contenu qui s'affiche seulement en passant sur "services"
     & .dropdown-content {
@@ -180,13 +199,7 @@ p {
     & .topnav-right {
       background-color: $dgrey;
       position: absolute;
-      top: 4.8em;
-    }
-  // style sur le bouton hamburger
-    .topnav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0.5em;
+      top: 4em;
     }
   }
   }
@@ -301,6 +314,66 @@ footer {
     color: $logoblue;
   }
 }
+
+/* media query à partir de moins de 1199px*/
+@media screen and (max-width: 1199px) {
+  body {
+    min-height: calc(100vh - 650px);
+  }
+
+  footer {
+    height: 650px;
+  }
+  .section__footertop {
+  font-size: 0.8em;
+
+  & .section__coordonnees, .section__horaires, .section__mail {
+    margin: 0 3em;
+  }
+}
+.section__footerend {
+  font-size: 0.8em;
+}
+.section__logoRT {
+  max-height: 130px;
+}
+}
+
+/* media query à partir de moins de 806px*/
+@media screen and (max-width: 806px) {
+  .section__footertop {
+  &.section__coordonnees, .section__horaires, .section__mail {
+    margin: 0 1em;
+  }
+}
+}
+
+/* media query à partir de moins de 710px*/
+@media screen and (max-width: 710px) {
+  .section__footertop, .section__footerend {
+ flex-direction: column;
+}
+  .section__footerend {
+    height: 30em;
+
+    & .section__logoRT {
+      margin-left: 25%;
+    }
+
+    & .section__socialnetwork {
+      margin-left: 32%;
+    }
+
+      & .section__socialnetwork .fab {
+      transform: translateY(0);
+      }
+
+  }
+}
+
+
+
+
 
 /*  back-to-top  */
 
