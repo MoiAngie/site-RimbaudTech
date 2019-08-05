@@ -67,4 +67,18 @@ h2 {
       .section__equipe__presentation .section__equipe__presentation__tx .fab:hover {
         color: white; }
 
+/************media query****************/
+@media screen and (max-width: 1530px) {
+  .section__equipe__presentation img {
+    max-height: 20em; } }
+@media screen and (max-width: 1099px) {
+  .section__equipe__presentation {
+    margin-left: 20%; }
+    .section__equipe__presentation img {
+      max-height: 15em;
+      margin-left: -30%; } }
+@media screen and (max-width: 835px) {
+  .section__equipe__presentation img {
+    display: none; } }
+
 /*# sourceMappingURL=incubation.css.map */

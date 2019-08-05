@@ -60,6 +60,8 @@ h2 {
 
   & .section__tarifs__img {
     transform: translateX(-12em);
+    width: 600px;
+    height: 400px;
   }
 
   & .section__tarifs__adh {
@@ -93,4 +95,83 @@ h2 {
 & .blueline {
   @include blueline;
 }
+}
+
+/***********media query*******************/
+@media screen and (max-width: 1663px) {
+  .container-grid {
+    grid-gap: 0 2em 2em;
+    padding: 1em;
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width: 1453px) {
+  .container-grid {
+    & .section__tarifs__adh, .section__tarifs__nadh {
+      font-size: 0.8em;
+    }
+  }
+}
+
+@media screen and (max-width: 1301px) {
+  .container-grid {
+    grid-template-columns: 5% auto auto auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 2em;
+
+    & .section__tarifs__img {
+      grid-column: 2 / span 2;
+      transform: translateX(0em);
+}
+    & .section__tarifs__adh  {
+      transform: translateX(0em);
+      grid-column: 2 / span 1;
+      grid-row: 2;
+      padding-left: 2em;
+    }
+
+    & .section__tarifs__nadh {
+      grid-column: 3 / span 1;
+      grid-row: 2;
+      padding-left: 2em;
+
+    }
+  }
+}
+
+@media screen and (max-width: 758px) {
+  .container-grid {
+    grid-template-rows: auto auto auto;
+
+    & .section__tarifs__adh  {
+      grid-column: 2 / span 3;
+      padding-left: 1em;
+    }
+    & .section__tarifs__nadh {
+      padding-left: 4em;
+      grid-column: 2 / span 3;
+      grid-row: 3;
+}
+}
+}
+
+@media screen and (max-width: 608px) {
+  .container-grid {
+    grid-template-columns: auto;
+    & .section__tarifs__adh  {
+    margin-left: 5em;
+    grid-column: 2 / span 2;
+  }
+  & .section__tarifs__nadh {
+    margin-left: 5em;
+  }
+}
+}
+
+@media screen and (max-width: 493px) {
+  .container-grid {
+    margin-left: 0;
+    display: block;
+  }
 }
