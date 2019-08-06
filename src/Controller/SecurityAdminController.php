@@ -63,4 +63,23 @@ class SecurityAdminController extends AbstractController
      * @Route("/logout", name="security_logout")
      */
      public function logout() {}
+
+       /**
+        * @Route("/modifyUser", name="modify-User")
+        */
+       public function modifyUser()
+       {
+
+           return $this->render('security/modify-admin.html.twig');
+       }
+
+       /**
+        * @Route("/removeUser", name="remove-User")
+        */
+       public function removeUser()
+       {
+
+           return $this->render('security/remove-admin.html.twig');
+       }
+
 }
