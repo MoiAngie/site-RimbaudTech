@@ -23,10 +23,11 @@ security:
             form_login:
               login_path: security_login
               check_path: security_login
+              default_target_path: homeAdmin
 
             logout:
               path: security_logout
-              target: rt
+              target: homeAdmin
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

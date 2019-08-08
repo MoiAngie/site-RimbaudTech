@@ -56,6 +56,9 @@ class SecurityAdminController extends AbstractController
      */
     public function login()
     {
+      if (isset($_POST['submit'])) {
+      return $this ->redirectToRoute('homeAdmin');
+    }
 
         return $this->render('security/login.html.twig');
     }
