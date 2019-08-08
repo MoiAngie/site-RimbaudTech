@@ -11,11 +11,11 @@
   </figure>
 </section>
 
-  <form action="{{ path('modify-admin')}}" method="POST">
+  <form action="{{ path('modify-User')}}" method="POST">
   {% for list in list %}
     <div class="form-group">
-      <input type="checkbox" name="article[]" id="article" value="{{list.id}}" class="form-input">
-      <b>{{list.name}} {{list.firstname}}</b>, {{list.company}},<em> {{list.status}}</em>
+      <input type="checkbox" name="user[]" id="user" value="{{list.id}}" class="form-input">
+      <b>{{list.username}}</b>, {{list.email}}
       </br>
       </input>
     </div>

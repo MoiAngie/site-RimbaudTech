@@ -13,6 +13,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\User;
 use App\Form\RegistrationType;
+use App\Repository\UserRepository;
 
 class SecurityAdminController extends AbstractController
 {
@@ -66,20 +67,72 @@ class SecurityAdminController extends AbstractController
 
        /**
         * @Route("/modifyUser", name="modify-User")
+        * PAGE MODIFICATION ADMINISTRATEURS (page admin)
         */
-       public function modifyUser()
-       {
+        public function modifyUser(Request $request, ObjectManager $manager,UserRepository $repoAdmin)
+        {
+          $list = $repoAdmin->findAll();
 
-           return $this->render('security/modify-admin.html.twig');
-       }
+          if (isset($_POST['user'])) {
+            foreach ($_POST['user'] as $id) {
+              $number = $repoAdmin->find($id);
+              $manager->persist($number);
+            }
+            $manager->flush();
+            return $this ->redirect('modifUser/'.$id);
+          }
+
+
+          return $this->render('security/modify-admin.html.twig', [
+            'list' => $list
+          ]);
+        }
+
+
+       /**
+        * @Route("/modifUser/{id}", name="modif-User")
+        * PAGE TYPE MODIFICATION USER (page admin)
+        */
+        public function modifUser(User $user, Request $request, ObjectManager $manager)
+        {
+          $form = $this->createFormBuilder($user)
+                        ->add('username')
+                        ->add('email')
+                        ->add('password')
+                        ->getForm();
+
+          $form->handleRequest($request);
+
+          if($form->isSubmitted() && $form->isValid()){
+          $manager->persist($user);
+          $manager->flush();
+          return $this->redirectToRoute('validation');
+          }
+          return $this->render('security/modif-admin.html.twig', [
+            'formUser' => $form->createView()
+          ]);
+        }
 
        /**
         * @Route("/removeUser", name="remove-User")
+        * PAGE SUPPRESSION USER (page admin)
         */
-       public function removeUser()
-       {
+        public function removeUser(Request $request, ObjectManager $manager, UserRepository $repoAdmin)
+        {
+          $list = $repoAdmin->findAll();
 
-           return $this->render('security/remove-admin.html.twig');
-       }
+          if (isset($_POST['user'])) {
+            foreach ($_POST['user'] as $id) {
+              $user = $repoAdmin->find($id);
+              $manager->remove($user);
+            }
+            $manager->flush();
+            return $this ->redirectToRoute('validation');
+          }
+
+          return $this->render('security/remove-admin.html.twig', [
+            'list' => $list
+          ]);
+        }
 
 }

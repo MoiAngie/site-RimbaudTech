@@ -1,0 +1,21 @@
+
+
+{% block stylesheets %}
+<link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/css/footerless.css')}}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block body %}
+<h2 class="margin-admin">Access denied</h2>
+
+<figure>
+  <img src="{{asset('img/illustrations/accessdenied.svg')}}" class="back" height="500" width="800">
+</figure>
+
+<section class="btn-back">
+  <button class="btn-admin">
+    <a href="{{path('security_login')}}">Se connecter</a>
+  </button>
+</section>
+{% endblock %}

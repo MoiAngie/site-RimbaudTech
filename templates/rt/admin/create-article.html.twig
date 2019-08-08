@@ -3,6 +3,8 @@
 {% block title %}Ajouter un article{% endblock %}
 
 {% block body %}
+{% if app.user %}
+
 <section class="titre-back-center">
   <h2 class="h2-back">Ajouter un article</h2>
 
@@ -50,5 +52,10 @@
 </div>
 <button type="submit" class="btn-admin">Publier</button>
 {{ form_end(formArticle)}}
+
+{% endif %}
+{% if not app.user %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
 
 {% endblock %}
