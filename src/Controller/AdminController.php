@@ -172,7 +172,8 @@ class AdminController extends AbstractController
        return $this->redirectToRoute('validation');
        }
        return $this->render('rt/admin/modif-utilisateur.html.twig', [
-         'formUtilisateur' => $formUtilisateur->createView()
+         'formUtilisateur' => $formUtilisateur->createView(),
+         'utilisateur' => $utilisateur
        ]);
      }
 

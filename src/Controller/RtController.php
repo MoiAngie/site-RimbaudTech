@@ -17,6 +17,7 @@ use App\Repository\UtilisateursRepository;
 use App\Repository\TarifsRepository;
 use App\Form\ArticleType;
 use App\Form\ContactType;
+use App\Notification\ContactNotification;
 
 class RtController extends AbstractController
 {
@@ -162,14 +163,25 @@ class RtController extends AbstractController
      * @Route("/rt/contact", name="contact")
      * PAGE CONTACT
      */
-    public function contact()
+    public function contact(Request $request, ContactNotification $notification)
     {
       $contact = new Contact();
-
       $formContact = $this->createForm(ContactType::class);
+      $formContact->handleRequest($request);
+
+      if ($formContact->isSubmitted() && $formContact->isValid()) {
+        $notification->notify($contact);
+        $this->addFlash(
+    'success',
+    'Votre message a bien été envoyé !'
+);
+
+        return $this->redirectToRoute('contact');
+      }
 
         return $this->render('rt/contact.html.twig', [
           'formContact' => $formContact->createView()
         ]);
+
     }
 }

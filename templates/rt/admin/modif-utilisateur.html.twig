@@ -29,6 +29,7 @@
     {{ form_row(formUtilisateur.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
+
     {{ form_row(formUtilisateur.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
@@ -38,6 +39,7 @@
     {{ form_row(formUtilisateur.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis sur Rimbaud Tech", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
+    <img src="/{{ utilisateur.image1}}" style="width: 100px; height: 67px;">
     {{ form_row(formUtilisateur.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
