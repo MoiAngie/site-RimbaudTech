@@ -36,10 +36,21 @@ h2.margin-admin {
   }
 }
 
-/*  formulaires  */
+/*  formulaires*/
 
 label {
   display: none;
+}
+
+.form-admin-photos {
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
+  & label {
+  display: inherit;
+  font-style: italic;
+}
 }
 
 .form-label {
@@ -65,10 +76,24 @@ label {
   }
 }
 
+.form-group-photos {
+  width: 50%;
+  height: 7em;
+  border: none;
+  border-bottom: 0.1em solid $logoblue;
+  margin: 1em auto;
+  margin-left: 25%;
+  font-size: 1.3em;
+  color: $dgrey;
+  font-weight: 400;
+  padding-bottom: 1em;
+
+}
+
 .form-control {
   border: none;
   font-size: 1em;
-  min-width: 30em;
+  width: 30em;
   outline-style: none;
   padding: 0.5em;
 }
@@ -87,6 +112,10 @@ input#user.form-input, input#article, input#tarif.form-input {
   margin: 0;
   margin-right: 1em;
 }
+
+/*input#form_profilpicture.form-control, input#form_image1.form-control, input#form_image2.form-control, input#form_image3.form-control, input#form_image4.form-control {
+  display: none;
+}*/
 
 .btn-admin {
   background-color: $logoblue;

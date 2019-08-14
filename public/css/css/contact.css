@@ -17,6 +17,15 @@ body {
       color: #4ab9e4; }
     .page-contact .coordonnees .contact-data {
       font-size: 1.2em; }
+  .page-contact .form-contact .form-group {
+    margin-top: 2em;
+    margin-left: 1.5em;
+    width: 80%;
+    height: 2em;
+    padding-bottom: 0.5em; }
+
+select#contact_object.form-control {
+  width: 80%; }
 
 /* footer adapté */
 footer {

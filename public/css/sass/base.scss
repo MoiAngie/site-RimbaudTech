@@ -214,6 +214,11 @@ footer {
   @include h2h3;
 }
 
+.section__contact h3 {
+  color: $logoblue;
+  font-size: 1.3em;
+}
+
 .section__contact hr {
   @include hr;
 }
@@ -231,6 +236,9 @@ footer {
     font-weight: 500;
     font-size: 1em;
 
+  & h3 {
+    color: $logoblue;
+  }
   & .fas {
     color: $logoblue;
   }

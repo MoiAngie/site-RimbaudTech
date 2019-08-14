@@ -27,7 +27,20 @@ body {
       font-size: 1.2em;
     }
   }
+
+.form-contact {
+  & .form-group {
+    margin-top: 2em;
+    margin-left: 1.5em;
+    width: 80%;
+    height: 2em;
+    padding-bottom: 0.5em;
+  }
 }
+}
+select#contact_object.form-control {
+    width: 80%;
+  }
 
 /* footer adapté */
 footer {

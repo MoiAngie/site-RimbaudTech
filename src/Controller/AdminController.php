@@ -15,9 +15,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Entity\Articles;
 use App\Entity\Utilisateurs;
 use App\Entity\Tarifs;
+use App\Entity\User;
+
 use App\Repository\ArticlesRepository;
 use App\Repository\UtilisateursRepository;
 use App\Repository\TarifsRepository;
+use App\Repository\UserRepository;
+
 use App\Form\ArticleType;
 use App\Form\UtilisateursType;
 use App\Form\TarifType;
@@ -152,11 +156,6 @@ class AdminController extends AbstractController
                      ->add('firstname')
                      ->add('company')
                      ->add('status')
-                     ->add('profilpicture')
-                     ->add('image1')
-                     ->add('image2')
-                     ->add('image3')
-                     ->add('image4')
                      ->add('description')
                      ->add('comment')
                      ->add('socialmedia1')
@@ -176,6 +175,122 @@ class AdminController extends AbstractController
          'utilisateur' => $utilisateur
        ]);
      }
+
+     /**
+      * @Route("/rt/admin/modify-photos", name="modify-photos")
+      * PAGE LISTE UTILISATEURS POUR MODIF DES PHOTOS (page admin)
+      */
+      public function modifyPhotos(Request $request, ObjectManager $manager,UtilisateursRepository $repoPhotos)
+      {
+        $list = $repoPhotos->findAll();
+
+        if (isset($_POST['utilisateur'])) {
+          foreach ($_POST['utilisateur'] as $id) {
+            $number = $repoPhotos->find($id);
+            $manager->persist($number);
+          }
+          $manager->flush();
+          return $this ->redirect('modif-photos/'.$id);
+        }
+
+
+        return $this->render('rt/admin/modify-photos.html.twig', [
+          'list' => $list
+        ]);
+      }
+
+      /**
+       * @Route("/rt/admin/modif-photos/{id}", name="modif-photos")
+       * PAGE TYPE MODIFICATION PHOTOS (page admin)
+       */
+       public function modifPhotos(Utilisateurs $utilisateur, Request $request, ObjectManager $manager)
+       {
+         $formUtilisateur = $this->createFormBuilder($utilisateur)
+                       ->add('profilpicture', FileType::class, [
+                         'required' => false,
+                         'mapped' => false
+                       ])
+                       ->add('image1', FileType::class, [
+                         'required' => false,
+                         'mapped' => false
+                       ])
+                       ->add('image2', FileType::class, [
+                         'required' => false,
+                         'mapped' => false
+                       ])
+                       ->add('image3', FileType::class, [
+                         'required' => false,
+                         'mapped' => false
+                       ])
+                       ->add('image4', FileType::class, [
+                         'required' => false,
+                         'mapped' => false
+                       ])
+                       ->getForm();
+
+         $formUtilisateur->handleRequest($request);
+
+         if($formUtilisateur->isSubmitted() && $formUtilisateur->isValid()){
+         $image = $formUtilisateur['profilpicture']->getData();
+         $image1 = $formUtilisateur['image1']->getData();
+         $image2 = $formUtilisateur['image2']->getData();
+         $image3 = $formUtilisateur['image3']->getData();
+         $image4 = $formUtilisateur['image4']->getData();
+         $extension = $image->guessExtension();
+           if (!$extension) {
+             // extension cannot be guessed
+             $extension = 'bin';
+           }
+         $extension1 = $image1->guessExtension();
+           if (!$extension1) {
+             // extension cannot be guessed
+             $extension1 = 'bin';
+           }
+         $extension2 = $image2->guessExtension();
+           if (!$extension2) {
+             // extension cannot be guessed
+             $extension2 = 'bin';
+           }
+         $extension3 = $image3->guessExtension();
+           if (!$extension3) {
+             // extension cannot be guessed
+             $extension3 = 'bin';
+           }
+         $extension4 = $image4->guessExtension();
+           if (!$extension4) {
+             // extension cannot be guessed
+             $extension4 = 'bin';
+           }
+         $id = sizeof($this->getDoctrine()
+             ->getRepository(Utilisateurs::class)
+             ->findAll());
+         $title = 'profilpicture'.$id;
+         $title1 = 'image1'.$id;
+         $title2 = 'image2'.$id;
+         $title3 = 'image3'.$id;
+         $title4 = 'image4'.$id;
+
+         $image->move('img/utilisateurs', $title.'.'.$extension);
+         $image1->move('img/utilisateurs', $title1.'.'.$extension1);
+         $image2->move('img/utilisateurs', $title2.'.'.$extension2);
+         $image3->move('img/utilisateurs', $title3.'.'.$extension3);
+         $image4->move('img/utilisateurs', $title4.'.'.$extension4);
+         $utilisateur->setProfilpicture('img/utilisateurs/'.$title.'.'.$extension);
+         $utilisateur->setImage1('img/utilisateurs/'.$title1.'.'.$extension1);
+         $utilisateur->setImage2('img/utilisateurs/'.$title2.'.'.$extension2);
+         $utilisateur->setImage3('img/utilisateurs/'.$title3.'.'.$extension3);
+         $utilisateur->setImage4('img/utilisateurs/'.$title4.'.'.$extension4);
+         $manager->persist($utilisateur);
+         $manager->flush();
+
+         return $this ->redirectToRoute('validation');
+         }
+
+         return $this->render('rt/admin/modif-photos.html.twig', [
+           'formUtilisateur' => $formUtilisateur->createView(),
+           'utilisateur' => $utilisateur
+         ]);
+       }
 
   /**
    * @Route("/rt/admin/remove-utilisateur", name="remove-utilisateur")

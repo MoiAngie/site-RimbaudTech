@@ -848,6 +848,10 @@ footer {
     color: #c91a5f;
     text-decoration: underline; }
 
+.section__contact h3 {
+  color: #4ab9e4;
+  font-size: 1.3em; }
+
 .section__contact hr {
   width: 10%;
   height: 0.3em;
@@ -865,6 +869,8 @@ footer {
     color: #585858;
     font-weight: 500;
     font-size: 1em; }
+    .section__footertop .section__coordonnees h3, .section__footertop .section__horaires h3, .section__footertop .section__mail h3 {
+      color: #4ab9e4; }
     .section__footertop .section__coordonnees .fas, .section__footertop .section__horaires .fas, .section__footertop .section__mail .fas {
       color: #4ab9e4; }
 

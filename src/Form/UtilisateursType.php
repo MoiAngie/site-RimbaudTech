@@ -35,6 +35,7 @@ class UtilisateursType extends AbstractType
               ->add ('profilpicture', FileType::class)
               ->add ('image1', FileType::class, [
                 'required' => false,
+                'mapped' => false
               ])
               ->add ('image2', FileType::class, [
                 'required' => false,

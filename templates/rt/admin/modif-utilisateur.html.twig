@@ -29,27 +29,10 @@
     {{ form_row(formUtilisateur.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
-
-    {{ form_row(formUtilisateur.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
-  </div>
-  <div class="form-group">
     {{ form_row(formUtilisateur.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Description du projet ou du poste à RT", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
     {{ form_row(formUtilisateur.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis sur Rimbaud Tech", 'class' : "form-control"}})}}
-  </div>
-  <div class="form-group">
-    <img src="/{{ utilisateur.image1}}" style="width: 100px; height: 67px;">
-    {{ form_row(formUtilisateur.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
-  </div>
-  <div class="form-group">
-    {{ form_row(formUtilisateur.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
-  </div>
-  <div class="form-group">
-    {{ form_row(formUtilisateur.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
-  </div>
-  <div class="form-group">
-    {{ form_row(formUtilisateur.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
     {{ form_row(formUtilisateur.socialmedia1, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Linkedin", 'class' : "form-control"}})}}
