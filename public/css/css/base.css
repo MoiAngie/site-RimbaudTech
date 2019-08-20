@@ -323,59 +323,40 @@ h2 {
 .section__location__desc {
   padding: 3em 5em 0 5em; }
 
-.section__location__photos {
+.tarifs-location-flex {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  transform: translateY(10em); }
-
-.bgd-bleu {
-  background-color: #4ab9e4;
-  width: 100%;
-  height: 10em;
-  display: block; }
-
-.section__location__tarifs {
-  background-color: #4ab9e4;
-  padding: 2em; }
-  .section__location__tarifs .section__location__tarifs__salles {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center; }
-    .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle {
-      flex: 1 1 auto;
-      color: white;
-      text-align: left;
-      color: white;
-      padding-right: 2em;
-      text-align: center; }
-      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .cap {
-        text-transform: uppercase; }
-      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .h3-location {
-        margin-left: -8%; }
-      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle p {
-        text-align: left;
-        color: white;
-        padding-right: 2em;
-        margin-left: 34%; }
-    .section__location__tarifs .section__location__tarifs__salles .blueline {
-      background-color: #4ab9e4;
-      border: none;
-      margin-left: 0;
-      width: 70%;
-      height: 0.3em;
-      border-radius: 1em;
-      background-color: #c91a5f;
-      width: 30%;
-      text-align: center;
-      margin-left: 34%; }
+  justify-content: space-around;
+  background: linear-gradient(0deg, #4ab9e4 80%, white 20%); }
+  .tarifs-location-flex figcaption {
+    color: #585858;
+    text-align: center;
+    font-size: 1.2em;
+    font-style: italic; }
+  .tarifs-location-flex .magentaline {
+    background-color: #c91a5f;
+    border: none;
+    height: 0.3em;
+    border-radius: 1em;
+    width: 50%; }
+  .tarifs-location-flex h3 {
+    color: white;
+    text-align: center; }
+  .tarifs-location-flex .cap {
+    text-transform: uppercase; }
+  .tarifs-location-flex p {
+    color: white; }
 
 /***********media query***************/
-@media screen and (max-width: 1399px) {
-  .section__location__tarifs .section__location__tarifs__salle {
-    text-align: left; }
-  .section__location__tarifs p {
-    margin-left: 10%; } }
+@media screen and (max-width: 1299px) {
+  .tarifs-location-flex {
+    flex-wrap: wrap; } }
+@media screen and (max-width: 619px) {
+  .tarifs-location-flex {
+    font-size: 0.8em; }
+    .tarifs-location-flex img {
+      width: 350px;
+      height: auto; } }
 h2 {
   color: #585858;
   text-align: center; }
@@ -391,7 +372,7 @@ h2 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin: 2em 5em; }
 
 .galerie-gp {
@@ -459,7 +440,7 @@ h2 {
     flex: 1 1 auto;
     width: 30em; }
   .selection .icone-processus {
-    margin-left: 5em;
+    margin-left: calc(50% - 100px);
     z-index: 100; }
   .selection h3 {
     color: #c91a5f;
@@ -496,7 +477,7 @@ h2 {
     background-color: #4ab9e4;
     height: 0.2em;
     border: none;
-    transform: translateX(-15em);
+    margin-left: 0em;
     width: 60%; }
   .intro .intro-hr-cow {
     background-color: #c91a5f;
@@ -533,7 +514,7 @@ h2 {
     height: 0.2em;
     border: none; }
   .comment .comment-hr, .comment .comment-hr-coworker {
-    transform: translateX(-38em);
+    margin-left: 0;
     width: 30%; }
 
 /*  boutons de redirection  */
@@ -556,6 +537,99 @@ h2 {
       text-decoration: underline; }
 
 /***********media query *************/
+@media screen and (max-width: 1679px) {
+  .galerie_incube, .galerie_coworker {
+    margin-left: 33%; } }
+@media screen and (max-width: 1639px) {
+  .selection h3 {
+    font-size: 1em; }
+  .selection p {
+    font-size: 1em; } }
+@media screen and (max-width: 1619px) {
+  .galerie_incubes {
+    margin: 2em 3em; } }
+@media screen and (max-width: 1471px) {
+  .selection h3 {
+    min-height: 3em; } }
+@media screen and (max-width: 1439px) {
+  .galerie_incubes {
+    margin: 2em 1em; } }
+@media screen and (max-width: 1380px) {
+  .selection .processus {
+    padding: 2em 0; } }
+@media screen and (max-width: 1312px) {
+  .galerie_incubes {
+    margin: 2em 7em; }
+
+  .selection .processus {
+    flex-wrap: wrap; }
+  .selection p {
+    max-width: 20em;
+    margin-left: calc(50% - 10em);
+    font-size: 1.2em; }
+  .selection h3 {
+    font-size: 1.2em; } }
+@media screen and (max-width: 1219px) {
+  .galerie_incubes {
+    margin: 2em 4em; }
+
+  .intro {
+    flex-wrap: wrap; }
+
+  .intro-tx {
+    margin-left: 3em; }
+
+  .galerie_incube, .galerie_coworker {
+    justify-content: flex-start;
+    margin-left: 23%; }
+
+  .img4 {
+    display: none; }
+
+  .comment {
+    padding: 2em 3em; } }
+@media screen and (max-width: 1149px) {
+  .img3 {
+    display: none; }
+
+  .galerie_incube, .galerie_coworker {
+    margin-left: 43%; } }
+@media screen and (max-width: 1029px) {
+  .galerie_incubes {
+    margin: 2em 1em; }
+
+  .galerie_incube, .galerie_coworker {
+    margin-left: 23%; } }
+@media screen and (max-width: 879px) {
+  .galerie_incubes {
+    margin-left: calc(50% - 200px); } }
+@media screen and (max-width: 755px) {
+  .galerie_incube, .galerie_coworker {
+    margin-left: 13%; }
+
+  .intro img {
+    width: 400px;
+    height: auto; }
+
+  .btn-incube {
+    min-width: 5em; }
+    .btn-incube .btn-admin a {
+      font-size: 0.8em; } }
+@media screen and (max-width: 755px) {
+  .galerie_incube, .galerie_coworker {
+    margin-left: 3%; }
+
+  .btn-incube {
+    flex-direction: column;
+    margin-left: calc(50% - 93px); }
+    .btn-incube .btn-admin {
+      margin: 1em; } }
+@media screen and (max-width: 600px) {
+  .galerie_incube, .galerie_coworker {
+    margin-left: 33%; }
+
+  .img2 {
+    display: none; } }
 /*  style pour l'affichage des 3 derniers articles  */
 .liste_articles {
   margin: 2em; }

@@ -5,63 +5,54 @@
   padding:3em 5em 0 5em;
 }
 
-.section__location__photos {
+.tarifs-location-flex {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  transform: translateY(10em);
-}
+  justify-content: space-around;
+  background: linear-gradient(0deg, $logoblue 80%, white 20%);
 
-.bgd-bleu {
-  background-color: $logoblue;
-  width: 100%;
-  height: 10em;
-  display: block;
+  & figcaption {
+    color: $dgrey;
+    text-align: center;
+    font-size: 1.2em;
+    font-style: italic;
   }
 
-.section__location__tarifs {
-  background-color: $logoblue;
-  padding: 2em;
+  & .magentaline {
+  background-color: $dmagenta;
+  border: none;
+  height: 0.3em;
+  border-radius: 1em;
+  width: 50%;
+}
 
-  & .section__location__tarifs__salles {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-
-  & .section__location__tarifs__salle {
-    flex: 1 1 auto;
+  & h3 {
     color: white;
-    @include tarifs;
     text-align: center;
+  }
+
   & .cap {
     text-transform: uppercase;
   }
-  & .h3-location {
-    margin-left: -8%;
-  }
-  & p {
-    @include tarifs;
-    margin-left: 34%;
-      }
-  }
 
-  & .blueline {
-  @include blueline;
-  background-color: $dmagenta;
-  width: 30%;
-  text-align: center;
-  margin-left: 34%;
+  & p {
+    color: white;
   }
-}}
+}
 
 /***********media query***************/
-@media screen and (max-width: 1399px) {
-  .section__location__tarifs {
-    & .section__location__tarifs__salle {
-        text-align: left;
-      }
-    & p {
-      margin-left: 10%;
-    }
-    }
+  @media screen and (max-width: 1299px) {
+    .tarifs-location-flex {
+    flex-wrap: wrap;
   }
+}
+
+@media screen and (max-width: 619px) {
+  .tarifs-location-flex {
+    font-size: 0.8em;
+    & img {
+      width: 350px;
+      height: auto;
+    }
+}
+}

@@ -1,58 +1,39 @@
 .section__location__desc {
   padding: 3em 5em 0 5em; }
 
-.section__location__photos {
+.tarifs-location-flex {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  transform: translateY(10em); }
-
-.bgd-bleu {
-  background-color: #4ab9e4;
-  width: 100%;
-  height: 10em;
-  display: block; }
-
-.section__location__tarifs {
-  background-color: #4ab9e4;
-  padding: 2em; }
-  .section__location__tarifs .section__location__tarifs__salles {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center; }
-    .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle {
-      flex: 1 1 auto;
-      color: white;
-      text-align: left;
-      color: white;
-      padding-right: 2em;
-      text-align: center; }
-      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .cap {
-        text-transform: uppercase; }
-      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle .h3-location {
-        margin-left: -8%; }
-      .section__location__tarifs .section__location__tarifs__salles .section__location__tarifs__salle p {
-        text-align: left;
-        color: white;
-        padding-right: 2em;
-        margin-left: 34%; }
-    .section__location__tarifs .section__location__tarifs__salles .blueline {
-      background-color: #4ab9e4;
-      border: none;
-      margin-left: 0;
-      width: 70%;
-      height: 0.3em;
-      border-radius: 1em;
-      background-color: #c91a5f;
-      width: 30%;
-      text-align: center;
-      margin-left: 34%; }
+  justify-content: space-around;
+  background: linear-gradient(0deg, #4ab9e4 80%, white 20%); }
+  .tarifs-location-flex figcaption {
+    color: #585858;
+    text-align: center;
+    font-size: 1.2em;
+    font-style: italic; }
+  .tarifs-location-flex .magentaline {
+    background-color: #c91a5f;
+    border: none;
+    height: 0.3em;
+    border-radius: 1em;
+    width: 50%; }
+  .tarifs-location-flex h3 {
+    color: white;
+    text-align: center; }
+  .tarifs-location-flex .cap {
+    text-transform: uppercase; }
+  .tarifs-location-flex p {
+    color: white; }
 
 /***********media query***************/
-@media screen and (max-width: 1399px) {
-  .section__location__tarifs .section__location__tarifs__salle {
-    text-align: left; }
-  .section__location__tarifs p {
-    margin-left: 10%; } }
+@media screen and (max-width: 1299px) {
+  .tarifs-location-flex {
+    flex-wrap: wrap; } }
+@media screen and (max-width: 619px) {
+  .tarifs-location-flex {
+    font-size: 0.8em; }
+    .tarifs-location-flex img {
+      width: 350px;
+      height: auto; } }
 
 /*# sourceMappingURL=location.css.map */

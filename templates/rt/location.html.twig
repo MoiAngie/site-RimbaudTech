@@ -13,35 +13,32 @@
    </div>
 </section>
 
-<section class="section__location__photos">
-  <figure>
-    <img src="{{asset('img/RT-cow2.jpg')}}" alt="Salle Caisse d'Epargne" width="600" height="400">
-  </figure>
-  <figure>
-    <img src="{{asset('img/RT-det.jpg')}}" alt="Salle de réunion" width="600" height="400">
-  </figure>
-</section>
 
-<div class="bgd-bleu">
-</div>
-
-<section class="section__location__tarifs">
+<section class="tarifs-location">
   <h2> Nos tarifs </h2>
 
-    <div class="section__location__tarifs__salles">
-      <div class="section__location__tarifs__salle">
-        <h3 class="cap"> Salle Caisse d'Epargne </h3>
-        <hr class="blueline">
-          <p class="section__tarifs__tx"> Location à la demi-journée : 20€</p>
-          <p class="section__tarifs__tx"> Location à la journée : 30€</p>
-      </div>
-      <div class="section__location__tarifs__salle">
-        <h3 class="cap h3-location"> Salle de réunion </h3>
-        <hr class="blueline">
-          <p class="section__tarifs__tx"> Location à la demi-journée : 70€</p>
-          <p class="section__tarifs__tx"> Location à la journée : 110€</p>
-      </div>
+  <div class="tarifs-location-flex">
+    <div class="location-salle">
+    <figure>
+      <img src="{{asset('img/RT-cow2.jpg')}}" alt="Salle Caisse d'Epargne" width="600" height="400">
+    </figure>
+      <h3 class="cap"> Salle Caisse d'Epargne </h3>
+      <hr class="magentaline">
+        <p class="section__tarifs__tx"> Location à la demi-journée : 20€</p>
+        <p class="section__tarifs__tx"> Location à la journée : 30€</p>
     </div>
+
+    <div class="location-salle">
+      <figure>
+        <img src="{{asset('img/RT-det.jpg')}}" alt="Salle de réunion" width="600" height="400">
+      </figure>
+      <h3 class="cap h3-location"> Salle de réunion </h3>
+      <hr class="magentaline">
+        <p class="section__tarifs__tx"> Location à la demi-journée : 70€</p>
+        <p class="section__tarifs__tx"> Location à la journée : 110€</p>
+    </div>
+
+  </div>
 </section>
 
 {% endblock %}
