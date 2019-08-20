@@ -7,6 +7,7 @@
   height: auto;
   width: 100%;
   margin: 2em auto;
+  margin-bottom: 10em;
 
   & .inter-newsletter {
     background-color: $dmagenta;
@@ -29,4 +30,66 @@
     top: -11em;
     left: 15em;
   }
+}
+
+/*************media query****************/
+@media screen and (max-width: 1549px) {
+  .newsletter {
+    & img {
+      left: 10em;
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .newsletter {
+    & img {
+      left: 5em;
+    }
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .newsletter {
+    margin-bottom: 20em;
+    & .inter-newsletter {
+      font-size: 1.4em;
+    }
+  }
+}
+
+@media screen and (max-width: 889px) {
+  .newsletter {
+    & img {
+      left: 2em;
+    }
+  }
+}
+
+@media screen and (max-width: 779px) {
+  .newsletter {
+    margin-bottom: 20em;
+    & .inter-newsletter {
+      font-size: 1em;
+      padding-left: 55%;
+    }
+  }
+}
+
+@media screen and (max-width: 659px) {
+.newsletter {
+  margin-bottom: 5em;
+  & .inter-newsletter {
+    margin-top: 32em;
+    height: 4em;
+    padding-top: 2.2em;
+    padding-left: 0;
+    text-align: center;
+  }
+  & img {
+    top: -30em;
+    left: 2em;
+  }
+}
+
 }
