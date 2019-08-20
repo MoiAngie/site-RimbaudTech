@@ -67,9 +67,8 @@
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 60%;
   width: auto;
-  margin-top: -22px;
   background-color: #c91a5f;
   border-radius: 3em;
   color: white;
@@ -79,11 +78,11 @@
   user-select: none;
   padding: 0.5em 0.7em; }
 
-/* Position the "next button" to the right */
+/* Position du btn à dte */
 .next {
   right: 2em; }
 
-/* On hover, add a black background color with a little bit see-through */
+/* bckgd pour le hover et le active */
 .prev:hover, .next:hover {
   background-color: #4ab9e4; }
 
@@ -132,6 +131,9 @@
     font-size: 1em; }
   .liste_articles p {
     font-size: 1em;
-    font-weight: normal; } }
+    font-weight: normal; }
+
+  .prev, .next {
+    top: 50%; } }
 
 /*# sourceMappingURL=actualites.css.map */

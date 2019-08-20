@@ -42,3 +42,27 @@
   padding-left: 1em;
 }
 }
+
+
+/***********@media query**************/
+@media screen and (max-width: 729px) {
+  .article-intro {
+    margin-top: 7em;
+  }
+  .liste_articles {
+    & img {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .article-intro {
+    margin-top: 4em;
+  }
+  .liste_articles {
+    & img {
+  max-width: 400px;
+  height: auto;
+}
+}}
