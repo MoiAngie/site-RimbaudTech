@@ -34,4 +34,41 @@ footer {
 .section__contact {
   display: none; }
 
+/***************@media query**********/
+@media screen and (max-width: 1599px) {
+  .page-contact {
+    display: flex;
+    flex-wrap: wrap; } }
+@media screen and (max-width: 999px) {
+  .page-contact .coordonnees {
+    margin: 2em 4em; } }
+@media screen and (max-width: 669px) {
+  .map {
+    transform: scale(0.8, 0.8);
+    margin-left: 3em; }
+
+  .form-contact {
+    width: 70%;
+    font-size: 0.8em; }
+
+  select#contact_object.form-control {
+    width: 100%; } }
+@media screen and (max-width: 559px) {
+  .page-contact {
+    margin-top: 0; }
+
+  .form-contact {
+    width: 90%;
+    padding-left: 5em; }
+    .form-contact textarea {
+      max-width: 100%; }
+
+  .map {
+    transform: scale(0.6, 0.6);
+    padding: 0; } }
+@media screen and (max-width: 439px) {
+  .form-contact {
+    font-size: 0.7em;
+    width: 100%; } }
+
 /*# sourceMappingURL=contact.css.map */
