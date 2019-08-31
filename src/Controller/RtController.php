@@ -33,7 +33,7 @@ class RtController extends AbstractController
         return $this->render('rt/index.html.twig', [
             'controller_name' => 'RtController',
             'utilisateur' =>$utilisateur,
-            'article' => $article
+            'article' => $article,
         ]);
     }
 

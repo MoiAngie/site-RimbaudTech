@@ -12,6 +12,9 @@
     <div class="metadata">
       <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
         à {{ article.createdAt | date('H:i')}}</aside>
+        {% if article.publie_par != null %}
+          <aside>Publié par {{article.publie_par}}</aside>
+        {% endif %}
     </div>
     <img src="{{asset(article.image)}}"/>
     <div class="article-tx">

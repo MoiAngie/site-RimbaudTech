@@ -86,6 +86,11 @@ class Articles
      */
     private $valid_until;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     */
+    public $publie_par;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -255,6 +260,18 @@ class Articles
     public function setValidUntil(\DateTimeInterface $valid_until): self
     {
         $this->valid_until = $valid_until;
+
+        return $this;
+    }
+
+    public function getPubliePar(): ?User
+    {
+        return $this->publie_par;
+    }
+
+    public function setPubliePar(?User $publie_par): self
+    {
+        $this->publie_par = $publie_par;
 
         return $this;
     }

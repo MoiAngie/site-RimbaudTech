@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-/*use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;*/
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -54,13 +54,17 @@ class SecurityAdminController extends AbstractController
     /**
      * @Route("/login", name="security_login")
      */
-    public function login()
+    public function login(AuthenticationUtils $utils)
     {
+      $error = $utils->getLastAuthenticationError();
+
       if (isset($_POST['submit'])) {
       return $this ->redirectToRoute('homeAdmin');
     }
 
-        return $this->render('security/login.html.twig');
+        return $this->render('security/login.html.twig', [
+          'hasError' => $error !== null
+        ]);
     }
 
     /**

@@ -9,6 +9,10 @@
 {% endblock %}
 
 {% block body %}
+{% if hasError %}
+    <p>Une erreur est survenue merci de vérifier vos identifiants !!</p>
+  {% endif %}
+  
 <form action="{{ path('security_login')}}" method="post">
 
   <section class="titre-back">

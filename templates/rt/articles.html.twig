@@ -13,6 +13,9 @@
     <div class="metadata">
       <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
       </aside>
+      {% if article.publie_par != null %}
+        <aside>Publié par {{article.publie_par}}</aside>
+      {% endif %}
     </div>
     <h5>{{ article.introduction | raw }}<h5>
       <a href="{{ path('article', {'id' : article.id })}}"><i class="fas fa-plus-circle"></i>Lire la suite de cet article...</a>
