@@ -148,15 +148,36 @@ class RtController extends AbstractController
         $article = $repo->find($id);
         /*FONCTION POUR ARTICLE SUIVANT*/
         $new_id = ($id+1);
-        $next = ('rt/article/'.$new_id);
+        // si $repo->find($id+1) != null)
+      //  $next = ('rt/article/'.$new_id);
         /*FONCTION POUR ARTICLE PRECEDENT*/
-        $new2_id = ($id-1);
-        $prev = ('rt/article/'.$new2_id);
-        return $this->render('rt/article.html.twig', [
-          'article' => $article,
-          'next' =>$next,
-          'prev' =>$prev
-        ]);
+       $new2_id = ($id-1);
+      //  $prev = ('rt/article/'.$new2_id);
+      //  return $this->render('rt/article.html.twig', [
+      //    'article' => $article,
+      //    'next' =>$next,
+      //    'prev' =>$prev
+      //  ]);
+
+      $next = ('rt/article/'.$new_id);
+        if ($repo->find($id+1) != null) {
+          return $this->render('rt/article.html.twig', [
+            'article' => $article,
+            'next' =>$next
+          ]);
+        }else {
+          return $this->redirectToRoute('contact');
+        }
+
+        $prev = ('rt/article/'.$new_id);
+        if ($repo->find($id-1) != null) {
+          return $this->render('rt/article.html.twig', [
+            'article' => $article,
+            'prev' =>$prev
+          ]);
+        }else {
+          return $this->redirectToRoute('article');
+        }
     }
 
     /**
