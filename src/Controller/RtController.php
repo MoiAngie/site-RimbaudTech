@@ -10,10 +10,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use App\Entity\Articles;
-use App\Entity\Utilisateurs;
+use App\Entity\Content;
 use App\Entity\Contact;
 use App\Repository\ArticlesRepository;
-use App\Repository\UtilisateursRepository;
+use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
 use App\Form\ArticleType;
 use App\Form\ContactType;
@@ -25,14 +25,14 @@ class RtController extends AbstractController
      * @Route("/rt", name="rt")
      * PAGE ACCUEIL DU SITE
      */
-    public function index(UtilisateursRepository $repo, ArticlesRepository $repoA)
+    public function index(ContentRepository $repo, ArticlesRepository $repoA)
     {
-        $utilisateur = $repo->findByStatus("Incubé");
+        $content= $repo->findByStatus("Incubé");
         $article = $repoA->findArticleIndex();
 
         return $this->render('rt/index.html.twig', [
             'controller_name' => 'RtController',
-            'utilisateur' =>$utilisateur,
+            'content' =>$content,
             'article' => $article,
         ]);
     }
@@ -54,12 +54,12 @@ class RtController extends AbstractController
      * @Route("/rt/coworking", name="coworking")
      * PAGE PRESENTATION CO-WORKING
      */
-    public function coworking(UtilisateursRepository $repo, TarifsRepository $repoT)
+    public function coworking(ContentRepository $repo, TarifsRepository $repoT)
     {
-      $utilisateur = $repo->findByStatus('Co-workeur');
+      $content = $repo->findByStatus('Co-workeur');
       $tarif = $repoT->findAll();
       return $this->render('rt/co-working.html.twig', [
-        'utilisateur' =>$utilisateur,
+        'content' =>$content,
         'tarif' =>$tarif
       ]);
     }
@@ -68,7 +68,7 @@ class RtController extends AbstractController
      * @Route("/rt/coworker/{id}", name="coworker")
      * PAGE TYPE COWORKER (afficher un coworker à la fois)
      */
-    public function showcoworkeur(UtilisateursRepository $repo, $id)
+    public function showcoworkeur(ContentRepository $repo, $id)
     {
       $coworker = $repo->find($id);
       return $this->render('rt/coworker.html.twig', [
@@ -90,11 +90,11 @@ class RtController extends AbstractController
      * @Route("/rt/incubation", name="incubation")
      * PAGE PRESENTATION DE L'INCUBATION
      */
-    public function incubation(UtilisateursRepository $repo)
+    public function incubation(ContentRepository $repo)
     {
-        $utilisateur = $repo->findByStatus("Personnel");
+        $content = $repo->findByStatus("Personnel");
         return $this->render('rt/incubation.html.twig', [
-          'utilisateur' => $utilisateur
+          'content' => $content
         ]);
     }
 
@@ -102,11 +102,11 @@ class RtController extends AbstractController
      * @Route("/rt/galerie-incubes", name="galerie-incubes")
      * PAGE GALLERIE INCUBES
      */
-    public function galerie_incubes(UtilisateursRepository $repo)
+    public function galerie_incubes(ContentRepository $repo)
     {
-      $utilisateur = $repo->findByStatus("Incubé");
+      $content = $repo->findByStatus("Incubé");
       return $this->render('rt/galerie-incube.html.twig', [
-        'utilisateur' => $utilisateur
+        'content' => $content
       ]);
     }
 
@@ -114,7 +114,7 @@ class RtController extends AbstractController
      * @Route("/rt/incube/{id}", name="incube")
      * PAGE TYPE INCUBES (afficher un incube à la fois)
      */
-    public function showincube(UtilisateursRepository $repo, $id)
+    public function showincube(ContentRepository $repo, $id)
     {
       $incube = $repo->find($id);
       return $this->render('rt/incube.html.twig', [

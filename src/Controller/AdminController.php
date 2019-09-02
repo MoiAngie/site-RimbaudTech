@@ -13,17 +13,17 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\Entity\Articles;
-use App\Entity\Utilisateurs;
+use App\Entity\Content;
 use App\Entity\Tarifs;
 use App\Entity\User;
 
 use App\Repository\ArticlesRepository;
-use App\Repository\UtilisateursRepository;
+use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
 use App\Repository\UserRepository;
 
 use App\Form\ArticleType;
-use App\Form\UtilisateursType;
+use App\Form\ContentType;
 use App\Form\TarifType;
 
 class AdminController extends AbstractController
@@ -39,33 +39,33 @@ class AdminController extends AbstractController
   }
 
   /**
-   * @Route("/rt/admin/portail-utilisateurs", name="portailUtilisateurs")
+   * @Route("/rt/admin/portail-content", name="portailContent")
    * PAGE PORTAIL COWORKER
    */
-  public function portailUtilisateurs()
+  public function portailContent()
   {
-      return $this->render('rt/admin/portail-utilisateurs.html.twig', [
+      return $this->render('rt/admin/portail-content.html.twig', [
       ]);
   }
 
   /**
-   * @Route("/rt/admin/create-utilisateur", name="create-utilisateur")
-   * PAGE AJOUT UTILISATEUR (page admin)
+   * @Route("/rt/admin/create-content", name="create-content")
+   * PAGE AJOUT CONTENT (page admin)
    */
-  public function createUtilisateur(Request $request, ObjectManager $manager)
+  public function createContent(Request $request, ObjectManager $manager)
   {
-    $utilisateur = new Utilisateurs;
+    $content = new Content;
 
-    $formUtilisateur = $this->createForm(UtilisateursType::class, $utilisateur);
+    $formContent = $this->createForm(ContentType::class, $content);
 
-    $formUtilisateur->handleRequest($request);
+    $formContent->handleRequest($request);
 
-    if($formUtilisateur->isSubmitted() && $formUtilisateur->isValid()){
-    $image = $formUtilisateur['profilpicture']->getData();
-    $image1 = $formUtilisateur['image1']->getData();
-    $image2 = $formUtilisateur['image2']->getData();
-    $image3 = $formUtilisateur['image3']->getData();
-    $image4 = $formUtilisateur['image4']->getData();
+    if($formContent->isSubmitted() && $formContent->isValid()){
+    $image = $formContent['profilpicture']->getData();
+    $image1 = $formContent['image1']->getData();
+    $image2 = $formContent['image2']->getData();
+    $image3 = $formContent['image3']->getData();
+    $image4 = $formContent['image4']->getData();
     $extension = $image->guessExtension();
       if (!$extension) {
         // extension cannot be guessed
@@ -92,7 +92,7 @@ class AdminController extends AbstractController
         $extension4 = 'bin';
       }
     $id = sizeof($this->getDoctrine()
-        ->getRepository(Utilisateurs::class)
+        ->getRepository(Content::class)
         ->findAll());
     $title = 'profilpicture'.$id;
     $title1 = 'image1'.$id;
@@ -100,58 +100,58 @@ class AdminController extends AbstractController
     $title3 = 'image3'.$id;
     $title4 = 'image4'.$id;
 
-    $image->move('img/utilisateurs', $title.'.'.$extension);
-    $image1->move('img/utilisateurs', $title1.'.'.$extension1);
-    $image2->move('img/utilisateurs', $title2.'.'.$extension2);
-    $image3->move('img/utilisateurs', $title3.'.'.$extension3);
-    $image4->move('img/utilisateurs', $title4.'.'.$extension4);
-    $utilisateur->setProfilpicture('img/utilisateurs/'.$title.'.'.$extension);
-    $utilisateur->setImage1('img/utilisateurs/'.$title1.'.'.$extension1);
-    $utilisateur->setImage2('img/utilisateurs/'.$title2.'.'.$extension2);
-    $utilisateur->setImage3('img/utilisateurs/'.$title3.'.'.$extension3);
-    $utilisateur->setImage4('img/utilisateurs/'.$title4.'.'.$extension4);
-    $manager->persist($utilisateur);
+    $image->move('img/content', $title.'.'.$extension);
+    $image1->move('img/content', $title1.'.'.$extension1);
+    $image2->move('img/content', $title2.'.'.$extension2);
+    $image3->move('img/content', $title3.'.'.$extension3);
+    $image4->move('img/content', $title4.'.'.$extension4);
+    $content->setProfilpicture('img/content/'.$title.'.'.$extension);
+    $content->setImage1('img/content/'.$title1.'.'.$extension1);
+    $content->setImage2('img/content/'.$title2.'.'.$extension2);
+    $content->setImage3('img/content/'.$title3.'.'.$extension3);
+    $content->setImage4('img/content/'.$title4.'.'.$extension4);
+    $manager->persist($content);
     $manager->flush();
 
     return $this ->redirectToRoute('validation');
     }
 
-    return $this->render('rt/admin/create-utilisateur.html.twig', [
-      'formUtilisateur' => $formUtilisateur->createView()
+    return $this->render('rt/admin/create-content.html.twig', [
+      'formContent' => $formContent->createView()
     ]);
   }
 
   /**
-   * @Route("/rt/admin/modify-utilisateur", name="modify-utilisateur")
-   * PAGE MODIFICATION UTILISATEURS (page admin)
+   * @Route("/rt/admin/modify-content", name="modify-content")
+   * PAGE MODIFICATION CONTENT (page admin)
    */
-   public function modifyUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
+   public function modifyContent(Request $request, ObjectManager $manager,ContentRepository $repoU)
    {
      $list = $repoU->findAll();
 
-     if (isset($_POST['utilisateur'])) {
-       foreach ($_POST['utilisateur'] as $id) {
+     if (isset($_POST['content'])) {
+       foreach ($_POST['content'] as $id) {
          $number = $repoU->find($id);
          $manager->persist($number);
        }
        $manager->flush();
-       return $this ->redirect('modif-utilisateur/'.$id);
+       return $this ->redirect('modif-content/'.$id);
      }
 
 
-     return $this->render('rt/admin/modify-utilisateur.html.twig', [
+     return $this->render('rt/admin/modify-content.html.twig', [
        'list' => $list
      ]);
    }
 
 
     /**
-     * @Route("/rt/admin/modif-utilisateur/{id}", name="modif-utilisateur")
-     * PAGE TYPE MODIFICATION UTILISATEUR (page admin)
+     * @Route("/rt/admin/modif-content/{id}", name="modif-content")
+     * PAGE TYPE MODIFICATION CONTENT (page admin)
      */
-     public function modifUtilisateur(Utilisateurs $utilisateur, Request $request, ObjectManager $manager)
+     public function modifContent(Content $content, Request $request, ObjectManager $manager)
      {
-       $formUtilisateur = $this->createFormBuilder($utilisateur)
+       $formContent = $this->createFormBuilder($content)
                      ->add('name')
                      ->add('firstname')
                      ->add('company')
@@ -161,31 +161,32 @@ class AdminController extends AbstractController
                      ->add('socialmedia1')
                      ->add('socialmedia2')
                      ->add('socialmedia3')
+                     ->add('site')
                      ->getForm();
 
-       $formUtilisateur->handleRequest($request);
+       $formContent->handleRequest($request);
 
-       if($formUtilisateur->isSubmitted() && $formUtilisateur->isValid()){
-       $manager->persist($utilisateur);
+       if($formContent->isSubmitted() && $formContent->isValid()){
+       $manager->persist($content);
        $manager->flush();
        return $this->redirectToRoute('validation');
        }
-       return $this->render('rt/admin/modif-utilisateur.html.twig', [
-         'formUtilisateur' => $formUtilisateur->createView(),
-         'utilisateur' => $utilisateur
+       return $this->render('rt/admin/modif-content.html.twig', [
+         'formContent' => $formContent->createView(),
+         'content' => $content
        ]);
      }
 
      /**
       * @Route("/rt/admin/modify-photos", name="modify-photos")
-      * PAGE LISTE UTILISATEURS POUR MODIF DES PHOTOS (page admin)
+      * PAGE LISTE CONTENT POUR MODIF DES PHOTOS (page admin)
       */
-      public function modifyPhotos(Request $request, ObjectManager $manager,UtilisateursRepository $repoPhotos)
+      public function modifyPhotos(Request $request, ObjectManager $manager,ContentRepository $repoPhotos)
       {
         $list = $repoPhotos->findAll();
 
-        if (isset($_POST['utilisateur'])) {
-          foreach ($_POST['utilisateur'] as $id) {
+        if (isset($_POST['content'])) {
+          foreach ($_POST['content'] as $id) {
             $number = $repoPhotos->find($id);
             $manager->persist($number);
           }
@@ -203,9 +204,9 @@ class AdminController extends AbstractController
        * @Route("/rt/admin/modif-photos/{id}", name="modif-photos")
        * PAGE TYPE MODIFICATION PHOTOS (page admin)
        */
-       public function modifPhotos(Utilisateurs $utilisateur, Request $request, ObjectManager $manager)
+       public function modifPhotos(Content $content, Request $request, ObjectManager $manager)
        {
-         $formUtilisateur = $this->createFormBuilder($utilisateur)
+         $formContent = $this->createFormBuilder($content)
                        ->add('profilpicture', FileType::class, [
                          'required' => false,
                          'mapped' => false
@@ -228,14 +229,14 @@ class AdminController extends AbstractController
                        ])
                        ->getForm();
 
-         $formUtilisateur->handleRequest($request);
+         $formContent->handleRequest($request);
 
-         if($formUtilisateur->isSubmitted() && $formUtilisateur->isValid()){
-         $image = $formUtilisateur['profilpicture']->getData();
-         $image1 = $formUtilisateur['image1']->getData();
-         $image2 = $formUtilisateur['image2']->getData();
-         $image3 = $formUtilisateur['image3']->getData();
-         $image4 = $formUtilisateur['image4']->getData();
+         if($formContent->isSubmitted() && $formContent->isValid()){
+         $image = $formContent['profilpicture']->getData();
+         $image1 = $formContent['image1']->getData();
+         $image2 = $formContent['image2']->getData();
+         $image3 = $formContent['image3']->getData();
+         $image4 = $formContent['image4']->getData();
          $extension = $image->guessExtension();
            if (!$extension) {
              // extension cannot be guessed
@@ -262,7 +263,7 @@ class AdminController extends AbstractController
              $extension4 = 'bin';
            }
          $id = sizeof($this->getDoctrine()
-             ->getRepository(Utilisateurs::class)
+             ->getRepository(Content::class)
              ->findAll());
          $title = 'profilpicture'.$id;
          $title1 = 'image1'.$id;
@@ -270,38 +271,38 @@ class AdminController extends AbstractController
          $title3 = 'image3'.$id;
          $title4 = 'image4'.$id;
 
-         $image->move('img/utilisateurs', $title.'.'.$extension);
-         $image1->move('img/utilisateurs', $title1.'.'.$extension1);
-         $image2->move('img/utilisateurs', $title2.'.'.$extension2);
-         $image3->move('img/utilisateurs', $title3.'.'.$extension3);
-         $image4->move('img/utilisateurs', $title4.'.'.$extension4);
-         $utilisateur->setProfilpicture('img/utilisateurs/'.$title.'.'.$extension);
-         $utilisateur->setImage1('img/utilisateurs/'.$title1.'.'.$extension1);
-         $utilisateur->setImage2('img/utilisateurs/'.$title2.'.'.$extension2);
-         $utilisateur->setImage3('img/utilisateurs/'.$title3.'.'.$extension3);
-         $utilisateur->setImage4('img/utilisateurs/'.$title4.'.'.$extension4);
-         $manager->persist($utilisateur);
+         $image->move('img/content', $title.'.'.$extension);
+         $image1->move('img/content', $title1.'.'.$extension1);
+         $image2->move('img/content', $title2.'.'.$extension2);
+         $image3->move('img/content', $title3.'.'.$extension3);
+         $image4->move('img/content', $title4.'.'.$extension4);
+         $content->setProfilpicture('img/content/'.$title.'.'.$extension);
+         $content->setImage1('img/content/'.$title1.'.'.$extension1);
+         $content->setImage2('img/content/'.$title2.'.'.$extension2);
+         $content->setImage3('img/content/'.$title3.'.'.$extension3);
+         $content->setImage4('img/content/'.$title4.'.'.$extension4);
+         $manager->persist($content);
          $manager->flush();
 
          return $this ->redirectToRoute('validation');
          }
 
          return $this->render('rt/admin/modif-photos.html.twig', [
-           'formUtilisateur' => $formUtilisateur->createView(),
-           'utilisateur' => $utilisateur
+           'formContent' => $formContent->createView(),
+           'content' => $content
          ]);
        }
 
   /**
-   * @Route("/rt/admin/remove-utilisateur", name="remove-utilisateur")
-   * PAGE SUPPRESSION UTILISATEUR (page admin)
+   * @Route("/rt/admin/remove-content", name="remove-content")
+   * PAGE SUPPRESSION CONTENT (page admin)
    */
-   public function removeUtilisateur(Request $request, ObjectManager $manager,UtilisateursRepository $repoU)
+   public function removeContent(Request $request, ObjectManager $manager,ContentRepository $repoU)
    {
      $list = $repoU->findAll();
 
-     if (isset($_POST['utilisateur'])) {
-       foreach ($_POST['utilisateur'] as $id) {
+     if (isset($_POST['content'])) {
+       foreach ($_POST['content'] as $id) {
          $user = $repoU->find($id);
          $manager->remove($user);
        }
@@ -309,7 +310,7 @@ class AdminController extends AbstractController
        return $this ->redirectToRoute('validation');
      }
 
-     return $this->render('rt/admin/remove-utilisateur.html.twig', [
+     return $this->render('rt/admin/remove-content.html.twig', [
        'list' => $list
      ]);
    }

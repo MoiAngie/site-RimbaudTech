@@ -24,14 +24,14 @@
 
   <div class="section__equipe__presentation">
       <img src="{{asset('img/RT-mur-entree.jpg')}}" alt="Mur d'entrée de Rimbaud Tech" >
-    {% for utilisateur in utilisateur %}
+    {% for content in content %}
     <div class="section__equipe__presentation__tx">
-      <h3 class="cap">{{utilisateur.firstname}} {{utilisateur.name}}</h3>
+      <h3 class="cap">{{content.firstname}} {{content.name}}</h3>
       <hr class="blueline">
-      <h3 class="cap">{{utilisateur.company}}</h3>
-      <p class="section__equipe__tx">{{utilisateur.description}}</p>
+      <h3 class="cap">{{content.company}}</h3>
+      <p class="section__equipe__tx">{{content.description}}</p>
 
-      <a href="{{utilisateur.socialmedia1}}">
+      <a href="{{content.socialmedia1}}">
         <i class="fab fa-linkedin-in fa-lg"></i>
       </a>
     {% endfor %}

@@ -15,30 +15,30 @@
 
 <section class="form-admin-photos">
 
-  {{ form_start(formUtilisateur)}}
+  {{ form_start(formContent)}}
 
   <div class="form-group-photos">
-    <img src="/{{ utilisateur.profilpicture}}" style="width: 100px; height: 67px;">
-    {{ form_row(formUtilisateur.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
+    <img src="/{{ content.profilpicture}}" style="width: 100px; height: 67px;">
+    {{ form_row(formContent.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
   </div>
   <div class="form-group-photos">
-    <img src="/{{ utilisateur.image1}}" style="width: 100px; height: 67px;">
-    {{ form_row(formUtilisateur.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+    <img src="/{{ content.image1}}" style="width: 100px; height: 67px;">
+    {{ form_row(formContent.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group-photos">
-    <img src="/{{ utilisateur.image2}}" style="width: 100px; height: 67px;">
-    {{ form_row(formUtilisateur.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+    <img src="/{{ content.image2}}" style="width: 100px; height: 67px;">
+    {{ form_row(formContent.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group-photos">
-    <img src="/{{ utilisateur.image3}}" style="width: 100px; height: 67px;">
-    {{ form_row(formUtilisateur.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+    <img src="/{{ content.image3}}" style="width: 100px; height: 67px;">
+    {{ form_row(formContent.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group-photos">
-    <img src="/{{ utilisateur.image4}}" style="width: 100px; height: 67px;">
-    {{ form_row(formUtilisateur.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+    <img src="/{{ content.image4}}" style="width: 100px; height: 67px;">
+    {{ form_row(formContent.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <button type="submit" class="btn-admin">Modifier</button>
-  {{ form_end(formUtilisateur)}}
+  {{ form_end(formContent)}}
 
 </section>
 

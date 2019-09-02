@@ -6,17 +6,17 @@
 <h2>Nos Incubés</h2>
 
 <section class="galerie_incubes">
-  {% for utilisateur in utilisateur %}
+  {% for content in content %}
 
   <div class="galerie-gp">
-    <img class="galerie-img" src="{{asset (utilisateur.profilpicture)}}" width="400" height="267">
-      <a href="{{ path('incube', {'id' : utilisateur.id })}}">
+    <img class="galerie-img" src="{{asset (content.profilpicture)}}" width="400" height="267">
+      <a href="{{ path('incube', {'id' : content.id })}}">
          <i class="fas fa-external-link-square-alt fa-2x galerie-i1"></i>
      </a>
       <div class="galerie-transition">
-        <p class="galerie-tx"> {{utilisateur.firstname}} <span class="cap">{{utilisateur.name}} </p>
+        <p class="galerie-tx"> {{content.firstname}} <span class="cap">{{content.name}} </p>
         <hr class="galerie-hr">
-        <p class="galerie-tx cap">{{utilisateur.company}} </p>
+        <p class="galerie-tx cap">{{content.company}} </p>
       </div>
   </div>
 
