@@ -94,30 +94,14 @@
   @include h2h3;
 }
 
-/*  section actus  */
-
-.section__actualite {
-  height: 62em;
-}
-
-.section__affichage {
-  display: flex;
-  flex-wrap: nowrap;
-
-  &.section__actualite__article {
-     width: 50%;
-     height: 60em;
-     background-color: white;
-     border: none;
-     border-radius: 1em;
-     padding: 2em;
-     margin-left: 2em;
-     justify-content: center;
-   }
-}
-
-
 /*  article dans index  */
+
+.liste_articles {
+  & .fas {
+    color: $dmagenta;
+    padding-left: 1em;
+  }
+}
 
 .inter-article {
   height: 4em;

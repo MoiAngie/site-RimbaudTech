@@ -107,6 +107,9 @@
             {% if article.publie_par != null %}
               <aside>Publié par {{article.publie_par}}</aside>
             {% endif %}
+          <a href="{{ path('articles')}}">  
+          <aside><i class="fas fa-comments"></i> {{ article.comments|length }}</aside>
+          </a>
       </div>
       <img src="{{ article.image}}"/>
       <div class="article-tx">
