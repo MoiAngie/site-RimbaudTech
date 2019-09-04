@@ -5,18 +5,24 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Articles;
 use App\Entity\Content;
+use App\Entity\Comments;
 use App\Entity\Contact;
+
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
+use App\Repository\CommentsRepository;
+
 use App\Form\ArticleType;
 use App\Form\ContactType;
+use App\Form\CommentType;
+
 use App\Notification\ContactNotification;
 
 class RtController extends AbstractController
@@ -142,42 +148,34 @@ class RtController extends AbstractController
      * @Route("/rt/article/{id}", name="article")
      * PAGE D'AFFICHAGE D'UN ARTICLE COMPLET
      */
-    public function showarticle(ArticlesRepository $repo, $id)
+    public function showarticle(ArticlesRepository $repo, $id, Comments $comment = null)
     {
+        if(!$comment) {
+          $comment = new Comments();
+        }
 
         $article = $repo->find($id);
-        /*FONCTION POUR ARTICLE SUIVANT*/
-        $new_id = ($id+1);
-        // si $repo->find($id+1) != null)
-      //  $next = ('rt/article/'.$new_id);
-        /*FONCTION POUR ARTICLE PRECEDENT*/
-       $new2_id = ($id-1);
-      //  $prev = ('rt/article/'.$new2_id);
-      //  return $this->render('rt/article.html.twig', [
-      //    'article' => $article,
-      //    'next' =>$next,
-      //    'prev' =>$prev
-      //  ]);
+        $articles = $repo->findAll();
+        $prev = null;
+        $next = null;
+        $taille = count($articles);
+          for($i = 0 ; $i < $taille ; $i++){
+            if($articles[$i] == $article){
+              if($i != 0){
+                $prev = $articles[$i-1];
+              }
+              if($i != $taille-1){
+                $next = $articles[$i+1];
+              }
+            }
+          }
 
-      $next = ('rt/article/'.$new_id);
-        if ($repo->find($id+1) != null) {
-          return $this->render('rt/article.html.twig', [
-            'article' => $article,
-            'next' =>$next
-          ]);
-        }else {
-          return $this->redirectToRoute('contact');
-        }
-
-        $prev = ('rt/article/'.$new_id);
-        if ($repo->find($id-1) != null) {
-          return $this->render('rt/article.html.twig', [
-            'article' => $article,
-            'prev' =>$prev
-          ]);
-        }else {
-          return $this->redirectToRoute('article');
-        }
+        return $this->render('rt/article.html.twig', [
+          'article' => $article,
+          'next'    => $next,
+          'prev'    => $prev,
+          'comments'=> $comment
+        ]);
     }
 
     /**

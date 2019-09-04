@@ -89,6 +89,46 @@
 .prev:active, .next:active {
   background-color: #585858; }
 
+/**************pour les commentaires**********/
+.comments {
+  background-color: #a0ddf4; }
+  .comments h2 {
+    text-align: left;
+    padding-top: 1em;
+    padding-left: 5em; }
+  .comments .comments-type {
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+    margin-left: 5em;
+    margin-right: 5em; }
+  .comments aside {
+    margin-left: 1em;
+    font-style: italic;
+    color: #585858;
+    font-size: 1em; }
+  .comments p {
+    text-align: left; }
+  .comments .fas {
+    color: #c91a5f; }
+  .comments .comments-h2 {
+    text-align: center; }
+  .comments .comments__btn {
+    color: white;
+    width: 10em;
+    border-radius: 2em;
+    height: 3em;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0 2em;
+    background-color: #4ab9e4;
+    margin-bottom: 2em;
+    margin-left: calc(50% - 5em); }
+    .comments .comments__btn:hover {
+      text-decoration: underline; }
+
 /*************media query****************/
 @media screen and (max-width: 1049px) {
   .liste_articles .article-tx {

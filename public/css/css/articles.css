@@ -23,7 +23,8 @@
     .resume-art a:active {
       color: #585858; }
   .resume-art .fas {
-    padding-left: 1em; }
+    padding-left: 1em;
+    color: #c91a5f; }
 
 /***********@media query**************/
 @media screen and (max-width: 729px) {

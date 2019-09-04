@@ -11,10 +11,7 @@
     font-size: 2em;
   }
   & aside {
-    margin-left: 1em;
-    font-style: italic;
-    color: $dgrey;
-    font-size: 1em;
+    @include aside;
   }
 
   & img {
@@ -122,6 +119,48 @@
 
 .prev:active, .next:active {
   background-color: $dgrey;
+}
+
+/**************pour les commentaires**********/
+.comments {
+  background-color: $lightblue;
+  & h2 {
+    text-align: left;
+    padding-top: 1em;
+    padding-left: 5em;
+  }
+  & .comments-type {
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+  & aside {
+    @include aside;
+  }
+  & p {
+    text-align: left;
+  }
+  & .fas {
+    color: $dmagenta;
+  }
+
+  & .comments-h2 {
+    text-align: center;
+  }
+
+  & .comments__btn {
+    @include bouton;
+    background-color: $logoblue;
+    margin-bottom: 2em;
+    margin-left: calc(50% - 5em);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 }
 
 
