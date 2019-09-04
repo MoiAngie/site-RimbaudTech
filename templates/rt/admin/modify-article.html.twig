@@ -16,7 +16,7 @@
   <form action="{{ path('modify-article')}}" method="POST">
   {% for list in list %}
     <div class="form-group">
-      <input type="checkbox" name="article[]" id="article" value="{{list.id}}" class="form-input">
+      <input type="radio" name="article[]" id="article" value="{{list.id}}" class="form-input">
     <b>{{list.title}}</b>, par<em>{{list.author}}</em>
       </br>
       </input>

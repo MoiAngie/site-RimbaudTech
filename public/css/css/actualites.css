@@ -112,7 +112,8 @@
   .comments .fas {
     color: #c91a5f; }
   .comments .comments-h2 {
-    text-align: center; }
+    text-align: center;
+    padding-left: 0; }
   .comments .comments__btn {
     color: white;
     width: 10em;

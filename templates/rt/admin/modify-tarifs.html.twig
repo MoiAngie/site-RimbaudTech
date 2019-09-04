@@ -16,7 +16,7 @@
 <form action="{{ path('modify-tarifs')}}" method="POST">
 {% for list in list %}
   <div class="form-group">
-    <input type="checkbox" name="tarif[]" id="tarif" value="{{list.id}}" class="form-input">
+    <input type="radio" name="tarif[]" id="tarif" value="{{list.id}}" class="form-input">
 {{list.comment}}
     </br>
     </input>
