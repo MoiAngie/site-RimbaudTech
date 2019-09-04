@@ -5,7 +5,7 @@
 {% block body %}
 {% if app.user %}
 <section class="titre-back-center">
-  <h2 class="h2-back">Gérer les articles</h2>
+  <h2 class="h2-back">Gérer les articles et les commentaires postés</h2>
 
   <figure>
     <img src="{{asset('img/illustrations/articles.svg')}}" class="icone-back" height="100" width="150">
@@ -21,6 +21,12 @@
   </button>
   <button class="btn-admin">
     <a href="{{path('remove-article')}}">Supprimer un article</a>
+  </button>
+  <button class="btn-admin mag">
+    <a href="{{path('modify-comment')}}">Modifier un commentaire</a>
+  </button>
+  <button class="btn-admin mag">
+    <a href="{{path('remove-comment')}}">Supprimer un commentaire</a>
   </button>
 </section>
 

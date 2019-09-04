@@ -87,7 +87,20 @@ label {
   color: $dgrey;
   font-weight: 400;
   padding-bottom: 1em;
+}
 
+.form-group-comment {
+  margin: 2em 5em;
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid $logoblue;
+  font-size: 1.3em;
+  color: $dgrey;
+  font-weight: 400;
+
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
 }
 
 .form-control {
@@ -104,6 +117,10 @@ textarea {
   width: 100%;
   font-size: 0.3em;
 }
+textarea#form_text.form-control {
+  width: 100%;
+  height: 3em;
+}
 
 input#user.form-input, input#article, input#tarif.form-input {
   vertical-align: bottom;
@@ -113,9 +130,12 @@ input#user.form-input, input#article, input#tarif.form-input {
   margin-right: 1em;
 }
 
-/*input#form_profilpicture.form-control, input#form_image1.form-control, input#form_image2.form-control, input#form_image3.form-control, input#form_image4.form-control {
-  display: none;
-}*/
+input#comment.form-input {
+  width: 1.7em;
+  height: 1.7em;
+  vertical-align: middle;
+
+}
 
 .btn-admin {
   background-color: $logoblue;
@@ -137,6 +157,16 @@ input#user.form-input, input#article, input#tarif.form-input {
   }
 }
 
+.fas {
+  color: $dmagenta;
+  padding-left: 1em;
+}
+
+.comments-tx {
+  padding-left: 1em;
+}
+
+
 /*  page accueil  */
 
 .back {
@@ -155,5 +185,11 @@ input#user.form-input, input#article, input#tarif.form-input {
     flex: 1 1 auto;
     max-width: 30em;
   }
+}
 
+.mag {
+  background-color: $dmagenta;
+  &:hover {
+    background-color: $logoblue;
+}
 }

@@ -10,21 +10,29 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use App\Entity\Articles;
 use App\Entity\Content;
 use App\Entity\Tarifs;
 use App\Entity\User;
+use App\Entity\Comments;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
 use App\Repository\UserRepository;
+use App\Repository\CommentsRepository;
 
 use App\Form\ArticleType;
 use App\Form\ContentType;
 use App\Form\TarifType;
+use App\Form\CommentType;
+use App\Form\UserType;
+
 
 class AdminController extends AbstractController
 {
@@ -533,6 +541,79 @@ class AdminController extends AbstractController
       'formTarif' => $formTarif->createView()
     ]);
   }
+
+  /**
+   * @Route("/rt/admin/modify-comment", name="modify-comment")
+   * PAGE LISTE DES COMMENTAIRES (page admin)
+   */
+   public function modifyComment(Request $request, ObjectManager $manager,CommentsRepository $repoC)
+   {
+     $list = $repoC->findAll();
+
+     if (isset($_POST['comment'])) {
+       foreach ($_POST['comment'] as $id) {
+         $number = $repoC->find($id);
+         $manager->persist($number);
+       }
+       $manager->flush();
+       return $this ->redirect('modif-comment/'.$id);
+     }
+
+     return $this->render('rt/admin/modify-comment.html.twig', [
+       'list' => $list,
+     ]);
+   }
+
+  /**
+   * @Route("/rt/admin/modif-comment/{id}", name="modif-comment")
+   * PAGE MODIFICATION DES TARIFS FORM (page admin)
+   */
+  public function modifComment(Comments $comments, Request $request, ObjectManager $manager, CommentsRepository $repoComment)
+  {
+
+      $formComments = $this->createFormBuilder($comments)
+              ->add('text', TextareaType::class)
+              ->getForm();
+
+        $formComments->handleRequest($request);
+
+        if($formComments->isSubmitted() && $formComments->isValid()){
+          $manager->persist($comments);
+          $manager->flush();
+        return $this->redirectToRoute('validation');
+        }
+        return $this->render('rt/admin/modif-comment.html.twig', [
+          'formComments' => $formComments->createView(),
+          'comment' => $comments
+        ]);
+
+      return $this->render('rt/admin/modify-comment.html.twig', [
+
+      ]);
+  }
+
+  /**
+   * @Route("/rt/admin/remove-comment", name="remove-comment")
+   * PAGE SUPPRESSION COMMENTAIRES (page admin)
+   */
+   public function removeComment(Request $request, ObjectManager $manager,CommentsRepository $repoO)
+   {
+     $list = $repoO->findAll();
+
+     if (isset($_POST['comment'])) {
+       foreach ($_POST['comment'] as $id) {
+         $comment = $repoO->find($id);
+         $manager->remove($comment);
+       }
+       $manager->flush();
+       return $this ->redirectToRoute('validation');
+     }
+
+     return $this->render('rt/admin/remove-comment.html.twig', [
+       'list' => $list
+     ]);
+   }
+
 
   /**
    * @Route("/rt/admin/createAccueil", name="createAccueil")
