@@ -19,7 +19,7 @@ class SecurityAdminController extends AbstractController
 {
 
   /**
-  * @Route("/Inscription", name="security_registration")
+  * @Route("/rt/admin/security/Inscription", name="security_registration")
   */
   public function registration(Request $request, ObjectManager $manager,
   UserPasswordEncoderInterface $encoder) {
@@ -39,7 +39,7 @@ class SecurityAdminController extends AbstractController
 
       return $this->redirectToRoute('validation');
     }
-    return $this->render('security/registration.html.twig', [
+    return $this->render('rt/admin/security/registration.html.twig', [
       'form' => $form->createView()
     ]);
   }
@@ -62,7 +62,7 @@ class SecurityAdminController extends AbstractController
       return $this ->redirectToRoute('homeAdmin');
     }
 
-        return $this->render('security/login.html.twig', [
+        return $this->render('rt/admin/security/login.html.twig', [
           'hasError' => $error !== null
         ]);
     }
@@ -90,7 +90,7 @@ class SecurityAdminController extends AbstractController
           }
 
 
-          return $this->render('security/modify-admin.html.twig', [
+          return $this->render('rt/admin/security/modify-admin.html.twig', [
             'list' => $list
           ]);
         }
@@ -111,11 +111,11 @@ class SecurityAdminController extends AbstractController
           $form->handleRequest($request);
 
           if($form->isSubmitted() && $form->isValid()){
-          $manager->persist($user);
-          $manager->flush();
+              $manager->persist($user);
+              $manager->flush();
           return $this->redirectToRoute('validation');
           }
-          return $this->render('security/modif-admin.html.twig', [
+          return $this->render('rt/admin/security/modif-admin.html.twig', [
             'formUser' => $form->createView()
           ]);
         }
@@ -137,7 +137,7 @@ class SecurityAdminController extends AbstractController
             return $this ->redirectToRoute('validation');
           }
 
-          return $this->render('security/remove-admin.html.twig', [
+          return $this->render('rt/admin/security/remove-admin.html.twig', [
             'list' => $list
           ]);
         }
