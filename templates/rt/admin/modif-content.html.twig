@@ -3,7 +3,7 @@
 {% block title %}Modifier un acteur{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back-center">
   <h2 class="h2-back">Modifier un Incubé, un Co-Worker ou un membre du personnel RT</h2>
@@ -48,8 +48,7 @@
 
 </section>
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

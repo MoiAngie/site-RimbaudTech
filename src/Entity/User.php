@@ -60,11 +60,17 @@ class User implements UserInterface
      */
     private $contents;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Roles", mappedBy="user")
+     */
+    private $roles;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->contents = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -113,7 +119,13 @@ class User implements UserInterface
     public function getSalt() {}
 
     public function getRoles() {
-      return ['ROLE_USER'];
+
+      $roles = $this->roles->map(function($role){
+        return $role->getRole();
+      })->toArray();
+
+      $roles[] = 'ROLE_USER';
+       return $roles;
     }
 
     /**
@@ -201,6 +213,26 @@ class User implements UserInterface
         if ($this->contents->contains($content)) {
             $this->contents->removeElement($content);
             $content->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    public function addRole(Roles $role): self
+    {
+        if (!$this->roles->contains($role)) {
+            $this->roles[] = $role;
+            $role->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Roles $role): self
+    {
+        if ($this->roles->contains($role)) {
+            $this->roles->removeElement($role);
+            $role->removeUser($this);
         }
 
         return $this;

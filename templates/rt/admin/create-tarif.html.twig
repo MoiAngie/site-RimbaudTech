@@ -3,7 +3,7 @@
 {% block title %}Ajouter les tarifs{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back-center">
   <h2 class="h2-back">Ajouter les tarifs</h2>
@@ -59,8 +59,7 @@
 <button type="submit" class="btn-admin">Publier</button>
 {{ form_end(formTarif)}}
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

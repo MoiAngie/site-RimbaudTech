@@ -69,7 +69,7 @@ class AdminController extends AbstractController
     $formContent->handleRequest($request);
 
     if($formContent->isSubmitted() && $formContent->isValid()){
-    $image = $formContent['profilpicture']->getData();
+    $image  = $formContent['profilpicture']->getData();
     $image1 = $formContent['image1']->getData();
     $image2 = $formContent['image2']->getData();
     $image3 = $formContent['image3']->getData();
@@ -102,13 +102,13 @@ class AdminController extends AbstractController
     $id = sizeof($this->getDoctrine()
         ->getRepository(Content::class)
         ->findAll());
-    $title = 'profilpicture'.$id;
+    $title  = 'profilpicture'.$id;
     $title1 = 'image1'.$id;
     $title2 = 'image2'.$id;
     $title3 = 'image3'.$id;
     $title4 = 'image4'.$id;
 
-    $image->move('img/content', $title.'.'.$extension);
+    $image ->move('img/content', $title.'.'.$extension);
     $image1->move('img/content', $title1.'.'.$extension1);
     $image2->move('img/content', $title2.'.'.$extension2);
     $image3->move('img/content', $title3.'.'.$extension3);
@@ -175,8 +175,8 @@ class AdminController extends AbstractController
        $formContent->handleRequest($request);
 
        if($formContent->isSubmitted() && $formContent->isValid()){
-       $manager->persist($content);
-       $manager->flush();
+          $manager->persist($content);
+          $manager->flush();
        return $this->redirectToRoute('validation');
        }
        return $this->render('rt/admin/modif-content.html.twig', [
@@ -217,30 +217,30 @@ class AdminController extends AbstractController
          $formContent = $this->createFormBuilder($content)
                        ->add('profilpicture', FileType::class, [
                          'required' => false,
-                         'mapped' => false
+                         'mapped'   => false
                        ])
                        ->add('image1', FileType::class, [
                          'required' => false,
-                         'mapped' => false
+                         'mapped'   => false
                        ])
                        ->add('image2', FileType::class, [
                          'required' => false,
-                         'mapped' => false
+                         'mapped'   => false
                        ])
                        ->add('image3', FileType::class, [
                          'required' => false,
-                         'mapped' => false
+                         'mapped'   => false
                        ])
                        ->add('image4', FileType::class, [
                          'required' => false,
-                         'mapped' => false
+                         'mapped'   => false
                        ])
                        ->getForm();
 
          $formContent->handleRequest($request);
 
          if($formContent->isSubmitted() && $formContent->isValid()){
-         $image = $formContent['profilpicture']->getData();
+         $image  = $formContent['profilpicture']->getData();
          $image1 = $formContent['image1']->getData();
          $image2 = $formContent['image2']->getData();
          $image3 = $formContent['image3']->getData();
@@ -279,7 +279,7 @@ class AdminController extends AbstractController
          $title3 = 'image3'.$id;
          $title4 = 'image4'.$id;
 
-         $image->move('img/content', $title.'.'.$extension);
+         $image ->move('img/content', $title.'.'.$extension);
          $image1->move('img/content', $title1.'.'.$extension1);
          $image2->move('img/content', $title2.'.'.$extension2);
          $image3->move('img/content', $title3.'.'.$extension3);
@@ -292,7 +292,7 @@ class AdminController extends AbstractController
          $manager->persist($content);
          $manager->flush();
 
-         return $this ->redirectToRoute('validation');
+         return $this->redirectToRoute('validation');
          }
 
          return $this->render('rt/admin/modif-photos.html.twig', [
@@ -357,7 +357,7 @@ class AdminController extends AbstractController
           ->getRepository(Articles::class)
           ->findAll());
       $title = 'image'.$id;
-      $image->move('img/articles', $title.'.'.$extension);
+      $image  ->move('img/articles', $title.'.'.$extension);
       $article->setImage('img/articles/'.$title.'.'.$extension);
       $manager->persist($article);
       $manager->flush();

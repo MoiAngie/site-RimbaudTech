@@ -103,6 +103,22 @@ label {
   }
 }
 
+.form-group-login {
+  width: 25em;
+  margin: 1em auto;
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid $logoblue;
+  font-size: 1.3em;
+  color: $dgrey;
+  font-weight: 400;
+
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
+
+}
+
 .form-control {
   border: none;
   font-size: 1em;
@@ -192,4 +208,28 @@ input#comment.form-input {
   &:hover {
     background-color: $logoblue;
 }
+}
+
+/********security**************/
+
+.error-dmg {
+  color: $dgrey;
+  padding: 1em;
+  border: 0.2em dotted $dmagenta;
+  width: 44em;
+  text-align: center;
+  margin-left: calc( 50% - 24em);
+}
+
+.login-path {
+  margin-bottom: 0;
+  color: $dmagenta;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.login-btn {
+  margin-bottom: 5em;
 }

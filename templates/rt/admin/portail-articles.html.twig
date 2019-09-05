@@ -3,7 +3,8 @@
 {% block title %}Administrer les articles{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
+
 <section class="titre-back-center">
   <h2 class="h2-back">Gérer les articles et les commentaires postés</h2>
 
@@ -30,8 +31,7 @@
   </button>
 </section>
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

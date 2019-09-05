@@ -14,6 +14,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
+use App\Repository\RolesRepository;
 
 class SecurityAdminController extends AbstractController
 {
@@ -22,7 +23,7 @@ class SecurityAdminController extends AbstractController
   * @Route("/rt/admin/security/Inscription", name="security_registration")
   */
   public function registration(Request $request, ObjectManager $manager,
-  UserPasswordEncoderInterface $encoder) {
+  UserPasswordEncoderInterface $encoder, RolesRepository $repoRole) {
     $user = new User();
 
     $form = $this->createForm(RegistrationType::class, $user);
@@ -33,7 +34,8 @@ class SecurityAdminController extends AbstractController
       $hash = $encoder->encodePassword($user, $user->getPassword());
 
       $user->setPassword($hash);
-
+      $role = $repoRole->findOneBy(["role" => "ROLE_ADMIN"]);
+      $user->addRole($role);
       $manager->persist($user);
       $manager->flush();
 
@@ -51,21 +53,21 @@ class SecurityAdminController extends AbstractController
       return $this->render('rt/admin/portail-admin.html.twig', [
       ]);
   }
-    /**
-     * @Route("/login", name="security_login")
-     */
-    public function login(AuthenticationUtils $utils)
-    {
-      $error = $utils->getLastAuthenticationError();
+    ///**
+     //* @Route("rt/admin/login", name="security_login")
+    // */
+    //public function login(AuthenticationUtils $utils)
+    //{
+    //  $error = $utils->getLastAuthenticationError();
 
-      if (isset($_POST['submit'])) {
-      return $this ->redirectToRoute('homeAdmin');
-    }
+    //  if (isset($_POST['submit'])) {
+    //  return $this ->redirectToRoute('homeAdmin');
+    //}
 
-        return $this->render('rt/admin/security/login.html.twig', [
-          'hasError' => $error !== null
-        ]);
-    }
+        //return $this->render('rt/admin/security/login.html.twig', [
+          // 'hasError' => $error !== null
+        // ]);
+    // }
 
     /**
      * @Route("/logout", name="security_logout")

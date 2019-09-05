@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Se connecter{% endblock %}
+{% block title %}Rimbaud'Tech | Se connecter{% endblock %}
 
 {% block stylesheets %}
 <link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css">
@@ -11,13 +11,13 @@
 {% block body %}
 
 
-<form action="{{ path('security_login')}}" method="post">
+<form action="{{ path('rt_security_login')}}" method="post">
 
   <section class="titre-back">
-    <h2 class="h2-back">Identifiez-vous pour apporter des modifications au site de Rimbaud'Tech</h2>
+    <h2 class="h2-back">Connexion</h2>
 
     <figure>
-      <img src="{{asset('img/illustrations/login.svg')}}" class="icone-back" height="100" width="150">
+      <img src="{{asset('img/illustrations/enter.svg')}}" class="icone-back" height="100" width="150">
     </figure>
     <br/>
 
@@ -27,15 +27,23 @@
       <p class="error-dmg">Une erreur est survenue, vérifiez vos identifiants avant de tenter une nouvelle connexion svp</p>
     {% endif %}
 
-    <div class="form-group">
-      <input placeholder="Nom d'Utilisateur" required name="_username"
+    <div class="form-group-login">
+      <input placeholder="Identifiant" required name="_username"
       type="text" class="form-control">
     </div>
-    <div class="form-group">
+    <div class="form-group-login">
       <input placeholder="Mot de Passe" required name="_password"
       type="password" class="form-control">
     </div>
     <button type="submit" name="submit[]" class="btn-admin">Se connecter !</button>
+  </form>
 
-</form>
+      <a href="{{ path('rt_security_registration')}}" class="section__link">
+          <p class="login-path"> Je ne suis pas encore inscrit <i class="fas fa-arrow-down"></i></p>
+          <button class="section__btn login-btn" style="background-color:#c91a5f;">
+          S'inscrire
+          </button>
+      </a>
+
+
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block title %}Gérer les acteurs de RT{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back">
   <h2 class="h2-back">Gérer les Inbubés, les Co-Workers et le membre du personnel RT</h2>
@@ -28,8 +28,7 @@
   </button>
 </section>
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

@@ -3,7 +3,7 @@
 {% block title %}Modifier les photos d'un Incubé ou d'un Co-Worker {% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back-center">
   <h2 class="h2-back">Modifier les photos d'un Incubé ou d'un Co-Worker</h2>
@@ -42,8 +42,7 @@
 
 </section>
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

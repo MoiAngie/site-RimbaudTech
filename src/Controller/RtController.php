@@ -49,6 +49,9 @@ class RtController extends AbstractController
      */
     public function articles(ArticlesRepository $repoAll)
     {
+    //  if(!$this->isGranted('ROLE_ADMIN')){
+    //    return $this->
+    //  }
         $articles = $repoAll->findAll();
 
         return $this->render('rt/articles.html.twig', [

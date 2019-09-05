@@ -89,6 +89,18 @@ label {
     border-left: 0.5em solid #c91a5f;
     padding-left: 0.1em; }
 
+.form-group-login {
+  width: 25em;
+  margin: 1em auto;
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid #4ab9e4;
+  font-size: 1.3em;
+  color: #585858;
+  font-weight: 400; }
+  .form-group-login :focus {
+    border-left: 0.5em solid #c91a5f;
+    padding-left: 0.1em; }
+
 .form-control {
   border: none;
   font-size: 1em;
@@ -160,5 +172,23 @@ input#comment.form-input {
   background-color: #c91a5f; }
   .mag:hover {
     background-color: #4ab9e4; }
+
+/********security**************/
+.error-dmg {
+  color: #585858;
+  padding: 1em;
+  border: 0.2em dotted #c91a5f;
+  width: 44em;
+  text-align: center;
+  margin-left: calc( 50% - 24em); }
+
+.login-path {
+  margin-bottom: 0;
+  color: #c91a5f; }
+  .login-path:hover {
+    text-decoration: underline; }
+
+.login-btn {
+  margin-bottom: 5em; }
 
 /*# sourceMappingURL=creation-admin.css.map */
