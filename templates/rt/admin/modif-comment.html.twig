@@ -12,7 +12,10 @@
     <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
-  <aside>Ecrit par {{ comment.writtenBy.username }}</aside>
+
+
+  <aside class="aside"><i class="fas fa-comments fa-lg"></i> Ecrit par {{ comment.writtenBy.username }} le {{ comment.createdAt|date('d/m/Y') }}</aside>
+
   {{ form_start(formComments)}}
 
   <div class="form-group-comment">

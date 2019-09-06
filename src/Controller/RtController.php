@@ -18,6 +18,7 @@ use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
 use App\Repository\CommentsRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use App\Form\ArticleType;
 use App\Form\ContactType;
@@ -142,22 +143,36 @@ class RtController extends AbstractController
         $article2 = $repo->findAll();
 
         return $this->render('rt/actu.html.twig', [
-          'article' =>$article,
-          'article2' =>$article2,
+          'article'  =>$article,
+          'article2' =>$article2
         ]);
     }
 
     /**
      * @Route("/rt/article/{id}", name="article")
-     * PAGE D'AFFICHAGE D'UN ARTICLE COMPLET
+     * PAGE D'AFFICHAGE D'UN ARTICLE COMPLET AVEC SES COMMENTAIRES
      */
-    public function showarticle(ArticlesRepository $repo, $id, Comments $comment = null)
+    public function showarticle(ArticlesRepository $repo, Articles $article, Request $request, ObjectManager $manager)
     {
-        if(!$comment) {
-          $comment = new Comments();
-        }
+      if($this->getUser() != null){
+        $user = $this->getUser();
+        $comment= new Comments($user, $article);
 
-        $article = $repo->find($id);
+        $formComment = $this->createForm(CommentType::class, $comment);
+
+        $formComment->handleRequest($request);
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+          $comment->setAuthor('batman');
+          $manager->persist($comment);
+          $manager->flush();
+        }
+        $form = $formComment->createView();
+      } else {
+        $form = null;
+      }
+
+
         $articles = $repo->findAll();
         $prev = null;
         $next = null;
@@ -174,13 +189,13 @@ class RtController extends AbstractController
           }
 
         return $this->render('rt/article.html.twig', [
-          'article' => $article,
-          'next'    => $next,
-          'prev'    => $prev,
-          'comments'=> $comment
+          'article'     => $article,
+          'next'        => $next,
+          'prev'        => $prev,
+          'formComment' => $form
         ]);
-    }
 
+  }
     /**
      * @Route("/rt/contact", name="contact")
      * PAGE CONTACT
@@ -206,4 +221,5 @@ class RtController extends AbstractController
         ]);
 
     }
+
 }

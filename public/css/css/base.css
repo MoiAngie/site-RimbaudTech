@@ -732,6 +732,26 @@ h2 {
   .comments .comments-h2 {
     text-align: center;
     padding-left: 0; }
+  .comments .comments-h2-user {
+    text-align: left;
+    padding-left: 5em; }
+  .comments label {
+    display: none; }
+  .comments textarea {
+    font-family: "Muli", sans-serif;
+    padding: 0 5em 0 1em;
+    width: 90%;
+    height: 5em;
+    font-size: 1em;
+    border-radius: 1em; }
+  .comments .form-group-comment {
+    margin: 2em 5em;
+    padding-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 400; }
+    .comments .form-group-comment :focus {
+      border-left: 0.5em solid #c91a5f;
+      padding-left: 0.3em; }
   .comments .comments__btn {
     color: white;
     width: 10em;

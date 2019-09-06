@@ -151,6 +151,37 @@
     padding-left: 0;
   }
 
+  & .comments-h2-user {
+    text-align: left;
+    padding-left: 5em;
+  }
+
+  label {
+    display: none;
+  }
+
+  textarea {
+    font-family: $font;
+    padding: 0 5em 0 1em;
+    width: 90%;
+    height: 5em;
+    font-size: 1em;
+    border-radius: 1em;
+  }
+
+
+  .form-group-comment {
+    margin: 2em 5em;
+    padding-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 400;
+    & :focus {
+      border-left: 0.5em solid $dmagenta;
+      padding-left: 0.3em;
+    }
+  }
+
+
   & .comments__btn {
     @include bouton;
     background-color: $logoblue;

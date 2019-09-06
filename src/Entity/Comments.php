@@ -3,7 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Entity\User;
+use App\Entity\Articles;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentsRepository")
  */
@@ -40,6 +41,13 @@ class Comments
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
      */
     private $written_by;
+
+    public function __construct(User $user, Articles $articles)
+    {
+      $this->written_by = $user;
+      $this->articles = $articles;
+      $this->created_at = new \DateTime();
+    }
 
     public function getId(): ?int
     {

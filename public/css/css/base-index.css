@@ -154,6 +154,13 @@ input#comment.form-input {
 .comments-tx {
   padding-left: 1em; }
 
+.aside {
+  margin-left: 1em;
+  font-style: italic;
+  color: #585858;
+  font-size: 1em;
+  margin-left: 10em; }
+
 /*  page accueil  */
 .back {
   margin-left: calc( 50% - 400px); }

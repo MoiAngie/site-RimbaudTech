@@ -182,7 +182,10 @@ input#comment.form-input {
   padding-left: 1em;
 }
 
-
+.aside {
+  @include aside;
+  margin-left: 10em;
+}
 /*  page accueil  */
 
 .back {

@@ -50,12 +50,30 @@
 
       {% endfor %}
 
+  {% if app.user %}
+  <h2 class="comments-h2-user">Souhaitez-vous commenter cet article?</h2>
+    <section class="form-comment">
+
+      {{ form_start(formComment)}}
+      <div class="form-group-comment">
+        {{ form_row(formComment.text, {'label': 'Texte', 'attr': {'placeholder' : "Votre avis: ...", 'class' : "form-control"}})}}
+      </div>
+      <button type="submit" class="comments__btn">Publier</button>
+      {{ form_end(formComment)}}
+
+    </section>
+
+
+  {% endif %}
+  {% if not app.user %}
   <h2 class="comments-h2">Souhaitez-vous commenter cet article?</h2>
   <a href="{{ path('rt_security_login')}}" class="section__link">
     <button class="comments__btn">
     Connectez-vous
     </button>
   </a>
+  {% endif %}
+
 </section>
 
   <a href="{{ path('articles')}}" class="section__link">
