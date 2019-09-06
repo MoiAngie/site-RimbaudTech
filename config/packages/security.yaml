@@ -23,7 +23,7 @@ security:
             form_login:
               login_path: rt_security_login
               check_path: rt_security_login
-              default_target_path: rt
+              default_target_path: redirection
 
             logout:
               path: security_logout

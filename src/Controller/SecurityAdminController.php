@@ -107,7 +107,6 @@ class SecurityAdminController extends AbstractController
           $form = $this->createFormBuilder($user)
                         ->add('username')
                         ->add('email')
-                        ->add('password')
                         ->getForm();
 
           $form->handleRequest($request);

@@ -37,7 +37,7 @@ class SecurityController extends AbstractController
         $manager->persist($user);
         $manager->flush();
 
-        return $this->redirectToRoute('rt');
+        return $this->redirectToRoute('rt_security_login');
       }
       return $this->render('rt/security/registration.html.twig', [
         'form' => $form->createView()
@@ -52,7 +52,7 @@ class SecurityController extends AbstractController
       $error = $utils->getLastAuthenticationError();
 
       if (isset($_POST['submit'])) {
-      return $this ->redirectToRoute('rt');
+      return $this ->redirectToRoute('redirection');
     }
 
         return $this->render('rt/security/login.html.twig', [

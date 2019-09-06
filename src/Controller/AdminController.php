@@ -416,12 +416,13 @@ class AdminController extends AbstractController
       $formArticle->handleRequest($request);
 
       if($formArticle->isSubmitted() && $formArticle->isValid()){
-      $manager->persist($article);
-      $manager->flush();
+          $manager->persist($article);
+          $manager->flush();
       return $this->redirectToRoute('validation');
       }
       return $this->render('rt/admin/modif-article.html.twig', [
-        'formArticle' => $formArticle->createView()
+        'formArticle' => $formArticle->createView(),
+        'articles'     => $article
       ]);
     }
 

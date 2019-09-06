@@ -163,7 +163,6 @@ class RtController extends AbstractController
         $formComment->handleRequest($request);
 
         if ($formComment->isSubmitted() && $formComment->isValid()) {
-          $comment->setAuthor('batman');
           $manager->persist($comment);
           $manager->flush();
         }
@@ -220,6 +219,16 @@ class RtController extends AbstractController
           'formContact' => $formContact->createView()
         ]);
 
+    }
+
+    /**
+     * @Route("/rt/redirection", name="redirection")
+     * PAGE DE REDIRECTION APRES CONNEXION
+     */
+    public function redirection()
+    {
+        return $this->render('rt/redirection.html.twig', [
+        ]);
     }
 
 }

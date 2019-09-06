@@ -77,6 +77,10 @@ video {
   margin: 0;
   background-color: #c91a5f; }
 
+/*************redirection*************/
+.back {
+  margin-left: calc( 50% - 400px); }
+
 /********media query **********/
 @media screen and (max-width: 1475px) {
   .presentation p {
@@ -713,7 +717,8 @@ h2 {
   .comments h2 {
     text-align: left;
     padding-top: 1em;
-    padding-left: 5em; }
+    padding-left: 5em;
+    margin-top: 0; }
   .comments .comments-type {
     background-color: white;
     border-radius: 1em;
@@ -724,7 +729,8 @@ h2 {
     margin-left: 1em;
     font-style: italic;
     color: #585858;
-    font-size: 1em; }
+    font-size: 1em;
+    margin-left: 3em; }
   .comments p {
     text-align: left; }
   .comments .fas {

@@ -53,6 +53,22 @@ label {
 }
 }
 
+.form-group-article {
+    margin-left: 25%;
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
+  & label {
+  display: inherit;
+  font-style: italic;
+}
+}
+
+input#form_image.form-control {
+  display: none;
+}
+
 .form-label {
   margin-bottom: 1.3em;
   font-style: italic;
@@ -69,7 +85,6 @@ label {
   color: $dgrey;
   font-weight: 400;
   padding-bottom: 1em;
-
   & :focus {
     border-left: 0.5em solid $dmagenta;
     padding-left: 0.1em;
@@ -96,7 +111,6 @@ label {
   font-size: 1.3em;
   color: $dgrey;
   font-weight: 400;
-
   & :focus {
     border-left: 0.5em solid $dmagenta;
     padding-left: 0.1em;
@@ -111,12 +125,10 @@ label {
   font-size: 1.3em;
   color: $dgrey;
   font-weight: 400;
-
   & :focus {
     border-left: 0.5em solid $dmagenta;
     padding-left: 0.1em;
   }
-
 }
 
 .form-control {
@@ -127,18 +139,20 @@ label {
   padding: 0.5em;
 }
 
-textarea {
+textarea#form_description.form-control, textarea#form_comment.form-control, textarea#form_introduction.form-control, textarea#form_paragraphe1.form-control, textarea#form_paragraphe2.form-control, textarea#form_paragraphe3.form-control, textarea#form_paragraphe4.form-control{
   font-family: $font;
-  padding: 0 5em 0 0;
   width: 100%;
-  font-size: 0.3em;
+}
+textarea {
+  padding: 0 5em 0 0;
+  font-size: 1em;
 }
 textarea#form_text.form-control {
   width: 100%;
   height: 3em;
 }
 
-input#user.form-input, input#article, input#tarif.form-input {
+input#user.form-input, input#article.form-input, input#tarif.form-input, input#content.form-input {
   vertical-align: bottom;
   width: 2em;
   height: 2em;

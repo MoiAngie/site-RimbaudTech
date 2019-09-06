@@ -18,11 +18,6 @@ class Comments
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $author;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;

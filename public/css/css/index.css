@@ -77,6 +77,10 @@ video {
   margin: 0;
   background-color: #c91a5f; }
 
+/*************redirection*************/
+.back {
+  margin-left: calc( 50% - 400px); }
+
 /********media query **********/
 @media screen and (max-width: 1475px) {
   .presentation p {
