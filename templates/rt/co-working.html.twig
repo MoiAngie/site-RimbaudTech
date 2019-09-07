@@ -4,20 +4,23 @@
 
 {% block body %}
 
-<section class="section__portfolio">
   <h2>Rimbaud'Tech <span class="logoblue">|</span> Nos co-workers</h2>
+  <section class="galerie_incubes">
 
 {% for content in content %}
-  <div class="portfolio">
 
-    <figure class="portfolio-ens">
-      <img src="{{asset(content.profilpicture)}}" alt="Simon" width="300" height="300">
-        <figcaption>{{content.firstname}} {{content.name}}</figcaption>
-        <a href="{{ path('coworker', {'id' : content.id })}}">
-        <i class="fas fa-external-link-square-alt fa-2x"></i>
-      </a>
-    </figure>
-  </div>
+<div class="galerie-gp">
+  <img class="galerie-img" src="{{asset (content.profilpicture)}}" width="400" height="267">
+    <a href="{{ path('coworker', {'id' : content.id })}}">
+       <i class="fas fa-external-link-square-alt fa-3x galerie-i1"></i>
+   </a>
+    <div class="galerie-transition">
+      <p class="galerie-tx"> {{content.firstname}} <span class="cap">{{content.name}} </p>
+      <hr class="galerie-hr">
+      <p class="galerie-tx cap">{{content.company}} </p>
+    </div>
+</div>
+
   {% endfor %}
 </section>
 

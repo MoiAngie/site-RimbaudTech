@@ -329,9 +329,6 @@ footer {
 
 /* fin du slider */
 
-
-
-
 .section__footerend {
   background-color: $dgrey;
   height: 13em;
@@ -343,9 +340,6 @@ footer {
     height: 175px;
   }
 
-  & .section__logoRT, .section__footerlinks, .section__socialnetwork {
-  /*  margin:0 5em;*/
-
   & .fab {
     color: $logoblue;
     margin: 0 0.8em;
@@ -355,7 +349,7 @@ footer {
     color: $dmagenta;
   }
   }
-}}
+}
 
 .section__logoRT {
   transform: translateY(2em);
