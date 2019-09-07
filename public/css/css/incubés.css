@@ -10,7 +10,7 @@ h2 {
     color: #585858; }
 
 /*  galerie des incubés  */
-.galerie_incubes {
+.galerie {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +163,7 @@ h2 {
   font-size: 1.2em;
   padding-top: 1em; }
   .section_site:visited, .section_site :active {
-    opacity: 0.5; }
+    color: #4b4b4b; }
   .section_site:hover {
     color: #c91a5f;
     text-decoration: underline; }

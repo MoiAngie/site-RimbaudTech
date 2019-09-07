@@ -10,7 +10,7 @@ h2 {
 }
   /*  galerie des incubés  */
 
-  .galerie_incubes {
+  .galerie {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -211,7 +211,7 @@ h2 {
   font-size: 1.2em;
   padding-top: 1em;
   &:visited, :active {
-    opacity: 0.5;
+    color: $grey;
   }
   &:hover {
     color: $dmagenta;
