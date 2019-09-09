@@ -167,6 +167,9 @@ class RtController extends AbstractController
           $manager->flush();
         }
         $form = $formComment->createView();
+
+      // return $this->redirectToRoute('article', ['id' => $article->getId()]);
+
       } else {
         $form = null;
       }

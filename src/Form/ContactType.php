@@ -20,11 +20,11 @@ class ContactType extends AbstractType
             ->add ('object', ChoiceType::class,[
                     'placeholder' => "Choisissez l'objet de votre message",
                     'choices'  => [
-                    "Infos sur l'incubation" => "Incubation",
-                    "Infos sur le co-working" => "Co-working",
-                    "Infos sur la location" => "Location",
-                    "Abonnement à la Newsletter" => "Newsletter",
-                    "Devenir partenaires" => "Partenaires",
+                    "Infos sur l'incubation"                         => "Incubation",
+                    "Infos sur le co-working"                        => "Co-working",
+                    "Infos sur la location"                          => "Location",
+                    "Abonnement à la Newsletter"                     => "Newsletter",
+                    "Devenir partenaires"                            => "Partenaires",
                     "Autre, précisez dans votre message ci-dessous:" => "Autre"
                   ],
             ])

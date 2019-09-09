@@ -25,12 +25,18 @@
   <div class="form-group">
     {{ form_row(formContent.company, {'label': 'Société ou Poste Occupé pour le personnel de RT', 'attr': {'placeholder' : "Société ou Poste Occupé pour le personnel de RT", 'class' : "form-control"}})}}
   </div>
-  <div class="form-group">
-    {{ form_row(formContent.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
-  </div>
+    <div class="form-group">
+      {{ form_row(formContent.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
+    </div>
+    <div class="container-tooltip">
   <div class="form-group">
     {{ form_row(formContent.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
   </div>
+  <div class="tooltip">
+    <img src="{{asset('img/illustrations/help.svg')}}" class="icone-help" height="75" width="75">
+    <span id="tooltiptext">C'est la photo qui s'affichera dans la galerie, soit dim 300*262px</span>
+  </div>
+</div>
   <div class="form-group">
     {{ form_row(formContent.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Description du projet ou du poste à RT", 'class' : "form-control"}})}}
   </div>
