@@ -53,7 +53,6 @@ class SecurityAdminController extends AbstractController
       return $this->render('rt/admin/portail-admin.html.twig', [
       ]);
   }
-<<<<<<< HEAD
     /**
      * @Route("/login", name="security_login")
      */
@@ -68,23 +67,6 @@ class SecurityAdminController extends AbstractController
           'hasError' => $error !== null
         ]);
     }
-=======
-    ///**
-     //* @Route("rt/admin/login", name="security_login")
-    // */
-    //public function login(AuthenticationUtils $utils)
-    //{
-    //  $error = $utils->getLastAuthenticationError();
-
-    //  if (isset($_POST['submit'])) {
-    //  return $this ->redirectToRoute('homeAdmin');
-    //}
-
-        //return $this->render('rt/admin/security/login.html.twig', [
-          // 'hasError' => $error !== null
-        // ]);
-    // }
->>>>>>> bddtest
 
     /**
      * @Route("/logout", name="security_logout")
