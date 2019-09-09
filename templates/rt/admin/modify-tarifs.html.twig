@@ -3,7 +3,7 @@
 {% block title %}Modifier les tarifs{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back-center">
   <h2 class="h2-back">Modifier les tarifs</h2>
@@ -16,7 +16,7 @@
 <form action="{{ path('modify-tarifs')}}" method="POST">
 {% for list in list %}
   <div class="form-group">
-    <input type="checkbox" name="tarif[]" id="tarif" value="{{list.id}}" class="form-input">
+    <input type="radio" name="tarif[]" id="tarif" value="{{list.id}}" class="form-input">
 {{list.comment}}
     </br>
     </input>
@@ -26,8 +26,7 @@
 <button type="submit" class="btn-admin">Modifier</button>
 </form>
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Rimbaud'Tech | Inscription{% endblock %}
+
+
+{% block stylesheets %}
+  <link href="{{asset('css/css/creation-admin.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{asset('css/css/footerless.css')}}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block body %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Inscription</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/account.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+{{ form_start(form)}}
+  <div class="form-group">
+    {{ form_row(form.username, {'label': 'Identifiant', 'attr': {'placeholder' : "Identifiant", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder' : "Adresse Email", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(form.password, {'label': 'Mot de Passe', 'attr': {'placeholder' : "Mot de passe", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(form.confirm_password, {'label': 'Confirmation', 'attr': {'placeholder' : "Confirmez votre mot de passe", 'class' : "form-control"}})}}
+  </div>
+  <button type="Submit" class="btn-admin">Enregistrement</button>
+{{ form_end(form)}}
+
+    <a href="{{ path('rt_security_login')}}" class="section__link">
+      <p class="login-path"> Je suis inscrit, je veux me connecter <i class="fas fa-arrow-down"></i></p>
+        <button class="section__btn" style="background-color:#c91a5f;">
+        Se connecter
+        </button>
+    </a>
+
+{% endblock %}

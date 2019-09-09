@@ -8,6 +8,9 @@
   <div class="metadata">
     <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
       à {{ article.createdAt | date('H:i')}}</aside>
+      {% if article.publie_par != null %}
+        <aside>Publié par {{article.publie_par}}</aside>
+      {% endif %}
   </div>
   <img src="{{asset(article.image)}}"/>
   <div class="article-tx">
@@ -21,15 +24,62 @@
       <h4>{{ article.sousTitre4}}</h4>
         <p>{{ article.paragraphe4 | raw }}</p>
   </div>
-        <a class="prev" href="{{asset(prev)}}">&#10094;</a>
-        <a class="next" href="{{asset(next)}}">&#10095;</a>
+
+      {% if prev != null %}
+        <a class="prev" href="{{ path('article',{'id': prev.id}) }}">&#10094;</a>
+      {% endif %}
+      {% if next != null %}
+        <a class="next" href="{{ path('article',{'id': next.id}) }}">&#10095;</a>
+      {% endif %}
+
+</section>
+
+<section class="comments">
+  <h2>Vos avis:</h2>
+
+      {% for comments in article.comments %}
+        <div class="comments-type">
+
+          <aside> <i class="fas fa-comments fa-lg"></i> Ecrit par {{comments.writtenBy.username}} le {{ comments.createdAt | date('d/m/Y')}}
+            à {{ comments.createdAt | date('H:i')}}:
+          </aside>
+          <p> {{ comments.text }}</p>
+        </div>
+      {% else %}
+        <aside> Il n'y a pas encore de commentaires publiés pour cet article </aside>
+
+      {% endfor %}
+
+  {% if app.user %}
+  <h2 class="comments-h2-user">Souhaitez-vous commenter cet article?</h2>
+    <section class="form-comment">
+
+      {{ form_start(formComment)}}
+      <div class="form-group-comment">
+        {{ form_row(formComment.text, {'label': 'Texte', 'attr': {'placeholder' : "Votre avis: ...", 'class' : "form-control"}})}}
+      </div>
+      <button type="submit" class="comments__btn">Publier</button>
+      {{ form_end(formComment)}}
+
+    </section>
 
 
+  {% endif %}
+  {% if not app.user %}
+  <h2 class="comments-h2">Souhaitez-vous commenter cet article?</h2>
+  <a href="{{ path('rt_security_login')}}" class="section__link">
+    <button class="comments__btn">
+    Connectez-vous
+    </button>
+  </a>
+  {% endif %}
+
+</section>
 
   <a href="{{ path('articles')}}" class="section__link">
     <button class="section__btn" style="background-color:#c91a5f;">
     Voir tous nos articles
     </button>
   </a>
-</section>
+
 {% endblock %}

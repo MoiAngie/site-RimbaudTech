@@ -1,0 +1,59 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier un acteur{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Modifier un Incubé, un Co-Worker ou un membre du personnel RT</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<section class="form-admin">
+
+  {{ form_start(formContent)}}
+  <div class="form-group">
+    {{ form_row(formContent.name, {'label': 'Nom', 'attr': {'placeholder' : "Nom", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.firstname, {'label': 'Prénom', 'attr': {'placeholder' : "Prénom", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.company, {'label': 'Société ou Poste Occupé pour le personnel de RT', 'attr': {'placeholder' : "Société ou Poste Occupé pour le personnel de RT", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Description du projet ou du poste à RT", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis sur Rimbaud Tech", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.socialmedia1, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Linkedin", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.socialmedia2, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Twitter", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.socialmedia3, {'label': 'Réseau Social 1', 'attr': {'placeholder' : "Insérer directement le lien de Facebook", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group">
+    {{ form_row(formContent.site, {'label': 'Site web', 'attr': {'placeholder' : "Indiquez le lien pour son site web", 'class' : "form-control"}})}}
+  </div>
+
+  <button type="submit" class="btn-admin">Modifier</button>
+  {{ form_end(formContent)}}
+
+</section>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

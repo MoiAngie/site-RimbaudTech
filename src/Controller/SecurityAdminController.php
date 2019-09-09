@@ -14,15 +14,16 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
+use App\Repository\RolesRepository;
 
 class SecurityAdminController extends AbstractController
 {
 
   /**
-  * @Route("/Inscription", name="security_registration")
+  * @Route("/rt/admin/security/Inscription", name="security_registration")
   */
   public function registration(Request $request, ObjectManager $manager,
-  UserPasswordEncoderInterface $encoder) {
+  UserPasswordEncoderInterface $encoder, RolesRepository $repoRole) {
     $user = new User();
 
     $form = $this->createForm(RegistrationType::class, $user);
@@ -33,13 +34,14 @@ class SecurityAdminController extends AbstractController
       $hash = $encoder->encodePassword($user, $user->getPassword());
 
       $user->setPassword($hash);
-
+      $role = $repoRole->findOneBy(["role" => "ROLE_ADMIN"]);
+      $user->addRole($role);
       $manager->persist($user);
       $manager->flush();
 
       return $this->redirectToRoute('validation');
     }
-    return $this->render('security/registration.html.twig', [
+    return $this->render('rt/admin/security/registration.html.twig', [
       'form' => $form->createView()
     ]);
   }
@@ -51,6 +53,7 @@ class SecurityAdminController extends AbstractController
       return $this->render('rt/admin/portail-admin.html.twig', [
       ]);
   }
+<<<<<<< HEAD
     /**
      * @Route("/login", name="security_login")
      */
@@ -65,6 +68,23 @@ class SecurityAdminController extends AbstractController
           'hasError' => $error !== null
         ]);
     }
+=======
+    ///**
+     //* @Route("rt/admin/login", name="security_login")
+    // */
+    //public function login(AuthenticationUtils $utils)
+    //{
+    //  $error = $utils->getLastAuthenticationError();
+
+    //  if (isset($_POST['submit'])) {
+    //  return $this ->redirectToRoute('homeAdmin');
+    //}
+
+        //return $this->render('rt/admin/security/login.html.twig', [
+          // 'hasError' => $error !== null
+        // ]);
+    // }
+>>>>>>> bddtest
 
     /**
      * @Route("/logout", name="security_logout")
@@ -89,7 +109,7 @@ class SecurityAdminController extends AbstractController
           }
 
 
-          return $this->render('security/modify-admin.html.twig', [
+          return $this->render('rt/admin/security/modify-admin.html.twig', [
             'list' => $list
           ]);
         }
@@ -104,17 +124,16 @@ class SecurityAdminController extends AbstractController
           $form = $this->createFormBuilder($user)
                         ->add('username')
                         ->add('email')
-                        ->add('password')
                         ->getForm();
 
           $form->handleRequest($request);
 
           if($form->isSubmitted() && $form->isValid()){
-          $manager->persist($user);
-          $manager->flush();
+              $manager->persist($user);
+              $manager->flush();
           return $this->redirectToRoute('validation');
           }
-          return $this->render('security/modif-admin.html.twig', [
+          return $this->render('rt/admin/security/modif-admin.html.twig', [
             'formUser' => $form->createView()
           ]);
         }
@@ -136,7 +155,7 @@ class SecurityAdminController extends AbstractController
             return $this ->redirectToRoute('validation');
           }
 
-          return $this->render('security/remove-admin.html.twig', [
+          return $this->render('rt/admin/security/remove-admin.html.twig', [
             'list' => $list
           ]);
         }

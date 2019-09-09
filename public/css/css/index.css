@@ -67,28 +67,19 @@ video {
     color: #c91a5f;
     text-decoration: underline; }
 
-/*  section actus  */
-.section__actualite {
-  height: 62em; }
-
-.section__affichage {
-  display: flex;
-  flex-wrap: nowrap; }
-  .section__affichage.section__actualite__article {
-    width: 50%;
-    height: 60em;
-    background-color: white;
-    border: none;
-    border-radius: 1em;
-    padding: 2em;
-    margin-left: 2em;
-    justify-content: center; }
-
 /*  article dans index  */
+.liste_articles .fas {
+  color: #c91a5f;
+  padding-left: 1em; }
+
 .inter-article {
   height: 4em;
   margin: 0;
   background-color: #c91a5f; }
+
+/*************redirection*************/
+.back {
+  margin-left: calc( 50% - 400px); }
 
 /********media query **********/
 @media screen and (max-width: 1475px) {

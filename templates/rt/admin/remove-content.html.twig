@@ -1,0 +1,32 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Supprimer un acteur de RT{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Supprimer un incubé ou un coworker</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/remove.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<form action="{{ path('remove-content')}}" method="POST">
+{% for list in list %}
+  <div class="form-group">
+    <input type="checkbox" name="content[]" id="content" value="{{list.id}}" class="form-input">
+    <b>{{list.name}} {{list.firstname}}</b>, {{list.company}},<em> {{list.status}}</em>
+    </br>
+    </input>
+  </div>
+{% endfor %}
+<button type="submit" class="btn-admin">Supprimer</button>
+</form>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

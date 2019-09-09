@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -85,6 +87,21 @@ class Articles
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $valid_until;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     */
+    public $publie_par;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="articles")
+     */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -255,6 +272,49 @@ class Articles
     public function setValidUntil(\DateTimeInterface $valid_until): self
     {
         $this->valid_until = $valid_until;
+
+        return $this;
+    }
+
+    public function getPubliePar(): ?User
+    {
+        return $this->publie_par;
+    }
+
+    public function setPubliePar(?User $publie_par): self
+    {
+        $this->publie_par = $publie_par;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setArticles($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getArticles() === $this) {
+                $comment->setArticles(null);
+            }
+        }
 
         return $this;
     }

@@ -1,0 +1,31 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier un commentaire{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Modifier un commentaire</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+
+  <aside class="aside"><i class="fas fa-comments fa-lg"></i> Ecrit par {{ comment.writtenBy.username }} le {{ comment.createdAt|date('d/m/Y') }}</aside>
+
+  {{ form_start(formComments)}}
+
+  <div class="form-group-comment">
+    {{ form_row(formComments.text, {'label': 'Text', 'attr': {'placeholder' : "Commentaire", 'class' : "form-control"}})}}
+  </div>
+  <button type="submit" class="btn-admin">Modifier</button>
+  {{ form_end(formComments)}}
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

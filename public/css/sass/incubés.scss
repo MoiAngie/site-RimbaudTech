@@ -3,7 +3,6 @@
 
 h2 {
   @include h2h3;
-
   &:hover {
     text-decoration: none;
     color: $dgrey;
@@ -11,7 +10,7 @@ h2 {
 }
   /*  galerie des incubés  */
 
-  .galerie_incubes {
+  .galerie {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -22,11 +21,9 @@ h2 {
   .galerie-gp {
     flex: 1 1 auto;
     max-height: 300px;
-
     & a {
       text-decoration: none;
     }
-
     & img {
       position: relative;
       z-index: 0;
@@ -34,12 +31,11 @@ h2 {
   }
 
   .galerie-i1{
-    color: #c91a5f;
+    color: $dmagenta;
     position: relative;
     z-index: 2;
-    left: -12.6em;
-    top: -0.1em;
-
+    left: -8.4em;
+    top: -0.05em;
     &:hover {
       color: #4ab9e4;
     }
@@ -51,18 +47,17 @@ h2 {
     z-index: 3;
     width: 28px;
     height: 148px;
-    background-color: #c91a5f;
+    background-color: $dmagenta;
     opacity: 0;
     transform: translateY(0);
     transition: width 2s, height 2s, background-color 2s, opacity 2s, z-index 2s, transform 2s ease;
     transition-delay: 4s;
-
     &:hover {
       width: 400px;
       height: 267px;
-      background-color: #4ab9e4;
+      background-color: $logoblue;
       opacity: 0.5;
-      transform: translateY(-7.2em);
+      transform: translateY(-7.4em);
       z-index: 1;
       transition: width 2s, height 2s, background-color 2s, opacity 2s, z-index 2s, transform 2s ease;
     }
@@ -81,11 +76,11 @@ h2 {
     margin-left: 0.5em;
   }
 
+  .galerie-i2 {
+    color: black;
+    padding-left: 0.5em;
+  }
 
-.galerie-i2 {
-  color: black;
-  padding-left: 0.5em;
-}
 /*  processus de sélection  */
 
 .selection {
@@ -117,6 +112,24 @@ h2 {
     color: $dgrey;
     font-size: 1.2em;
   }
+
+  & .selection-list {
+    margin-bottom: 0;
+  }
+
+  & ul {
+    max-width: 20em;
+    font-family: $font;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-left: 1em;
+  }
+  & li {
+    color: $dgrey;
+    font-family: 'Sniglet', cursive;
+    font-size: 1em;
+  }
 }
 
 .dotted-processus {
@@ -127,7 +140,7 @@ h2 {
   z-index: 0;
 }
 
-/*  page d'un incubé ou d'un coworker*/
+/***********page d'un incubé ou d'un coworker*************/
 
 .intro {
   display: flex;
@@ -150,6 +163,7 @@ h2 {
 
   & p {
     margin-right: 2em;
+    min-height: 6em;
   }
 
   & .cap {
@@ -164,11 +178,49 @@ h2 {
 
 .intro-hr-cow {
     @include hr-coworker;
-    transform: translateX(-15em);
+    margin-left: 0em;
     width: 60%;
   }
 }
 
+ .fab {
+  color: $logoblue;
+    &:hover {
+      color: $dmagenta;
+    }
+}
+  .fa-twitter, .fa-linkedin-in {
+    margin-left: 0.8em;
+  }
+
+.section__socialnetwork_cow {
+  .fab {
+   color: $dmagenta;
+     &:hover {
+       color: $logoblue;
+     }
+ }
+  .fa-twitter, .fa-linkedin-in {
+     margin-left: 0.8em;
+   }
+}
+
+.section_site {
+  color: $dgrey;
+  font-family: 'Sniglet', cursive;
+  font-size: 1.2em;
+  padding-top: 1em;
+  &:visited, :active {
+    color: $grey;
+  }
+  &:hover {
+    color: $dmagenta;
+    text-decoration: underline;
+  }
+  &:focus {
+    color: $logoblue;
+  }
+}
 /*  dispo galerie petites photos */
 
 .galerie_incube {
@@ -185,7 +237,7 @@ h2 {
   margin-left: 43%;
 }
 
-/*  commentaires */
+/********commentaires**********/
 
 .comment {
   padding: 2em 5em;
@@ -248,6 +300,9 @@ h2 {
       font-size: 1em;
     }
   & p {
+    font-size: 1em;
+  }
+  & li {
     font-size: 1em;
   }
   }
@@ -329,6 +384,15 @@ h2 {
   .galerie_incube, .galerie_coworker {
     margin-left: 43%;
 }
+.selection {
+  & ul {
+    padding-left: 4em;
+  }
+  & li {
+    font-size: 1.1em;
+  }
+}
+
 }
 
 @media screen and (max-width: 1029px) {
@@ -383,5 +447,10 @@ h2 {
 }
   .img2 {
     display: none;
+  }
+  .selection {
+    & ul {
+      padding-left: 0;
+    }
   }
 }

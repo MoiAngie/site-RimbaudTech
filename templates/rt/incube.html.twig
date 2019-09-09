@@ -9,10 +9,25 @@
     <image src="{{asset (incube.profilpicture)}}" widht="400" height="400"/>
   </figure>
   <div class="intro-tx">
-    <h2 class="cap">{{incube.name}} {{incube.firstname}}</h2>
+    <h2 class="cap">{{ incube.name }} {{ incube.firstname }}</h2>
     <hr class="intro-hr">
-    <h2 class="cap">{{incube.company}}</h2>
-      <p>{{incube.description}}</p>
+    <h2 class="cap">{{ incube.company }}</h2>
+      <p>{{ incube.description }}</p>
+      <div class="section__socialnetwork">
+        <a href="{{ incube.socialmedia3 }}">
+          <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="{{ incube.socialmedia1 }}">
+          <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{ incube.socialmedia2 }}">
+          <i class="fab fa-twitter fa-2x"></i>
+        </a>
+      </div>
+      <div class="section_site">
+        <a href="{{ incube.site }}" class="section_site">Visiter son site web
+        </a>
+      </div>
   </div>
 
 </section>

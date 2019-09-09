@@ -11,6 +11,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+use App\Entity\User;
+use App\Form\UserType;
 
 class ArticleType extends AbstractType
 {
@@ -19,6 +23,11 @@ class ArticleType extends AbstractType
       $builder
           ->add('title', TextType::class)
           ->add('author', TextType::class)
+          ->add('publie_par', EntityType::class, [
+            'class' => User::class,
+            'choice_label' => 'username',
+            'placeholder' => 'publié par'
+          ])
           ->add ('image', FileType::class)
           ->add('introduction', TextareaType::class, [
             'required' => false,

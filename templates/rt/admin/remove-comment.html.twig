@@ -1,0 +1,35 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Supprimer un commentaire{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Supprimer un commentaire</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/remove.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<form action="{{ path('remove-comment')}}" method="POST">
+{% for list in list %}
+  <div class="form-group-comment">
+      <input type="checkbox" name="comment[]" id="comment" value="{{list.id}}" class="form-input">
+      Ecrit par:
+    <b>{{list.writtenBy.username}}</b>, le {{list.createdAt|date('d/m/Y')}}
+      </br></br>
+      <i class="fas fa-comments fa-lg"></i>
+      <span class="comments-tx">{{list.text}}</span>
+      </input>
+  </div>
+{% endfor %}
+<button type="submit" class="btn-admin">Supprimer</button>
+</form>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

@@ -3,7 +3,7 @@
 {% block title %}Ajouter un article{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back-center">
   <h2 class="h2-back">Ajouter un article</h2>
@@ -19,6 +19,9 @@
 </div>
 <div class="form-group">
   {{ form_row(formArticle.author, {'label': 'Auteur', 'attr': {'placeholder' : "Ecrit par", 'class' : "form-control"}})}}
+</div>
+<div class="form-group">
+  {{ form_row(formArticle.publie_par, {'label': 'Publie_par', 'attr': {'placeholder' : "Publié par", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
   {{ form_row(formArticle.image, {'label': 'Image', 'attr': {'placeholder' : "Télécharger une image", 'class' : "form-control"}})}}
@@ -53,8 +56,7 @@
 <button type="submit" class="btn-admin">Publier</button>
 {{ form_end(formArticle)}}
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

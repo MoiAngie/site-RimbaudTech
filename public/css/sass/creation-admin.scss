@@ -53,6 +53,22 @@ label {
 }
 }
 
+.form-group-article {
+    margin-left: 25%;
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
+  & label {
+  display: inherit;
+  font-style: italic;
+}
+}
+
+input#form_image.form-control {
+  display: none;
+}
+
 .form-label {
   margin-bottom: 1.3em;
   font-style: italic;
@@ -69,7 +85,6 @@ label {
   color: $dgrey;
   font-weight: 400;
   padding-bottom: 1em;
-
   & :focus {
     border-left: 0.5em solid $dmagenta;
     padding-left: 0.1em;
@@ -87,7 +102,33 @@ label {
   color: $dgrey;
   font-weight: 400;
   padding-bottom: 1em;
+}
 
+.form-group-comment {
+  margin: 2em 5em;
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid $logoblue;
+  font-size: 1.3em;
+  color: $dgrey;
+  font-weight: 400;
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
+}
+
+.form-group-login {
+  width: 25em;
+  margin: 1em auto;
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid $logoblue;
+  font-size: 1.3em;
+  color: $dgrey;
+  font-weight: 400;
+  & :focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
 }
 
 .form-control {
@@ -98,14 +139,20 @@ label {
   padding: 0.5em;
 }
 
-textarea {
+textarea#form_description.form-control, textarea#form_comment.form-control, textarea#form_introduction.form-control, textarea#form_paragraphe1.form-control, textarea#form_paragraphe2.form-control, textarea#form_paragraphe3.form-control, textarea#form_paragraphe4.form-control, textarea#content_description.form-control{
   font-family: $font;
-  padding: 0 5em 0 0;
   width: 100%;
-  font-size: 0.3em;
+}
+textarea {
+  padding: 0 5em 0 0;
+  font-size: 1em;
+}
+textarea#form_text.form-control {
+  width: 100%;
+  height: 3em;
 }
 
-input#user.form-input, input#article, input#tarif.form-input {
+input#user.form-input, input#article.form-input, input#tarif.form-input, input#content.form-input {
   vertical-align: bottom;
   width: 2em;
   height: 2em;
@@ -113,9 +160,12 @@ input#user.form-input, input#article, input#tarif.form-input {
   margin-right: 1em;
 }
 
-/*input#form_profilpicture.form-control, input#form_image1.form-control, input#form_image2.form-control, input#form_image3.form-control, input#form_image4.form-control {
-  display: none;
-}*/
+input#comment.form-input {
+  width: 1.7em;
+  height: 1.7em;
+  vertical-align: middle;
+
+}
 
 .btn-admin {
   background-color: $logoblue;
@@ -137,6 +187,19 @@ input#user.form-input, input#article, input#tarif.form-input {
   }
 }
 
+.fas {
+  color: $dmagenta;
+  padding-left: 1em;
+}
+
+.comments-tx {
+  padding-left: 1em;
+}
+
+.aside {
+  @include aside;
+  margin-left: 10em;
+}
 /*  page accueil  */
 
 .back {
@@ -155,5 +218,83 @@ input#user.form-input, input#article, input#tarif.form-input {
     flex: 1 1 auto;
     max-width: 30em;
   }
+}
 
+.mag {
+  background-color: $dmagenta;
+  &:hover {
+    background-color: $logoblue;
+}
+}
+
+/********security**************/
+
+.error-dmg {
+  color: $dgrey;
+  padding: 1em;
+  border: 0.2em dotted $dmagenta;
+  width: 44em;
+  text-align: center;
+  margin-left: calc( 50% - 24em);
+}
+
+.login-path {
+  margin-bottom: 0;
+  color: $dmagenta;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.login-btn {
+  margin-bottom: 5em;
+}
+
+/*************tooltip**************/
+.container-tooltip {
+  display: flex;
+  flex-direction: row;
+}
+.icone-help {
+  background-color: #F5ECEC;
+  border-radius: 50%;
+  padding: 0.6em;
+  position: relative;
+  right: 15em;
+}
+.tooltip #tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  right: 3.8em;
+  top: 43em;
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: 10em;
+  height: 5em;
+  background: $dmagenta;
+  -moz-border-radius: 0.625em;
+  -webkit-border-radius: 0.625em;
+  border-radius: 0.625em;
+  padding: 0.3em;
+  color: antiquewhite;
+  text-align: center;
+}
+
+#tooltiptext:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 1.625em;
+  width: 0;
+  height: 0;
+  border-top: 0.813em solid transparent;
+  border-right: 1.625em solid $dmagenta;
+  border-bottom: 0.813em solid transparent;
+}
+
+.tooltip:hover #tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

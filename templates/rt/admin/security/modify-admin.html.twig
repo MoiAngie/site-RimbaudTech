@@ -1,0 +1,26 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Choisir un administrateur à modifier{% endblock %}
+
+{% block body %}
+<section class="titre-back-center">
+  <h2 class="h2-back">Choisir un administrateur à modifier</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+  <form action="{{ path('modify-User')}}" method="POST">
+  {% for list in list %}
+    <div class="form-group">
+      <input type="radio" name="user[]" id="user" value="{{list.id}}" class="form-input">
+      <b>{{list.username}}</b>, {{list.email}}
+      </br>
+      </input>
+    </div>
+{% endfor %}
+
+<button type="submit" class="btn-admin">Modifier</button>
+</form>
+{% endblock %}

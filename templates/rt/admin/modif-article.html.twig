@@ -3,7 +3,7 @@
 {% block title %}Modifier un article{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <section class="titre-back-center">
   <h2 class="h2-back">Modifier un article</h2>
@@ -20,7 +20,8 @@
 <div class="form-group">
   {{ form_row(formArticle.author, {'label': 'Auteur', 'attr': {'placeholder' : "Ecrit par", 'class' : "form-control"}})}}
 </div>
-<div class="form-group">
+<div class="form-group-article">
+  <img src="/{{ articles.image}}" style="width: 200px; height: 167px;">
   {{ form_row(formArticle.image, {'label': 'Image', 'attr': {'placeholder' : "Télécharger une image", 'class' : "form-control"}})}}
 </div>
 <div class="form-group">
@@ -53,8 +54,7 @@
 <button type="submit" class="btn-admin">Modifier</button>
 {{ form_end(formArticle)}}
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}
 

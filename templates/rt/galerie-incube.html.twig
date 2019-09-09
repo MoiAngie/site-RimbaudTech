@@ -3,20 +3,20 @@
 {% block title %}Rimbaud'Tech | Nos Incubés{% endblock %}
 
 {% block body %}
-<h2>Nos Incubés</h2>
+  <h2>Rimbaud'Tech <span class="logoblue">|</span> Nos incubés</h2>
 
-<section class="galerie_incubes">
-  {% for utilisateur in utilisateur %}
+<section class="galerie">
+  {% for content in content %}
 
   <div class="galerie-gp">
-    <img class="galerie-img" src="{{asset (utilisateur.profilpicture)}}" width="400" height="267">
-      <a href="{{ path('incube', {'id' : utilisateur.id })}}">
-         <i class="fas fa-external-link-square-alt fa-2x galerie-i1"></i>
+    <img class="galerie-img" src="{{asset (content.profilpicture)}}" width="400" height="267">
+      <a href="{{ path('incube', {'id' : content.id })}}">
+         <i class="fas fa-external-link-square-alt fa-3x galerie-i1"></i>
      </a>
       <div class="galerie-transition">
-        <p class="galerie-tx"> {{utilisateur.firstname}} <span class="cap">{{utilisateur.name}} </p>
+        <p class="galerie-tx"> {{content.firstname}} <span class="cap">{{content.name}} </p>
         <hr class="galerie-hr">
-        <p class="galerie-tx cap">{{utilisateur.company}} </p>
+        <p class="galerie-tx cap">{{content.company}} </p>
       </div>
   </div>
 
@@ -31,25 +31,27 @@
     <figure class="contact">
       <img class="icone-processus" src={{ asset("img/illustrations/contact.svg")}} alt="Contact" title="contactez-nous" height="150" width="200">
       <h3> Vous nous contactez</h3>
-      <p> Vous portez un projet de création d'entreprise innovante dans les Ardennes ? Contactez-nous pour nous présenter votre projet et obtenir plus d'informations sur l'accompagnement qui peut vous être proposé.</p>
+        <p> Vous portez un projet de création d'entreprise innovante dans les Ardennes ? Contactez-nous pour nous présenter votre projet et obtenir plus d'informations sur l'accompagnement qui peut vous être proposé.</p>
     </figure>
     <figure class="verification">
       <img class="icone-processus" src={{ asset("img/illustrations/check.svg")}} alt="Vérification" title="Vérification" height="150" width="200">
       <h3> Vérification de l'éligibilité du projet</h3>
-      <p> Nous vérifions que votre projet est éligible au dispositif d'incubation :<br>
-          -Validation du caractère innovant,<br>
-          -Volonté d'implantation sur le territoire,<br>
-          -Forte implication dans le projet.</p>
+        <p class="selection-list"> Nous vérifions que votre projet est éligible au dispositif d'incubation :</p>
+          <ul>
+            <li>Validation du caractère innovant,</li>
+            <li>Volonté d'implantation sur le territoire,</li>
+            <li>Forte implication dans le projet.</li>
+          </ul>
     </figure>
     <figure class="preparation">
       <img class="icone-processus" src={{ asset("img/illustrations/verification.svg")}} alt="Préparation" title="Préparation" height="150" width="200">
       <h3> Pré-incubation</h3>
-      <p> Nous vous accompagnons en vue de vous présenter devant le Comité d'engagement de l'incubateur, lequel décide de l'entrée en incubation de votre projet.</p>
+        <p> Nous vous accompagnons en vue de vous présenter devant le Comité d'engagement de l'incubateur, lequel décide de l'entrée en incubation de votre projet.</p>
     </figure>
     <figure class="validation">
       <img class="icone-processus" src={{ asset("img/illustrations/validation.svg")}} alt="Validation" title="validation" height="150" width="200">
       <h3> Incubation </h3>
-      <p> Vous êtes désormais incubé.</p>
+        <p> Vous êtes désormais incubé.</p>
     </figure>
   </div>
 

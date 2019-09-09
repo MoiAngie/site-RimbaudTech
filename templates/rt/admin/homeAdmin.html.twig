@@ -1,7 +1,7 @@
 
 {% extends 'base-admin.html.twig' %}
 {% block body %}
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
 
 <h2 class="margin-admin">Bienvenue {{ app.user.username }} sur l'interface d'administration</h2>
 
@@ -9,9 +9,8 @@
   <img src="{{asset('img/illustrations/back.svg')}}" class="back" height="500" width="800">
 </figure>
 
-{% endif %}
-{% if not app.user %}
+{% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
-{% endif %}
+{% endif %}-->
 
 {% endblock %}

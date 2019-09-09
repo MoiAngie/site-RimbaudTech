@@ -8,12 +8,22 @@
 <section class="liste_articles">
   <h2>Actualités</h2>
   {% for article in article %}
+  <a href="{{ path('articles')}}">
     <h2 class="title-article">{{ article.title}}</h2>
+  </a>
     <div class="metadata">
       <aside>Ecrit par {{article.author}} le {{ article.createdAt | date('d/m/Y')}}
         à {{ article.createdAt | date('H:i')}}</aside>
+        {% if article.publie_par != null %}
+          <aside>Publié par {{article.publie_par}}</aside>
+        {% endif %}
+        <a href="{{ path('articles')}}">
+          <aside><i class="fas fa-comments"></i> {{ article.comments|length }}</aside>
+        </a>
     </div>
-    <img src="{{asset(article.image)}}"/>
+    <a href="{{ path('articles')}}">
+      <img src="{{asset(article.image)}}"/>
+    </a>
     <div class="article-tx">
       <h5>{{ article.introduction | raw }}<h5>
       <h4>{{ article.sousTitre1}}</h4>

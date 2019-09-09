@@ -30,16 +30,16 @@ h2 {
     color: $dmagenta;
     font-weight: bold;
     font-size: 1.2em;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #000;
 }
-& .fas {
-  color: $dmagenta;
-  transform: rotate(-90deg);
-  transform: translate(8.5em , -1.8em);
+  & .fas {
+    color: $dmagenta;
+    transform: rotate(-90deg);
+    transform: translate(8.5em , -1.8em);
 
-&:hover {
-  color: $logoblue;
-}}
+  &:hover {
+    color: $logoblue;
+  }}
 }}
 
 /*  section co-working description  */

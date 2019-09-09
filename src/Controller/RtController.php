@@ -5,18 +5,25 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Articles;
-use App\Entity\Utilisateurs;
+use App\Entity\Content;
+use App\Entity\Comments;
 use App\Entity\Contact;
+
 use App\Repository\ArticlesRepository;
-use App\Repository\UtilisateursRepository;
+use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
+use App\Repository\CommentsRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 use App\Form\ArticleType;
 use App\Form\ContactType;
+use App\Form\CommentType;
+
 use App\Notification\ContactNotification;
 
 class RtController extends AbstractController
@@ -25,15 +32,15 @@ class RtController extends AbstractController
      * @Route("/rt", name="rt")
      * PAGE ACCUEIL DU SITE
      */
-    public function index(UtilisateursRepository $repo, ArticlesRepository $repoA)
+    public function index(ContentRepository $repo, ArticlesRepository $repoA)
     {
-        $utilisateur = $repo->findByStatus("Incubé");
+        $content= $repo->findByStatus("Incubé");
         $article = $repoA->findArticleIndex();
 
         return $this->render('rt/index.html.twig', [
             'controller_name' => 'RtController',
-            'utilisateur' =>$utilisateur,
-            'article' => $article
+            'content' =>$content,
+            'article' => $article,
         ]);
     }
 
@@ -43,6 +50,9 @@ class RtController extends AbstractController
      */
     public function articles(ArticlesRepository $repoAll)
     {
+    //  if(!$this->isGranted('ROLE_ADMIN')){
+    //    return $this->
+    //  }
         $articles = $repoAll->findAll();
 
         return $this->render('rt/articles.html.twig', [
@@ -54,12 +64,12 @@ class RtController extends AbstractController
      * @Route("/rt/coworking", name="coworking")
      * PAGE PRESENTATION CO-WORKING
      */
-    public function coworking(UtilisateursRepository $repo, TarifsRepository $repoT)
+    public function coworking(ContentRepository $repo, TarifsRepository $repoT)
     {
-      $utilisateur = $repo->findByStatus('Co-workeur');
+      $content = $repo->findByStatus('Co-workeur');
       $tarif = $repoT->findAll();
       return $this->render('rt/co-working.html.twig', [
-        'utilisateur' =>$utilisateur,
+        'content' =>$content,
         'tarif' =>$tarif
       ]);
     }
@@ -68,7 +78,7 @@ class RtController extends AbstractController
      * @Route("/rt/coworker/{id}", name="coworker")
      * PAGE TYPE COWORKER (afficher un coworker à la fois)
      */
-    public function showcoworkeur(UtilisateursRepository $repo, $id)
+    public function showcoworkeur(ContentRepository $repo, $id)
     {
       $coworker = $repo->find($id);
       return $this->render('rt/coworker.html.twig', [
@@ -90,11 +100,11 @@ class RtController extends AbstractController
      * @Route("/rt/incubation", name="incubation")
      * PAGE PRESENTATION DE L'INCUBATION
      */
-    public function incubation(UtilisateursRepository $repo)
+    public function incubation(ContentRepository $repo)
     {
-        $utilisateur = $repo->findByStatus("Personnel");
+        $content = $repo->findByStatus("Personnel");
         return $this->render('rt/incubation.html.twig', [
-          'utilisateur' => $utilisateur
+          'content' => $content
         ]);
     }
 
@@ -102,11 +112,11 @@ class RtController extends AbstractController
      * @Route("/rt/galerie-incubes", name="galerie-incubes")
      * PAGE GALLERIE INCUBES
      */
-    public function galerie_incubes(UtilisateursRepository $repo)
+    public function galerie_incubes(ContentRepository $repo)
     {
-      $utilisateur = $repo->findByStatus("Incubé");
+      $content = $repo->findByStatus("Incubé");
       return $this->render('rt/galerie-incube.html.twig', [
-        'utilisateur' => $utilisateur
+        'content' => $content
       ]);
     }
 
@@ -114,7 +124,7 @@ class RtController extends AbstractController
      * @Route("/rt/incube/{id}", name="incube")
      * PAGE TYPE INCUBES (afficher un incube à la fois)
      */
-    public function showincube(UtilisateursRepository $repo, $id)
+    public function showincube(ContentRepository $repo, $id)
     {
       $incube = $repo->find($id);
       return $this->render('rt/incube.html.twig', [
@@ -133,32 +143,61 @@ class RtController extends AbstractController
         $article2 = $repo->findAll();
 
         return $this->render('rt/actu.html.twig', [
-          'article' =>$article,
-          'article2' =>$article2,
+          'article'  =>$article,
+          'article2' =>$article2
         ]);
     }
 
     /**
      * @Route("/rt/article/{id}", name="article")
-     * PAGE D'AFFICHAGE D'UN ARTICLE COMPLET
+     * PAGE D'AFFICHAGE D'UN ARTICLE COMPLET AVEC SES COMMENTAIRES
      */
-    public function showarticle(ArticlesRepository $repo, $id)
+    public function showarticle(ArticlesRepository $repo, Articles $article, Request $request, ObjectManager $manager)
     {
+      if($this->getUser() != null){
+        $user = $this->getUser();
+        $comment= new Comments($user, $article);
 
-        $article = $repo->find($id);
-        /*FONCTION POUR ARTICLE SUIVANT*/
-        $new_id = ($id+1);
-        $next = ('rt/article/'.$new_id);
-        /*FONCTION POUR ARTICLE PRECEDENT*/
-        $new2_id = ($id-1);
-        $prev = ('rt/article/'.$new2_id);
+        $formComment = $this->createForm(CommentType::class, $comment);
+
+        $formComment->handleRequest($request);
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+          $manager->persist($comment);
+          $manager->flush();
+        }
+        $form = $formComment->createView();
+
+      // return $this->redirectToRoute('article', ['id' => $article->getId()]);
+
+      } else {
+        $form = null;
+      }
+
+
+        $articles = $repo->findAll();
+        $prev = null;
+        $next = null;
+        $taille = count($articles);
+          for($i = 0 ; $i < $taille ; $i++){
+            if($articles[$i] == $article){
+              if($i != 0){
+                $prev = $articles[$i-1];
+              }
+              if($i != $taille-1){
+                $next = $articles[$i+1];
+              }
+            }
+          }
+
         return $this->render('rt/article.html.twig', [
-          'article' => $article,
-          'next' =>$next,
-          'prev' =>$prev
+          'article'     => $article,
+          'next'        => $next,
+          'prev'        => $prev,
+          'formComment' => $form
         ]);
-    }
 
+  }
     /**
      * @Route("/rt/contact", name="contact")
      * PAGE CONTACT
@@ -184,4 +223,15 @@ class RtController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route("/rt/redirection", name="redirection")
+     * PAGE DE REDIRECTION APRES CONNEXION
+     */
+    public function redirection()
+    {
+        return $this->render('rt/redirection.html.twig', [
+        ]);
+    }
+
 }

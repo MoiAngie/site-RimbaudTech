@@ -11,10 +11,7 @@
     font-size: 2em;
   }
   & aside {
-    margin-left: 1em;
-    font-style: italic;
-    color: $dgrey;
-    font-size: 1em;
+    @include aside;
   }
 
   & img {
@@ -122,6 +119,79 @@
 
 .prev:active, .next:active {
   background-color: $dgrey;
+}
+
+/**************pour les commentaires**********/
+.comments {
+  background-color: $lightblue;
+  & h2 {
+    text-align: left;
+    padding-top: 1em;
+    padding-left: 5em;
+    margin-top: 0;
+  }
+  & .comments-type {
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+  & aside {
+    @include aside;
+    margin-left: 3em;
+  }
+  & p {
+    text-align: left;
+  }
+  & .fas {
+    color: $dmagenta;
+  }
+
+  & .comments-h2 {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  & .comments-h2-user {
+    text-align: left;
+    padding-left: 5em;
+  }
+
+  label {
+    display: none;
+  }
+
+  textarea {
+    font-family: $font;
+    padding: 0 5em 0 1em;
+    width: 90%;
+    height: 5em;
+    font-size: 1em;
+    border-radius: 1em;
+  }
+
+  .form-group-comment {
+    margin: 2em 5em;
+    padding-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 400;
+    & :focus {
+      border-left: 0.5em solid $dmagenta;
+      padding-left: 0.3em;
+    }
+  }
+
+  & .comments__btn {
+    @include bouton;
+    background-color: $logoblue;
+    margin-bottom: 2em;
+    margin-left: calc(50% - 5em);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 }
 
 
