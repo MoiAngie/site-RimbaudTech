@@ -339,6 +339,23 @@ h2 {
   .tarifs-location-flex p {
     color: white; }
 
+/************booking******************/
+.booking__btn {
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0 2em 2em 2em;
+  background-color: #c91a5f;
+  margin-left: calc(50% - 5em); }
+  .booking__btn:hover {
+    background-color: #a0ddf4;
+    text-decoration: underline; }
+
 /***********media query***************/
 @media screen and (max-width: 1299px) {
   .tarifs-location-flex {
