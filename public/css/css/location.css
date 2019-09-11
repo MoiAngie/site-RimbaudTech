@@ -39,29 +39,36 @@
   background-color: #c91a5f;
   margin-left: calc(50% - 5em); }
   .booking__btn:hover {
-    background-color: #585858;
+    background-color: #4ab9e4;
     text-decoration: underline; }
 
+.h2-booking {
+  font-family: "Muli", sans-serif;
+  font-weight: bold;
+  margin-top: 2em; }
+
 .form-booking {
-  width: 50%;
-  margin: 2em auto;
-  padding: 2em 0 2em 10em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+  width: 40%;
+  margin: 1em auto;
+  padding: 2em 0 2em 2em; }
   .form-booking label {
     font-style: italic;
     color: #585858;
-    padding: 2em;
+    padding: 0.5em 0;
     font-size: 1.2em; }
-  .form-booking input#booking_startDate.form-control, .form-booking input#booking_endDate.form-control {
-    margin-bottom: 2em;
-    margin-top: 1em;
-    min-width: 50%;
-    padding: 0 0 0 2em;
-    min-height: 4em;
-    border-radius: 1em;
-    font-family: "Muli", sans-serif; }
+
+input#booking_endDate.form-control, input#booking_startDate.form-control {
+  height: 4em;
+  border-radius: 1em; }
+  input#booking_endDate.form-control:focus, input#booking_startDate.form-control:focus {
+    border-left: 0.5em solid #c91a5f;
+    padding-left: 0.1em; }
+
+td {
+  border-radius: 0 !important; }
+  td.disabled.disabled-date.day {
+    background-color: #d94865;
+    opacity: 0.5; }
 
 .validBooking {
   background-color: #a0ddf4;

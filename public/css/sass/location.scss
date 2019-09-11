@@ -55,32 +55,41 @@
   background-color: $dmagenta;
   margin-left: calc(50% - 5em);
   &:hover {
-    background-color: $dgrey;
+    background-color: $logoblue;
     text-decoration: underline;
   }
 }
+.h2-booking {
+  font-family: $font;
+  font-weight: bold;
+  margin-top: 2em;
+}
 
 .form-booking {
-  width: 50%;
-  margin: 2em auto;
-  padding: 2em 0 2em 10em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 40%;
+  margin: 1em auto;
+  padding: 2em 0 2em 2em;
   & label {
     font-style: italic;
     color: $dgrey;
-    padding: 2em;
+    padding: 0.5em 0;
     font-size: 1.2em;
   }
-  & input#booking_startDate.form-control, input#booking_endDate.form-control {
-    margin-bottom: 2em;
-    margin-top: 1em;
-    min-width: 50%;
-    padding: 0 0 0 2em;
-    min-height: 4em;
-    border-radius: 1em;
-    font-family: $font;
+}
+
+input#booking_endDate.form-control, input#booking_startDate.form-control {
+  height: 4em;
+  border-radius: 1em;
+  &:focus {
+    border-left: 0.5em solid $dmagenta;
+    padding-left: 0.1em;
+  }
+}
+td {
+  border-radius: 0 !important ;
+  &.disabled.disabled-date.day {
+    background-color: $magenta;
+    opacity: 0.5;
   }
 }
 

@@ -64,7 +64,7 @@
   padding-right: 6em; }
 
 /* pour les boutons d'un article type */
-.prev, .next {
+.liste_articles .prev, .liste_articles .next {
   cursor: pointer;
   position: absolute;
   top: 60%;
