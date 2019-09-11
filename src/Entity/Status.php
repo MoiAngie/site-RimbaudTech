@@ -39,6 +39,30 @@ class Status
         $this->bookings = new ArrayCollection();
     }
 
+    /**
+    * Pour créer un tableau des jours possibles pour la réservation
+    *
+    * @return array c'est un tableau d'objets DateTime représentant les jours déjà réservés
+    */
+    public function getNotAvailableDays() {
+      $notAvailableDays = [];
+
+      foreach($this->bookings as $booking) {
+        //calcul du nb de jours entre date d'arrivée et celle de fin
+        $result = range(
+          $booking->getStartDate()->getTimestamp(),
+          $booking->getEndDate()->getTimestamp(),
+          24 * 60 * 60
+        );
+
+        $days = array_map(function($dayTimestamp) {
+          return new \DateTime(date('Y-m-d', $dayTimestamp));
+        }, $result);
+
+        $notAvailableDays = array_merge($notAvailableDays, $days);
+      }
+      return $notAvailableDays;
+    }
     public function getId(): ?int
     {
         return $this->id;

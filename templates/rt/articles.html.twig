@@ -18,7 +18,7 @@
       {% endif %}
         <aside><i class="fas fa-comments"></i> {{ article.comments|length }}</aside>
     </div>
-    <h5>{{ article.introduction | raw }}<h5>
+    <h5>{{ article.introduction | striptags | truncate(200, true) }}<h5>
       <a href="{{ path('article', {'id' : article.id })}}"><i class="fas fa-plus-circle"></i>Lire la suite de cet article...</a>
   </div>
 

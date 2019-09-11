@@ -20,17 +20,18 @@ use App\Repository\StatusRepository;
 class BookingController extends AbstractController
 {
     /**
-     * @Route("rt/booking", name="booking")
+     *
      * @Route("rt/booking/{id}", name="booking-id")
      */
-    public function book(StatusRepository $repoStatus, Request $request, ObjectManager $manager, Price $price, $id = null)
+    public function book(StatusRepository $repoStatus, Request $request, ObjectManager $manager, Status $status = null)
     {
-        if($id != null){
-          $status = $repoStatus->find($id);
-        } else {
-          $status = null;
-        }
 
+        // if($id != null){
+        //   $status = $repoStatus->find($id);
+        // } else {
+        //   $status = null;
+        // }
+          $valid = false;
       if($this->getUser() != null) {
         $user = $this->getUser();
         $booking= new Booking($user);
@@ -42,21 +43,40 @@ class BookingController extends AbstractController
         if ($formBooking->isSubmitted() && $formBooking->isValid()) {
           $user = $this->getUser();
 
-          $booking->setBooker($user)
-                  ->setPrice($price);
+          $prices = $status->getPrices();
+          $priceNew = null;
+          foreach($prices as $price){
+            $priceNew = $price;
+            break;
+            // $booking->addPrice($priceNew);
+          }
 
-          $manager->persist($booking);
-          $manager->flush();
+          $booking->setBooker($user)
+                  ->setPrice($priceNew)
+                  ->setStatus($status);
+                  // ->setPrice($price);
+
+          //si les dates sont déjà réservées => message d'erreur
+          if(!$booking->isBookableDates()) {
+            $this->addFlash(
+              'warning',
+              "La salle est déjà occupée à ces dates-là. Veuillez en choisir d'autres ou contacter Rimbaud'Tech."
+            );
+          } else {
+            //sinon, on valide le formulaire
+            $manager->persist($booking);
+            $manager->flush();
+
+            $valid = true;
+          }
         }
         $form = $formBooking->createView();
-
-      //return $this->redirectToRoute('location');
-
       } else {
         $form = null;
       }
 
         return $this->render('rt/booking.html.twig', [
+          'validBooking' => $valid,
           'formBooking' => $form,
           'status' => $status
         ]);

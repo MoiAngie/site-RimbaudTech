@@ -63,6 +63,23 @@
     border-radius: 1em;
     font-family: "Muli", sans-serif; }
 
+.validBooking {
+  background-color: #a0ddf4;
+  padding: 1em; }
+  .validBooking .validBooking-h6 {
+    text-align: center;
+    font-family: 'Sniglet', cursive;
+    font-size: 1.2em;
+    color: #585858; }
+
+.warning {
+  background-color: #d94865;
+  padding: 1em;
+  color: white;
+  text-align: center;
+  font-family: 'Sniglet', cursive;
+  font-size: 1.2em; }
+
 /***********media query***************/
 @media screen and (max-width: 1299px) {
   .tarifs-location-flex {

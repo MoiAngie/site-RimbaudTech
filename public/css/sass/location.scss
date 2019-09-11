@@ -84,7 +84,25 @@
   }
 }
 
+.validBooking {
+  background-color: $lightblue;
+  padding: 1em;
+  & .validBooking-h6 {
+    text-align: center;
+    font-family: 'Sniglet', cursive;
+    font-size: 1.2em;
+    color: $dgrey;
+  }
+}
 
+.warning {
+  background-color: $magenta;
+  padding: 1em;
+  color: white;
+  text-align: center;
+  font-family: 'Sniglet', cursive;
+  font-size: 1.2em;
+}
 /***********media query***************/
 @media screen and (max-width: 1299px) {
     .tarifs-location-flex {

@@ -10,8 +10,15 @@
 {% block body %}
     <section class="booking">
 
-      <h2 class="margin-admin">Bienvenue {{ app.user.username }} sur la page de réservation de la {{ status.status }}</h2>
+      {% if validBooking %}
+        <div class="validBooking">
+          <h3 class="validBooking-h6">Merci à vous !</h3>
+            <p> Rimbaud'Tech a bien pris en compte votre demande de réservation et vous contactera pour plus d'informations ! </p>
+        </div>
+      {% endif %}
 
+      <h2 class="margin-admin">Bienvenue {{ app.user.username }} sur la page de réservation de la {{ status.status }}</h2>
+      
       <section class="form-booking">
 
         {{ form_start(formBooking)}}

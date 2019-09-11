@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -25,11 +26,13 @@ class Booking
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\Date(message="Vous devez utiliser le format jj/mm/aaaa pour que votre saisie soit valide")
      */
     private $startDate;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\Date(message="Vous devez utiliser le format jj/mm/aaaa pour que votre saisie soit valide")
      */
     private $endDate;
 
@@ -48,22 +51,68 @@ class Booking
      */
     private $status;
 
+    public function __construct()
+    {
+      $this->createdAt = new \DateTime();
+    }
+
+    // /**
+    // * Callback
+    // *
+    // * @ORM\PrePersist
+    // *
+    // * @return void
+    // */
+
+    // public function prePersist() {
+    //   if(empty($this->createdAt)) {
+    //     $this->createdAt = new \DateTime();
+    //   }
+    //
+    //   if(empty($this->price)) {
+    //     $this->price = $this->status->getPrice() * $this->getDuration();
+    //   }
+    // }
+
+    public function isBookableDates() {
+      // déterminer les dates impossibles à la Réservation
+      $notAvailableDays = $this->status->getNotAvailableDays();
+      // comparer les dates choisies avec celles déjà réservées
+      $bookingDays = $this->getDays();
+
+      $formatDay = function($day) {
+        return $day->format('Y-m-d');
+      };
+
+      //tableau de chaines de caractères des journées
+      $days = array_map($formatDay, $bookingDays);
+
+      $notAvailable = array_map($formatDay, $notAvailableDays);
+
+      foreach($days as $day) {
+        if(array_search($day, $notAvailable) !== false) return false;
+      }
+
+      return true;
+    }
+
     /**
-    * Callback
+    * Pour créer un tableau des jours choisies pour la réservation
     *
-    * @ORM\PrePersist
-    *
-    * @return void
+    * @return array c'est un tableau d'objets DateTime représentant les jours de la réservation
     */
+    public function getDays() {
+      $result = range(
+        $this->startDate->getTimestamp(),
+        $this->endDate->getTimestamp(),
+        24 * 60 * 60
+      );
 
-    public function prePersist() {
-      if(empty($this->createdAt)) {
-        $this->createdAt = new \DateTime();
-      }
+      $days = array_map(function($dayTimestamp) {
+        return new \DateTime(date('Y-m-d', $dayTimestamp));
+      }, $result);
 
-      if(empty($this->price)) {
-        $this->price = $this->status->getPrice() * $this->getDuration();
-      }
+      return $days;
     }
 
     public function getDuration() {
