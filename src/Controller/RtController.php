@@ -13,16 +13,24 @@ use App\Entity\Articles;
 use App\Entity\Content;
 use App\Entity\Comments;
 use App\Entity\Contact;
+use App\Entity\Status;
+use App\Entity\Booking;
+use App\Entity\Price;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
 use App\Repository\CommentsRepository;
+use App\Repository\StatusRepository;
+use App\Repository\BookingRepository;
+
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 use App\Form\ArticleType;
 use App\Form\ContactType;
 use App\Form\CommentType;
+use App\Form\BookingType;
 
 use App\Notification\ContactNotification;
 
@@ -87,15 +95,15 @@ class RtController extends AbstractController
     }
 
     /**
-     * @Route("/rt/location", name="location")
-     * PAGE LOCATION DE SALLE
-     */
-    public function location()
-    {
-        return $this->render('rt/location.html.twig', [
-        ]);
-    }
-
+ * @Route("/rt/location", name="location")
+ * PAGE LOCATION DE SALLE
+ */
+public function location(StatusRepository $rep)
+{
+    return $this->render('rt/location.html.twig', [
+      'status' => $rep->findAll()
+    ]);
+}
     /**
      * @Route("/rt/incubation", name="incubation")
      * PAGE PRESENTATION DE L'INCUBATION
@@ -165,10 +173,10 @@ class RtController extends AbstractController
         if ($formComment->isSubmitted() && $formComment->isValid()) {
           $manager->persist($comment);
           $manager->flush();
+                return $this->redirectToRoute('article', ['id' => $article->getId()]);
         }
         $form = $formComment->createView();
 
-      // return $this->redirectToRoute('article', ['id' => $article->getId()]);
 
       } else {
         $form = null;

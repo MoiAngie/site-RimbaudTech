@@ -39,8 +39,29 @@
   background-color: #c91a5f;
   margin-left: calc(50% - 5em); }
   .booking__btn:hover {
-    background-color: #a0ddf4;
+    background-color: #585858;
     text-decoration: underline; }
+
+.form-booking {
+  width: 50%;
+  margin: 2em auto;
+  padding: 2em 0 2em 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .form-booking label {
+    font-style: italic;
+    color: #585858;
+    padding: 2em;
+    font-size: 1.2em; }
+  .form-booking input#booking_startDate.form-control, .form-booking input#booking_endDate.form-control {
+    margin-bottom: 2em;
+    margin-top: 1em;
+    min-width: 50%;
+    padding: 0 0 0 2em;
+    min-height: 4em;
+    border-radius: 1em;
+    font-family: "Muli", sans-serif; }
 
 /***********media query***************/
 @media screen and (max-width: 1299px) {

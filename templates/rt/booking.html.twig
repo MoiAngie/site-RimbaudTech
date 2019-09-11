@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rimbaud'Tech | Réservation{% endblock %}
+
+{% block stylesheets %}
+<link href="{{asset('css/css/footerless.css')}}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block body %}
+    <section class="booking">
+
+      <h2 class="margin-admin">Bienvenue {{ app.user.username }} sur la page de réservation de la {{ status.status }}</h2>
+
+      <section class="form-booking">
+
+        {{ form_start(formBooking)}}
+        <div class="form-group-booking">
+          {{ form_row(formBooking.startDate, {'label': ' Date d\' arrivée ', 'attr': {'placeholder' : "Date d\'arrivée", 'class' : "form-control"}})}}
+        </div>
+        <div class="form-group-booking">
+          {{ form_row(formBooking.endDate, {'label': 'Date de départ', 'attr': {'placeholder' : "Date de départ", 'class' : "form-control"}})}}
+        </div>
+      </section>
+
+        <button type="submit" class="booking__btn">Réservez</button>
+        {{ form_end(formBooking)}}
+
+    </section>
+
+{% endblock %}

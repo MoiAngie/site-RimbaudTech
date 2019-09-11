@@ -55,10 +55,35 @@
   background-color: $dmagenta;
   margin-left: calc(50% - 5em);
   &:hover {
-    background-color: $lightblue;
+    background-color: $dgrey;
     text-decoration: underline;
   }
 }
+
+.form-booking {
+  width: 50%;
+  margin: 2em auto;
+  padding: 2em 0 2em 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & label {
+    font-style: italic;
+    color: $dgrey;
+    padding: 2em;
+    font-size: 1.2em;
+  }
+  & input#booking_startDate.form-control, input#booking_endDate.form-control {
+    margin-bottom: 2em;
+    margin-top: 1em;
+    min-width: 50%;
+    padding: 0 0 0 2em;
+    min-height: 4em;
+    border-radius: 1em;
+    font-family: $font;
+  }
+}
+
 
 /***********media query***************/
 @media screen and (max-width: 1299px) {

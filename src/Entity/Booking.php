@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Booking
 {
@@ -46,6 +47,29 @@ class Booking
      * @ORM\ManyToOne(targetEntity="App\Entity\Status", inversedBy="bookings")
      */
     private $status;
+
+    /**
+    * Callback
+    *
+    * @ORM\PrePersist
+    *
+    * @return void
+    */
+
+    public function prePersist() {
+      if(empty($this->createdAt)) {
+        $this->createdAt = new \DateTime();
+      }
+
+      if(empty($this->price)) {
+        $this->price = $this->status->getPrice() * $this->getDuration();
+      }
+    }
+
+    public function getDuration() {
+      $diff = $this->endDate->diff($this->startDate);
+      return $diff->days;
+    }
 
     public function getId(): ?int
     {

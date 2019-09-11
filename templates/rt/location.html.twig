@@ -26,25 +26,35 @@
       <hr class="magentaline">
         <p class="section__tarifs__tx"> Location à la demi-journée : 20€</p>
         <p class="section__tarifs__tx"> Location à la journée : 30€</p>
+      </div>
 
+        <div class="location-salle">
+          <figure>
+            <img src="{{asset('img/reunion.jpg')}}" alt="Salle de réunion" width="600" height="400">
+          </figure>
+          <h3 class="cap h3-location"> Salle de réunion </h3>
+          <hr class="magentaline">
+          <p class="section__tarifs__tx"> Location à la demi-journée : 70€</p>
+          <p class="section__tarifs__tx"> Location à la journée : 110€</p>
+        </div>
+      </div>
+      </section>
+
+      <section class="booking">
         {% if app.user %}
-        <h2 class="booking-h2-user">Souhaitez-vous réserver cette salle?</h2>
-          <section class="form-booking">
+        {% for status in status %}
 
-            {{ form_start(formBooking)}}
-            <div class="form-group-booking">
-              {{ form_row(formBooking.startDate, {'label': 'Date d\'arrivée', 'attr': {'placeholder' : "Date d\'arrivée", 'class' : "form-control"}})}}
-            </div>
-            <div class="form-group-booking">
-              {{ form_row(formBooking.endDate, {'label': 'Date de départ', 'attr': {'placeholder' : "Date de départ", 'class' : "form-control"}})}}
-            </div>
-
-            <button type="submit" class="booking__btn">Réserver</button>
-            {{ form_end(formComment)}}
-
+        <h2 class="booking-h2-user">Souhaitez-vous réserver la {{ status.status }}?</h2>
+        <a href="{{ path('booking-id', {'id': status.id })}}" class="section__link">
+          <button class="booking__btn">
+          Réservez
+          </button>
+        </a>
+        {% endfor %}
         {% endif %}
+
         {% if not app.user %}
-        <h2 class="booking-h2">Souhaitez-vous réserver cette salle?</h2>
+        <h2 class="booking-h2">Souhaitez-vous réserver une salle?</h2>
         <a href="{{ path('rt_security_login')}}" class="section__link">
           <button class="booking__btn">
           Connectez-vous
@@ -52,45 +62,9 @@
         </a>
         {% endif %}
 
-    </div>
+      </section>
 
-    <div class="location-salle">
-      <figure>
-        <img src="{{asset('img/RT-det.jpg')}}" alt="Salle de réunion" width="600" height="400">
-      </figure>
-      <h3 class="cap h3-location"> Salle de réunion </h3>
-      <hr class="magentaline">
-        <p class="section__tarifs__tx"> Location à la demi-journée : 70€</p>
-        <p class="section__tarifs__tx"> Location à la journée : 110€</p>
 
-        {% if app.user %}
-        <h2 class="booking-h2-user">Souhaitez-vous réserver cette salle?</h2>
-          <section class="form-booking">
 
-            {{ form_start(formBooking)}}
-            <div class="form-group-booking">
-              {{ form_row(formBooking.startDate, {'label': 'Date d\'arrivée', 'attr': {'placeholder' : "Date d\'arrivée", 'class' : "form-control"}})}}
-            </div>
-            <div class="form-group-booking">
-              {{ form_row(formBooking.endDate, {'label': 'Date de départ', 'attr': {'placeholder' : "Date de départ", 'class' : "form-control"}})}}
-            </div>
-
-            <button type="submit" class="booking__btn">Réserver</button>
-            {{ form_end(formComment)}}
-
-        {% endif %}
-        {% if not app.user %}
-        <h2 class="booking-h2">Souhaitez-vous réserver cette salle?</h2>
-        <a href="{{ path('rt_security_login')}}" class="section__link">
-          <button class="booking__btn">
-          Connectez-vous
-          </button>
-        </a>
-        {% endif %}
-
-    </div>
-
-  </div>
-</section>
 
 {% endblock %}
