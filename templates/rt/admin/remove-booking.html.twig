@@ -1,0 +1,31 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Supprimer une réservation{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Supprimer une réservation</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/remove.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<form action="{{ path('remove-booking')}}" method="POST">
+{% for list in list %}
+  <div class="form-group-comment">
+      <input type="checkbox" name="booking[]" id="booking" value="{{list.id}}" class="form-input">
+      <b>{{list.booker.username}}</b>, pour la <span class="list-underline">{{ list.status.status }}</span>, du {{ list.startDate|date('d/m/Y') }} au {{ list.endDate|date('d/m/Y') }}
+      </input>
+  </div>
+{% endfor %}
+<button type="submit" class="btn-admin">Supprimer</button>
+</form>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

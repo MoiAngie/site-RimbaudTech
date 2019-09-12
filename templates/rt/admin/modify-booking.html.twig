@@ -1,0 +1,33 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Sélection de la réservation à modifier{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Sélectionner la réservation à modifier</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+  <form action="{{ path('modify-booking')}}" method="POST">
+  {% for list in list | reverse %}
+    <div class="form-group">
+      <input type="radio" name="booking[]" id="booking" value="{{list.id}}" class="form-input">
+      <b>{{list.booker.username}}</b>, pour la <span class="list-underline">{{ list.status.status }}</span>, du {{ list.startDate|date('d/m/Y') }} au {{ list.endDate|date('d/m/Y') }}
+      </br>
+      </input>
+    </div>
+{% endfor %}
+
+  <button type="submit" class="btn-admin">Modifier</button>
+</form>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

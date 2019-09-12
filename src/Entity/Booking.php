@@ -27,12 +27,14 @@ class Booking
     /**
      * @ORM\Column(type="datetime")
      * @Assert\Date(message="Vous devez utiliser le format jj/mm/aaaa pour que votre saisie soit valide")
+     * @Assert\GreaterThan("today", message="La date d'arrivée doit être antérieure à celle d'aujourd'hui")
      */
     private $startDate;
 
     /**
      * @ORM\Column(type="datetime")
      * @Assert\Date(message="Vous devez utiliser le format jj/mm/aaaa pour que votre saisie soit valide")
+     * @Assert\GreaterThan(propertyPath="startDate", message="La date de fin doit être antérieure à celle d'arrivée")
      */
     private $endDate;
 
@@ -119,6 +121,14 @@ class Booking
       $diff = $this->endDate->diff($this->startDate);
       return $diff->days;
     }
+
+    // public function __construct(User $user, Booking $booking)
+    // {
+    //   $this->booker = $user;
+    //   $this->booking = $booking;
+    //   $this->created_at = new \DateTime();
+    // }
+
 
     public function getId(): ?int
     {

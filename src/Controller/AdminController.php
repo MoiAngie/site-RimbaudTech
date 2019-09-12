@@ -20,18 +20,22 @@ use App\Entity\Content;
 use App\Entity\Tarifs;
 use App\Entity\User;
 use App\Entity\Comments;
+use App\Entity\Booking;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
 use App\Repository\TarifsRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentsRepository;
+use App\Repository\BookingRepository;
 
 use App\Form\ArticleType;
 use App\Form\ContentType;
 use App\Form\TarifType;
 use App\Form\CommentType;
 use App\Form\UserType;
+use App\Form\BookingType;
+
 
 
 class AdminController extends AbstractController
@@ -615,14 +619,93 @@ class AdminController extends AbstractController
      ]);
    }
 
+   /**
+    * @Route("/rt/admin/portail-booking", name="portailBooking")
+    * PAGE PORTAIL BOOKING / RESERVATIONS
+    */
+   public function portailBooking()
+   {
+       return $this->render('rt/admin/portail-booking.html.twig', [
+       ]);
+   }
 
-  /**
-   * @Route("/rt/admin/createAccueil", name="createAccueil")
-   * PAGE DE MODIFICATION DE LA PAGE D'ACCUEIL
-   */
-  public function createAccueil()
-  {
-      return $this->render('rt/admin/create-accueil.html.twig', [
+   /**
+    * @Route("/rt/admin/list-booking", name="list-booking")
+    * PAGE LISTING BOOKING / RESERVATIONS
+    */
+   public function listBooking(BookingRepository $repoList)
+   {
+       return $this->render('rt/admin/list-booking.html.twig', [
+         'booking' => $repoList->findAll()
+       ]);
+   }
+
+
+   /**
+    * @Route("/rt/admin/modify-booking", name="modify-booking")
+    * PAGE LISTE DES RESERVATIONS (page admin)
+    */
+    public function modifyBooking(Request $request, ObjectManager $manager, BookingRepository $repoB)
+    {
+      $list = $repoB->findAll();
+
+      if (isset($_POST['booking'])) {
+        foreach ($_POST['booking'] as $id) {
+          $number = $repoB->find($id);
+          $manager->persist($number);
+        }
+        $manager->flush();
+        return $this ->redirect('modif-booking/'.$id);
+      }
+
+      return $this->render('rt/admin/modify-booking.html.twig', [
+        'list' => $list,
       ]);
-  }
+    }
+
+    /**
+     * @Route("/rt/admin/modif-booking/{id}", name="modif-booking")
+     * PAGE TYPE MODIFICATION RESERVATIONS (page admin)
+     */
+     public function modifBooking(Booking $booking, Request $request, ObjectManager $manager)
+     {
+       $formBooking = $this->createFormBuilder($booking)
+                     ->add('startDate', DateType::class, ['widget' => 'choice', 'format' => 'dd MM yyyy'])
+                     ->add('endDate', DateType::class, ['widget' => 'choice', 'format' => 'dd MM yyyy'])
+                     ->getForm();
+
+       $formBooking->handleRequest($request);
+
+       if($formBooking->isSubmitted() && $formBooking->isValid()){
+           $manager->persist($booking);
+           $manager->flush();
+       return $this->redirectToRoute('validation');
+       }
+       return $this->render('rt/admin/modif-booking.html.twig', [
+         'formBooking' => $formBooking->createView(),
+         'booking'     => $booking
+       ]);
+     }
+
+     /**
+      * @Route("/rt/admin/remove-booking", name="remove-booking")
+      * PAGE SUPPRESSION RESERVATIONS (page admin)
+      */
+      public function removeBooking(Request $request, ObjectManager $manager,BookingRepository $repoBooking)
+      {
+        $list = $repoBooking->findAll();
+
+        if (isset($_POST['booking'])) {
+          foreach ($_POST['booking'] as $id) {
+            $booking = $repoBooking->find($id);
+            $manager->remove($booking);
+          }
+          $manager->flush();
+          return $this ->redirectToRoute('validation');
+        }
+
+        return $this->render('rt/admin/remove-booking.html.twig', [
+          'list' => $list
+        ]);
+      }
 }

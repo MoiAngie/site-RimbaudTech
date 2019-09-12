@@ -40,6 +40,12 @@
   }
 }
 
+.btn-location {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
 /************booking******************/
 
 .booking__btn {
@@ -72,7 +78,7 @@
   & label {
     font-style: italic;
     color: $dgrey;
-    padding: 0.5em 0;
+    padding: 0.5em 1em;
     font-size: 1.2em;
   }
 }
@@ -116,6 +122,10 @@ td {
 @media screen and (max-width: 1299px) {
     .tarifs-location-flex {
     flex-wrap: wrap;
+  }
+  .btn-location  {
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 }
 

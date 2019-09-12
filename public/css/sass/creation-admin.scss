@@ -36,7 +36,7 @@ h2.margin-admin {
   }
 }
 
-/*  formulaires*/
+/***********formulaires*************/
 
 label {
   display: none;
@@ -131,6 +131,35 @@ input#form_image.form-control {
   }
 }
 
+.form-group-booking {
+  width: 230px;
+  margin: 2em auto;
+  & label {
+  display: inherit;
+  font-style: italic;
+  font-size: 1.2em;
+  color: $dgrey;
+  margin: 1em 0;
+  text-align: center;
+}
+& div#form_startDate.form-control {
+  margin-left: calc(50% - 115px);
+}
+& select {
+  min-width: 5em;
+  min-height: 2.5em;
+  background-color: white;
+  padding-left: 1em;
+  border-radius: 1em;
+  border: 2px solid $logoblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+& :focus {
+  border-left: 0.5em solid $dmagenta;
+  padding-left: 0.1em;
+}
+}
+
 .form-control {
   border: none;
   font-size: 1em;
@@ -152,7 +181,7 @@ textarea#form_text.form-control {
   height: 3em;
 }
 
-input#user.form-input, input#article.form-input, input#tarif.form-input, input#content.form-input {
+input#user.form-input, input#article.form-input, input#tarif.form-input, input#content.form-input, input#booking.form-input {
   vertical-align: bottom;
   width: 2em;
   height: 2em;
@@ -297,4 +326,42 @@ input#comment.form-input {
 .tooltip:hover #tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+/**************listing booking*********/
+.list-underline {
+  text-decoration: underline;
+}
+
+.h3-list {
+  text-align: center;
+  color: $dgrey;
+  background-color: $lightblue;
+  padding: 1em;
+}
+
+.list-booking {
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 2em;
+  & th, td {
+    border-bottom: 0.2em solid $dgrey;
+    padding: 1em 2em;
+    font-size: 1.2em;
+  }
+  & th {
+    background-color: $dmagenta;
+    color: white;
+  }
+  & td {
+    text-align: center;
+    color: $dgrey;
+  }
+  & a {
+    color: $dgrey;
+    &:hover {
+      text-decoration: underline;
+      color: $logoblue;
+    }
+  }
 }

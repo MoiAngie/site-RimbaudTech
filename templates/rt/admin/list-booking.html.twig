@@ -1,0 +1,57 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Listing des réservations {% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Listing des réservations des salles de RT</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/booking.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+  <h3 class="h3-list"> Nombre de réservations: {{ booking|length }}</h3>
+
+<section class="list-booking">
+  <table class="list-booking">
+    <thead>
+      <tr>
+        <th>N° de réservation</th>
+        <th>Date</th>
+        <th>Personne ou entreprise</th>
+        <th>Email</th>
+        <th>Salle réservée</th>
+        <th>Date d'arrivée</th>
+        <th>Date de départ</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for booking in booking %}
+        <tr>
+          <td>{{ booking.id }}</td>
+          <td>{{ booking.createdAt|date('d/m/Y') }}</td>
+          <td>{{ booking.booker.username }}</td>
+          <td>
+            <a href="#">
+              {{ booking.booker.email }}
+            </a>
+          </td>
+          <td>{{ booking.status.status }}</td>
+          <td>{{ booking.startDate|date('d/m/Y') }}</td>
+          <td>{{ booking.endDate|date('d/m/Y') }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</section>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

@@ -339,6 +339,11 @@ h2 {
   .tarifs-location-flex p {
     color: white; }
 
+.btn-location {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around; }
+
 /************booking******************/
 .booking__btn {
   color: white;
@@ -368,7 +373,7 @@ h2 {
   .form-booking label {
     font-style: italic;
     color: #585858;
-    padding: 0.5em 0;
+    padding: 0.5em 1em;
     font-size: 1.2em; }
 
 input#booking_endDate.form-control, input#booking_startDate.form-control {
@@ -404,7 +409,11 @@ td {
 /***********media query***************/
 @media screen and (max-width: 1299px) {
   .tarifs-location-flex {
-    flex-wrap: wrap; } }
+    flex-wrap: wrap; }
+
+  .btn-location {
+    flex-wrap: wrap;
+    flex-direction: column; } }
 @media screen and (max-width: 619px) {
   .tarifs-location-flex {
     font-size: 0.8em; }

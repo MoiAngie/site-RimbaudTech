@@ -15,6 +15,7 @@
         <div class="validBooking">
           <h3 class="validBooking-h6">Merci à vous !</h3>
             <p> Rimbaud'Tech a bien pris en compte votre demande de réservation et vous contactera pour plus d'informations ! </p>
+            <!-- <span id="days">0</span> jour(s) à  status.price }} / journée  -->
         </div>
       {% endif %}
 
@@ -60,7 +61,26 @@
         daysOfWeekDisabled: "0,6",
         calendarWeeks: true
       });
-    })
+
+      // $('#booking_startDate, #booking_endDate').on('change', calculatePrice);
+    });
+
+    // function calculatePrice() {
+    //   //on récupère les dates
+    //   const endDate = new Date($('#booking_endDate').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
+    //   const startDate = new Date($('#booking_startDate').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
+    //
+    //   if(startDate && endDate && startDate < endDate) {
+    //     const DAY_TIME = 24 * 60 * 60 * 1000;
+    //
+    //     const interval = endDate.getTime() - startDate.getTime();
+    //     const days = interval / DAY_TIME;
+    //     const price = days *  status.price }};
+    //
+    //     $('#days').text(days);
+    //     $('#price').text(price.toLocaleString('fr-FR'));
+    //   }
+    // }
   </script>
 
 {% endblock %}

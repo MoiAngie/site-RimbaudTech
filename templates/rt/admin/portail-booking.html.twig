@@ -1,0 +1,32 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Gérer les réservations {% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back">
+  <h2 class="h2-back">Gérer les réservations des salles de RT</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/booking.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<section class="btn-back">
+  <button class="btn-admin">
+    <a href="{{path('list-booking')}}">Voir toutes les réservations</a>
+  </button>
+  <button class="btn-admin">
+    <a href="{{path('modify-booking')}}">En modifier une</a>
+  </button>
+  <button class="btn-admin">
+    <a href="{{path('remove-booking')}}">En supprimer une</a>
+  </button>
+</section>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

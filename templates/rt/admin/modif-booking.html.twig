@@ -1,0 +1,33 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier une réservation{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Modifier une réservation</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+
+  {{ form_start(formBooking)}}
+
+  <div class="form-group-booking">
+    {{ form_row(formBooking.startDate, {'label': 'Date d\'arrivée', 'attr': {'placeholder' : "Date d\'arrivée", 'class' : "form-control"}})}}
+  </div>
+  <div class="form-group-booking">
+    {{ form_row(formBooking.endDate, {'label': 'Date de départ', 'attr': {'placeholder' : "Date de départ", 'class' : "form-control"}})}}
+  </div>
+
+  <button type="submit" class="btn-admin">Modifier</button>
+  {{ form_end(formBooking)}}
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

@@ -42,15 +42,19 @@
 
       <section class="booking">
         {% if app.user %}
-        {% for status in status %}
 
-        <h2 class="booking-h2-user">Souhaitez-vous réserver la {{ status.status }}?</h2>
-        <a href="{{ path('booking-id', {'id': status.id })}}" class="section__link">
-          <button class="booking__btn">
-          Réservez
-          </button>
-        </a>
-        {% endfor %}
+          <div class="btn-location">
+            {% for status in status %}
+            <div class="btn-location-flex">
+              <h2 class="booking-h2-user">Souhaitez-vous réserver la {{ status.status }}?</h2>
+              <a href="{{ path('booking-id', {'id': status.id })}}" class="section__link">
+                <button class="booking__btn">
+                Réservez
+                </button>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
         {% endif %}
 
         {% if not app.user %}
