@@ -389,6 +389,12 @@ td {
     background-color: #d94865;
     opacity: 0.5; }
 
+button.btn-admin a {
+  color: white; }
+
+button.btn-admin:hover {
+  background-color: #4ab9e4; }
+
 .validBooking {
   background-color: #a0ddf4;
   padding: 1em; }
