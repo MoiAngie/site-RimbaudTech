@@ -52,8 +52,19 @@
       <i></i>
   </div>
 </div>
-<div class="form-group">
+<div class="form-group tooltip">
   {{ form_row(formArticle.paragraphe1, {'label': 'Paragraphe 1', 'attr': {'placeholder' : "Paragraphe 1", 'class' : "form-control"}})}}
+  <div class="right">
+      <div class="text-content">
+          <h3>Créer une liste</h3>
+          <ul>
+              <li>Pour créer une liste dans un paragraphe,</li>
+              <li>il faut intégrer des balise html pour afficher le bon format:</li>
+              <li>ex: <xmp><ul><li>exemple de ligne1</li><li>exemple de ligne 2</li></ul></xmp></li>
+          </ul>
+      </div>
+      <i></i>
+  </div>
 </div>
 <div class="form-group">
   {{ form_row(formArticle.sousTitre2, {'label': 'Sous-Titre 2', 'attr': {'placeholder' : "Sous-Titre 2", 'class' : "form-control"}})}}

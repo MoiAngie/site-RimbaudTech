@@ -20,9 +20,18 @@
 <div class="form-group">
   {{ form_row(formArticle.author, {'label': 'Auteur', 'attr': {'placeholder' : "Ecrit par", 'class' : "form-control"}})}}
 </div>
-<div class="form-group-article">
+<div class="form-group-article tooltip">
   <img src="/{{ articles.image}}" style="width: 200px; height: 167px;">
   {{ form_row(formArticle.image, {'label': 'Image', 'attr': {'placeholder' : "Télécharger une image", 'class' : "form-control"}})}}
+  <div class="right">
+      <div class="text-content">
+          <h3>Photo de l'article</h3>
+          <ul>
+              <li>Il n'est pas possible ici de modifier l'image de l'article</li>
+          </ul>
+      </div>
+      <i></i>
+  </div>
 </div>
 <div class="form-group">
   {{ form_row(formArticle.introduction, {'label': 'Introduction', 'attr': {'placeholder' : "Texte d'introduction", 'class' : "form-control"}})}}

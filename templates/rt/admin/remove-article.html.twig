@@ -15,12 +15,21 @@
 
 <form action="{{ path('remove-article')}}" method="POST">
 {% for list in list %}
-  <div class="form-group">
+  <div class="form-group tooltip">
       <input type="checkbox" name="article[]" id="article" value="{{list.id}}" class="form-input">
-      {{list.title}}, {{list.author}}
+      {{list.title}}, créé le <em>{{list.createdAt | date('d/m/Y')}}</em>
       </br>
       </input>
-  </div>
+      <div class="right">
+          <div class="text-content">
+            <h3>Supprimer un article</h3>
+            <ul>
+                <li>Il est possible d'en supprimer plusieurs en même temps</li>
+                <li>Il suffit d'en sélectionner plusieurs ;)</li>
+          </div>
+          <i></i>
+      </div>
+    </div>
 {% endfor %}
 <button type="submit" class="btn-admin">Supprimer</button>
 </form>

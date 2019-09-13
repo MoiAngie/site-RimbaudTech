@@ -206,9 +206,9 @@
         </section>
       </footer>
 
+      {% block javascripts %}
       <script src="{{asset('js/base.js')}}">
       </script>
-
 
         <!-- Pour la chatbox -->
         <script>
@@ -223,12 +223,6 @@
         </script>
         <script src="https://client.crisp.chat/l.js" async></script>
         <script src="https://client.crisp.chat/static/javascript/client.js?da5fbb3" type="text/javascript" async></script>
-
-
-
-
-        {% block javascripts %}
-
 
       {% endblock %}
     </body>

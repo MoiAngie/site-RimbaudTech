@@ -20,7 +20,7 @@
     <b>{{list.writtenBy.username}}</b>, le {{list.createdAt|date('d/m/Y')}}
       </br>
       <i class="fas fa-comments fa-lg"></i>
-      <span style="padding-left:1em;">{{list.text}}</span>
+      <span style="padding-left:1em;">{{list.text | striptags | truncate(200, true)}}</span>
       </input>
     </div>
 {% endfor %}
