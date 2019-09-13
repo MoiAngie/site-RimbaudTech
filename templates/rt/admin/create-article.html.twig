@@ -23,14 +23,34 @@
 <div class="form-group">
   {{ form_row(formArticle.publie_par, {'label': 'Publie_par', 'attr': {'placeholder' : "Publié par", 'class' : "form-control"}})}}
 </div>
-<div class="form-group">
+<div class="form-group tooltip">
   {{ form_row(formArticle.image, {'label': 'Image', 'attr': {'placeholder' : "Télécharger une image", 'class' : "form-control"}})}}
+  <div class="right">
+      <div class="text-content">
+          <h3>Photo de l'article</h3>
+          <ul>
+              <li>Dimensions idéales pour la photo qui illustrera l'article:</li>
+              <li>960*652px ou proportionnelles</li>
+          </ul>
+      </div>
+      <i></i>
+  </div>
 </div>
-<div class="form-group">
+<div class="form-group ">
   {{ form_row(formArticle.introduction, {'label': 'Introduction', 'attr': {'placeholder' : "Texte d'introduction", 'class' : "form-control"}})}}
-</div>
-<div class="form-group">
+  </div>
+<div class="form-group tooltip">
   {{ form_row(formArticle.sousTitre1, {'label': 'Sous-Titre 1', 'attr': {'placeholder' : "Sous-Titre 1", 'class' : "form-control"}})}}
+  <div class="right">
+      <div class="text-content">
+          <h3>Textes de l'article</h3>
+          <ul>
+              <li>Il n'est pas obligatoires de remplir tous les champs de texte</li>
+              <li>Mais le format d'affichage changera en fonction du type de texte</li>
+          </ul>
+      </div>
+      <i></i>
+  </div>
 </div>
 <div class="form-group">
   {{ form_row(formArticle.paragraphe1, {'label': 'Paragraphe 1', 'attr': {'placeholder' : "Paragraphe 1", 'class' : "form-control"}})}}
@@ -38,8 +58,18 @@
 <div class="form-group">
   {{ form_row(formArticle.sousTitre2, {'label': 'Sous-Titre 2', 'attr': {'placeholder' : "Sous-Titre 2", 'class' : "form-control"}})}}
 </div>
-<div class="form-group">
+<div class="form-group tooltip">
   {{ form_row(formArticle.paragraphe2, {'label': 'Paragraphe 2', 'attr': {'placeholder' : "Paragraphe 2", 'class' : "form-control"}})}}
+  <div class="right">
+      <div class="text-content">
+          <h3>Exemples de présentation</h3>
+          <ul>
+              <li>pour faire une liste:</li>
+              <li></li>
+          </ul>
+      </div>
+      <i></i>
+  </div>
 </div>
 <div class="form-group">
   {{ form_row(formArticle.sousTitre3, {'label': 'Sous-Titre 3', 'attr': {'placeholder' : "Sous-Titre 3", 'class' : "form-control"}})}}

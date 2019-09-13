@@ -17,13 +17,33 @@
 
   {{ form_start(formContent)}}
 
-  <div class="form-group-photos">
+  <div class="form-group-photos tooltip">
     <img src="/{{ content.profilpicture}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
+    <div class="right">
+        <div class="text-content">
+            <h3 class="logoblue">Modifier toutes les photos ou aucune</h3>
+            <ul>
+                <li>Si vous modifiez une photo, il faudra télécharger les 4 autres aussi à nouveau</li>
+                <li>Sinon, il considèrera que vous n'en voulez plus</li>
+                <li>Et elles ne s'afficheront plus...</li>
+            </ul>
+        </div>
+        <i></i>
+    </div>
   </div>
-  <div class="form-group-photos">
+  <div class="form-group-photos tooltip">
     <img src="/{{ content.image1}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+    <div class="right">
+        <div class="text-content">
+            <h3>Rappel des dimensions</h3>
+            <ul>
+                <li>1000*667px ou proportionnelles</li>
+            </ul>
+        </div>
+        <i></i>
+    </div>
   </div>
   <div class="form-group-photos">
     <img src="/{{ content.image2}}" style="width: 100px; height: 67px;">
@@ -37,7 +57,8 @@
     <img src="/{{ content.image4}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
-  <button type="submit" class="btn-admin">Modifier</button>
+  <button type="submit" class="btn-admin ">Modifier</button>
+
   {{ form_end(formContent)}}
 
 </section>

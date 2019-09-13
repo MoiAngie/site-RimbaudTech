@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 use App\Entity\Articles;
 use App\Entity\Content;
@@ -167,7 +168,14 @@ class AdminController extends AbstractController
                      ->add('name')
                      ->add('firstname')
                      ->add('company')
-                     ->add('status')
+                     ->add('status',ChoiceType::class,[
+                             'placeholder' => "Modifier le statut",
+                             'choices'  => [
+                             "Incubé" => "Incubé",
+                             "Co-worker" => "Co-workeur",
+                             "Personnel" => "Personnel"
+                           ],
+                        ])
                      ->add('description')
                      ->add('comment')
                      ->add('socialmedia1')

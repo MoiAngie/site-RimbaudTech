@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,SAAU;EACR,OAAO,EAAE,IAAI",
+"sources": ["../sass/navbarless.scss"],
+"names": [],
+"file": "navbarless.css"
+}

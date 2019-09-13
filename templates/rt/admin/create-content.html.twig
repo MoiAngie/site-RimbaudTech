@@ -1,6 +1,6 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Ajouter un acteur{% endblock %}
+{% block title %}Ajouter un incubé, coworker ou personnel{% endblock %}
 
 {% block body %}
 {% if is_granted('ROLE_ADMIN') %}
@@ -25,26 +25,51 @@
   <div class="form-group">
     {{ form_row(formContent.company, {'label': 'Société ou Poste Occupé pour le personnel de RT', 'attr': {'placeholder' : "Société ou Poste Occupé pour le personnel de RT", 'class' : "form-control"}})}}
   </div>
-    <div class="form-group">
+    <div class="form-group tooltip">
       {{ form_row(formContent.status, {'label': 'Statut', 'attr': {'placeholder' : "Statut de l'utilisateur", 'class' : "form-control"}})}}
+      <div class="right">
+          <div class="text-content">
+              <h3>Statut personnel RT</h3>
+              <ul>
+                  <li>Peu importe les photos demandées si dessous:</li>
+                  <li>elles ne s'afficheront pas pour une personne avec le Statut "personnel"</li>
+              </ul>
+          </div>
+          <i></i>
+      </div>
     </div>
-    <div class="container-tooltip">
-  <div class="form-group">
+  <div class="form-group tooltip">
     {{ form_row(formContent.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
+    <div class="right">
+        <div class="text-content">
+            <h3>Photo principale</h3>
+            <ul>
+                <li>C'est celle qui s'affichera dans la galerie</li>
+                <li>Dimensions idéales pour un bon affichage: 1000*667px</li>
+            </ul>
+        </div>
+        <i></i>
+    </div>
   </div>
-  <div class="tooltip">
-    <img src="{{asset('img/illustrations/help.svg')}}" class="icone-help" height="75" width="75">
-    <span id="tooltiptext">C'est la photo qui s'affichera dans la galerie, soit dim 300*262px</span>
-  </div>
-</div>
   <div class="form-group">
     {{ form_row(formContent.description, {'label': 'Présentation du projet', 'attr': {'placeholder' : "Description du projet ou du poste à RT", 'class' : "form-control"}})}}
   </div>
   <div class="form-group">
     {{ form_row(formContent.comment, {'label': 'Commentaire', 'attr': {'placeholder' : "Avis sur Rimbaud Tech", 'class' : "form-control"}})}}
   </div>
-  <div class="form-group">
+  <div class="form-group tooltip">
     {{ form_row(formContent.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
+    <div class="right">
+        <div class="text-content">
+            <h3>4 Photos à télécharger</h3>
+            <ul>
+                <li>Ce sont celles qui s'afficheront dans la page incubé ou coworker</li>
+                <li>Dimensions idéales pour un bon affichage: 1000*667px</li>
+                <li>ou proportionnelles à cette dimension</li>
+            </ul>
+        </div>
+        <i></i>
+    </div>
   </div>
   <div class="form-group">
     {{ form_row(formContent.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}

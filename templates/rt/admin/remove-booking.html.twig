@@ -15,10 +15,20 @@
 
 <form action="{{ path('remove-booking')}}" method="POST">
 {% for list in list %}
-  <div class="form-group-comment">
+  <div class="form-group tooltip">
       <input type="checkbox" name="booking[]" id="booking" value="{{list.id}}" class="form-input">
       <b>{{list.booker.username}}</b>, pour la <span class="list-underline">{{ list.status.status }}</span>, du {{ list.startDate|date('d/m/Y') }} au {{ list.endDate|date('d/m/Y') }}
       </input>
+      <div class="right">
+          <div class="text-content">
+            <h3>Supprimer une réservation</h3>
+            <ul>
+                <li>Il est possible d'en supprimer plusieurs en même temps</li>
+                <li>Il suffit d'en sélectionner plusieurs ;)</li>
+          </div>
+          <i></i>
+      </div>
+
   </div>
 {% endfor %}
 <button type="submit" class="btn-admin">Supprimer</button>

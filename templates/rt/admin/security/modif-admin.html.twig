@@ -12,8 +12,18 @@
 </section>
 
 {{ form_start(formUser)}}
-<div class="form-group">
+<div class="form-group tooltip">
   {{ form_row(formUser.username, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder' : "Nom d'utilisateur", 'class' : "form-control"}})}}
+  <div class="right">
+      <div class="text-content">
+          <h3>Mot de passe</h3>
+          <ul>
+              <li>Il n'est pas possible de modifier un mot de passe</li>
+              <li>Il faut supprimer l'administrateur et le recréer</li>
+          </ul>
+      </div>
+      <i></i>
+  </div>
 </div>
 <div class="form-group">
   {{ form_row(formUser.email, {'label': 'Email', 'attr': {'placeholder' : "Adresse Email", 'class' : "form-control"}})}}

@@ -13,12 +13,21 @@
 
 <form action="{{ path('remove-User')}}" method="POST">
 {% for list in list %}
-  <div class="form-group">
+  <div class="form-group tooltip">
     <input type="checkbox" name="user[]" id="user" value="{{list.id}}" class="form-input">
     <b>{{list.username}}</b>, {{list.email}}
       </br>
       </input>
-  </div>
+      <div class="right">
+          <div class="text-content">
+            <h3>Supprimer un administrateur</h3>
+            <ul>
+                <li>Il est possible d'en supprimer plusieurs en même temps</li>
+                <li>Il suffit d'en sélectionner plusieurs ;)</li>
+          </div>
+          <i></i>
+      </div>
+    </div>
 {% endfor %}
 <button type="submit" class="btn-admin">Supprimer</button>
 </form>
