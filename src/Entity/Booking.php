@@ -27,14 +27,15 @@ class Booking
     /**
      * @ORM\Column(type="datetime")
      * @Assert\Date(message="Vous devez utiliser le format jj/mm/aaaa pour que votre saisie soit valide")
-     * @Assert\GreaterThan("today", message="La date d'arrivée doit être antérieure à celle d'aujourd'hui")
+     * Valide qu'une valeur est supérieure à une autre valeur définie dans les options.
+     * @Assert\GreaterThan("today", message="La date d'arrivée doit être ultérieure à celle d'aujourd'hui")
      */
     private $startDate;
 
     /**
      * @ORM\Column(type="datetime")
      * @Assert\Date(message="Vous devez utiliser le format jj/mm/aaaa pour que votre saisie soit valide")
-     * @Assert\GreaterThan(propertyPath="startDate", message="La date de fin doit être antérieure à celle d'arrivée")
+     * @Assert\GreaterThan(propertyPath="startDate", message="La date de fin doit être ultérieure à celle d'arrivée")
      */
     private $endDate;
 
@@ -87,6 +88,7 @@ class Booking
       };
 
       //tableau de chaines de caractères des journées
+      //array_map() retourne un tableau contenant les résultats de l'application de la fonction de rappel $formatDay à l'index correspondant de $bookingDays utilisé en tant qu'arguments pour la fonction de rappel.
       $days = array_map($formatDay, $bookingDays);
 
       $notAvailable = array_map($formatDay, $notAvailableDays);
@@ -105,7 +107,7 @@ class Booking
     */
     public function getDays() {
       $result = range(
-        $this->startDate->getTimestamp(),
+        $this->startDate->getTimestamp(), //
         $this->endDate->getTimestamp(),
         24 * 60 * 60
       );

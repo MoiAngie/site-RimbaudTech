@@ -49,16 +49,17 @@ class Status
 
       foreach($this->bookings as $booking) {
         //calcul du nb de jours entre date d'arrivée et celle de fin
-        $result = range(
-          $booking->getStartDate()->getTimestamp(),
-          $booking->getEndDate()->getTimestamp(),
-          24 * 60 * 60
+        $result = range( //Crée un tableau contenant un intervalle d'éléments
+          $booking->getStartDate()->getTimestamp(),//début
+          $booking->getEndDate()->getTimestamp(),//fin
+          24 * 60 * 60 //step ou étape -> nombe de secondes dans une journée
         );
 
         $days = array_map(function($dayTimestamp) {
           return new \DateTime(date('Y-m-d', $dayTimestamp));
         }, $result);
 
+        //Fusionner les tableaux $notAvailableDays et $days en un seul
         $notAvailableDays = array_merge($notAvailableDays, $days);
       }
       return $notAvailableDays;

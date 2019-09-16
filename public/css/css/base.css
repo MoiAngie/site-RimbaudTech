@@ -1242,7 +1242,8 @@ footer {
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
   .section__btn:hover {
-    text-decoration: underline; }
+    text-decoration: underline;
+    background-color: #c91a5f; }
 
 .dotted {
   border: 0.7em dotted #c91a5f;
