@@ -16,6 +16,7 @@ use App\Entity\Contact;
 use App\Entity\Status;
 use App\Entity\Booking;
 use App\Entity\Price;
+use App\Entity\Coworking;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
@@ -23,6 +24,7 @@ use App\Repository\TarifsRepository;
 use App\Repository\CommentsRepository;
 use App\Repository\StatusRepository;
 use App\Repository\BookingRepository;
+use App\Repository\CoworkingRepository;
 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -72,13 +74,15 @@ class RtController extends AbstractController
      * @Route("/rt/coworking", name="coworking")
      * PAGE PRESENTATION CO-WORKING
      */
-    public function coworking(ContentRepository $repo, TarifsRepository $repoT)
+    public function coworking(ContentRepository $repo, CoworkingRepository $repoT)
     {
       $content = $repo->findByStatus('Co-workeur');
-      $tarif = $repoT->findAll();
+      $adherent = $repoT->findOneBy(['adherent' => true]);
+      $nadherent = $repoT->findOneBy(['adherent' => false]);
       return $this->render('rt/co-working.html.twig', [
         'content' =>$content,
-        'tarif' =>$tarif
+        'adherent' => $adherent,
+        'nadherent' => $nadherent
       ]);
     }
 

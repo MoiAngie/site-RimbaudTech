@@ -58,6 +58,11 @@ class Price
      */
     private $booking;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Coworking", mappedBy="price", cascade={"persist", "remove"})
+     */
+    private $coworking;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -193,6 +198,24 @@ class Price
             if ($booking->getPrice() === $this) {
                 $booking->setPrice(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getCoworking(): ?Coworking
+    {
+        return $this->coworking;
+    }
+
+    public function setCoworking(?Coworking $coworking): self
+    {
+        $this->coworking = $coworking;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newPrice = $coworking === null ? null : $this;
+        if ($newPrice !== $coworking->getPrice()) {
+            $coworking->setPrice($newPrice);
         }
 
         return $this;
