@@ -16,21 +16,21 @@
 
       <img src="img/logo-gris.jpg" class="presentation__logo" alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="188" width="659">
 
-      <p class="presentation-tx">
+      <p class="presentation__tx">
         Rimbaud'Tech est un incubateur d'entreprises innovantes se situant dans la région Grand Est et plus précisemment à Charleville-Mézières.</p>
-      <p class="presentation__tx" style="text-align:center;padding:0 2em;">
+      <p class="presentation__tx" >
         Ce lieu dédié à la création d'entreprises à vocation à accompagner des projets innovants et ainsi faire émerger et pérennise des entreprises nouvelles sur le territoire. La mission de l'incubateur est d'accompagner le porteur dans la phase délicate de structuration et d'éclosion du projet, qui va de l'idée à l'accès au marché. Et faire en sorte que la nouvelle entreprise sorte d'incubation avec un minimum de risques.</p>
         <figure>
           <img src="{{asset('img/illustrations/incubateur.svg')}}" class="incubateur" alt="incubateur" title="incubateur" height="220" width="300">
         </figure>
-      <p class="presentation__tx" style="text-align:center;padding:0 2em;">
+      <p class="presentation__tx">
         L'incubateur doit donc être capable d'amener le porteur de projet à orienter ou réorienter correctement très tôt le projet présenté, de construire avec lui un adossement technologique en mettant sur pied les liaisons avec le ou les laboratoires publics ou privés, et en entourant le projet de conseils les plus adaptés en termes d'organisation et de financement notamment.</p>
       </br>
-      <p class="presentation__tx" style="text-align:center;padding:0 2em;">
+      <p class="presentation__tx">
         Rimbaud'Tech est composé de bureaux d'accueil pour les incubés, mais aussi d'un espace de coworking, d'une salle de repos et de deux "salles" de réunion proposées à la location.</p>
 
-        <a href="{{ path('contact')}}" class="section__link">
-          <button class="section__btn" style="background-color:#c91a5f;">
+        <a href="{{ path('contact')}}" class="section__link__index">
+          <button class="section__btn" >
           Candidatez!
           </button>
         </a>
@@ -127,8 +127,8 @@
           <h4>{{ article.sousTitre4}}</h4>
             <p>{{ article.paragraphe4 | raw }}</p>
         </div>
-        <a href="{{ path('actu')}}" class="section__link">
-          <button class="section__btn" style="background-color:#c91a5f;">
+        <a href="{{ path('actu')}}" class="section__link__index">
+          <button class="section__btn" >
           Voir tous nos articles
           </button>
         </a>

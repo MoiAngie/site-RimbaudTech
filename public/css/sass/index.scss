@@ -23,7 +23,6 @@
   background-repeat: no-repeat;
   background-position: center;
   margin: -100px 0 0 -100px;
-  /* is width and height divided by two */
 }
 
 
@@ -129,6 +128,15 @@
   margin-left: calc( 50% - 400px);
 }
 
+.section__link__index {
+  .section__btn {
+    background-color: $dmagenta;
+    &:hover {
+      background-color: $logoblue;
+    }
+
+}
+}
 
 /********media query **********/
 @media screen and (max-width: 1475px) {

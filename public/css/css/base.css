@@ -17,8 +17,7 @@
   top: 40%;
   background-repeat: no-repeat;
   background-position: center;
-  margin: -100px 0 0 -100px;
-  /* is width and height divided by two */ }
+  margin: -100px 0 0 -100px; }
 
 /*  section présentation  */
 .presentation .presentation__logo {
@@ -93,6 +92,11 @@ video {
 /*************redirection*************/
 .back {
   margin-left: calc( 50% - 400px); }
+
+.section__link__index .section__btn {
+  background-color: #c91a5f; }
+  .section__link__index .section__btn:hover {
+    background-color: #4ab9e4; }
 
 /********media query **********/
 @media screen and (max-width: 1475px) {
