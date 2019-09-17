@@ -4,11 +4,12 @@
 
 {% block body %}
 
-  <!--<div id="preloader">
-    <div class="loader">
-      <img src={{ asset("img/favicon_rimbaud-tech.png")}} alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="100" width="100">
+<div id="preloader">
+    <div id="status">
+      <img src={{ asset("img/favicon_rimbaud-tech.png")}} alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="100" width="100" class="animated infinite heartBeat">
     </div>
-  </div>-->
+</div>
+
     {% include 'rt/slider-index.html.twig' %}
 
     <section class="presentation">
@@ -107,7 +108,7 @@
             {% if article.publie_par != null %}
               <aside>Publié par {{article.publie_par}}</aside>
             {% endif %}
-          <a href="{{ path('articles')}}">  
+          <a href="{{ path('articles')}}">
           <aside><i class="fas fa-comments"></i> {{ article.comments|length }}</aside>
           </a>
       </div>

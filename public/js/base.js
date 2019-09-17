@@ -8,6 +8,17 @@
         }
       }
 
+      /*  pour le preloader */
+
+      $(window).on('load', function () { // on charge d'abord le site
+          $('#status').fadeOut('slow'); // on met un fadeOut sur l'animation
+          $('#preloader').delay(350).fadeOut('slow'); // et ensuite un sur la div Blanc qui recouvre le site.
+          $('body').delay(1000).css({
+              'overflow': 'visible'
+          });
+      });
+
+
 /* pour le collapse des articles*/
 
       var coll = document.getElementsByClassName("collapsible");
@@ -42,17 +53,3 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       }
-
-/*  pour le preloader */
-
-//$(document).ready(function(){
-  // $('.loader').fadeOut(5000);
-//});
-
-//var preloader =
-//document.getElementById("preloader");
-
-//window.addEventListener('load', function()
-//{
-  //preloader.style.display = 'none';
-//})
