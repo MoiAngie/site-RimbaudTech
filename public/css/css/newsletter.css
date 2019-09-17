@@ -17,18 +17,42 @@
     .newsletter .inter-newsletter a:hover {
       text-decoration: underline;
       color: #4ab9e4; }
+  .newsletter .inter-pdf {
+    background-color: #4ab9e4;
+    height: 2em;
+    margin-top: 12em;
+    position: relative;
+    margin-bottom: 3em;
+    color: white;
+    padding: 1em 0 0 5em;
+    font-weight: bold;
+    font-size: 1.8em; }
+    .newsletter .inter-pdf a:hover {
+      text-decoration: underline;
+      color: #c91a5f; }
   .newsletter img {
     position: absolute;
     top: -11em;
     left: 15em; }
+  .newsletter .img-pdf {
+    left: 35em;
+    top: -8em; }
 
 /*************media query****************/
 @media screen and (max-width: 1549px) {
   .newsletter img {
-    left: 10em; } }
+    left: 10em; }
+  .newsletter .img-pdf {
+    left: 25em; }
+  .newsletter .inter-pdf {
+    padding: 1em 0 0 1em; } }
 @media screen and (max-width: 1279px) {
   .newsletter img {
-    left: 5em; } }
+    left: 5em; }
+  .newsletter .img-pdf {
+    left: 23em; }
+  .newsletter .inter-pdf {
+    font-size: 1.5em; } }
 @media screen and (max-width: 999px) {
   .newsletter {
     margin-bottom: 20em; }
@@ -36,10 +60,12 @@
       font-size: 1.4em; } }
 @media screen and (max-width: 889px) {
   .newsletter img {
-    left: 2em; } }
+    left: 2em; }
+  .newsletter .inter-pdf {
+    font-size: 1em; } }
 @media screen and (max-width: 779px) {
   .newsletter {
-    margin-bottom: 20em; }
+    margin-bottom: 10em; }
     .newsletter .inter-newsletter {
       font-size: 1em;
       padding-left: 55%; } }
@@ -52,8 +78,18 @@
       padding-top: 2.2em;
       padding-left: 0;
       text-align: center; }
+    .newsletter .inter-pdf {
+      height: 4em;
+      padding-top: 3em;
+      padding-bottom: 0;
+      text-align: center; }
+    .newsletter .img-pdf {
+      width: 80%;
+      height: auto;
+      left: 5em;
+      top: -20em; }
     .newsletter img {
       top: -30em;
-      left: 2em; } }
+      left: 10em; } }
 
 /*# sourceMappingURL=newsletter.css.map */

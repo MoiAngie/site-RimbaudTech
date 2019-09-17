@@ -89,6 +89,86 @@
   padding-right: 6em;
 }
 
+/***********pour le pdf****************/
+
+
+
+
+.pdf {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.optin-container  {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    width: 30rem;
+    margin-bottom: 3em;
+  }
+
+.cta {
+    background: $dmagenta;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+    // @media screen and (max-width: 600px)
+    //     line-height: 1.4
+    //     padding: 1.25rem 1rem
+
+
+.form-pdf {
+    background: $logoblue;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+  }
+
+.pdf__btn {
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: calc(50% - 5em);
+  background-color: $dmagenta;
+  &:hover {
+    background-color: white;
+    color: $dmagenta;
+    text-decoration: underline;
+  }
+
+}
+
+
+    // @media screen and (max-width: 600px)
+    //     flex-flow: row wrap
+    //     input
+    //         padding: 1rem !important
+    //         margin: 0 !important
+    //         flex: 100%
+    //
+    //         &[type="submit"]
+    //             margin-top: 1rem !important
+
+.hidden {
+  display: none;
+
+}
+
+
+
 
 /* pour les boutons d'un article type */
 

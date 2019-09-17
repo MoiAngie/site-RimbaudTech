@@ -24,6 +24,7 @@ class ContactType extends AbstractType
                     "Infos sur le co-working"                        => "Co-working",
                     "Infos sur la location"                          => "Location",
                     "Abonnement à la Newsletter"                     => "Newsletter",
+                    "Recevoir le guide de financement start-up"      => "PDF",
                     "Devenir partenaires"                            => "Partenaires",
                     "Autre, précisez dans votre message ci-dessous:" => "Autre"
                   ],

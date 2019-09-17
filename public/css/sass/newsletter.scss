@@ -25,10 +25,33 @@
       color: $logoblue;
     }
   }
+
+  & .inter-pdf {
+    background-color: $logoblue;
+    height: 2em;
+    margin-top: 12em;
+    position: relative;
+    margin-bottom: 3em;
+    color: white;
+    padding: 1em 0 0 5em;
+    font-weight: bold;
+    font-size: 1.8em;
+
+    & a:hover {
+      text-decoration: underline;
+      color: $dmagenta;
+    }
+
+  }
   & img {
     position: absolute;
     top: -11em;
     left: 15em;
+  }
+
+  & .img-pdf {
+    left: 35em;
+    top:-8em;
   }
 }
 
@@ -38,6 +61,12 @@
     & img {
       left: 10em;
     }
+    & .img-pdf {
+      left: 25em;
+    }
+    & .inter-pdf {
+      padding: 1em 0 0 1em;
+    }
   }
 }
 
@@ -46,9 +75,14 @@
     & img {
       left: 5em;
     }
+    & .img-pdf {
+      left: 23em;
+    }
+    & .inter-pdf {
+      font-size: 1.5em;
   }
 }
-
+}
 @media screen and (max-width: 999px) {
   .newsletter {
     margin-bottom: 20em;
@@ -63,18 +97,20 @@
     & img {
       left: 2em;
     }
+    & .inter-pdf {
+      font-size: 1em;
+  }
   }
 }
 
 @media screen and (max-width: 779px) {
   .newsletter {
-    margin-bottom: 20em;
+    margin-bottom: 10em;
     & .inter-newsletter {
       font-size: 1em;
       padding-left: 55%;
     }
-  }
-}
+}}
 
 @media screen and (max-width: 659px) {
 .newsletter {
@@ -86,9 +122,22 @@
     padding-left: 0;
     text-align: center;
   }
+  & .inter-pdf {
+    height: 4em;
+    padding-top: 3em;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  & .img-pdf {
+    width: 80%;
+    height: auto;
+    left: 5em;
+    top: -20em;
+  }
   & img {
     top: -30em;
-    left: 2em;
+    left: 10em;
   }
 }
 
