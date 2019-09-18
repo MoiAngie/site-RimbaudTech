@@ -832,56 +832,6 @@ h2 {
 .iframe-twitter {
   padding-right: 6em; }
 
-/***********pour le pdf****************/
-.pdf {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap; }
-
-.optin-container {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  width: 30rem;
-  margin-bottom: 3em; }
-
-.cta {
-  background: #c91a5f;
-  color: white;
-  cursor: pointer;
-  display: block;
-  font-size: 2rem;
-  line-height: 1;
-  padding: 1.75rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  width: 100%; }
-
-.form-pdf {
-  background: #4ab9e4;
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 1rem;
-  margin: 0;
-  width: 100%; }
-
-.pdf__btn {
-  color: white;
-  width: 10em;
-  border-radius: 2em;
-  height: 3em;
-  font-size: 1.2em;
-  font-weight: bold;
-  border: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-left: calc(50% - 5em);
-  background-color: #c91a5f; }
-  .pdf__btn:hover {
-    background-color: white;
-    color: #c91a5f;
-    text-decoration: underline; }
-
-.hidden {
-  display: none; }
-
 /* pour les boutons d'un article type */
 .liste_articles .prev, .liste_articles .next {
   cursor: pointer;
@@ -1058,6 +1008,9 @@ h2 {
     top: -8em; }
 
 /*************media query****************/
+@media screen and (max-width: 1599px) {
+  .newsletter .img-pdf {
+    left: 30em; } }
 @media screen and (max-width: 1549px) {
   .newsletter img {
     left: 10em; }
@@ -1065,38 +1018,59 @@ h2 {
     left: 25em; }
   .newsletter .inter-pdf {
     padding: 1em 0 0 1em; } }
+@media screen and (max-width: 1299px) {
+  .newsletter .img-pdf {
+    left: 23em; } }
 @media screen and (max-width: 1279px) {
   .newsletter img {
     left: 5em; }
-  .newsletter .img-pdf {
-    left: 23em; }
   .newsletter .inter-pdf {
     font-size: 1.5em; } }
+@media screen and (max-width: 1139px) {
+  .newsletter .img-pdf {
+    width: 40%;
+    height: auto; } }
 @media screen and (max-width: 999px) {
-  .newsletter {
-    margin-bottom: 20em; }
-    .newsletter .inter-newsletter {
-      font-size: 1.4em; } }
-@media screen and (max-width: 889px) {
-  .newsletter img {
-    left: 2em; }
-  .newsletter .inter-pdf {
-    font-size: 1em; } }
-@media screen and (max-width: 779px) {
   .newsletter {
     margin-bottom: 10em; }
     .newsletter .inter-newsletter {
+      font-size: 1.4em; }
+    .newsletter .img-pdf {
+      top: -8em;
+      left: 30em; }
+    .newsletter .inter-pdf {
       font-size: 1em;
-      padding-left: 55%; } }
+      padding-left: 4em;
+      margin-top: 15em; } }
+@media screen and (max-width: 889px) {
+  .newsletter img {
+    left: 2em;
+    height: auto;
+    width: 30%; }
+  .newsletter .inter-newsletter {
+    font-size: 1em;
+    padding-left: 45%; } }
+@media screen and (max-width: 811px) {
+  .newsletter .img-pdf {
+    left: 26em; } }
+@media screen and (max-width: 779px) {
+  .newsletter {
+    margin-bottom: 10em; } }
+@media screen and (max-width: 709px) {
+  .newsletter .inter-pdf {
+    padding-left: 1em; }
+  .newsletter .img-pdf {
+    left: 23em; } }
 @media screen and (max-width: 659px) {
   .newsletter {
-    margin-bottom: 5em; }
+    min-height: 25em;
+    margin-bottom: 0em; }
     .newsletter .inter-newsletter {
-      margin-top: 32em;
+      margin-top: 12em;
       height: 4em;
       padding-top: 2.2em;
-      padding-left: 0;
-      text-align: center; }
+      padding-right: 1em;
+      text-align: right; }
     .newsletter .inter-pdf {
       height: 4em;
       padding-top: 3em;
@@ -1108,8 +1082,30 @@ h2 {
       left: 5em;
       top: -20em; }
     .newsletter img {
-      top: -30em;
-      left: 10em; } }
+      top: -10em;
+      left: 5em;
+      width: 40%;
+      height: auto; }
+
+  .newsletter.pdf {
+    min-height: 5em; } }
+@media screen and (max-width: 625px) {
+  .newsletter {
+    min-height: 20em; }
+    .newsletter .inter-newsletter {
+      text-align: center;
+      margin-left: 0;
+      padding-left: 0;
+      margin-top: 25em; }
+    .newsletter img {
+      top: -23em;
+      left: 30%; } }
+@media screen and (max-width: 599px) {
+  .newsletter .img-pdf {
+    left: 3em;
+    top: -19em; }
+  .newsletter img {
+    top: -22em; } }
 /* pour le résumé de chaque article  */
 .resume-art {
   width: 80%;

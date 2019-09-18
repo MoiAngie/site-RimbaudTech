@@ -56,6 +56,13 @@
 }
 
 /*************media query****************/
+@media screen and (max-width: 1599px) {
+  .newsletter {
+    & .img-pdf {
+      left: 30em;
+    }
+}}
+
 @media screen and (max-width: 1549px) {
   .newsletter {
     & img {
@@ -69,58 +76,91 @@
     }
   }
 }
-
+@media screen and (max-width: 1299px) {
+  .newsletter {
+    & .img-pdf {
+      left: 23em;
+    }
+}}
 @media screen and (max-width: 1279px) {
   .newsletter {
     & img {
       left: 5em;
-    }
-    & .img-pdf {
-      left: 23em;
     }
     & .inter-pdf {
       font-size: 1.5em;
   }
 }
 }
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 1139px) {
   .newsletter {
-    margin-bottom: 20em;
-    & .inter-newsletter {
-      font-size: 1.4em;
+    & .img-pdf {
+      width: 40%;
+      height: auto;
     }
   }
 }
+
+@media screen and (max-width: 999px) {
+  .newsletter {
+    margin-bottom: 10em;
+    & .inter-newsletter {
+      font-size: 1.4em;
+    }
+    & .img-pdf {
+      top: -8em;
+      left: 30em;
+  }
+  & .inter-pdf {
+    font-size: 1em;
+    padding-left: 4em;
+    margin-top: 15em;
+}
+}}
 
 @media screen and (max-width: 889px) {
   .newsletter {
     & img {
       left: 2em;
+      height: auto;
+      width: 30%;
     }
-    & .inter-pdf {
+    & .inter-newsletter {
       font-size: 1em;
-  }
+      padding-left: 45%;
+    }
   }
 }
-
+@media screen and (max-width: 811px) {
+  .newsletter {
+    & .img-pdf {
+      left: 26em;
+  }
+}}
 @media screen and (max-width: 779px) {
   .newsletter {
     margin-bottom: 10em;
-    & .inter-newsletter {
-      font-size: 1em;
-      padding-left: 55%;
-    }
 }}
 
+@media screen and (max-width: 709px) {
+  .newsletter {
+    & .inter-pdf {
+      padding-left: 1em;
+    }
+    & .img-pdf {
+      left: 23em;
+  }
+}}
 @media screen and (max-width: 659px) {
 .newsletter {
-  margin-bottom: 5em;
+  min-height: 25em;
+  margin-bottom: 0em;
   & .inter-newsletter {
-    margin-top: 32em;
+    margin-top: 12em;
     height: 4em;
     padding-top: 2.2em;
-    padding-left: 0;
-    text-align: center;
+    padding-right: 1em;
+    text-align: right;
   }
   & .inter-pdf {
     height: 4em;
@@ -136,9 +176,38 @@
     top: -20em;
   }
   & img {
-    top: -30em;
-    left: 10em;
+    top: -10em;
+    left: 5em;
+    width: 40%;
+    height: auto;
   }
 }
-
+.newsletter.pdf {
+  min-height: 5em;
 }
+}
+@media screen and (max-width: 625px) {
+  .newsletter {
+    min-height: 20em;
+    & .inter-newsletter {
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 25em;
+      }
+      & img {
+        top: -23em;
+        left: 30%;
+      }
+}
+}
+@media screen and (max-width: 599px) {
+  .newsletter {
+    & .img-pdf {
+      left: 3em;
+      top: -19em;
+    }
+    & img {
+      top: -22em;
+  }
+}}
