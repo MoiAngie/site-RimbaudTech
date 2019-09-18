@@ -160,6 +160,16 @@ input#form_image.form-control {
 }
 }
 
+.form-group-news {
+  width: 50%;
+  margin-left: calc(50% - 160px);
+  & label {
+    color: $dgrey;
+    font-size: 1em;
+    padding: 1em;
+  }
+}
+
 .form-control {
   border: none;
   font-size: 1em;
@@ -181,7 +191,7 @@ textarea#form_text.form-control {
   height: 3em;
 }
 
-input#user.form-input, input#article.form-input, input#tarif.form-input, input#content.form-input, input#booking.form-input {
+input#user.form-input, input#article.form-input, input#tarif.form-input, input#content.form-input, input#booking.form-input, input#newsletter.form-input {
   vertical-align: bottom;
   width: 2em;
   height: 2em;
@@ -255,6 +265,16 @@ input#comment.form-input {
     background-color: $logoblue;
 }
 }
+.news {
+  background-color: $dgrey;
+  &:hover {
+    background-color: white;
+    border: 0.2em solid $dgrey;
+    & a {
+      color: $dgrey;
+    }
+}
+}
 
 /********security**************/
 
@@ -289,6 +309,9 @@ input#comment.form-input {
     text-align:left;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+.tooltip-news {
+  border: none;
 }
 .nodiv {
   width: 10em;

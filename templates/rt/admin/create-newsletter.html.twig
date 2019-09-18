@@ -12,6 +12,15 @@
     <img src="{{asset('img/illustrations/index.svg')}}" class="icone-back" height="100" width="150">
   </figure>
 </section>
+
+{{ form_start(formNewsletter)}}
+<div class="form-group">
+  {{ form_row(formNewsletter.printscreen, {'label': 'Nom', 'attr': {'placeholder' : "Nom", 'class' : "form-control"}})}}
+</div>
+<button type="submit" class="btn-admin">Publier</button>
+{{ form_end(formNewsletter)}}
+
+
 {% else %}
 {% include 'rt/admin/accessdenied.html.twig' %}
 {% endif %}

@@ -87,7 +87,14 @@
 
 <section class="newsletter">
   <h2>Encore plus de Rimbaud'Tech</h2>
-  {% include 'rt/newsletter.html.twig' %}
+  <section class="newsletter">
+    {% for newsletter in newsletter %}
+
+    <a href="{{ path('contact')}}"><div class="inter-newsletter">Abonnez-vous à notre newsletter ici</a>
+      <img src="{{asset(newsletter.printscreen)}}" alt="Newsletter" width="315" height="500" >
+    </div>
+    {% endfor %}
+  </section>
 </section>
 
   <section class="newsletter pdf">

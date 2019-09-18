@@ -22,6 +22,7 @@ use App\Entity\Price;
 use App\Entity\User;
 use App\Entity\Comments;
 use App\Entity\Booking;
+use App\Entity\Newsletter;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
@@ -29,6 +30,7 @@ use App\Repository\PriceRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentsRepository;
 use App\Repository\BookingRepository;
+use App\Repository\NewsletterRepository;
 
 use App\Form\ArticleType;
 use App\Form\ContentType;
@@ -36,7 +38,7 @@ use App\Form\PriceType;
 use App\Form\CommentType;
 use App\Form\UserType;
 use App\Form\BookingType;
-
+use App\Form\NewsletterType;
 
 
 class AdminController extends AbstractController
@@ -522,30 +524,6 @@ class AdminController extends AbstractController
       ]);
   }
 
-  /**
-   * @Route("/rt/admin/createTarif", name="createTarif")
-   * PAGE D'AJOUT TARIFS
-   */
-  public function createTarif(Request $request, ObjectManager $manager)
-  {
-    $tarif = new Prices;
-
-    $formTarif = $this->createForm(TarifType::class, $tarif);
-
-    $formTarif->handleRequest($request);
-
-    if($formTarif->isSubmitted() && $formTarif->isValid()){
-
-      $manager->persist($tarif);
-      $manager->flush();
-
-    return $this ->redirectToRoute('validation');
-    }
-
-    return $this->render('rt/admin/create-tarif.html.twig', [
-      'formTarif' => $formTarif->createView()
-    ]);
-  }
 
   /**
    * @Route("/rt/admin/modify-comment", name="modify-comment")
@@ -708,4 +686,106 @@ class AdminController extends AbstractController
           'list' => $list
         ]);
       }
+
+
+        /**
+         * @Route("/rt/admin/modify-newsletter", name="modify-newsletter")
+         * PAGE LISTE CONTENT POUR MODIF LA NEWSLETTER (page admin)
+         */
+         public function modifyNewsletter(Request $request, ObjectManager $manager, NewsletterRepository $repoNews)
+         {
+           $list = $repoNews->findAll();
+
+           if (isset($_POST['newsletter'])) {
+             foreach ($_POST['newsletter'] as $id) {
+               $number = $repoNews->find($id);
+               $manager->persist($number);
+             }
+             $manager->flush();
+             return $this ->redirect('modif-newsletter/'.$id);
+           }
+
+
+           return $this->render('rt/admin/modify-newsletter.html.twig', [
+             'list' => $list
+           ]);
+         }
+
+         /**
+          * @Route("/rt/admin/modif-newsletter/{id}", name="modif-newsletter")
+          * PAGE TYPE MODIFICATION NEWSLETTER (page admin)
+          */
+          public function modifNewsletter(Newsletter $newsletter, Request $request, ObjectManager $manager)
+          {
+            $formNewsletter = $this->createFormBuilder($newsletter)
+                          ->add('printscreen', FileType::class, [
+                            'required' => false,
+                            'mapped'   => false
+                          ])
+                          ->getForm();
+
+            $formNewsletter->handleRequest($request);
+
+            if($formNewsletter->isSubmitted() && $formNewsletter->isValid()){
+            $printscreen  = $formNewsletter['printscreen']->getData();
+            $extension = $printscreen->guessExtension();
+              if (!$extension) {
+                // extension cannot be guessed
+                $extension = 'bin';
+              }
+            $id = sizeof($this->getDoctrine()
+                ->getRepository(Newsletter::class)
+                ->findAll());
+            $title = 'printscreen'.$id;
+
+            $printscreen->move('img/newsletter', $title.'.'.$extension);
+            $newsletter->setPrintscreen('img/newsletter/'.$title.'.'.$extension);
+            $manager->persist($newsletter);
+            $manager->flush();
+
+            return $this->redirectToRoute('validation');
+            }
+
+            return $this->render('rt/admin/modif-newsletter.html.twig', [
+              'formNewsletter' => $formNewsletter->createView(),
+              'newsletter' => $newsletter
+            ]);
+          }
+          /**
+           * @Route("/rt/admin/create-newsletter", name="create-newsletter")
+           * PAGE AJOUT CONTENT (page admin)
+           */
+          public function createNewsletter(Request $request, ObjectManager $manager)
+          {
+            $newsletter = new Newsletter;
+
+            $formNewsletter = $this->createForm(NewsletterType::class, $newsletter);
+
+            $formNewsletter->handleRequest($request);
+
+            if($formNewsletter->isSubmitted() && $formNewsletter->isValid()){
+            $printscreen  = $formNewsletter['printscreen']->getData();
+            $extension = $printscreen->guessExtension();
+              if (!$extension) {
+                // extension cannot be guessed
+                $extension = 'bin';
+              }
+            $id = sizeof($this->getDoctrine()
+                ->getRepository(Newsletter::class)
+                ->findAll());
+            $title  = 'printscreen'.$id;
+
+            $printscreen ->move('img/newsletter', $title.'.'.$extension);
+            $newsletter->setPrintscreen('img/newsletter/'.$title.'.'.$extension);
+            $manager->persist($newsletter);
+            $manager->flush();
+
+            return $this ->redirectToRoute('validation');
+            }
+
+            return $this->render('rt/admin/create-newsletter.html.twig', [
+              'formNewsletter' => $formNewsletter->createView()
+            ]);
+          }
+
 }

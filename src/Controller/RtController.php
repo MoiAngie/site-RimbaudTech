@@ -20,7 +20,7 @@ use App\Entity\Coworking;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
-use App\Repository\TarifsRepository;
+use App\Repository\NewsletterRepository;
 use App\Repository\CommentsRepository;
 use App\Repository\StatusRepository;
 use App\Repository\BookingRepository;
@@ -148,15 +148,17 @@ public function location(StatusRepository $rep)
      * @Route("/rt/actu", name="actu")
      * PAGE ACTUALITES
      */
-    public function actu(ArticlesRepository $repo)
+    public function actu(ArticlesRepository $repo, NewsletterRepository $repoN)
     {
 
         $article = $repo->findArticleActu();
         $article2 = $repo->findAll();
+        $newsletter = $repoN->findAll();
 
         return $this->render('rt/actu.html.twig', [
           'article'  =>$article,
-          'article2' =>$article2
+          'article2' =>$article2,
+          'newsletter' => $newsletter
         ]);
     }
 

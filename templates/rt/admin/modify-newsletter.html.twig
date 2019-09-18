@@ -1,0 +1,33 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modification de la newsletter{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Modification de la newsletter</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+  <form action="{{ path('modify-newsletter')}}" method="POST">
+  {% for list in list %}
+    <div class="form-group">
+      <input type="radio" name="newsletter[]" id="newsletter" value="{{list.id}}" class="form-input">
+      <b>{{list.id}}</b> 
+      </br>
+      </input>
+    </div>
+{% endfor %}
+
+<button type="submit" class="btn-admin">Modifier</button>
+</form>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}

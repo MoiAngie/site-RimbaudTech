@@ -1,0 +1,44 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier la newsletter {% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Modifier la newsletter</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/edit.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<section class="form-admin-photos">
+
+  {{ form_start(formNewsletter)}}
+
+  <div class="form-group-news tooltip tooltip-news">
+    <img src="/{{ newsletter.printscreen}}" style="width: 315px; height: 500px;">
+    {{ form_row(formNewsletter.printscreen, {'label': 'Capture d\'écran de la newsletter actuelle', 'attr': {'placeholder' : "Capture d\'écran de la newsletter", 'class' : "form-control"}})}}
+    <div class="right">
+        <div class="text-content">
+            <h3 class="logoblue">Afficher une nouvelle newsletter</h3>
+            <ul>
+                <li>Dimensions idéales pour l'affichage:</li>
+                <li>315*500px</li>
+            </ul>
+        </div>
+        <i></i>
+    </div>
+  </div>
+  <button type="submit" class="btn-admin ">Modifier</button>
+
+  {{ form_end(formNewsletter)}}
+
+</section>
+
+{% else %}
+{% include 'rt/admin/accessdenied.html.twig' %}
+{% endif %}
+
+{% endblock %}
