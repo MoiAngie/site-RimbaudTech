@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rimbaud' Tech | Erreur : page non trouvée{% endblock %}
+
+{% block body %}
+
+  <h2> Oups ! Cette page n'existe pas...</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/404.svg')}}" class="back" height="500" width="800">
+  </figure>
+
+  <div class="btn-incube">
+    <button class="btn-admin">
+      <a href="{{path('rt')}}"><i class="fas fa-home" title="Accueil du site"></i> Accueil</a>
+    </button>
+  </div>
+
+{% endblock %}
