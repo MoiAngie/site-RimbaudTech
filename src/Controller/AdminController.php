@@ -18,21 +18,21 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 use App\Entity\Articles;
 use App\Entity\Content;
-use App\Entity\Tarifs;
+use App\Entity\Price;
 use App\Entity\User;
 use App\Entity\Comments;
 use App\Entity\Booking;
 
 use App\Repository\ArticlesRepository;
 use App\Repository\ContentRepository;
-use App\Repository\TarifsRepository;
+use App\Repository\PriceRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentsRepository;
 use App\Repository\BookingRepository;
 
 use App\Form\ArticleType;
 use App\Form\ContentType;
-use App\Form\TarifType;
+use App\Form\PriceType;
 use App\Form\CommentType;
 use App\Form\UserType;
 use App\Form\BookingType;
@@ -474,7 +474,7 @@ class AdminController extends AbstractController
    * @Route("/rt/admin/modify-tarifs", name="modify-tarifs")
    * PAGE MODIFICATION TARIFS LISTE (page admin)
    */
-   public function modifyTarifs(Request $request, ObjectManager $manager,TarifsRepository $repoT)
+   public function modifyTarifs(Request $request, ObjectManager $manager,PriceRepository $repoT)
    {
      $list = $repoT->findAll();
 
@@ -496,29 +496,21 @@ class AdminController extends AbstractController
    * @Route("/rt/admin/modif-tarifs/{id}", name="modifTarifs")
    * PAGE MODIFICATION DES TARIFS FORM (page admin)
    */
-  public function modifTarifs(Tarifs $tarif, Request $request, ObjectManager $manager)
+  public function modifTarifs(Price $price, Request $request, ObjectManager $manager)
   {
-      $formTarifs = $this->createFormBuilder($tarif)
-              ->add('locaCE_demiJ', TextType::class)
-              ->add('locaCE_J', TextType::class)
-              ->add('locaReu_demiJ', TextType::class)
-              ->add('locaReu_J', TextType::class)
-              ->add('adhesionAnnee', TextType::class)
-              ->add('CoHeure_adh', TextType::class)
-              ->add('CoHeure_nonadh', TextType::class)
-              ->add('CoDemiJ_adh', TextType::class)
-              ->add('CoDemiJ_nonadh', TextType::class)
-              ->add('CoJournee_adh', TextType::class)
-              ->add('CoJournee_nonadh', TextType::class)
-              ->add('CoMois_adh', TextType::class)
-              ->add('CoMois_nonadh', TextType::class)
+      $formTarifs = $this->createFormBuilder($price)
+              ->add('hour', TextType::class)
+              ->add('halfDay', TextType::class)
+              ->add('day', TextType::class)
+              ->add('month', TextType::class)
+              ->add('year', TextType::class)
               ->add('comment', TextType::class)
               ->getForm();
 
         $formTarifs->handleRequest($request);
 
         if($formTarifs->isSubmitted() && $formTarifs->isValid()){
-          $manager->persist($tarif);
+          $manager->persist($price);
           $manager->flush();
         return $this->redirectToRoute('validation');
         }
@@ -536,7 +528,7 @@ class AdminController extends AbstractController
    */
   public function createTarif(Request $request, ObjectManager $manager)
   {
-    $tarif = new Tarifs;
+    $tarif = new Prices;
 
     $formTarif = $this->createForm(TarifType::class, $tarif);
 

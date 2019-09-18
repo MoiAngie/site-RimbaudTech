@@ -15,11 +15,23 @@
 
 <form action="{{ path('modify-tarifs')}}" method="POST">
 {% for list in list %}
-  <div class="form-group">
+  <div class="form-group tooltip">
     <input type="radio" name="tarif[]" id="tarif" value="{{list.id}}" class="form-input">
-{{list.comment}}
+{{list.comment}}, {{list.id}}
     </br>
     </input>
+    <div class="right">
+        <div class="text-content">
+            <h3>Modifier les tarifs:</h3>
+            <ol>
+                <li>Coworking -> adhérent</li>
+                <li>Coworking -> non-adhérent</li>
+                <li>Salle Caisse d'Epargne</li>
+                <li>Salle de conférence</li>
+            </ol>
+        </div>
+        <i></i>
+    </div>
   </div>
 {% endfor %}
 
