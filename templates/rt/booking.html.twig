@@ -21,6 +21,10 @@
         </div>
       {% endif %}
 
+      <a href="{{ path('index')}}">
+        <img src={{ asset('img/logo-gris.jpg')}} alt="logo Rimbaud'Tech" title="Retour à l'accueil" height="90" width="279" class="logo-booking">
+      </a>
+
       <h2 class="h2-booking">Bienvenue {{ app.user.username }} sur la page de réservation de la {{ status.status }}</h2>
 
       <section class="form-booking">
