@@ -79,7 +79,7 @@ class SecurityAdminController extends AbstractController
         */
         public function modifyUser(Request $request, ObjectManager $manager,UserRepository $repoAdmin)
         {
-          $list = $repoAdmin->findAll();
+          $list = $repoAdmin->findBy(array(), ['username' => 'ASC']);
 
           if (isset($_POST['user'])) {
             foreach ($_POST['user'] as $id) {
@@ -126,7 +126,7 @@ class SecurityAdminController extends AbstractController
         */
         public function removeUser(Request $request, ObjectManager $manager, UserRepository $repoAdmin)
         {
-          $list = $repoAdmin->findAll();
+          $list = $repoAdmin->findBy(array(), ['username' => 'ASC']);
 
           if (isset($_POST['user'])) {
             foreach ($_POST['user'] as $id) {

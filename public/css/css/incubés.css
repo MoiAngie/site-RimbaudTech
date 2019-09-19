@@ -11,7 +11,7 @@ h2 {
 
 /*  galerie des incubés  */
 .galerie {
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

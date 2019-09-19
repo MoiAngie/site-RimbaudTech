@@ -142,7 +142,7 @@ class AdminController extends AbstractController
    */
    public function modifyContent(Request $request, ObjectManager $manager,ContentRepository $repoU)
    {
-     $list = $repoU->findAll();
+     $list = $repoU->findBy(array(), ['name' => 'ASC']);
 
      if (isset($_POST['content'])) {
        foreach ($_POST['content'] as $id) {
@@ -205,7 +205,7 @@ class AdminController extends AbstractController
       */
       public function modifyPhotos(Request $request, ObjectManager $manager,ContentRepository $repoPhotos)
       {
-        $list = $repoPhotos->findAll();
+        $list = $repoPhotos->findBy(array(), ['name' => 'ASC']);
 
         if (isset($_POST['content'])) {
           foreach ($_POST['content'] as $id) {
@@ -321,7 +321,7 @@ class AdminController extends AbstractController
    */
    public function removeContent(Request $request, ObjectManager $manager,ContentRepository $repoU)
    {
-     $list = $repoU->findAll();
+     $list = $repoU->findBy(array(), ['name' => 'ASC']);
 
      if (isset($_POST['content'])) {
        foreach ($_POST['content'] as $id) {
@@ -390,7 +390,7 @@ class AdminController extends AbstractController
    */
    public function modifyArticle(Request $request, ObjectManager $manager,ArticlesRepository $repoA)
    {
-     $list = $repoA->findAll();
+     $list = $repoA->findBy(array(), ['createdAt' => 'ASC']);
 
      if (isset($_POST['article'])) {
        foreach ($_POST['article'] as $id) {
@@ -446,7 +446,7 @@ class AdminController extends AbstractController
    */
    public function removeArticle(Request $request, ObjectManager $manager,ArticlesRepository $repoA)
    {
-     $list = $repoA->findAll();
+     $list = $repoA->findBy(array(), ['createdAt' => 'ASC']);
 
      if (isset($_POST['article'])) {
        foreach ($_POST['article'] as $id) {
@@ -625,7 +625,7 @@ class AdminController extends AbstractController
     */
     public function modifyBooking(Request $request, ObjectManager $manager, BookingRepository $repoB)
     {
-      $list = $repoB->findAll();
+      $list = $repoB->findBy(array(), ['startDate' => 'ASC']);
 
       if (isset($_POST['booking'])) {
         foreach ($_POST['booking'] as $id) {
@@ -671,7 +671,7 @@ class AdminController extends AbstractController
       */
       public function removeBooking(Request $request, ObjectManager $manager,BookingRepository $repoBooking)
       {
-        $list = $repoBooking->findAll();
+        $list = $repoBooking->findBy(array(), ['startDate' => 'ASC']);
 
         if (isset($_POST['booking'])) {
           foreach ($_POST['booking'] as $id) {

@@ -17,7 +17,7 @@
   {% for list in list %}
     <div class="form-group">
       <input type="radio" name="article[]" id="article" value="{{list.id}}" class="form-input">
-    <b>{{list.title}}</b>, par<em>{{list.author}}</em>
+    <b>{{list.title}}</b>, par<em>{{list.author}}</em>, créé le <em>{{list.createdAt | date('d/m/Y')}}</em>
       </br>
       </input>
     </div>

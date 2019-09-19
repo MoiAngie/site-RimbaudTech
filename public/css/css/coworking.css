@@ -83,6 +83,9 @@ h2 {
     height: 0.3em;
     border-radius: 1em; }
 
+.dmagenta {
+  color: #c91a5f; }
+
 /***********media query*******************/
 @media screen and (max-width: 1663px) {
   .container-grid {
