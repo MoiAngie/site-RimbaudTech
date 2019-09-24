@@ -3,7 +3,7 @@
 {% block body %}
 {% if is_granted('ROLE_ADMIN') %}
 
-<h2 class="margin-admin">Bienvenue {{ app.user.username }} sur l'interface d'administration</h2>
+<h2 class="margin-admin">Bienvenue {{ app.user.username |capitalize}} sur l'interface d'administration</h2>
 
 <figure>
   <img src="{{asset('img/illustrations/back.svg')}}" class="back" height="500" width="800">

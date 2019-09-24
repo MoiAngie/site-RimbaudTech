@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rimbaud'Tech | Profil de {{ app.user.username }}{% endblock %}
+
+{% block stylesheets %}
+<link href="{{asset('css/css/footerless.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+  <h2> {{ app.user.username |capitalize }}, bienvenue sur votre compte! </h2>
+
+  <section class="profile">
+    <div class="profile-resume">
+      <h6>Votre profil</h6>
+        <p><strong>Identifiant:</strong> {{ app.user.username |capitalize }}</p>
+        <p><strong>Adresse e-mail: </strong>{{ app.user.email }}</p>
+    </div>
+    <div class="profile-comments">
+      <h6> Vos commentaires </h6>
+       {% for comment in app.user.comments %}
+        <p><strong>Nombre de commentaires postés: </strong>{{ comment|length }}</p>
+      {% else %}
+        <aside> Vous n'avez encore posté de commentaire sur aucun des articles de Rimbaud'Tech</aside>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="profile-booking">
+    <h6>Vos réservations</h6>
+    <table class="profile-table">
+      <thead>
+        <tr>
+          <th>N° de réservation</th>
+          <th>Réservée le</th>
+          <th>Salle réservée</th>
+          <th>Date d'arrivée</th>
+          <th>Date de départ</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for booking in app.user.bookings %}
+          <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.createdAt|date('d/m/Y') }}</td>
+            <td>{{ booking.status.status }}</td>
+            <td>{{ booking.startDate|date('d/m/Y') }}</td>
+            <td>{{ booking.endDate|date('d/m/Y') }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <button class="profile-btn">
+      <a href="{{path('rt')}}">Déconnexion</a>
+    </button>
+  </section>
+
+{% endblock %}

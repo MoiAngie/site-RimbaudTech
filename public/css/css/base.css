@@ -1154,6 +1154,131 @@ h2 {
   .liste_articles img {
     max-width: 400px;
     height: auto; } }
+/*********résumé profil*******/
+.profile {
+  width: 900px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: calc(50% - 320px);
+  margin-top: 2em; }
+
+.profile-resume {
+  border: 0.2em solid #4ab9e4;
+  max-width: 400px;
+  border-radius: 1em;
+  text-align: left;
+  color: #585858;
+  margin-left: 2em;
+  padding-bottom: 1em; }
+  .profile-resume h6 {
+    margin: 0;
+    font-size: 1.2em;
+    padding: 1em 2em 0.5em 1em; }
+  .profile-resume p {
+    font-size: 1em;
+    text-align: left;
+    padding: 0 1em; }
+
+.profile-comments {
+  max-width: 400px;
+  border-radius: 1em;
+  border: 0.2em solid #4ab9e4;
+  text-align: left;
+  color: #585858;
+  margin-left: 2em;
+  padding-bottom: 1em; }
+  .profile-comments h6 {
+    margin: 0;
+    font-size: 1.2em;
+    padding: 1em 2em 0.5em 1em; }
+  .profile-comments p {
+    font-size: 1em;
+    text-align: left;
+    padding: 0 1em; }
+
+/*********booking profil*******/
+.profile-booking {
+  background-color: #d94865;
+  max-width: 900px;
+  border-radius: 1em;
+  text-align: left;
+  color: white;
+  margin-left: calc(50% - 450px);
+  padding-bottom: 1em; }
+  .profile-booking h6 {
+    margin-bottom: 0;
+    font-size: 1.2em;
+    padding: 1em 0 0.5em 2em; }
+  .profile-booking .profile-table {
+    margin-left: 4em;
+    border-collapse: collapse; }
+    .profile-booking .profile-table th, .profile-booking .profile-table td {
+      border-bottom: 0.1em solid white;
+      padding: 1em;
+      font-size: 1em;
+      text-align: center; }
+
+/*********btn profil*******/
+.profile-btn {
+  background-color: #4ab9e4;
+  color: white;
+  width: 10em;
+  border-radius: 2em;
+  height: 3em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: calc(50% - 5em);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .profile-btn:hover {
+    text-decoration: underline;
+    background-color: #c91a5f; }
+
+/**********media query ************/
+@media screen and (max-width: 900px) {
+  .profile-booking {
+    max-width: 400px;
+    margin-left: calc(50% - 200px); }
+    .profile-booking h6 {
+      margin-bottom: 0;
+      font-size: 0.8em;
+      padding: 1em 0 0.5em 2em; }
+    .profile-booking .profile-table {
+      margin-left: 0.5em;
+      border-collapse: collapse; }
+      .profile-booking .profile-table th, .profile-booking .profile-table td {
+        border-bottom: 0.1em solid white;
+        padding: 0.5em;
+        font-size: 0.7em;
+        text-align: center; }
+
+  .profile {
+    width: 400px;
+    flex-wrap: wrap;
+    margin-left: calc(50% - 210px); }
+
+  .profile-resume {
+    width: 350px;
+    border-radius: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2em; }
+    .profile-resume h6 {
+      font-size: 0.8em;
+      padding: 1em 2em 0.5em 1em; }
+    .profile-resume p {
+      font-size: 0.7em;
+      padding: 0 1em; }
+
+  .profile-comments {
+    width: 350px; }
+    .profile-comments h6 {
+      font-size: 0.8em;
+      padding: 1em 2em 0.5em 1em; }
+    .profile-comments p {
+      font-size: 0.7em;
+      padding: 0 1em; } }
 html {
   box-sizing: border-box;
   margin-top: 0; }
@@ -1196,6 +1321,8 @@ p {
     padding: 1em;
     text-decoration: none;
     font-size: 1.5em; }
+  .topnav .blue {
+    color: #4ab9e4; }
   .topnav .dropdown {
     padding: 1.2em 0 1.5em 0; }
   .topnav .dropdown .dropbtn {
@@ -1212,7 +1339,7 @@ p {
   .topnav .dropdown-content {
     display: none;
     position: absolute;
-    right: 36em;
+    right: 51em;
     top: 6.3em;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -1237,8 +1364,8 @@ p {
   .topnav .dropdown:hover .dropdown-content {
     display: block; }
 
-/* media query à partir de moins de 910px*/
-@media screen and (max-width: 910px) {
+/* media query à partir de moins de 1090px*/
+@media screen and (max-width: 1090px) {
   #myTopnav {
     height: 4em; }
 
@@ -1247,7 +1374,7 @@ p {
     font-size: 1.2em; }
 
   .topnav .dropdown-content {
-    right: 29em;
+    right: 40em;
     top: 5em; }
 
   .topnav .dropbtn:hover {
@@ -1255,8 +1382,8 @@ p {
 
   .topnav-right {
     height: 4em; } }
-/* media query à partir de moins de 728px*/
-@media screen and (max-width: 728px) {
+/* media query à partir de moins de 865px*/
+@media screen and (max-width: 865px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none; }
 
@@ -1264,7 +1391,7 @@ p {
     float: right;
     display: block; } }
 /* on fait passer le menu en vertical grâce à JS en cliquant sur l'icône*/
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 865px) {
   .topnav.responsive {
     position: absolute; }
     .topnav.responsive a {

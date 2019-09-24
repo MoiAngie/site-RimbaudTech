@@ -8,6 +8,7 @@
 @import "actualites";
 @import "newsletter";
 @import "articles";
+@import "profile";
 
 html {
   box-sizing: border-box;
@@ -60,6 +61,10 @@ p {
     font-size: 1.5em;
   }
 
+  & .blue {
+    color: $logoblue;
+  }
+
   & .dropdown {
     padding: 1.2em 0 1.5em 0;
   }
@@ -81,7 +86,7 @@ p {
   & .dropdown-content {
     display: none;
     position: absolute;
-    right: 36em;
+    right: 51em;
     top: 6.3em;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -115,11 +120,11 @@ p {
   & .dropdown:hover .dropdown-content {
     display: block;
   }
-
 }
 
-/* media query à partir de moins de 910px*/
-@media screen and (max-width: 910px) {
+
+/* media query à partir de moins de 1090px*/
+@media screen and (max-width: 1090px) {
   #myTopnav {
     height: 4em;
   }
@@ -128,7 +133,7 @@ p {
     font-size: 1.2em;
   }
   .topnav .dropdown-content {
-      right: 29em;
+      right: 40em;
       top: 5em;
     }
   .topnav .dropbtn:hover {
@@ -140,9 +145,9 @@ p {
   }
 }
 
-/* media query à partir de moins de 728px*/
+/* media query à partir de moins de 865px*/
 //on cache le menu sauf le logo
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 865px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
     display: none;
   }
@@ -154,7 +159,7 @@ p {
 }
 
 /* on fait passer le menu en vertical grâce à JS en cliquant sur l'icône*/
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 865px) {
   .topnav.responsive {
     position: absolute;
     // style sur tous les liens de la navbar

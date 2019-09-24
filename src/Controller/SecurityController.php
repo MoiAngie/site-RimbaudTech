@@ -12,8 +12,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\User;
+use App\Entity\Comments;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
+use App\Repository\BookingRepository;
+use App\Repository\CommentsRepository;
+
 
 class SecurityController extends AbstractController
 {
@@ -59,6 +63,19 @@ class SecurityController extends AbstractController
           'hasError' => $error !== null
         ]);
     }
+
+    /**
+     * @Route("/rt/profile", name="rt_security_profile")
+     */
+    public function profile(BookingRepository $repoBook, CommentsRepository $repoComment){
+        $user = $this->getUser();
+
+        return $this->render('rt/security/profile.html.twig', [
+          'booking' => $repoBook->findAll(),
+          'comment' => $repoComment->findAll(),
+        ]);
+    }
+
 
 
 }

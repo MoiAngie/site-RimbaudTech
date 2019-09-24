@@ -78,17 +78,17 @@
             <a href="{{ path('galerie-incubes')}}">Nos incubés</a>
             <a href="{{ path('actu')}}">Actualités</a>
             <a href="{{ path('contact')}}">Contact</a>
+            {% if not app.user %}
+            <a href="{{ path('rt_security_login')}}">Connexion</a>
+            {% endif %}
+
+            {% if app.user %}
+            <a href="{{ path('rt_security_profile')}}" class="blue">{{ app.user.username |capitalize }} <i class="fas fa-check"></i> </a>
+            {% endif %}
           </div>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
       </div>
       <!-- Fin Navbar -->
-      {% for class, messages in app.flashes %}
-          {% for message in messages %}
-              <div class="{{ class }}">
-                  {{ message }}
-              </div>
-          {% endfor %}
-      {% endfor %}
 {% block body %}{% endblock %}
 
       <!--footer-->
@@ -153,7 +153,7 @@
         </div>
         <div class="slide">
           <a href="https://http://www.startup-semia.com">
-            <img src={{ asset("img/semia.ai")}} alt="Logo Semia" title="Semia" width="250" height="80" style="padding-top:0.5em;">
+            <img src={{ asset("img/semia.png")}} alt="Logo Semia" title="Semia" width="250" height="80" style="padding-top:0.5em;">
           </a>
         </div>
         <div class="slide">

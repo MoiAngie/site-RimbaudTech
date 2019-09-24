@@ -42,16 +42,15 @@
 
       <section class="booking">
         {% if app.user %}
-
           <div class="btn-location">
             {% for status in status %}
             <div class="btn-location-flex">
               <h2 class="booking-h2-user">Souhaitez-vous réserver la {{ status.status }}?</h2>
-              <a href="{{ path('booking-id', {'id': status.id })}}" class="section__link">
-                <button class="booking__btn">
-                Réservez
-                </button>
-              </a>
+                <a href="{{ path('booking-id', {'id': status.id })}}" class="section__link">
+                  <button class="booking__btn">
+                  Réservez
+                  </button>
+                </a>
             </div>
             {% endfor %}
           </div>
@@ -59,13 +58,12 @@
 
         {% if not app.user %}
         <h2 class="booking-h2">Souhaitez-vous réserver une salle?</h2>
-        <a href="{{ path('rt_security_login')}}" class="section__link">
-          <button class="booking__btn">
-          Connectez-vous
-          </button>
-        </a>
+          <a href="{{ path('rt_security_login')}}" class="section__link">
+            <button class="booking__btn">
+            Connectez-vous
+            </button>
+          </a>
         {% endif %}
-
       </section>
 
 
