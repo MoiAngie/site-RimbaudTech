@@ -1361,7 +1361,9 @@ p {
     text-decoration: none;
     font-size: 1.5em; }
   .topnav .blue {
-    color: #4ab9e4; }
+    color: #4ab9e4;
+    min-width: 165px;
+    padding-right: em; }
   .topnav .dropdown {
     padding: 1.2em 0 1.5em 0; }
   .topnav .dropdown .dropbtn {
