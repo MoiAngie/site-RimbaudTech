@@ -1279,6 +1279,45 @@ h2 {
     .profile-comments p {
       font-size: 0.7em;
       padding: 0 1em; } }
+.titre-back-center {
+  display: flex;
+  flex: nowrap;
+  margin-top: 1em;
+  align-items: center;
+  justify-content: center; }
+  .titre-back-center .h2-back {
+    color: #585858;
+    flex: 0 1 auto; }
+  .titre-back-center .icone-back {
+    flex: 1 1 auto; }
+
+.footerlinks {
+  padding: 2em;
+  margin-bottom: 2em; }
+  .footerlinks .footerlinks-links {
+    color: #4ab9e4; }
+    .footerlinks .footerlinks-links:visited {
+      color: #585858; }
+    .footerlinks .footerlinks-links:hover {
+      color: #c91a5f; }
+
+.footerlinks-about {
+  padding: 2em;
+  margin-bottom: 2em; }
+  .footerlinks-about h4 {
+    color: #c91a5f; }
+  .footerlinks-about p {
+    text-align: left; }
+  .footerlinks-about .footerlinks-links {
+    color: #4ab9e4; }
+    .footerlinks-about .footerlinks-links:visited {
+      color: #585858; }
+    .footerlinks-about .footerlinks-links:hover {
+      color: #c91a5f; }
+
+.footerlinks-title {
+  min-height: 100vh; }
+
 html {
   box-sizing: border-box;
   margin-top: 0; }

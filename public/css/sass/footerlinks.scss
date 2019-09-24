@@ -1,0 +1,51 @@
+@import "colors";
+@import "titraille";
+
+.titre-back-center {
+  @include titre-back-center;
+& .h2-back {
+    color :$dgrey;
+    flex: 0 1 auto;
+  }
+& .icone-back {
+    flex: 1 1 auto;
+  }
+}
+
+.footerlinks {
+  padding: 2em;
+  margin-bottom: 2em;
+  & .footerlinks-links {
+    color: $logoblue;
+    &:visited {
+      color: $dgrey;
+    }
+    &:hover {
+      color: $dmagenta;
+    }
+  }
+}
+
+.footerlinks-about {
+  padding: 2em;
+  margin-bottom: 2em;
+  & h4 {
+    color: $dmagenta;
+  }
+  & p {
+    text-align: left;
+  }
+  & .footerlinks-links {
+    color: $logoblue;
+    &:visited {
+      color: $dgrey;
+    }
+    &:hover {
+      color: $dmagenta;
+    }
+  }
+}
+
+.footerlinks-title {
+  min-height: 100vh;
+}

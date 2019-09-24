@@ -36,7 +36,7 @@
           <td>{{ booking.createdAt|date('d/m/Y') }}</td>
           <td>{{ booking.booker.username }}</td>
           <td>
-            <a href="#">
+            <a href="mailto:{{booking.booker.email}}">
               {{ booking.booker.email }}
             </a>
           </td>

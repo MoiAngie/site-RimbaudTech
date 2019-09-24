@@ -53,6 +53,8 @@
         <script type="text/javascript" src="{{asset('revolution/js/jquery.themepunch.tools.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
 
+        <!-- Lien pour les cookies de Cookie Consent -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
         {% block stylesheets %}
         {% endblock %}
     </head>
@@ -89,6 +91,13 @@
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
       </div>
       <!-- Fin Navbar -->
+      {% for class, messages in app.flashes %}
+          {% for message in messages %}
+              <div class="{{ class }}">
+                  {{ message }}
+              </div>
+          {% endfor %}
+      {% endfor %}
 {% block body %}{% endblock %}
 
       <!--footer-->
@@ -193,17 +202,17 @@
               </a>
             </p>
             <p>
-              <a href="#mentions">
+              <a href="{{ path('mentionslegales')}}">
                 Mentions légales
               </a>
             </p>
             <p>
-              <a href="#sitemap">
+              <a href="{{ path('sitemap')}}">
                 Sitemap
               </a>
             </p>
             <p>
-              <a href="#cookies">
+              <a href="{{ path('cookies')}}">
                 Cookies
               </a>
             </p>
@@ -239,7 +248,29 @@
         </script>
         <script src="https://client.crisp.chat/l.js" async></script>
         <script src="https://client.crisp.chat/static/javascript/client.js?da5fbb3" type="text/javascript" async></script>
-
-      {% endblock %}
+      <!-- pour les cookies -->
+      <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+      <script>
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#a0ddf4",
+            "text": "#585858"
+          },
+          "button": {
+            "background": "transparent",
+            "border": "#c91a5f",
+            "text": "#c91a5f"
+          }
+        },
+        "showLink": false,
+        "content": {
+          "message": "En poursuivant la navigation sur le site de Rimbaud'Tech, vous acceptez l'utilisation des cookies. ",
+          "dismiss": "OK !",
+          "link": "En savoir plus "
+        }
+      });
+      </script>
+    {% endblock %}
     </body>
 </html>

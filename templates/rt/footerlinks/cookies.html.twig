@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rimbaud' Tech | Cookies{% endblock %}
+
+{% block body %}
+
+<section class="titre-back-center">
+  <h2 class="h2-back">Les cookies</h2>
+
+  <figure>
+    <img src="{{asset('img/illustrations/cookies.svg')}}" class="icone-back" height="100" width="150">
+  </figure>
+</section>
+
+<section class="footerlinks">
+  <p>L’utilisateur est informé que, lors de ses visites sur le site, un cookie peut s’installer automatiquement sur son logiciel de navigation.</p>
+
+  <p>Le cookie est un bloc de données qui ne permet pas d’identifier l’utilisateur mais sert à enregistrer des informations relatives à la navigation de celui-ci sur le site.</p>
+
+  <p>Le paramétrage du logiciel de navigation permet d’informer de la présence de cookie et éventuellement de la refuser de la manière décrite à l’adresse suivante : <a href="https://www.cnil.fr/" class="footerlinks-links">www.cnil.fr</a></p>
+
+  <p>L’utilisateur dispose d’un droit d’accès, de retrait et de modification des données communiquées par le biais des cookies dans les conditions indiquées ci-dessus.</p>
+
+</section>
+
+{% endblock %}
