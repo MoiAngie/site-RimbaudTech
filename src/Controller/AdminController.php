@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 use App\Entity\Articles;
 use App\Entity\Content;
@@ -76,60 +78,82 @@ class AdminController extends AbstractController
     $formContent->handleRequest($request);
 
     if($formContent->isSubmitted() && $formContent->isValid()){
-    $image  = $formContent['profilpicture']->getData();
-    $image1 = $formContent['image1']->getData();
-    $image2 = $formContent['image2']->getData();
-    $image3 = $formContent['image3']->getData();
-    $image4 = $formContent['image4']->getData();
-    $extension = $image->guessExtension();
-      if (!$extension) {
-        // extension cannot be guessed
-        $extension = 'bin';
-      }
-    $extension1 = $image1->guessExtension();
-      if (!$extension1) {
-        // extension cannot be guessed
-        $extension1 = 'bin';
-      }
-    $extension2 = $image2->guessExtension();
-      if (!$extension2) {
-        // extension cannot be guessed
-        $extension2 = 'bin';
-      }
-    $extension3 = $image3->guessExtension();
-      if (!$extension3) {
-        // extension cannot be guessed
-        $extension3 = 'bin';
-      }
-    $extension4 = $image4->guessExtension();
-      if (!$extension4) {
-        // extension cannot be guessed
-        $extension4 = 'bin';
-      }
-    $id = sizeof($this->getDoctrine()
-        ->getRepository(Content::class)
-        ->findAll());
-    $title  = 'profilpicture'.$id;
-    $title1 = 'image1'.$id;
-    $title2 = 'image2'.$id;
-    $title3 = 'image3'.$id;
-    $title4 = 'image4'.$id;
+      $image  = $formContent['profilpicture']->getData();
+      $image1 = $formContent['image1']->getData();
+      $image2 = $formContent['image2']->getData();
+      $image3 = $formContent['image3']->getData();
+      $image4 = $formContent['image4']->getData();
 
-    $image ->move('img/content', $title.'.'.$extension);
-    $image1->move('img/content', $title1.'.'.$extension1);
-    $image2->move('img/content', $title2.'.'.$extension2);
-    $image3->move('img/content', $title3.'.'.$extension3);
-    $image4->move('img/content', $title4.'.'.$extension4);
-    $content->setProfilpicture('img/content/'.$title.'.'.$extension);
-    $content->setImage1('img/content/'.$title1.'.'.$extension1);
-    $content->setImage2('img/content/'.$title2.'.'.$extension2);
-    $content->setImage3('img/content/'.$title3.'.'.$extension3);
-    $content->setImage4('img/content/'.$title4.'.'.$extension4);
-    $manager->persist($content);
-    $manager->flush();
+      if ($image) {
+        $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$image->guessExtension();
+                try {
+                    $image->move(
+                        $this->getParameter('content_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $content->setProfilpicture($newFilename);
+            }
+        if ($image1) {
+          $originalFilename = pathinfo($image1->getClientOriginalName(), PATHINFO_FILENAME);
+                  $newFilename = $originalFilename.'-'.uniqid().'.'.$image1->guessExtension();
+                  try {
+                      $image1->move(
+                          $this->getParameter('content_directory'),
+                          $newFilename
+                      );
+                  } catch (FileException $e) {
+                  }
+                  $content->setImage1($newFilename);
+              }
 
-    return $this ->redirectToRoute('validation');
-    }
+        if ($image2) {
+          $originalFilename = pathinfo($image2->getClientOriginalName(), PATHINFO_FILENAME);
+                  $newFilename = $originalFilename.'-'.uniqid().'.'.$image2->guessExtension();
+                  try {
+                      $image2->move(
+                          $this->getParameter('content_directory'),
+                          $newFilename
+                      );
+                  } catch (FileException $e) {
+                  }
+                  $content->setImage2($newFilename);
+              }
+
+        if ($image3) {
+          $originalFilename = pathinfo($image3->getClientOriginalName(), PATHINFO_FILENAME);
+                  $newFilename = $originalFilename.'-'.uniqid().'.'.$image3->guessExtension();
+                  try {
+                      $image3->move(
+                          $this->getParameter('content_directory'),
+                          $newFilename
+                      );
+                  } catch (FileException $e) {
+                  }
+                  $content->setImage3($newFilename);
+              }
+
+        if ($image4) {
+          $originalFilename = pathinfo($image4->getClientOriginalName(), PATHINFO_FILENAME);
+                  $newFilename = $originalFilename.'-'.uniqid().'.'.$image4->guessExtension();
+                  try {
+                      $image4->move(
+                          $this->getParameter('content_directory'),
+                          $newFilename
+                      );
+                  } catch (FileException $e) {
+                  }
+                  $content->setImage4($newFilename);
+              }
+
+            $manager->persist($content);
+            $manager->flush();
+
+            return $this ->redirectToRoute('validation');
+      }
 
     return $this->render('rt/admin/create-content.html.twig', [
       'formContent' => $formContent->createView()
@@ -254,55 +278,76 @@ class AdminController extends AbstractController
          $formContent->handleRequest($request);
 
          if($formContent->isSubmitted() && $formContent->isValid()){
-         $image  = $formContent['profilpicture']->getData();
-         $image1 = $formContent['image1']->getData();
-         $image2 = $formContent['image2']->getData();
-         $image3 = $formContent['image3']->getData();
-         $image4 = $formContent['image4']->getData();
-         $extension = $image->guessExtension();
-           if (!$extension) {
-             // extension cannot be guessed
-             $extension = 'bin';
-           }
-         $extension1 = $image1->guessExtension();
-           if (!$extension1) {
-             // extension cannot be guessed
-             $extension1 = 'bin';
-           }
-         $extension2 = $image2->guessExtension();
-           if (!$extension2) {
-             // extension cannot be guessed
-             $extension2 = 'bin';
-           }
-         $extension3 = $image3->guessExtension();
-           if (!$extension3) {
-             // extension cannot be guessed
-             $extension3 = 'bin';
-           }
-         $extension4 = $image4->guessExtension();
-           if (!$extension4) {
-             // extension cannot be guessed
-             $extension4 = 'bin';
-           }
-         $id = sizeof($this->getDoctrine()
-             ->getRepository(Content::class)
-             ->findAll());
-         $title = 'profilpicture'.$id;
-         $title1 = 'image1'.$id;
-         $title2 = 'image2'.$id;
-         $title3 = 'image3'.$id;
-         $title4 = 'image4'.$id;
+           $image  = $formContent['profilpicture']->getData();
+           $image1 = $formContent['image1']->getData();
+           $image2 = $formContent['image2']->getData();
+           $image3 = $formContent['image3']->getData();
+           $image4 = $formContent['image4']->getData();
 
-         $image ->move('img/content', $title.'.'.$extension);
-         $image1->move('img/content', $title1.'.'.$extension1);
-         $image2->move('img/content', $title2.'.'.$extension2);
-         $image3->move('img/content', $title3.'.'.$extension3);
-         $image4->move('img/content', $title4.'.'.$extension4);
-         $content->setProfilpicture('img/content/'.$title.'.'.$extension);
-         $content->setImage1('img/content/'.$title1.'.'.$extension1);
-         $content->setImage2('img/content/'.$title2.'.'.$extension2);
-         $content->setImage3('img/content/'.$title3.'.'.$extension3);
-         $content->setImage4('img/content/'.$title4.'.'.$extension4);
+           if ($image) {
+             $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                     $newFilename = $originalFilename.'-'.uniqid().'.'.$image->guessExtension();
+                     try {
+                         $image->move(
+                             $this->getParameter('content_directory'),
+                             $newFilename
+                         );
+                     } catch (FileException $e) {
+                         // ... handle exception if something happens during file upload
+                     }
+                     $content->setProfilpicture($newFilename);
+                 }
+             if ($image1) {
+               $originalFilename = pathinfo($image1->getClientOriginalName(), PATHINFO_FILENAME);
+                       $newFilename = $originalFilename.'-'.uniqid().'.'.$image1->guessExtension();
+                       try {
+                           $image1->move(
+                               $this->getParameter('content_directory'),
+                               $newFilename
+                           );
+                       } catch (FileException $e) {
+                       }
+                       $content->setImage1($newFilename);
+                   }
+
+             if ($image2) {
+               $originalFilename = pathinfo($image2->getClientOriginalName(), PATHINFO_FILENAME);
+                       $newFilename = $originalFilename.'-'.uniqid().'.'.$image2->guessExtension();
+                       try {
+                           $image2->move(
+                               $this->getParameter('content_directory'),
+                               $newFilename
+                           );
+                       } catch (FileException $e) {
+                       }
+                       $content->setImage2($newFilename);
+                   }
+
+             if ($image3) {
+               $originalFilename = pathinfo($image3->getClientOriginalName(), PATHINFO_FILENAME);
+                       $newFilename = $originalFilename.'-'.uniqid().'.'.$image3->guessExtension();
+                       try {
+                           $image3->move(
+                               $this->getParameter('content_directory'),
+                               $newFilename
+                           );
+                       } catch (FileException $e) {
+                       }
+                       $content->setImage3($newFilename);
+                   }
+
+             if ($image4) {
+               $originalFilename = pathinfo($image4->getClientOriginalName(), PATHINFO_FILENAME);
+                       $newFilename = $originalFilename.'-'.uniqid().'.'.$image4->guessExtension();
+                       try {
+                           $image4->move(
+                               $this->getParameter('content_directory'),
+                               $newFilename
+                           );
+                       } catch (FileException $e) {
+                       }
+                       $content->setImage4($newFilename);
+                   }
          $manager->persist($content);
          $manager->flush();
 

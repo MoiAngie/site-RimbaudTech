@@ -18,7 +18,7 @@
   {{ form_start(formContent)}}
 
   <div class="form-group-photos tooltip">
-    <img src="/{{ content.profilpicture}}" style="width: 100px; height: 67px;">
+    <img src="/img/content/{{ content.profilpicture}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.profilpicture, {'label': 'Photo principale', 'attr': {'placeholder' : "Télécharger une photo de profil", 'class' : "form-control"}})}}
     <div class="right">
         <div class="text-content">
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="form-group-photos tooltip">
-    <img src="/{{ content.image1}}" style="width: 100px; height: 67px;">
+    <img src="/img/content/{{ content.image1}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.image1, {'label': 'Image 1', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
     <div class="right">
         <div class="text-content">
@@ -46,15 +46,15 @@
     </div>
   </div>
   <div class="form-group-photos">
-    <img src="/{{ content.image2}}" style="width: 100px; height: 67px;">
+    <img src="/img/content/{{ content.image2}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.image2, {'label': 'Image 2', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group-photos">
-    <img src="/{{ content.image3}}" style="width: 100px; height: 67px;">
+    <img src="/img/content/{{ content.image3}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.image3, {'label': 'Image 3', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <div class="form-group-photos">
-    <img src="/{{ content.image4}}" style="width: 100px; height: 67px;">
+    <img src="/img/content/{{ content.image4}}" style="width: 100px; height: 67px;">
     {{ form_row(formContent.image4, {'label': 'Image 4', 'attr': {'placeholder' : "Télécharger une image supplémentaire", 'class' : "form-control"}})}}
   </div>
   <button type="submit" class="btn-admin ">Modifier</button>

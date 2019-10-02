@@ -66,10 +66,13 @@ video {
   .avantages .avantages__icones {
     padding: 2em 0; }
   .avantages h3 {
-    color: #c91a5f; }
+    color: #c91a5f;
+    font-size: 1.5em;
+    min-height: 3.4em; }
   .avantages p {
-    color: #585858;
-    font-size: 1.2em; }
+    color: white;
+    font-size: 1.3em;
+    font-weight: 500; }
 
 /*  section nos incubés  */
 .incubés h2 {
