@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rimbaud'Tech | Un article{% endblock %}
+{% block title %}Rimbaud'Tech | Article {{ article.title}} {% endblock %}
 
 {% block body %}
 <section class="liste_articles">
@@ -12,7 +12,7 @@
         <aside>Publié par {{article.publie_par}}</aside>
       {% endif %}
   </div>
-  <img src="{{asset(article.image)}}"/>
+  <img src="{{asset(article.image)}}" alt="image de l'article {{ article.title}}" title="image de l'article {{ article.title}}"/>
   <div class="article-tx">
     <h5 class="article-intro">{{ article.introduction | raw }}<h5>
     <h4>{{ article.sousTitre1}}</h4>

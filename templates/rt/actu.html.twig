@@ -22,7 +22,7 @@
         </a>
     </div>
     <a href="{{ path('articles')}}">
-      <img src="{{asset(article.image)}}"/>
+      <img src="{{asset(article.image)}}" alt="image de l'article {{ article.title}}" title="image de l'article {{ article.title}}"/>
     </a>
     <div class="article-tx">
       <h5>{{ article.introduction | raw }}<h5>
@@ -91,7 +91,7 @@
     {% for newsletter in newsletter %}
 
     <a href="{{ path('contact')}}"><div class="inter-newsletter">Abonnez-vous à notre newsletter ici</a>
-      <img src="{{asset(newsletter.printscreen)}}" alt="Newsletter" width="315" height="500" >
+      <img src="{{asset(newsletter.printscreen)}}" alt="Newsletter"  title="Newsletter" width="315" height="500" >
     </div>
     {% endfor %}
   </section>
@@ -99,7 +99,7 @@
 
   <section class="newsletter pdf">
     <a href="{{ path('contact')}}"><div class="inter-pdf">Demander le guide de financement start-up !</a>
-      <img src="{{asset('img/guide.png')}}" alt="guide de financement start-up" width="566" height="400" class="img-pdf">
+      <img src="{{asset('img/guide.png')}}" alt="guide de financement start-up" title="guide de financement start-up" width="566" height="400" class="img-pdf">
     </div>
   </section>
 {% endblock %}

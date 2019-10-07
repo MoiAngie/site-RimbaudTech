@@ -14,7 +14,7 @@
 
     <section class="presentation">
 
-      <img src="img/logo-gris.jpg" class="presentation__logo" alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="188" width="659">
+      <img src={{ asset("img/logo-gris.jpg")}} class="presentation__logo" alt="logo Rimbaud'Tech" title="logo Rimbaud'Tech" height="188" width="659">
 
       <p class="presentation__tx">
         Rimbaud'Tech est un incubateur d'entreprises innovantes se situant dans la région Grand Est et plus précisemment à Charleville-Mézières.</p>
@@ -38,9 +38,9 @@
     </section>
     <section class="video">
       <video width="1000" height="500" controls>
-        <source src="img/video-finale.mp4" type="video/mp4">
-        <source src="img/video-finale.webm" type="video/webm">
-        <img src="img/RT-cow.jpg">
+        <source src={{ asset("img/video-finale.mp4")}} type="video/mp4" alt="video de Rimbaud'Tech" title="video de Rimbaud'Tech">
+        <source src={{ asset("img/video-finale.webm")}} type="video/webm" alt="video de Rimbaud'Tech" title="video de Rimbaud'Tech">
+        <img src={{ asset("img/RT-cow.jpg")}} alt="video de Rimbaud'Tech" title="video de Rimbaud'Tech">
       </video>
     </section>
 
@@ -112,7 +112,7 @@
           <aside><i class="fas fa-comments"></i> {{ article.comments|length }}</aside>
           </a>
       </div>
-      <img src="{{ article.image}}"/>
+      <img src="{{asset(article.image)}}" alt="image de l'article" title="image de l'article {{article.title}}"/>
       <div class="article-tx">
         <h5>{{ article.introduction | raw }}<h5>
         <h4>{{ article.sousTitre1}}</h4>

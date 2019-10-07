@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rimbaud' Tech | Co-worker{% endblock %}
+{% block title %}Rimbaud' Tech | Co-worker {{coworker.firstname}} {{coworker.name}}{% endblock %}
 
 {% block body %}
 <section class="intro">
   <figure>
-    <image src="/img/content/{{coworker.profilpicture}}" widht="400" height="400"/>
+    <image src="/img/content/{{asset(coworker.profilpicture)}}" widht="400" height="400" alt="{{coworker.name}} {{coworker.firstname}}" title="{{coworker.name}} {{coworker.firstname}}"/>
   </figure>
   <div class="intro-tx">
     <h2 class="cap">{{coworker.name}} {{coworker.firstname}}</h2>
@@ -34,16 +34,16 @@
 <section class="galerie_coworker">
 
     <figure>
-      <image src="/img/content/{{coworker.image1}}" widht="150" height="150"/>
+      <image src="/img/content/{{asset(coworker.image1)}}" widht="150" height="150" alt="un coworker à Rimbaud'Tech" title="un coworker à Rimbaud'Tech"/>
     </figure>
     <figure>
-      <image src="/img/content/{{coworker.image2}}" widht="150" height="150"/>
+      <image src="/img/content/{{asset(coworker.image2)}}" widht="150" height="150" alt="un coworker à Rimbaud'Tech" title="un coworker à Rimbaud'Tech"/>
     </figure>
     <figure>
-      <image src="/img/content/{{coworker.image3}}" widht="150" height="150"/>
+      <image src="/img/content/{{asset(coworker.image3)}}" widht="150" height="150" alt="un coworker à Rimbaud'Tech" title="un coworker à Rimbaud'Tech"/>
     </figure>
     <figure>
-      <image src="/img/content/{{coworker.image4}}" widht="150" height="150"/>
+      <image src="/img/content/{{asset(coworker.image4)}}" widht="150" height="150" alt="un coworker à Rimbaud'Tech" title="un coworker à Rimbaud'Tech"/>
     </figure>
 
 </section>

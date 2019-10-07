@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rimbaud' Tech | Incubé{% endblock %}
+{% block title %}Rimbaud' Tech | Incubé {{ incube.firstname }} {{ incube.name }} {% endblock %}
 
 {% block body %}
 
 <section class="intro">
   <figure>
-    <image src="/img/content/{{incube.profilpicture}}" widht="800" height="533"/>
+    <image src="/img/content/{{asset(incube.profilpicture)}}" widht="800" height="533" alt="{{ incube.name }} {{ incube.firstname }}" title="{{ incube.name }} {{ incube.firstname }}"/>
   </figure>
   <div class="intro-tx">
     <h2 class="cap">{{ incube.name }} {{ incube.firstname }}</h2>
@@ -35,16 +35,16 @@
 <section class="galerie_incube">
 
     <figure>
-      <image src="/img/content/{{incube.image1}}" class="img1" widht="150" height="150"/>
+      <image src="/img/content/{{asset(incube.image1)}}" class="img1" widht="150" height="150" alt="un incubé à Rimbaud'Tech" title="un incubé à Rimbaud'Tech"/>
     </figure>
     <figure>
-      <image src="/img/content/{{incube.image2}}" class="img2" widht="150" height="150"/>
+      <image src="/img/content/{{asset(incube.image2)}}" class="img2" widht="150" height="150" alt="un incubé à Rimbaud'Tech" title="un incubé à Rimbaud'Tech"/>
     </figure>
     <figure>
-      <image src="/img/content/{{incube.image3}}" class="img3" widht="150" height="150"/>
+      <image src="/img/content/{{asset(incube.image3)}}" class="img3" widht="150" height="150" alt="un incubé à Rimbaud'Tech" title="un incubé à Rimbaud'Tech"/>
     </figure>
     <figure>
-      <image src="/img/content/{{incube.image4}}" class="img4" widht="150" height="150"/>
+      <image src="/img/content/{{asset(incube.image4)}}" class="img4" widht="150" height="150" alt="un incubé à Rimbaud'Tech" title="un incubé à Rimbaud'Tech"/>
     </figure>
 
 </section>

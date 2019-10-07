@@ -13,7 +13,7 @@
 {% for content in content %}
 
 <div class="galerie-gp">
-  <img class="galerie-img" src="/img/content/{{content.profilpicture}}" width="400" height="267">
+  <img class="galerie-img" src="/img/content/{{asset(content.profilpicture)}}" width="400" height="267" alt="{{content.firstname}} {{content.name}}" title="{{content.firstname}} {{content.name}}">
     <a href="{{ path('coworker', {'id' : content.id })}}">
        <i class="fas fa-external-link-square-alt fa-3x galerie-i1"></i>
    </a>
@@ -42,7 +42,7 @@
 
   <div class="container-grid">
     <div class="section__tarifs__img">
-      <img src="{{asset('img/RT-cow2.jpg')}}" alt="Salle de co-working" width="600" height="400">
+      <img src="{{asset('img/RT-cow2.jpg')}}" alt="Salle de co-working" title="Salle de co-working" width="600" height="400">
     </div>
     <div class="section__tarifs__adh">
       <h3 class="cap">Pour les adhérents:<span class="asterix"> * </span></h3>
