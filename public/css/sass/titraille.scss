@@ -17,6 +17,7 @@ $font: 'Muli', sans-serif;
   height: 0.3em;
   background-color: $dgrey;
   border-radius: 1em;
+  border: none;
 }
 
 @mixin hr-incube {

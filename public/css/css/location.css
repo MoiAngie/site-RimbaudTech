@@ -12,11 +12,12 @@
     font-size: 1.2em;
     font-style: italic; }
   .tarifs-location-flex .magentaline {
-    background-color: #c91a5f;
-    border: none;
+    width: 10%;
     height: 0.3em;
+    background-color: #585858;
     border-radius: 1em;
-    width: 50%; }
+    border: none;
+    background-color: #c91a5f; }
   .tarifs-location-flex h3 {
     color: white;
     text-align: center; }

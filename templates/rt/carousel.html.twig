@@ -8,8 +8,8 @@
 
         <!-- LOADING FONTS AND ICONS -->
 
-    		<link rel="stylesheet" type="text/css" href="{{asset('revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css')}}>
-    		<link rel="stylesheet" type="text/css" href="{{asset('revolution/fonts/font-awesome/css/font-awesome.css')}}>
+    		<link rel="stylesheet" type="text/css" href="{{asset('revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css')}}">
+    		<link rel="stylesheet" type="text/css" href="{{asset('revolution/fonts/font-awesome/css/font-awesome.css')}}">
 
         <!-- Slider Revolution CSS Files -->
         <link rel="stylesheet" type="text/css" href="{{asset('revolution/css/settings.css')}}">
@@ -65,7 +65,7 @@
         data-param7="" data-param8="" data-param9="" data-param10=""
         data-description="">
         <!-- MAIN IMAGE -->
-          <img src="{{asset(content.profilpicture)}}"
+          <img src="/img/content/{{asset(content.profilpicture)}}"
           alt="{{content.firstname}}"
           title="{{content.firstname}}"
           data-bgposition="center center"
@@ -75,7 +75,7 @@
           data-no-retina>
         <!-- LAYERS -->
         </li>
-      {% endfor %}
+        {% endfor %}
       </ul>
       <div class="tp-bannertimer tp-bottom"
       style="visibility: hidden !important;">
